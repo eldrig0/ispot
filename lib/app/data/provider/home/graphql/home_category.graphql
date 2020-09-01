@@ -1,0 +1,13 @@
+query HomeCategoryList {
+    categories(level: 0, first: 4) {
+      edges {
+        node {
+          id
+          name
+          backgroundImage {
+            url
+          }
+        }
+      }
+    }
+  }
