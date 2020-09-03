@@ -2,17 +2,17 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:get/get.dart';
-import 'package:ispot/app/theme/ispot_theme.dart';
-import 'package:ispot/app/widgets/tab_bar/navbar.dart';
-import 'package:ispot/app/widgets/ui_helper/ui_helper.dart';
 
-class HomeView extends StatefulWidget {
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/widgets/tab_bar/navbar.dart';
+import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+
+class HomePage extends StatefulWidget {
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomePageState extends State<HomePage> {
   List<NavBarItemData> _navBarItems;
   int _selectedNavIndex = 0;
 
@@ -78,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
-// class HomeView extends GetView<HomeController> {
+// class HomePage extends GetView<HomeController> {
 //   List<NavBarItemData> _navBarItems;
 
 //   @override

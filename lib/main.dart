@@ -1,9 +1,8 @@
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:ispot/app/modules/home/home_view.dart';
 import 'package:ispot/app/routes/app_pages.dart';
-import 'package:ispot/app/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/graphql_client.dart';
 import 'package:get/get.dart';
 

@@ -1,3 +1,4 @@
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/provider/home/home_provider.dart';
 
 class HomeRepository {
@@ -5,7 +6,7 @@ class HomeRepository {
 
   HomeRepository(this._provider);
 
-  void getHomeCategories() {
-    _provider.getHomeCategories();
+  Stream<List<HomeCategory>> getHomeCategories() {
+    return _provider.getHomeCategories();
   }
 }

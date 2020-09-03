@@ -3,7 +3,6 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 
 import 'clipped_view.dart';
-import '../../../main.dart';
 import 'navbar.dart';
 import 'rotation_3d.dart';
 
