@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:ispot/app/ui/page/home/widets/home/home_widget.dart';
 
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/tab_bar/navbar.dart';
@@ -22,19 +23,13 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _navBarItems = [
-      NavBarItemData('Home', AntDesign.home, 150, ISpotTheme.primaryColor),
-      NavBarItemData('Search', AntDesign.search1, 150, ISpotTheme.primaryColor),
+      NavBarItemData('Home', AntDesign.home, 200, ISpotTheme.primaryColor),
       NavBarItemData(
-          'Cart', AntDesign.shoppingcart, 150, ISpotTheme.primaryColor),
+          'Cart', AntDesign.shoppingcart, 200, ISpotTheme.primaryColor),
     ];
 
     _viewsByIndex = [
-      Container(
-        child: Text('Home'),
-      ),
-      Container(
-        child: Text('Search'),
-      ),
+      HomeWidget(),
       Container(
         child: Text('cart'),
       ),
@@ -58,7 +53,6 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          //Wrap the current page in an AnimatedSwitcher for an easy cross-fade effect
           child: AnimatedSwitcher(
               duration: Duration(milliseconds: 350),
               //Pass the current accent color down as a theme, so our overscroll indicator matches the btn color

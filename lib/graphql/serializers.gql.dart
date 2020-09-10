@@ -3,17 +3,69 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
-import 'package:ispot/app/data/provider/home/graphql/home_category.data.gql.dart'
+import 'package:ispot/app/data/provider/graphql/product_fragment.data.gql.dart'
+    show
+        GPriceData,
+        GPriceData_gross,
+        GPriceData_net,
+        GBasicProductFieldsData,
+        GBasicProductFieldsData_thumbnail,
+        GProductPricingFieldData,
+        GProductPricingFieldData_pricing,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_start,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_stop,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross,
+        GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net,
+        GProductPricingFieldData_pricing_priceRange,
+        GProductPricingFieldData_pricing_priceRange_start,
+        GProductPricingFieldData_pricing_priceRange_start_gross,
+        GProductPricingFieldData_pricing_priceRange_start_net,
+        GProductPricingFieldData_pricing_priceRange_stop,
+        GProductPricingFieldData_pricing_priceRange_stop_gross,
+        GProductPricingFieldData_pricing_priceRange_stop_net,
+        GSelectedAttributeFieldsData,
+        GSelectedAttributeFieldsData_attribute,
+        GSelectedAttributeFieldsData_values;
+import 'package:ispot/app/data/provider/graphql/product_fragment.req.gql.dart'
+    show
+        GPriceReq,
+        GBasicProductFieldsReq,
+        GProductPricingFieldReq,
+        GSelectedAttributeFieldsReq;
+import 'package:ispot/app/data/provider/graphql/product_fragment.var.gql.dart'
+    show
+        GPriceVars,
+        GBasicProductFieldsVars,
+        GProductPricingFieldVars,
+        GSelectedAttributeFieldsVars;
+import 'package:ispot/app/data/provider/home/graphql/home_categories/categories/home_category.data.gql.dart'
     show
         GHomeCategoryListData,
         GHomeCategoryListData_categories,
         GHomeCategoryListData_categories_edges,
         GHomeCategoryListData_categories_edges_node,
         GHomeCategoryListData_categories_edges_node_backgroundImage;
-import 'package:ispot/app/data/provider/home/graphql/home_category.req.gql.dart'
+import 'package:ispot/app/data/provider/home/graphql/home_categories/categories/home_category.req.gql.dart'
     show GHomeCategoryListReq;
-import 'package:ispot/app/data/provider/home/graphql/home_category.var.gql.dart'
+import 'package:ispot/app/data/provider/home/graphql/home_categories/categories/home_category.var.gql.dart'
     show GHomeCategoryListVars;
+import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.data.gql.dart'
+    show
+        GFeaturedProductsData,
+        GFeaturedProductsData_shop,
+        GFeaturedProductsData_shop_homepageCollection,
+        GFeaturedProductsData_shop_homepageCollection_backgroundImage,
+        GFeaturedProductsData_shop_homepageCollection_products,
+        GFeaturedProductsData_shop_homepageCollection_products_edges,
+        GFeaturedProductsData_shop_homepageCollection_products_edges_node,
+        GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail;
+import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.req.gql.dart'
+    show GFeaturedProductsReq;
+import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.var.gql.dart'
+    show GFeaturedProductsVars;
 import 'package:ispot/graphql/schema.schema.gql.dart'
     show
         GAccountErrorCode,
@@ -235,12 +287,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
-  GHomeCategoryListReq,
-  GHomeCategoryListData,
-  GHomeCategoryListData_categories,
-  GHomeCategoryListData_categories_edges,
-  GHomeCategoryListData_categories_edges_node,
-  GHomeCategoryListData_categories_edges_node_backgroundImage,
   GAccountErrorCode,
   GAccountInput,
   GAccountRegisterInput,
@@ -453,6 +499,54 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWeightScalar,
   GWeightUnitsEnum,
   G_Any,
-  GHomeCategoryListVars
+  GFeaturedProductsReq,
+  GHomeCategoryListReq,
+  GFeaturedProductsData,
+  GFeaturedProductsData_shop,
+  GFeaturedProductsData_shop_homepageCollection,
+  GFeaturedProductsData_shop_homepageCollection_backgroundImage,
+  GFeaturedProductsData_shop_homepageCollection_products,
+  GFeaturedProductsData_shop_homepageCollection_products_edges,
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node,
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail,
+  GHomeCategoryListData,
+  GHomeCategoryListData_categories,
+  GHomeCategoryListData_categories_edges,
+  GHomeCategoryListData_categories_edges_node,
+  GHomeCategoryListData_categories_edges_node_backgroundImage,
+  GFeaturedProductsVars,
+  GHomeCategoryListVars,
+  GPriceReq,
+  GBasicProductFieldsReq,
+  GProductPricingFieldReq,
+  GSelectedAttributeFieldsReq,
+  GPriceData,
+  GPriceData_gross,
+  GPriceData_net,
+  GBasicProductFieldsData,
+  GBasicProductFieldsData_thumbnail,
+  GProductPricingFieldData,
+  GProductPricingFieldData_pricing,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_start,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross,
+  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net,
+  GProductPricingFieldData_pricing_priceRange,
+  GProductPricingFieldData_pricing_priceRange_start,
+  GProductPricingFieldData_pricing_priceRange_start_gross,
+  GProductPricingFieldData_pricing_priceRange_start_net,
+  GProductPricingFieldData_pricing_priceRange_stop,
+  GProductPricingFieldData_pricing_priceRange_stop_gross,
+  GProductPricingFieldData_pricing_priceRange_stop_net,
+  GSelectedAttributeFieldsData,
+  GSelectedAttributeFieldsData_attribute,
+  GSelectedAttributeFieldsData_values,
+  GPriceVars,
+  GBasicProductFieldsVars,
+  GProductPricingFieldVars,
+  GSelectedAttributeFieldsVars
 ])
 final Serializers serializers = _serializersBuilder.build();

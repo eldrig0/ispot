@@ -1,4 +1,5 @@
-import 'package:ispot/app/data/model/home_category.dart';
+import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/provider/home/home_provider.dart';
 
 class HomeRepository {
@@ -6,7 +7,11 @@ class HomeRepository {
 
   HomeRepository(this._provider);
 
-  Stream<List<HomeCategory>> getHomeCategories() {
+  Stream<List<Category>> getHomeCategories() {
     return _provider.getHomeCategories();
+  }
+
+  Stream<List<Product>> getHomeProducts() {
+    return _provider.getFeaturedProducts();
   }
 }

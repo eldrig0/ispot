@@ -32,6 +32,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GAttributeValueType.serializer)
       ..add(GAuthorizationKeyInput.serializer)
       ..add(GAuthorizationKeyType.serializer)
+      ..add(GBasicProductFieldsData.serializer)
+      ..add(GBasicProductFieldsData_thumbnail.serializer)
+      ..add(GBasicProductFieldsReq.serializer)
+      ..add(GBasicProductFieldsVars.serializer)
       ..add(GCatalogueInput.serializer)
       ..add(GCategoryFilterInput.serializer)
       ..add(GCategoryInput.serializer)
@@ -65,6 +69,20 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GDiscountValueTypeEnum.serializer)
       ..add(GDraftOrderCreateInput.serializer)
       ..add(GDraftOrderInput.serializer)
+      ..add(GFeaturedProductsData.serializer)
+      ..add(GFeaturedProductsData_shop.serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection.serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_backgroundImage
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products.serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail
+          .serializer)
+      ..add(GFeaturedProductsReq.serializer)
+      ..add(GFeaturedProductsVars.serializer)
       ..add(GFulfillmentCancelInput.serializer)
       ..add(GFulfillmentStatus.serializer)
       ..add(GFulfillmentUpdateTrackingInput.serializer)
@@ -142,7 +160,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GPluginSortField.serializer)
       ..add(GPluginSortingInput.serializer)
       ..add(GPluginUpdateInput.serializer)
+      ..add(GPriceData.serializer)
+      ..add(GPriceData_gross.serializer)
+      ..add(GPriceData_net.serializer)
       ..add(GPriceRangeInput.serializer)
+      ..add(GPriceReq.serializer)
+      ..add(GPriceVars.serializer)
       ..add(GProductCreateInput.serializer)
       ..add(GProductErrorCode.serializer)
       ..add(GProductFilterInput.serializer)
@@ -151,6 +174,30 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GProductInput.serializer)
       ..add(GProductOrder.serializer)
       ..add(GProductOrderField.serializer)
+      ..add(GProductPricingFieldData.serializer)
+      ..add(GProductPricingFieldData_pricing.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_start
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_stop
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net
+          .serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_start.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_start_gross.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_start_net.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_stop.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_stop_gross.serializer)
+      ..add(GProductPricingFieldData_pricing_priceRange_stop_net.serializer)
+      ..add(GProductPricingFieldReq.serializer)
+      ..add(GProductPricingFieldVars.serializer)
       ..add(GProductStockFilterInput.serializer)
       ..add(GProductTypeConfigurable.serializer)
       ..add(GProductTypeEnum.serializer)
@@ -168,6 +215,11 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GSaleSortField.serializer)
       ..add(GSaleSortingInput.serializer)
       ..add(GSaleType.serializer)
+      ..add(GSelectedAttributeFieldsData.serializer)
+      ..add(GSelectedAttributeFieldsData_attribute.serializer)
+      ..add(GSelectedAttributeFieldsData_values.serializer)
+      ..add(GSelectedAttributeFieldsReq.serializer)
+      ..add(GSelectedAttributeFieldsVars.serializer)
       ..add(GSeoInput.serializer)
       ..add(GServiceAccountFilterInput.serializer)
       ..add(GServiceAccountInput.serializer)
@@ -286,6 +338,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GVoucherDiscountType)]),
           () => new ListBuilder<GVoucherDiscountType>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GFeaturedProductsData_shop_homepageCollection_products_edges)
+          ]),
+          () => new ListBuilder<
+              GFeaturedProductsData_shop_homepageCollection_products_edges>())
+      ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GHomeCategoryListData_categories_edges)]),
           () => new ListBuilder<GHomeCategoryListData_categories_edges>())
@@ -297,63 +356,26 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GOrderFulfillLineInput)]),
           () => new ListBuilder<GOrderFulfillLineInput>())
       ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GOrderFulfillStockInput)]),
+          const FullType(BuiltList, const [const FullType(GOrderFulfillStockInput)]),
           () => new ListBuilder<GOrderFulfillStockInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GOrderLineCreateInput)]),
-          () => new ListBuilder<GOrderLineCreateInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GPaymentChargeStatusEnum)]),
-          () => new ListBuilder<GPaymentChargeStatusEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GOrderStatusFilter)]),
-          () => new ListBuilder<GOrderStatusFilter>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GPermissionEnum)]),
-          () => new ListBuilder<GPermissionEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GPermissionEnum)]),
-          () => new ListBuilder<GPermissionEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GPermissionEnum)]),
-          () => new ListBuilder<GPermissionEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GPermissionEnum)]),
-          () => new ListBuilder<GPermissionEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GPermissionEnum)]),
-          () => new ListBuilder<GPermissionEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GWebhookEventTypeEnum)]),
-          () => new ListBuilder<GWebhookEventTypeEnum>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GWebhookEventTypeEnum)]),
-          () => new ListBuilder<GWebhookEventTypeEnum>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GOrderLineCreateInput)]), () => new ListBuilder<GOrderLineCreateInput>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPaymentChargeStatusEnum)]), () => new ListBuilder<GPaymentChargeStatusEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GOrderStatusFilter)]), () => new ListBuilder<GOrderStatusFilter>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPermissionEnum)]), () => new ListBuilder<GPermissionEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPermissionEnum)]), () => new ListBuilder<GPermissionEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPermissionEnum)]), () => new ListBuilder<GPermissionEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPermissionEnum)]), () => new ListBuilder<GPermissionEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GPermissionEnum)]), () => new ListBuilder<GPermissionEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GSelectedAttributeFieldsData_values)]), () => new ListBuilder<GSelectedAttributeFieldsData_values>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GWebhookEventTypeEnum)]), () => new ListBuilder<GWebhookEventTypeEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GWebhookEventTypeEnum)]), () => new ListBuilder<GWebhookEventTypeEnum>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
