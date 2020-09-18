@@ -7,15 +7,17 @@ class CategoryCard extends StatelessWidget {
   CategoryCard(this.category);
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(
-              category.categoryImageUrl,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
+      child: Card(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                category.categoryImageUrl,
+              ),
             ),
           ),
         ),
