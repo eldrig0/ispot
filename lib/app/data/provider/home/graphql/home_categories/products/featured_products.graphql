@@ -1,3 +1,4 @@
+
 query FeaturedProducts {
     shop {
       description
@@ -13,6 +14,25 @@ query FeaturedProducts {
             node{
               id
               name
+              category{
+                name
+              }
+              pricing{
+                priceRange{
+                   start{
+                    currency
+                    gross {
+                      amount
+                    }
+                  }
+                  stop {
+                    currency
+                    gross{
+                      amount
+                    }
+                  }
+                }
+              }
               thumbnail{
                 url
               }

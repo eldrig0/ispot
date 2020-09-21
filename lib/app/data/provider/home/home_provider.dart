@@ -13,12 +13,12 @@ class HomeProvider {
 
   HomeProvider({@required this.client});
 
-  Stream<List<Category>> getHomeCategories() {
-    final homeCategoryQuery = GHomeCategoryListReq();
+  Stream<List<CategoryModel>> getHomeCategories() {
+    final homeCategoryModelQuery = GHomeCategoryListReq();
 
-    return client.responseStream(homeCategoryQuery).map((event) {
+    return client.responseStream(homeCategoryModelQuery).map((event) {
       return event.data.categories.edges
-          .map((edge) => Category(
+          .map((edge) => CategoryModel(
               categoryId: edge.node.id,
               categoryName: edge.node.name,
               categoryImageUrl: edge.node.backgroundImage.url))
@@ -33,8 +33,11 @@ class HomeProvider {
       print(event.data.shop.homepageCollection.products.edges);
       return event.data.shop.homepageCollection.products.edges
           .map((product) => Product(
+              category: CategoryModel(categoryName: product.node.category.name),
               productId: product.node.id,
               productName: product.node.name,
+              currency: product.node.pricing.priceRange.start.currency,
+              price: product.node.pricing.priceRange.stop.gross.amount,
               productThumbnail: product.node.thumbnail.url))
           .toList();
     });

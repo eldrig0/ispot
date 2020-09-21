@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ispot/app/data/model/category.dart';
 
 class CategoryCard extends StatelessWidget {
-  final Category category;
+  final CategoryModel category;
 
   CategoryCard(this.category);
   @override

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:ispot/app/data/model/category.dart';
 
 class Product {
   String productId;
@@ -8,6 +9,9 @@ class Product {
   String categoryName;
   String categoryId;
   String productThumbnail;
+  String currency;
+  CategoryModel category;
+  double price;
   List<String> productImages;
 
   Product({
@@ -16,6 +20,9 @@ class Product {
     this.categoryName,
     this.categoryId,
     this.productThumbnail,
+    this.currency,
+    this.category,
+    this.price,
     this.productImages,
   });
 
@@ -25,6 +32,9 @@ class Product {
     String categoryName,
     String categoryId,
     String productThumbnail,
+    String currency,
+    CategoryModel category,
+    double price,
     List<String> productImages,
   }) {
     return Product(
@@ -33,6 +43,9 @@ class Product {
       categoryName: categoryName ?? this.categoryName,
       categoryId: categoryId ?? this.categoryId,
       productThumbnail: productThumbnail ?? this.productThumbnail,
+      currency: currency ?? this.currency,
+      category: category ?? this.category,
+      price: price ?? this.price,
       productImages: productImages ?? this.productImages,
     );
   }
@@ -44,6 +57,9 @@ class Product {
       'categoryName': categoryName,
       'categoryId': categoryId,
       'productThumbnail': productThumbnail,
+      'currency': currency,
+      'category': category?.toMap(),
+      'price': price,
       'productImages': productImages,
     };
   }
@@ -57,6 +73,9 @@ class Product {
       categoryName: map['categoryName'],
       categoryId: map['categoryId'],
       productThumbnail: map['productThumbnail'],
+      currency: map['currency'],
+      category: CategoryModel.fromMap(map['category']),
+      price: map['price'],
       productImages: List<String>.from(map['productImages']),
     );
   }
@@ -68,7 +87,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, productImages: $productImages)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, category: $category, price: $price, productImages: $productImages)';
   }
 
   @override
@@ -81,6 +100,9 @@ class Product {
         o.categoryName == categoryName &&
         o.categoryId == categoryId &&
         o.productThumbnail == productThumbnail &&
+        o.currency == currency &&
+        o.category == category &&
+        o.price == price &&
         listEquals(o.productImages, productImages);
   }
 
@@ -91,6 +113,9 @@ class Product {
         categoryName.hashCode ^
         categoryId.hashCode ^
         productThumbnail.hashCode ^
+        currency.hashCode ^
+        category.hashCode ^
+        price.hashCode ^
         productImages.hashCode;
   }
 }

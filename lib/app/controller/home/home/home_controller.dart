@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 class HomeController extends GetxController {
   HomeRepository repository;
-  final homeCategories = <Category>[].obs;
+  final homeCategories = <CategoryModel>[].obs;
   final homeProducts = <Product>[].obs;
 
   HomeController({@required this.repository});

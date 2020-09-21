@@ -1,0 +1,91 @@
+query Category(
+  $id: ID!
+  $attributes: [AttributeInput]
+  $after: String
+  $pageSize: Int
+  $sortBy: ProductOrder
+  $priceLte: Float
+  $priceGte: Float
+) {
+  category(id: $id) {
+    id
+    name
+    backgroundImage {
+      url
+    }
+    ancestors(last: 5) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+  attributes(filter: { inCategory: $id }, first: 100) {
+    edges {
+      node {
+        id
+        name
+        slug
+        values {
+          id
+          name
+          slug
+        }
+      }
+    }
+  }
+  products(
+    after: $after
+    first: $pageSize
+    sortBy: $sortBy
+    filter: {
+      attributes: $attributes
+      categories: [$id]
+      minimalPrice: { gte: $priceGte, lte: $priceLte }
+    }
+  ) {
+    totalCount
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    edges {
+      node {
+        id
+        name
+        thumbnail {
+          url
+          alt
+        }
+        pricing {
+          priceRange {
+            start {
+              gross {
+                amount
+                currency
+              }
+              net {
+                amount
+                currency
+              }
+            }
+            stop {
+              gross {
+                amount
+                currency
+              }
+              net {
+                amount
+                currency
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
