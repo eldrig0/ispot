@@ -7,7 +7,14 @@ import 'package:ispot/app/data/repository/home/home_repository.dart';
 class HomeBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(() => HomeController(
-        repository: HomeRepository(HomeProvider(client: Get.find<Client>()))));
+    Get.lazyPut<HomeController>(
+      () => HomeController(
+        repository: HomeRepository(
+          HomeProvider(
+            client: Get.find<Client>(),
+          ),
+        ),
+      ),
+    );
   }
 }

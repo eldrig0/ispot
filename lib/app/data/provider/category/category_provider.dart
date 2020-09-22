@@ -21,15 +21,20 @@ class CategoryProvider {
       @required List<Attribute> attributes,
       @required SortOption sortOption}) {
     final sortBy = sortOption.productOrder;
-    final attributeList = ListBuilder(attributes
+    final attributeList = ListBuilder<GAttributeInput>(attributes
         .map((attribute) => GAttributeInput((val) => val
           ..slug = attribute.value
           ..value = attribute.value))
         .toList());
 
     final request = GCategoryReq((request) => request
+      ..vars.id = id
       ..vars.pageSize = pageSize
       ..vars.sortBy = sortBy
       ..vars.attributes = attributeList);
+
+    client.responseStream(request).listen((event) {
+      print(event.data);
+    });
   }
 }

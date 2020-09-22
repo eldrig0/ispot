@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/home/home/home_controller.dart';
-import 'package:ispot/app/data/model/category.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/ui/page/home/widets/category_card/category_card.dart';
-import 'package:ispot/app/ui/page/home/widets/product_card/product_card.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/main.dart';
+import 'package:ispot/app/ui/widgets/category_card/category_card.dart';
+import 'package:ispot/app/ui/widgets/product_card/product_card.dart';
 
 class HomeWidget extends GetView<HomeController> {
   final _controller = Get.find<HomeController>();
