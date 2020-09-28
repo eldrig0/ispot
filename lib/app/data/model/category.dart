@@ -3,18 +3,21 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/product.dart';
 
 class CategoryModel {
   String categoryName;
   String categoryId;
   String categoryImageUrl;
   List<Attribute> attributes;
+  List<Product> products;
 
   CategoryModel({
     this.categoryName,
     this.categoryId,
     this.categoryImageUrl,
     this.attributes,
+    this.products,
   });
 
   @override
@@ -25,7 +28,8 @@ class CategoryModel {
         o.categoryName == categoryName &&
         o.categoryId == categoryId &&
         o.categoryImageUrl == categoryImageUrl &&
-        listEquals(o.attributes, attributes);
+        listEquals(o.attributes, attributes) &&
+        listEquals(o.products, products);
   }
 
   @override
@@ -33,7 +37,8 @@ class CategoryModel {
     return categoryName.hashCode ^
         categoryId.hashCode ^
         categoryImageUrl.hashCode ^
-        attributes.hashCode;
+        attributes.hashCode ^
+        products.hashCode;
   }
 
   Map<String, dynamic> toMap() {
@@ -42,6 +47,7 @@ class CategoryModel {
       'categoryId': categoryId,
       'categoryImageUrl': categoryImageUrl,
       'attributes': attributes?.map((x) => x?.toMap())?.toList(),
+      'products': products?.map((x) => x?.toMap())?.toList(),
     };
   }
 
@@ -54,6 +60,8 @@ class CategoryModel {
       categoryImageUrl: map['categoryImageUrl'],
       attributes: List<Attribute>.from(
           map['attributes']?.map((x) => Attribute.fromMap(x))),
+      products:
+          List<Product>.from(map['products']?.map((x) => Product.fromMap(x))),
     );
   }
 
@@ -67,17 +75,19 @@ class CategoryModel {
     String categoryId,
     String categoryImageUrl,
     List<Attribute> attributes,
+    List<Product> products,
   }) {
     return CategoryModel(
       categoryName: categoryName ?? this.categoryName,
       categoryId: categoryId ?? this.categoryId,
       categoryImageUrl: categoryImageUrl ?? this.categoryImageUrl,
       attributes: attributes ?? this.attributes,
+      products: products ?? this.products,
     );
   }
 
   @override
   String toString() {
-    return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, attributes: $attributes)';
+    return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, attributes: $attributes, products: $products)';
   }
 }

@@ -40,7 +40,6 @@ class HomeWidget extends GetView<HomeController> {
               layout: SwiperLayout.STACK,
               itemBuilder: (context, index) {
                 final category = _controller.homeCategories[index];
-
                 return CategoryCard(category);
               },
             )

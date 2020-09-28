@@ -10,7 +10,7 @@ class SortOption {
   });
 }
 
-List<SortOption> sortOptions = [
+List<SortOption> SORTOPTIONS = [
   SortOption(
       name: 'Price High-Low',
       productOrder: GProductOrderBuilder()

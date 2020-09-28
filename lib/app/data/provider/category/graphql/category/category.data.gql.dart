@@ -359,6 +359,8 @@ abstract class GCategoryData_products_edges_node
   String get id;
   String get name;
   @nullable
+  BuiltList<GCategoryData_products_edges_node_images> get images;
+  @nullable
   GCategoryData_products_edges_node_thumbnail get thumbnail;
   @nullable
   GCategoryData_products_edges_node_pricing get pricing;
@@ -370,6 +372,32 @@ abstract class GCategoryData_products_edges_node
           Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GCategoryData_products_edges_node.serializer, json);
+}
+
+abstract class GCategoryData_products_edges_node_images
+    implements
+        Built<GCategoryData_products_edges_node_images,
+            GCategoryData_products_edges_node_imagesBuilder> {
+  GCategoryData_products_edges_node_images._();
+
+  factory GCategoryData_products_edges_node_images(
+      [Function(GCategoryData_products_edges_node_imagesBuilder b)
+          updates]) = _$GCategoryData_products_edges_node_images;
+
+  static void _initializeBuilder(
+          GCategoryData_products_edges_node_imagesBuilder b) =>
+      b..G__typename = 'ProductImage';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String get url;
+  static Serializer<GCategoryData_products_edges_node_images> get serializer =>
+      _$gCategoryDataProductsEdgesNodeImagesSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers
+      .serializeWith(GCategoryData_products_edges_node_images.serializer, this);
+  static GCategoryData_products_edges_node_images fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GCategoryData_products_edges_node_images.serializer, json);
 }
 
 abstract class GCategoryData_products_edges_node_thumbnail

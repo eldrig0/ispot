@@ -57,6 +57,9 @@ query Category(
       node {
         id
         name
+        images {
+          url
+        }
         thumbnail {
           url
           alt
