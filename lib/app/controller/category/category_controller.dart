@@ -24,7 +24,6 @@ class CategoryController extends GetxController {
   }
 
   void getCategory() {
-    print('applied filters');
     categoryRepository
         .getCategory(Get.arguments, 10, selectedAttributeValues.value,
             selectedSortOption.value)
@@ -37,7 +36,7 @@ class CategoryController extends GetxController {
     showFilter.value = !showFilter.value;
   }
 
-  bool isAttribureValueSelected(AttributeValue attributeValue) {
+  bool isAttributeValueSelected(AttributeValue attributeValue) {
     return selectedAttributeValues.contains(attributeValue);
   }
 

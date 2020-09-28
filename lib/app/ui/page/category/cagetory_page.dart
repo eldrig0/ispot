@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/category/category_controller.dart';
 import 'package:ispot/app/ui/page/category/widgets/filter_widget/filter_widget.dart';
-import 'package:ispot/app/ui/page/category/widgets/ispot_checkbox/ispot_checkbox.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/widgets/product_card/product_card.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 
 class CategoryPage extends GetWidget {
@@ -19,12 +18,12 @@ class CategoryPage extends GetWidget {
       builder: (_) {
         return _controller.showFilter.value
             ? FilterWidget(controller: _controller)
-            : buildCategories();
+            : buildProductWidgets();
       },
     );
   }
 
-  Scaffold buildCategories() {
+  Scaffold buildProductWidgets() {
     return Scaffold(
       appBar: UIHelper.buildIspotAppBar(
         actions: [
@@ -43,7 +42,7 @@ class CategoryPage extends GetWidget {
         ],
         leading: IconButton(
             icon: Icon(
-              AntDesign.menu_unfold,
+              AntDesign.menu_fold,
               size: 20,
             ),
             onPressed: () {}),
@@ -58,6 +57,18 @@ class CategoryPage extends GetWidget {
                 _controller.category.value.categoryImageUrl,
                 fit: BoxFit.cover,
               ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 18, right: 18),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final product = _controller.category.value.products[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 18),
+                  child: ProductCard(product: product),
+                );
+              }, childCount: _controller.category.value.products.length),
             ),
           )
         ],

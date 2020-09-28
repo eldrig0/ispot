@@ -41,7 +41,7 @@ class ProductCard extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    product.category.categoryName,
+                    product.categoryName,
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(

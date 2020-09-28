@@ -50,6 +50,9 @@ class CategoryProvider {
 
   List<Product> _mapProducts(
       OperationResponse<GCategoryData, GCategoryVars> response) {
+    if (response.data.products == null || response.data.products.edges.isEmpty)
+      return [];
+
     return response.data.products.edges.map((edges) {
       final node = edges.node;
       return Product(

@@ -29,7 +29,7 @@ class HomeProvider {
     return client.responseStream(featuredProductQuery).map((event) {
       return event.data.shop.homepageCollection.products.edges
           .map((product) => Product(
-              category: CategoryModel(categoryName: product.node.category.name),
+              categoryName: product.node.category.name,
               productId: product.node.id,
               productName: product.node.name,
               currency: product.node.pricing.priceRange.start.currency,

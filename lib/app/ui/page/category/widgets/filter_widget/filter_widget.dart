@@ -90,7 +90,7 @@ class FilterWidget extends StatelessWidget {
                       .map(
                         (value) => AttributeValueChip(
                             isSelected:
-                                controller.isAttribureValueSelected(value),
+                                controller.isAttributeValueSelected(value),
                             label: value.name,
                             onPressed: () {
                               controller.toogleAttributeValueSelection(value);

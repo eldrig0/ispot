@@ -10,7 +10,6 @@ class Product {
   String categoryId;
   String productThumbnail;
   String currency;
-  CategoryModel category;
   double price;
   List<String> productImages;
 
@@ -21,7 +20,6 @@ class Product {
     this.categoryId,
     this.productThumbnail,
     this.currency,
-    this.category,
     this.price,
     this.productImages,
   });
@@ -33,7 +31,6 @@ class Product {
     String categoryId,
     String productThumbnail,
     String currency,
-    CategoryModel category,
     double price,
     List<String> productImages,
   }) {
@@ -44,7 +41,6 @@ class Product {
       categoryId: categoryId ?? this.categoryId,
       productThumbnail: productThumbnail ?? this.productThumbnail,
       currency: currency ?? this.currency,
-      category: category ?? this.category,
       price: price ?? this.price,
       productImages: productImages ?? this.productImages,
     );
@@ -58,7 +54,6 @@ class Product {
       'categoryId': categoryId,
       'productThumbnail': productThumbnail,
       'currency': currency,
-      'category': category?.toMap(),
       'price': price,
       'productImages': productImages,
     };
@@ -74,7 +69,6 @@ class Product {
       categoryId: map['categoryId'],
       productThumbnail: map['productThumbnail'],
       currency: map['currency'],
-      category: CategoryModel.fromMap(map['category']),
       price: map['price'],
       productImages: List<String>.from(map['productImages']),
     );
@@ -87,7 +81,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, category: $category, price: $price, productImages: $productImages)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, productImages: $productImages)';
   }
 
   @override
@@ -101,8 +95,6 @@ class Product {
         o.categoryId == categoryId &&
         o.productThumbnail == productThumbnail &&
         o.currency == currency &&
-        o.category == category &&
-        o.price == price &&
         listEquals(o.productImages, productImages);
   }
 
@@ -114,7 +106,6 @@ class Product {
         categoryId.hashCode ^
         productThumbnail.hashCode ^
         currency.hashCode ^
-        category.hashCode ^
         price.hashCode ^
         productImages.hashCode;
   }
