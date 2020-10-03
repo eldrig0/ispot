@@ -17,7 +17,7 @@ class CategoryController extends GetxController {
 
   Rx<SortOption> selectedSortOption;
 
-  final selectedAttributeValues = <AttributeValue>[].obs;
+  var selectedAttributes = <Attribute>[].obs;
 
   CategoryController(this.categoryRepository) {
     selectedSortOption = sortOptions[0].obs;
@@ -25,7 +25,7 @@ class CategoryController extends GetxController {
 
   void getCategory() {
     categoryRepository
-        .getCategory(Get.arguments, 10, selectedAttributeValues.value,
+        .getCategory(Get.arguments, 10, selectedAttributes.value,
             selectedSortOption.value)
         .listen((response) {
       category.value = response;
@@ -36,17 +36,36 @@ class CategoryController extends GetxController {
     showFilter.value = !showFilter.value;
   }
 
-  bool isAttributeValueSelected(AttributeValue attributeValue) {
-    return selectedAttributeValues.contains(attributeValue);
-  }
+  void toogleAttributeSelection({@required Attribute attribute}) {
+    final matchedAttributes =
+        selectedAttributes.where((element) => element.id == attribute.id);
 
-  void toogleAttributeValueSelection(AttributeValue attributeValue) {
-    selectedAttributeValues.contains(attributeValue)
-        ? selectedAttributeValues.remove(attributeValue)
-        : selectedAttributeValues.add(attributeValue);
+    final matchedAttribute =
+        matchedAttributes.length > 0 ? matchedAttributes.first : null;
+
+    if (matchedAttribute == null) {
+      selectedAttributes.add(attribute);
+      return;
+    }
+    bool hasSelectedValue =
+        matchedAttribute.values.contains(attribute.values.first);
+
+    if (hasSelectedValue) {
+      matchedAttribute.values.remove(attribute.values.first);
+    } else {
+      matchedAttribute.values.add(attribute.values.first);
+    }
   }
 
   bool isSortOptionSelected(SortOption option) {
     return option == selectedSortOption.value;
+  }
+
+  bool isAttributeValueSelected(
+      {@required String attributeId, @required AttributeValue attributeValue}) {
+    final matchedAttribute =
+        selectedAttributes.where((attribute) => attribute.id == attributeId);
+    if (matchedAttribute.isEmpty) return false;
+    return matchedAttribute.first.values.contains(attributeValue);
   }
 }

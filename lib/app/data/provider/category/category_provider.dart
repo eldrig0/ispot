@@ -22,13 +22,13 @@ class CategoryProvider {
   Stream<CategoryModel> getCategory(
       {@required String id,
       @required int pageSize,
-      @required List<AttributeValue> attributes,
+      @required List<Attribute> attributes,
       @required SortOption sortOption}) {
     final sortBy = sortOption.productOrder;
     final attributeList = ListBuilder<GAttributeInput>(attributes
         .map((attribute) => GAttributeInput((val) => val
           ..slug = attribute.name
-          ..value = attribute.value))
+          ..values = ListBuilder(attribute.values.map((value) => value.value))))
         .toList());
 
     final request = GCategoryReq((request) => request
@@ -73,7 +73,7 @@ class CategoryProvider {
         .map(
           (edge) => Attribute(
             id: edge.node.id,
-            name: edge.node.name,
+            name: edge.node.slug,
             values: edge.node.values
                 .map(
                   (value) => AttributeValue(

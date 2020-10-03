@@ -49,28 +49,27 @@ class CategoryPage extends GetWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            expandedHeight: 200,
-            leading: Container(),
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                _controller.category.value.categoryImageUrl,
-                fit: BoxFit.cover,
+          if (_controller.category.value != null)
+            SliverAppBar(
+              expandedHeight: 200,
+              leading: Container(),
+              flexibleSpace: FlexibleSpaceBar(
+                background: Image.network(
+                  _controller.category.value.categoryImageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final product = _controller.category.value.products[index];
+
+              return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                  child: ProductCard(product: product));
+            }, childCount: _controller.category.value.products.length),
           ),
-          SliverPadding(
-            padding: EdgeInsets.only(left: 18, right: 18),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate((context, index) {
-                final product = _controller.category.value.products[index];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 18),
-                  child: ProductCard(product: product),
-                );
-              }, childCount: _controller.category.value.products.length),
-            ),
-          )
         ],
       ),
     );
