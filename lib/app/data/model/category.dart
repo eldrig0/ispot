@@ -9,6 +9,7 @@ class CategoryModel {
   String categoryName;
   String categoryId;
   String categoryImageUrl;
+  int totalProductCount;
   List<Attribute> attributes;
   List<Product> products;
 
@@ -16,6 +17,7 @@ class CategoryModel {
     this.categoryName,
     this.categoryId,
     this.categoryImageUrl,
+    this.totalProductCount,
     this.attributes,
     this.products,
   });
@@ -28,6 +30,7 @@ class CategoryModel {
         o.categoryName == categoryName &&
         o.categoryId == categoryId &&
         o.categoryImageUrl == categoryImageUrl &&
+        o.totalProductCount == totalProductCount &&
         listEquals(o.attributes, attributes) &&
         listEquals(o.products, products);
   }
@@ -37,6 +40,7 @@ class CategoryModel {
     return categoryName.hashCode ^
         categoryId.hashCode ^
         categoryImageUrl.hashCode ^
+        totalProductCount.hashCode ^
         attributes.hashCode ^
         products.hashCode;
   }
@@ -46,6 +50,7 @@ class CategoryModel {
       'categoryName': categoryName,
       'categoryId': categoryId,
       'categoryImageUrl': categoryImageUrl,
+      'totalProductCount': totalProductCount,
       'attributes': attributes?.map((x) => x?.toMap())?.toList(),
       'products': products?.map((x) => x?.toMap())?.toList(),
     };
@@ -58,6 +63,7 @@ class CategoryModel {
       categoryName: map['categoryName'],
       categoryId: map['categoryId'],
       categoryImageUrl: map['categoryImageUrl'],
+      totalProductCount: map['totalProductCount'],
       attributes: List<Attribute>.from(
           map['attributes']?.map((x) => Attribute.fromMap(x))),
       products:
@@ -74,6 +80,7 @@ class CategoryModel {
     String categoryName,
     String categoryId,
     String categoryImageUrl,
+    int totalProductCount,
     List<Attribute> attributes,
     List<Product> products,
   }) {
@@ -81,6 +88,7 @@ class CategoryModel {
       categoryName: categoryName ?? this.categoryName,
       categoryId: categoryId ?? this.categoryId,
       categoryImageUrl: categoryImageUrl ?? this.categoryImageUrl,
+      totalProductCount: totalProductCount ?? this.totalProductCount,
       attributes: attributes ?? this.attributes,
       products: products ?? this.products,
     );
@@ -88,6 +96,6 @@ class CategoryModel {
 
   @override
   String toString() {
-    return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, attributes: $attributes, products: $products)';
+    return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, totalProductCount: $totalProductCount, attributes: $attributes, products: $products)';
   }
 }

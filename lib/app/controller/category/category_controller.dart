@@ -9,6 +9,7 @@ import 'package:ispot/app/misc/sort_options.dart';
 class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;
   final test = 0.obs;
+  final pageSize = 10.obs;
   final category = Rx<CategoryModel>();
 
   final showFilter = false.obs;
@@ -25,8 +26,11 @@ class CategoryController extends GetxController {
 
   void getCategory() {
     categoryRepository
-        .getCategory(Get.arguments, 10, selectedAttributes.value,
-            selectedSortOption.value)
+        .getCategory(
+            id: Get.arguments,
+            pageSize: pageSize.value,
+            attributes: selectedAttributes.value,
+            sortOption: selectedSortOption.value)
         .listen((response) {
       category.value = response;
     });
@@ -36,6 +40,7 @@ class CategoryController extends GetxController {
     showFilter.value = !showFilter.value;
   }
 
+  //TODO: Refactor this function, Stupid!.
   void toogleAttributeSelection({@required Attribute attribute}) {
     final matchedAttributes =
         selectedAttributes.where((element) => element.id == attribute.id);
@@ -52,6 +57,10 @@ class CategoryController extends GetxController {
 
     if (hasSelectedValue) {
       matchedAttribute.values.remove(attribute.values.first);
+      if (matchedAttribute.values.length == 0) {
+        selectedAttributes
+            .removeWhere((attribute) => attribute.id == matchedAttribute.id);
+      }
     } else {
       matchedAttribute.values.add(attribute.values.first);
     }

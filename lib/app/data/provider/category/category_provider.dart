@@ -41,6 +41,7 @@ class CategoryProvider {
           (response) => CategoryModel(
             categoryId: response.data.category.id,
             categoryName: response.data.category.name,
+            totalProductCount: response.data.products.totalCount,
             attributes: _mapAttribute(response),
             categoryImageUrl: response.data.category.backgroundImage.url,
             products: _mapProducts(response),

@@ -1,0 +1,132 @@
+fragment Price on TaxedMoney {
+  gross {
+    amount
+    currency
+  }
+  net {
+    amount
+    currency
+  }
+}
+
+fragment BasicProductFields on Product {
+  id
+  name
+  thumbnail {
+    url
+    alt
+  }
+}
+
+fragment ProductPricingField on Product {
+  pricing {
+    onSale
+    priceRangeUndiscounted {
+      start {
+        ...Price
+      }
+      stop {
+        ...Price
+      }
+    }
+    priceRange {
+      start {
+        ...Price
+      }
+      stop {
+        ...Price
+      }
+    }
+  }
+}
+
+fragment SelectedAttributeFields on SelectedAttribute {
+  attribute {
+    id
+    name
+  }
+  values {
+    id
+    name
+  }
+}
+
+fragment ProductVariantFields on ProductVariant {
+  id
+  sku
+  name
+  stockQuantity
+  isAvailable
+  images {
+    id
+    url
+    alt
+  }
+  pricing {
+    onSale
+    priceUndiscounted {
+      ...Price
+    }
+    price {
+      ...Price
+    }
+  }
+  attributes {
+    attribute {
+      id
+      name
+    }
+    values {
+      id
+      name
+      value: name
+    }
+  }
+}
+
+query ProductDetails($id: ID!) {
+  product(id: $id) {
+    ...BasicProductFields
+    ...ProductPricingField
+    descriptionJson
+    category {
+      id
+      name
+      products(first: 3) {
+        edges {
+          node {
+            ...BasicProductFields
+            ...ProductPricingField
+          }
+        }
+      }
+    }
+    images {
+      id
+      url
+    }
+    attributes {
+      ...SelectedAttributeFields
+    }
+    variants {
+      ...ProductVariantFields
+    }
+    seoDescription
+    seoTitle
+    isAvailable
+  }
+}
+
+query VariantList($ids: [ID!]) {
+  productVariants(ids: $ids, first: 100) {
+    edges {
+      node {
+        ...ProductVariantFields
+        stockQuantity
+        product {
+          ...BasicProductFields
+        }
+      }
+    }
+  }
+}
