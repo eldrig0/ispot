@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+
 import 'package:ispot/app/data/model/category.dart';
 
 class Product {
@@ -11,6 +12,7 @@ class Product {
   String productThumbnail;
   String currency;
   double price;
+  bool isAvailable;
   List<String> productImages;
 
   Product({
@@ -21,6 +23,7 @@ class Product {
     this.productThumbnail,
     this.currency,
     this.price,
+    this.isAvailable,
     this.productImages,
   });
 
@@ -32,6 +35,7 @@ class Product {
     String productThumbnail,
     String currency,
     double price,
+    bool isAvailable,
     List<String> productImages,
   }) {
     return Product(
@@ -42,6 +46,7 @@ class Product {
       productThumbnail: productThumbnail ?? this.productThumbnail,
       currency: currency ?? this.currency,
       price: price ?? this.price,
+      isAvailable: isAvailable ?? this.isAvailable,
       productImages: productImages ?? this.productImages,
     );
   }
@@ -55,6 +60,7 @@ class Product {
       'productThumbnail': productThumbnail,
       'currency': currency,
       'price': price,
+      'isAvailable': isAvailable,
       'productImages': productImages,
     };
   }
@@ -70,6 +76,7 @@ class Product {
       productThumbnail: map['productThumbnail'],
       currency: map['currency'],
       price: map['price'],
+      isAvailable: map['isAvailable'],
       productImages: List<String>.from(map['productImages']),
     );
   }
@@ -81,7 +88,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, productImages: $productImages)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, isAvailable: $isAvailable, productImages: $productImages)';
   }
 
   @override
@@ -95,6 +102,8 @@ class Product {
         o.categoryId == categoryId &&
         o.productThumbnail == productThumbnail &&
         o.currency == currency &&
+        o.price == price &&
+        o.isAvailable == isAvailable &&
         listEquals(o.productImages, productImages);
   }
 
@@ -107,6 +116,7 @@ class Product {
         productThumbnail.hashCode ^
         currency.hashCode ^
         price.hashCode ^
+        isAvailable.hashCode ^
         productImages.hashCode;
   }
 }

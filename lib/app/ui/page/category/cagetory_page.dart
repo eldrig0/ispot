@@ -67,7 +67,12 @@ class CategoryPage extends GetWidget {
               return Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                  child: ProductCard(product: product));
+                  child: ProductCard(
+                    product: product,
+                    onClick: () {
+                      Get.toNamed('/product/${product.productId}');
+                    },
+                  ));
             }, childCount: _controller.category.value.products.length),
           ),
         ],

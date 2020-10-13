@@ -1,8 +1,12 @@
+import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/repository/product/product_repository.dart';
 
-class ProductController {
+class ProductController extends GetxController {
   final ProductRepository _productRepository;
+
+  final test = 0.obs;
 
   ProductController(this._productRepository);
 
@@ -10,5 +14,12 @@ class ProductController {
     this._productRepository.getProduct(id).listen((event) {
       print(event);
     });
+  }
+
+  @override
+  void onInit() {
+    final id = Get.parameters['productId'];
+    getProductDetails(id);
+    super.onInit();
   }
 }
