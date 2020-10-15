@@ -49,7 +49,7 @@ class CategoryPage extends GetWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          if (_controller.category.value != null)
+          if (_controller.category.value != null) ...[
             SliverAppBar(
               expandedHeight: 200,
               leading: Container(),
@@ -60,21 +60,22 @@ class CategoryPage extends GetWidget {
                 ),
               ),
             ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              final product = _controller.category.value.products[index];
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final product = _controller.category.value.products[index];
 
-              return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                  child: ProductCard(
-                    product: product,
-                    onClick: () {
-                      Get.toNamed('/product/${product.productId}');
-                    },
-                  ));
-            }, childCount: _controller.category.value.products.length),
-          ),
+                return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 18, horizontal: 40),
+                    child: ProductCard(
+                      product: product,
+                      onClick: () {
+                        Get.toNamed('/product/${product.productId}');
+                      },
+                    ));
+              }, childCount: _controller.category.value.products.length),
+            ),
+          ]
         ],
       ),
     );

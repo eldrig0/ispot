@@ -7,8 +7,8 @@ import 'package:ispot/app/data/model/attribute.dart';
 class ProductVariant {
   String id;
   String name;
-  String stockQuantity;
-  String isAvailable;
+  int stockQuantity;
+  bool isAvailable;
   List<String> images;
   Price price;
   List<Attribute> attributes;
@@ -26,7 +26,7 @@ class ProductVariant {
     String id,
     String name,
     String stockQuantity,
-    String isAvailable,
+    bool isAvailable,
     List<String> images,
     Price price,
     List<Attribute> attributes,

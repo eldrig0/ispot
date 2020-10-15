@@ -31,6 +31,7 @@ class CategoryController extends GetxController {
             pageSize: pageSize.value,
             attributes: selectedAttributes.value,
             sortOption: selectedSortOption.value)
+        .take(1)
         .listen((response) {
       category.value = response;
     });

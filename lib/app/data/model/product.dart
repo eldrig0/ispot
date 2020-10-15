@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/product_variant.dart';
 
 class Product {
   String productId;
@@ -14,6 +12,7 @@ class Product {
   double price;
   bool isAvailable;
   List<String> productImages;
+  List<ProductVariant> variants;
 
   Product({
     this.productId,
@@ -25,6 +24,7 @@ class Product {
     this.price,
     this.isAvailable,
     this.productImages,
+    this.variants,
   });
 
   Product copyWith({
@@ -37,6 +37,7 @@ class Product {
     double price,
     bool isAvailable,
     List<String> productImages,
+    List<ProductVariant> variants,
   }) {
     return Product(
       productId: productId ?? this.productId,
@@ -48,6 +49,7 @@ class Product {
       price: price ?? this.price,
       isAvailable: isAvailable ?? this.isAvailable,
       productImages: productImages ?? this.productImages,
+      variants: variants ?? this.variants,
     );
   }
 
@@ -62,6 +64,7 @@ class Product {
       'price': price,
       'isAvailable': isAvailable,
       'productImages': productImages,
+      'variants': variants?.map((x) => x?.toMap())?.toList(),
     };
   }
 
@@ -78,6 +81,8 @@ class Product {
       price: map['price'],
       isAvailable: map['isAvailable'],
       productImages: List<String>.from(map['productImages']),
+      variants: List<ProductVariant>.from(
+          map['variants']?.map((x) => ProductVariant.fromMap(x))),
     );
   }
 
@@ -88,7 +93,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, isAvailable: $isAvailable, productImages: $productImages)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, isAvailable: $isAvailable, productImages: $productImages, variants: $variants)';
   }
 
   @override
@@ -104,7 +109,8 @@ class Product {
         o.currency == currency &&
         o.price == price &&
         o.isAvailable == isAvailable &&
-        listEquals(o.productImages, productImages);
+        listEquals(o.productImages, productImages) &&
+        listEquals(o.variants, variants);
   }
 
   @override
@@ -117,6 +123,7 @@ class Product {
         currency.hashCode ^
         price.hashCode ^
         isAvailable.hashCode ^
-        productImages.hashCode;
+        productImages.hashCode ^
+        variants.hashCode;
   }
 }

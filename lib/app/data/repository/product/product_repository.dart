@@ -1,3 +1,4 @@
+import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/provider/product/product_provider.dart';
 
 class ProductRepository {
@@ -5,7 +6,7 @@ class ProductRepository {
 
   ProductRepository(this._provider);
 
-  Stream getProduct(String id) {
+  Stream<Product> getProduct(String id) {
     return this._provider.getProduct(id);
   }
 }
