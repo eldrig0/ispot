@@ -407,9 +407,9 @@ class _$GProductDetailsData_productSerializer
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'descriptionJson',
-      serializers.serialize(object.descriptionJson,
-          specifiedType: const FullType(_i2.GJSONString)),
+      'description',
+      serializers.serialize(object.description,
+          specifiedType: const FullType(String)),
       'attributes',
       serializers.serialize(object.attributes,
           specifiedType: const FullType(BuiltList,
@@ -449,18 +449,6 @@ class _$GProductDetailsData_productSerializer
         ..add(serializers.serialize(object.variants,
             specifiedType: const FullType(BuiltList,
                 const [const FullType(GProductDetailsData_product_variants)])));
-    }
-    if (object.seoDescription != null) {
-      result
-        ..add('seoDescription')
-        ..add(serializers.serialize(object.seoDescription,
-            specifiedType: const FullType(String)));
-    }
-    if (object.seoTitle != null) {
-      result
-        ..add('seoTitle')
-        ..add(serializers.serialize(object.seoTitle,
-            specifiedType: const FullType(String)));
     }
     if (object.isAvailable != null) {
       result
@@ -507,10 +495,9 @@ class _$GProductDetailsData_productSerializer
                       const FullType(GProductDetailsData_product_pricing))
               as GProductDetailsData_product_pricing);
           break;
-        case 'descriptionJson':
-          result.descriptionJson.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GJSONString))
-              as _i2.GJSONString);
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
         case 'category':
           result.category.replace(serializers.deserialize(value,
@@ -535,14 +522,6 @@ class _$GProductDetailsData_productSerializer
               specifiedType: const FullType(BuiltList, const [
                 const FullType(GProductDetailsData_product_variants)
               ])) as BuiltList<Object>);
-          break;
-        case 'seoDescription':
-          result.seoDescription = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'seoTitle':
-          result.seoTitle = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
           break;
         case 'isAvailable':
           result.isAvailable = serializers.deserialize(value,
@@ -7874,7 +7853,7 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
   @override
   final GProductDetailsData_product_pricing pricing;
   @override
-  final _i2.GJSONString descriptionJson;
+  final String description;
   @override
   final GProductDetailsData_product_category category;
   @override
@@ -7883,10 +7862,6 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
   final BuiltList<GProductDetailsData_product_attributes> attributes;
   @override
   final BuiltList<GProductDetailsData_product_variants> variants;
-  @override
-  final String seoDescription;
-  @override
-  final String seoTitle;
   @override
   final bool isAvailable;
 
@@ -7900,13 +7875,11 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
       this.name,
       this.thumbnail,
       this.pricing,
-      this.descriptionJson,
+      this.description,
       this.category,
       this.images,
       this.attributes,
       this.variants,
-      this.seoDescription,
-      this.seoTitle,
       this.isAvailable})
       : super._() {
     if (G__typename == null) {
@@ -7919,9 +7892,9 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
     if (name == null) {
       throw new BuiltValueNullFieldError('GProductDetailsData_product', 'name');
     }
-    if (descriptionJson == null) {
+    if (description == null) {
       throw new BuiltValueNullFieldError(
-          'GProductDetailsData_product', 'descriptionJson');
+          'GProductDetailsData_product', 'description');
     }
     if (attributes == null) {
       throw new BuiltValueNullFieldError(
@@ -7947,13 +7920,11 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
         name == other.name &&
         thumbnail == other.thumbnail &&
         pricing == other.pricing &&
-        descriptionJson == other.descriptionJson &&
+        description == other.description &&
         category == other.category &&
         images == other.images &&
         attributes == other.attributes &&
         variants == other.variants &&
-        seoDescription == other.seoDescription &&
-        seoTitle == other.seoTitle &&
         isAvailable == other.isAvailable;
   }
 
@@ -7968,22 +7939,16 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(0,
-                                                        G__typename.hashCode),
-                                                    id.hashCode),
-                                                name.hashCode),
-                                            thumbnail.hashCode),
-                                        pricing.hashCode),
-                                    descriptionJson.hashCode),
-                                category.hashCode),
-                            images.hashCode),
-                        attributes.hashCode),
-                    variants.hashCode),
-                seoDescription.hashCode),
-            seoTitle.hashCode),
+                                        $jc($jc(0, G__typename.hashCode),
+                                            id.hashCode),
+                                        name.hashCode),
+                                    thumbnail.hashCode),
+                                pricing.hashCode),
+                            description.hashCode),
+                        category.hashCode),
+                    images.hashCode),
+                attributes.hashCode),
+            variants.hashCode),
         isAvailable.hashCode));
   }
 
@@ -7995,13 +7960,11 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
           ..add('name', name)
           ..add('thumbnail', thumbnail)
           ..add('pricing', pricing)
-          ..add('descriptionJson', descriptionJson)
+          ..add('description', description)
           ..add('category', category)
           ..add('images', images)
           ..add('attributes', attributes)
           ..add('variants', variants)
-          ..add('seoDescription', seoDescription)
-          ..add('seoTitle', seoTitle)
           ..add('isAvailable', isAvailable))
         .toString();
   }
@@ -8037,11 +8000,9 @@ class GProductDetailsData_productBuilder
   set pricing(GProductDetailsData_product_pricingBuilder pricing) =>
       _$this._pricing = pricing;
 
-  _i2.GJSONStringBuilder _descriptionJson;
-  _i2.GJSONStringBuilder get descriptionJson =>
-      _$this._descriptionJson ??= new _i2.GJSONStringBuilder();
-  set descriptionJson(_i2.GJSONStringBuilder descriptionJson) =>
-      _$this._descriptionJson = descriptionJson;
+  String _description;
+  String get description => _$this._description;
+  set description(String description) => _$this._description = description;
 
   GProductDetailsData_product_categoryBuilder _category;
   GProductDetailsData_product_categoryBuilder get category =>
@@ -8070,15 +8031,6 @@ class GProductDetailsData_productBuilder
   set variants(ListBuilder<GProductDetailsData_product_variants> variants) =>
       _$this._variants = variants;
 
-  String _seoDescription;
-  String get seoDescription => _$this._seoDescription;
-  set seoDescription(String seoDescription) =>
-      _$this._seoDescription = seoDescription;
-
-  String _seoTitle;
-  String get seoTitle => _$this._seoTitle;
-  set seoTitle(String seoTitle) => _$this._seoTitle = seoTitle;
-
   bool _isAvailable;
   bool get isAvailable => _$this._isAvailable;
   set isAvailable(bool isAvailable) => _$this._isAvailable = isAvailable;
@@ -8094,13 +8046,11 @@ class GProductDetailsData_productBuilder
       _name = _$v.name;
       _thumbnail = _$v.thumbnail?.toBuilder();
       _pricing = _$v.pricing?.toBuilder();
-      _descriptionJson = _$v.descriptionJson?.toBuilder();
+      _description = _$v.description;
       _category = _$v.category?.toBuilder();
       _images = _$v.images?.toBuilder();
       _attributes = _$v.attributes?.toBuilder();
       _variants = _$v.variants?.toBuilder();
-      _seoDescription = _$v.seoDescription;
-      _seoTitle = _$v.seoTitle;
       _isAvailable = _$v.isAvailable;
       _$v = null;
     }
@@ -8131,13 +8081,11 @@ class GProductDetailsData_productBuilder
               name: name,
               thumbnail: _thumbnail?.build(),
               pricing: _pricing?.build(),
-              descriptionJson: descriptionJson.build(),
+              description: description,
               category: _category?.build(),
               images: _images?.build(),
               attributes: attributes.build(),
               variants: _variants?.build(),
-              seoDescription: seoDescription,
-              seoTitle: seoTitle,
               isAvailable: isAvailable);
     } catch (_) {
       String _$failedField;
@@ -8146,8 +8094,7 @@ class GProductDetailsData_productBuilder
         _thumbnail?.build();
         _$failedField = 'pricing';
         _pricing?.build();
-        _$failedField = 'descriptionJson';
-        descriptionJson.build();
+
         _$failedField = 'category';
         _category?.build();
         _$failedField = 'images';

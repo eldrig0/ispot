@@ -1,5 +1,7 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+
 import 'package:ispot/app/data/model/product_variant.dart';
 
 class Product {
@@ -11,7 +13,9 @@ class Product {
   String currency;
   double price;
   bool isAvailable;
+  String description;
   List<String> productImages;
+
   List<ProductVariant> variants;
 
   Product({
@@ -23,6 +27,7 @@ class Product {
     this.currency,
     this.price,
     this.isAvailable,
+    this.description,
     this.productImages,
     this.variants,
   });
@@ -36,6 +41,7 @@ class Product {
     String currency,
     double price,
     bool isAvailable,
+    String description,
     List<String> productImages,
     List<ProductVariant> variants,
   }) {
@@ -48,6 +54,7 @@ class Product {
       currency: currency ?? this.currency,
       price: price ?? this.price,
       isAvailable: isAvailable ?? this.isAvailable,
+      description: description ?? this.description,
       productImages: productImages ?? this.productImages,
       variants: variants ?? this.variants,
     );
@@ -63,6 +70,7 @@ class Product {
       'currency': currency,
       'price': price,
       'isAvailable': isAvailable,
+      'description': description,
       'productImages': productImages,
       'variants': variants?.map((x) => x?.toMap())?.toList(),
     };
@@ -80,6 +88,7 @@ class Product {
       currency: map['currency'],
       price: map['price'],
       isAvailable: map['isAvailable'],
+      description: map['description'],
       productImages: List<String>.from(map['productImages']),
       variants: List<ProductVariant>.from(
           map['variants']?.map((x) => ProductVariant.fromMap(x))),
@@ -93,7 +102,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, isAvailable: $isAvailable, productImages: $productImages, variants: $variants)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, currency: $currency, price: $price, isAvailable: $isAvailable, description: $description, productImages: $productImages, variants: $variants)';
   }
 
   @override
@@ -109,6 +118,7 @@ class Product {
         o.currency == currency &&
         o.price == price &&
         o.isAvailable == isAvailable &&
+        o.description == description &&
         listEquals(o.productImages, productImages) &&
         listEquals(o.variants, variants);
   }
@@ -123,6 +133,7 @@ class Product {
         currency.hashCode ^
         price.hashCode ^
         isAvailable.hashCode ^
+        description.hashCode ^
         productImages.hashCode ^
         variants.hashCode;
   }

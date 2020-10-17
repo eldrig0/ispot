@@ -88,7 +88,7 @@ query ProductDetails($id: ID!) {
   product(id: $id) {
     ...BasicProductFields
     ...ProductPricingField
-    descriptionJson
+    description
     category {
       id
       name
@@ -111,8 +111,6 @@ query ProductDetails($id: ID!) {
     variants {
       ...ProductVariantFields
     }
-    seoDescription
-    seoTitle
     isAvailable
   }
 }

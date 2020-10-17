@@ -5,6 +5,7 @@ import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/product/product_controller.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/main.dart';
 
 class ProductPage extends GetView {
   @override
@@ -33,29 +34,48 @@ class ProductWidget extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          buildImageWidget(context),
           SliverToBoxAdapter(
-            child: Container(
-              height: 400,
-              width: MediaQuery.of(context).size.height,
-              child: Swiper(
-                outer: false,
-                fade: 0.1,
-                itemWidth: MediaQuery.of(context).size.height,
-                itemHeight: 400,
-                itemCount: product.productImages.length,
-                itemBuilder: (context, index) {
-                  return Image.network(product.productImages[index],
-                      fit: BoxFit.contain);
-                },
-                pagination: SwiperPagination(
-                    builder: DotSwiperPaginationBuilder(
-                        color: Colors.grey,
-                        activeColor: ISpotTheme.primaryColor,
-                        activeSize: 15)),
-              ),
+            child: Text(
+              product.productName,
+              style: ISpotTheme.titleTextStyle,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Text(product.description),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  SliverToBoxAdapter buildImageWidget(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        height: 400,
+        width: MediaQuery.of(context).size.height,
+        child: Swiper(
+          outer: false,
+          fade: 0.1,
+          itemWidth: MediaQuery.of(context).size.height,
+          itemHeight: 400,
+          itemCount: product.productImages.length,
+          itemBuilder: (context, index) {
+            return Image.network(product.productImages[index],
+                fit: BoxFit.contain);
+          },
+          pagination: SwiperPagination(
+            builder: DotSwiperPaginationBuilder(
+                color: Colors.grey,
+                activeColor: ISpotTheme.primaryColor,
+                activeSize: 15),
+          ),
+        ),
       ),
     );
   }

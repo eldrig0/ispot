@@ -379,7 +379,7 @@ const ProductDetails = _i1.OperationDefinitionNode(
                 name: _i1.NameNode(value: 'ProductPricingField'),
                 directives: []),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'descriptionJson'),
+                name: _i1.NameNode(value: 'description'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -476,18 +476,6 @@ const ProductDetails = _i1.OperationDefinitionNode(
                       name: _i1.NameNode(value: 'ProductVariantFields'),
                       directives: [])
                 ])),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'seoDescription'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'seoTitle'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
             _i1.FieldNode(
                 name: _i1.NameNode(value: 'isAvailable'),
                 alias: null,

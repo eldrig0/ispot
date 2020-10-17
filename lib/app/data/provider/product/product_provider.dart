@@ -4,6 +4,8 @@ import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart';
 import 'package:ispot/app/data/provider/product/graphql/product.req.gql.dart';
+import 'package:ispot/graphql/schema.schema.gql.dart';
+import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
@@ -24,6 +26,7 @@ class ProductProvider {
           categoryName: product.category.name,
           productThumbnail: product.thumbnail.url,
           productId: product.id,
+          description: product.description,
           productName: product.name,
           currency: "BHT",
           variants: _mapProductVariant(product));
