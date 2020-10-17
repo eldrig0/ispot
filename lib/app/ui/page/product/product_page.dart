@@ -3,7 +3,9 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/product/product_controller.dart';
+import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/main.dart';
 
@@ -31,6 +33,7 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _controller = Get.find<ProductController>();
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -46,12 +49,34 @@ class ProductWidget extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Column(
-              children: [],
+              children: [
+                ...buildAttributesWidget(_controller.attributes.value)
+              ],
             ),
+          ),
+          SliverToBoxAdapter(
+            child: buildPriceWidget(_controller.product.value.price)
           )
         ],
       ),
     );
+  }
+
+  List<Widget> buildAttributesWidget(Map<String, Attribute> attributes) {
+    List<Widget> _children = <Widget>[];
+
+    attributes.forEach((key, value) {
+      Widget attributeWidget = Column(
+        children: [
+          Text(value.name),
+          Row(
+            children: [...value.values.map((value) => Text(value.name))],
+          ),
+        ],
+      );
+      _children.add(attributeWidget);
+    });
+    return _children;
   }
 
   SliverToBoxAdapter buildImageWidget(BuildContext context) {
@@ -78,5 +103,9 @@ class ProductWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  buildPriceWidget(Price pricing) {
+    return Text('${pricing.currency} ${pricing.amount}');
   }
 }

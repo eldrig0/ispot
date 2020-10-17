@@ -49,7 +49,7 @@ class ProductCard extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                     Text(
-                      '${product.price} ${product.currency}',
+                      '${product.price.amount} ${product.price.currency}',
                       style: TextStyle(color: Colors.white),
                     ),
                   ],

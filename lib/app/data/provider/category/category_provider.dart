@@ -59,8 +59,6 @@ class CategoryProvider {
       return Product(
           productId: node.id,
           productName: node.name,
-          currency: node.pricing.priceRange.start.gross.currency,
-          price: node.pricing.priceRange.stop.gross.amount,
           productThumbnail: node.thumbnail.url,
           categoryId: response.data.category.id,
           categoryName: response.data.category.name,

@@ -112,9 +112,6 @@ abstract class GProductDetailsData_product_pricing
   @nullable
   bool get onSale;
   @nullable
-  GProductDetailsData_product_pricing_priceRangeUndiscounted
-      get priceRangeUndiscounted;
-  @nullable
   GProductDetailsData_product_pricing_priceRange get priceRange;
   static Serializer<GProductDetailsData_product_pricing> get serializer =>
       _$gProductDetailsDataProductPricingSerializer;
@@ -124,276 +121,6 @@ abstract class GProductDetailsData_product_pricing
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductDetailsData_product_pricing.serializer, json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted
-    implements
-        Built<GProductDetailsData_product_pricing_priceRangeUndiscounted,
-            GProductDetailsData_product_pricing_priceRangeUndiscountedBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted(
-      [Function(
-              GProductDetailsData_product_pricing_priceRangeUndiscountedBuilder
-                  b)
-          updates]) = _$GProductDetailsData_product_pricing_priceRangeUndiscounted;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscountedBuilder
-              b) =>
-      b..G__typename = 'TaxedMoneyRange';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @nullable
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start get start;
-  @nullable
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop get stop;
-  static Serializer<GProductDetailsData_product_pricing_priceRangeUndiscounted>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted.serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted.serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_start
-    implements
-        Built<GProductDetailsData_product_pricing_priceRangeUndiscounted_start,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_startBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start,
-        GPrice {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_start(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_startBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_start;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_startBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross
-      get gross;
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net get net;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_start
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_start
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross
-    implements
-        Built<
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_start_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_gross,
-        GPrice_gross {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_grossBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net
-    implements
-        Built<
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_start_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_net,
-        GPrice_net {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_start_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_start_net
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_stop
-    implements
-        Built<GProductDetailsData_product_pricing_priceRangeUndiscounted_stop,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_stopBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop,
-        GPrice {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_stop(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_stopBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_stop;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stopBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross
-      get gross;
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net get net;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStopSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_stop
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_stop
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross
-    implements
-        Built<
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_gross,
-        GPrice_gross {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_grossBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStopGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net
-    implements
-        Built<
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net,
-            GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_net,
-        GPrice_net {
-  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net._();
-
-  factory GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net(
-          [Function(
-                  GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeUndiscountedStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRangeUndiscounted_stop_net
-              .serializer,
-          json);
 }
 
 abstract class GProductDetailsData_product_pricing_priceRange
@@ -413,8 +140,6 @@ abstract class GProductDetailsData_product_pricing_priceRange
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GProductDetailsData_product_pricing_priceRange_start get start;
-  @nullable
   GProductDetailsData_product_pricing_priceRange_stop get stop;
   static Serializer<GProductDetailsData_product_pricing_priceRange>
       get serializer => _$gProductDetailsDataProductPricingPriceRangeSerializer;
@@ -424,105 +149,6 @@ abstract class GProductDetailsData_product_pricing_priceRange
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductDetailsData_product_pricing_priceRange.serializer, json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRange_start
-    implements
-        Built<GProductDetailsData_product_pricing_priceRange_start,
-            GProductDetailsData_product_pricing_priceRange_startBuilder>,
-        GProductPricingField_pricing_priceRange_start,
-        GPrice {
-  GProductDetailsData_product_pricing_priceRange_start._();
-
-  factory GProductDetailsData_product_pricing_priceRange_start(
-      [Function(GProductDetailsData_product_pricing_priceRange_startBuilder b)
-          updates]) = _$GProductDetailsData_product_pricing_priceRange_start;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRange_startBuilder b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_pricing_priceRange_start_gross get gross;
-  GProductDetailsData_product_pricing_priceRange_start_net get net;
-  static Serializer<GProductDetailsData_product_pricing_priceRange_start>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRange_start.serializer, this);
-  static GProductDetailsData_product_pricing_priceRange_start fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRange_start.serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRange_start_gross
-    implements
-        Built<GProductDetailsData_product_pricing_priceRange_start_gross,
-            GProductDetailsData_product_pricing_priceRange_start_grossBuilder>,
-        GProductPricingField_pricing_priceRange_start_gross,
-        GPrice_gross {
-  GProductDetailsData_product_pricing_priceRange_start_gross._();
-
-  factory GProductDetailsData_product_pricing_priceRange_start_gross(
-      [Function(
-              GProductDetailsData_product_pricing_priceRange_start_grossBuilder
-                  b)
-          updates]) = _$GProductDetailsData_product_pricing_priceRange_start_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRange_start_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductDetailsData_product_pricing_priceRange_start_gross>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRange_start_gross.serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRange_start_gross fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRange_start_gross.serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRange_start_net
-    implements
-        Built<GProductDetailsData_product_pricing_priceRange_start_net,
-            GProductDetailsData_product_pricing_priceRange_start_netBuilder>,
-        GProductPricingField_pricing_priceRange_start_net,
-        GPrice_net {
-  GProductDetailsData_product_pricing_priceRange_start_net._();
-
-  factory GProductDetailsData_product_pricing_priceRange_start_net(
-      [Function(
-              GProductDetailsData_product_pricing_priceRange_start_netBuilder b)
-          updates]) = _$GProductDetailsData_product_pricing_priceRange_start_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRange_start_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductDetailsData_product_pricing_priceRange_start_net>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRange_start_net.serializer,
-      this);
-  static GProductDetailsData_product_pricing_priceRange_start_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRange_start_net.serializer,
-          json);
 }
 
 abstract class GProductDetailsData_product_pricing_priceRange_stop
@@ -543,7 +169,6 @@ abstract class GProductDetailsData_product_pricing_priceRange_stop
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GProductDetailsData_product_pricing_priceRange_stop_gross get gross;
-  GProductDetailsData_product_pricing_priceRange_stop_net get net;
   static Serializer<GProductDetailsData_product_pricing_priceRange_stop>
       get serializer =>
           _$gProductDetailsDataProductPricingPriceRangeStopSerializer;
@@ -586,38 +211,6 @@ abstract class GProductDetailsData_product_pricing_priceRange_stop_gross
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductDetailsData_product_pricing_priceRange_stop_gross.serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_pricing_priceRange_stop_net
-    implements
-        Built<GProductDetailsData_product_pricing_priceRange_stop_net,
-            GProductDetailsData_product_pricing_priceRange_stop_netBuilder>,
-        GProductPricingField_pricing_priceRange_stop_net,
-        GPrice_net {
-  GProductDetailsData_product_pricing_priceRange_stop_net._();
-
-  factory GProductDetailsData_product_pricing_priceRange_stop_net(
-      [Function(
-              GProductDetailsData_product_pricing_priceRange_stop_netBuilder b)
-          updates]) = _$GProductDetailsData_product_pricing_priceRange_stop_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_pricing_priceRange_stop_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductDetailsData_product_pricing_priceRange_stop_net>
-      get serializer =>
-          _$gProductDetailsDataProductPricingPriceRangeStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_pricing_priceRange_stop_net.serializer, this);
-  static GProductDetailsData_product_pricing_priceRange_stop_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_pricing_priceRange_stop_net.serializer,
           json);
 }
 
@@ -803,9 +396,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing
   @nullable
   bool get onSale;
   @nullable
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted
-      get priceRangeUndiscounted;
-  @nullable
   GProductDetailsData_product_category_products_edges_node_pricing_priceRange
       get priceRange;
   static Serializer<
@@ -819,286 +409,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing
   static GProductDetailsData_product_category_products_edges_node_pricing
       fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
           GProductDetailsData_product_category_products_edges_node_pricing
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscountedBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscountedBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscountedBuilder
-              b) =>
-      b..G__typename = 'TaxedMoneyRange';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @nullable
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start
-      get start;
-  @nullable
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop
-      get stop;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_startBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start,
-        GPrice {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_startBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_startBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross
-      get gross;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net
-      get net;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_gross,
-        GPrice_gross {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_grossBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_net,
-        GPrice_net {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_start_net
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stopBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop,
-        GPrice {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stopBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stopBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross
-      get gross;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net
-      get net;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStopSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_gross,
-        GPrice_gross {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_grossBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStopGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_net,
-        GPrice_net {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeUndiscountedStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRangeUndiscounted_stop_net
               .serializer,
           json);
 }
@@ -1125,9 +435,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing_
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-      get start;
-  @nullable
   GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop
       get stop;
   static Serializer<
@@ -1141,125 +448,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing_
   static GProductDetailsData_product_category_products_edges_node_pricing_priceRange
       fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
           GProductDetailsData_product_category_products_edges_node_pricing_priceRange
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_startBuilder>,
-        GProductPricingField_pricing_priceRange_start,
-        GPrice {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_startBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_startBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross
-      get gross;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
-      get net;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_grossBuilder>,
-        GProductPricingField_pricing_priceRange_start_gross,
-        GPrice_gross {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_grossBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_netBuilder>,
-        GProductPricingField_pricing_priceRange_start_net,
-        GPrice_net {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
               .serializer,
           json);
 }
@@ -1288,8 +476,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing_
   String get G__typename;
   GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_gross
       get gross;
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
-      get net;
   static Serializer<
           GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop>
       get serializer =>
@@ -1340,45 +526,6 @@ abstract class GProductDetailsData_product_category_products_edges_node_pricing_
   static GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_gross
       fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
           GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
-    implements
-        Built<
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net,
-            GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_netBuilder>,
-        GProductPricingField_pricing_priceRange_stop_net,
-        GPrice_net {
-  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net._();
-
-  factory GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net(
-          [Function(
-                  GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net>
-      get serializer =>
-          _$gProductDetailsDataProductCategoryProductsEdgesNodePricingPriceRangeStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
               .serializer,
           json);
 }
@@ -1619,7 +766,6 @@ abstract class GProductDetailsData_product_variants_pricing_priceUndiscounted
   String get G__typename;
   GProductDetailsData_product_variants_pricing_priceUndiscounted_gross
       get gross;
-  GProductDetailsData_product_variants_pricing_priceUndiscounted_net get net;
   static Serializer<
           GProductDetailsData_product_variants_pricing_priceUndiscounted>
       get serializer =>
@@ -1673,45 +819,6 @@ abstract class GProductDetailsData_product_variants_pricing_priceUndiscounted_gr
           json);
 }
 
-abstract class GProductDetailsData_product_variants_pricing_priceUndiscounted_net
-    implements
-        Built<
-            GProductDetailsData_product_variants_pricing_priceUndiscounted_net,
-            GProductDetailsData_product_variants_pricing_priceUndiscounted_netBuilder>,
-        GProductVariantFields_pricing_priceUndiscounted_net,
-        GPrice_net {
-  GProductDetailsData_product_variants_pricing_priceUndiscounted_net._();
-
-  factory GProductDetailsData_product_variants_pricing_priceUndiscounted_net(
-          [Function(
-                  GProductDetailsData_product_variants_pricing_priceUndiscounted_netBuilder
-                      b)
-              updates]) =
-      _$GProductDetailsData_product_variants_pricing_priceUndiscounted_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_variants_pricing_priceUndiscounted_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductDetailsData_product_variants_pricing_priceUndiscounted_net>
-      get serializer =>
-          _$gProductDetailsDataProductVariantsPricingPriceUndiscountedNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_variants_pricing_priceUndiscounted_net
-          .serializer,
-      this);
-  static GProductDetailsData_product_variants_pricing_priceUndiscounted_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductDetailsData_product_variants_pricing_priceUndiscounted_net
-              .serializer,
-          json);
-}
-
 abstract class GProductDetailsData_product_variants_pricing_price
     implements
         Built<GProductDetailsData_product_variants_pricing_price,
@@ -1730,7 +837,6 @@ abstract class GProductDetailsData_product_variants_pricing_price
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GProductDetailsData_product_variants_pricing_price_gross get gross;
-  GProductDetailsData_product_variants_pricing_price_net get net;
   static Serializer<GProductDetailsData_product_variants_pricing_price>
       get serializer =>
           _$gProductDetailsDataProductVariantsPricingPriceSerializer;
@@ -1772,37 +878,6 @@ abstract class GProductDetailsData_product_variants_pricing_price_gross
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductDetailsData_product_variants_pricing_price_gross.serializer,
-          json);
-}
-
-abstract class GProductDetailsData_product_variants_pricing_price_net
-    implements
-        Built<GProductDetailsData_product_variants_pricing_price_net,
-            GProductDetailsData_product_variants_pricing_price_netBuilder>,
-        GProductVariantFields_pricing_price_net,
-        GPrice_net {
-  GProductDetailsData_product_variants_pricing_price_net._();
-
-  factory GProductDetailsData_product_variants_pricing_price_net(
-      [Function(GProductDetailsData_product_variants_pricing_price_netBuilder b)
-          updates]) = _$GProductDetailsData_product_variants_pricing_price_net;
-
-  static void _initializeBuilder(
-          GProductDetailsData_product_variants_pricing_price_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductDetailsData_product_variants_pricing_price_net>
-      get serializer =>
-          _$gProductDetailsDataProductVariantsPricingPriceNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductDetailsData_product_variants_pricing_price_net.serializer, this);
-  static GProductDetailsData_product_variants_pricing_price_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductDetailsData_product_variants_pricing_price_net.serializer,
           json);
 }
 
@@ -2097,8 +1172,6 @@ abstract class GVariantListData_productVariants_edges_node_pricing_priceUndiscou
   String get G__typename;
   GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_gross
       get gross;
-  GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-      get net;
   static Serializer<
           GVariantListData_productVariants_edges_node_pricing_priceUndiscounted>
       get serializer =>
@@ -2153,45 +1226,6 @@ abstract class GVariantListData_productVariants_edges_node_pricing_priceUndiscou
           json);
 }
 
-abstract class GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-    implements
-        Built<
-            GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net,
-            GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_netBuilder>,
-        GProductVariantFields_pricing_priceUndiscounted_net,
-        GPrice_net {
-  GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net._();
-
-  factory GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net(
-          [Function(
-                  GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_netBuilder
-                      b)
-              updates]) =
-      _$GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net;
-
-  static void _initializeBuilder(
-          GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net>
-      get serializer =>
-          _$gVariantListDataProductVariantsEdgesNodePricingPriceUndiscountedNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-          .serializer,
-      this);
-  static GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-              .serializer,
-          json);
-}
-
 abstract class GVariantListData_productVariants_edges_node_pricing_price
     implements
         Built<GVariantListData_productVariants_edges_node_pricing_price,
@@ -2212,7 +1246,6 @@ abstract class GVariantListData_productVariants_edges_node_pricing_price
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GVariantListData_productVariants_edges_node_pricing_price_gross get gross;
-  GVariantListData_productVariants_edges_node_pricing_price_net get net;
   static Serializer<GVariantListData_productVariants_edges_node_pricing_price>
       get serializer =>
           _$gVariantListDataProductVariantsEdgesNodePricingPriceSerializer;
@@ -2260,44 +1293,6 @@ abstract class GVariantListData_productVariants_edges_node_pricing_price_gross
   static GVariantListData_productVariants_edges_node_pricing_price_gross
       fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
           GVariantListData_productVariants_edges_node_pricing_price_gross
-              .serializer,
-          json);
-}
-
-abstract class GVariantListData_productVariants_edges_node_pricing_price_net
-    implements
-        Built<GVariantListData_productVariants_edges_node_pricing_price_net,
-            GVariantListData_productVariants_edges_node_pricing_price_netBuilder>,
-        GProductVariantFields_pricing_price_net,
-        GPrice_net {
-  GVariantListData_productVariants_edges_node_pricing_price_net._();
-
-  factory GVariantListData_productVariants_edges_node_pricing_price_net(
-          [Function(
-                  GVariantListData_productVariants_edges_node_pricing_price_netBuilder
-                      b)
-              updates]) =
-      _$GVariantListData_productVariants_edges_node_pricing_price_net;
-
-  static void _initializeBuilder(
-          GVariantListData_productVariants_edges_node_pricing_price_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GVariantListData_productVariants_edges_node_pricing_price_net>
-      get serializer =>
-          _$gVariantListDataProductVariantsEdgesNodePricingPriceNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GVariantListData_productVariants_edges_node_pricing_price_net.serializer,
-      this);
-  static GVariantListData_productVariants_edges_node_pricing_price_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GVariantListData_productVariants_edges_node_pricing_price_net
               .serializer,
           json);
 }
@@ -2485,18 +1480,10 @@ abstract class GVariantListData_productVariants_edges_node_product_thumbnail
 abstract class GPrice {
   String get G__typename;
   GPrice_gross get gross;
-  GPrice_net get net;
   Map<String, dynamic> toJson();
 }
 
 abstract class GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GPrice_net {
   String get G__typename;
   double get amount;
   String get currency;
@@ -2514,7 +1501,6 @@ abstract class GPriceData
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GPriceData_gross get gross;
-  GPriceData_net get net;
   static Serializer<GPriceData> get serializer => _$gPriceDataSerializer;
   Map<String, dynamic> toJson() =>
       _i1.serializers.serializeWith(GPriceData.serializer, this);
@@ -2541,26 +1527,6 @@ abstract class GPriceData_gross
       _i1.serializers.serializeWith(GPriceData_gross.serializer, this);
   static GPriceData_gross fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(GPriceData_gross.serializer, json);
-}
-
-abstract class GPriceData_net
-    implements Built<GPriceData_net, GPriceData_netBuilder>, GPrice_net {
-  GPriceData_net._();
-
-  factory GPriceData_net([Function(GPriceData_netBuilder b) updates]) =
-      _$GPriceData_net;
-
-  static void _initializeBuilder(GPriceData_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GPriceData_net> get serializer => _$gPriceDataNetSerializer;
-  Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPriceData_net.serializer, this);
-  static GPriceData_net fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPriceData_net.serializer, json);
 }
 
 abstract class GBasicProductFields {
@@ -2641,114 +1607,24 @@ abstract class GProductPricingField {
 abstract class GProductPricingField_pricing {
   String get G__typename;
   bool get onSale;
-  GProductPricingField_pricing_priceRangeUndiscounted
-      get priceRangeUndiscounted;
   GProductPricingField_pricing_priceRange get priceRange;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted {
-  String get G__typename;
-  GProductPricingField_pricing_priceRangeUndiscounted_start get start;
-  GProductPricingField_pricing_priceRangeUndiscounted_stop get stop;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_start
-    implements GPrice {
-  String get G__typename;
-  GProductPricingField_pricing_priceRangeUndiscounted_start_gross get gross;
-  GProductPricingField_pricing_priceRangeUndiscounted_start_net get net;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_start_gross
-    implements GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_start_net
-    implements GPrice_net {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_stop
-    implements GPrice {
-  String get G__typename;
-  GProductPricingField_pricing_priceRangeUndiscounted_stop_gross get gross;
-  GProductPricingField_pricing_priceRangeUndiscounted_stop_net get net;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_stop_gross
-    implements GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRangeUndiscounted_stop_net
-    implements GPrice_net {
-  String get G__typename;
-  double get amount;
-  String get currency;
   Map<String, dynamic> toJson();
 }
 
 abstract class GProductPricingField_pricing_priceRange {
   String get G__typename;
-  GProductPricingField_pricing_priceRange_start get start;
   GProductPricingField_pricing_priceRange_stop get stop;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRange_start implements GPrice {
-  String get G__typename;
-  GProductPricingField_pricing_priceRange_start_gross get gross;
-  GProductPricingField_pricing_priceRange_start_net get net;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRange_start_gross
-    implements GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRange_start_net
-    implements GPrice_net {
-  String get G__typename;
-  double get amount;
-  String get currency;
   Map<String, dynamic> toJson();
 }
 
 abstract class GProductPricingField_pricing_priceRange_stop implements GPrice {
   String get G__typename;
   GProductPricingField_pricing_priceRange_stop_gross get gross;
-  GProductPricingField_pricing_priceRange_stop_net get net;
   Map<String, dynamic> toJson();
 }
 
 abstract class GProductPricingField_pricing_priceRange_stop_gross
     implements GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductPricingField_pricing_priceRange_stop_net
-    implements GPrice_net {
   String get G__typename;
   double get amount;
   String get currency;
@@ -2798,9 +1674,6 @@ abstract class GProductPricingFieldData_pricing
   @nullable
   bool get onSale;
   @nullable
-  GProductPricingFieldData_pricing_priceRangeUndiscounted
-      get priceRangeUndiscounted;
-  @nullable
   GProductPricingFieldData_pricing_priceRange get priceRange;
   static Serializer<GProductPricingFieldData_pricing> get serializer =>
       _$gProductPricingFieldDataPricingSerializer;
@@ -2809,269 +1682,6 @@ abstract class GProductPricingFieldData_pricing
   static GProductPricingFieldData_pricing fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GProductPricingFieldData_pricing.serializer, json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted
-    implements
-        Built<GProductPricingFieldData_pricing_priceRangeUndiscounted,
-            GProductPricingFieldData_pricing_priceRangeUndiscountedBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted(
-      [Function(
-              GProductPricingFieldData_pricing_priceRangeUndiscountedBuilder b)
-          updates]) = _$GProductPricingFieldData_pricing_priceRangeUndiscounted;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscountedBuilder b) =>
-      b..G__typename = 'TaxedMoneyRange';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @nullable
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start get start;
-  @nullable
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop get stop;
-  static Serializer<GProductPricingFieldData_pricing_priceRangeUndiscounted>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted.serializer, this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted.serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_start
-    implements
-        Built<GProductPricingFieldData_pricing_priceRangeUndiscounted_start,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_startBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start,
-        GPrice {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_start(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_startBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_start;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_startBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross get gross;
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net get net;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_start.serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_start fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start
-              .serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross
-    implements
-        Built<
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_start_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_gross,
-        GPrice_gross {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_grossBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross
-          .serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net
-    implements
-        Built<GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_start_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_start_net,
-        GPrice_net {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_start_netBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net
-          .serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_start_net
-              .serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_stop
-    implements
-        Built<GProductPricingFieldData_pricing_priceRangeUndiscounted_stop,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_stopBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop,
-        GPrice {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_stop(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_stopBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_stop;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stopBuilder
-              b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross get gross;
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net get net;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStopSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_stop.serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_stop fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop
-              .serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross
-    implements
-        Built<
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_grossBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_gross,
-        GPrice_gross {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_grossBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_grossBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStopGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross
-          .serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_gross
-              .serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net
-    implements
-        Built<GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net,
-            GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_netBuilder>,
-        GProductPricingField_pricing_priceRangeUndiscounted_stop_net,
-        GPrice_net {
-  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net._();
-
-  factory GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net(
-          [Function(
-                  GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_netBuilder
-                      b)
-              updates]) =
-      _$GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_netBuilder
-              b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeUndiscountedStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net
-          .serializer,
-      this);
-  static GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net
-      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRangeUndiscounted_stop_net
-              .serializer,
-          json);
 }
 
 abstract class GProductPricingFieldData_pricing_priceRange
@@ -3091,8 +1701,6 @@ abstract class GProductPricingFieldData_pricing_priceRange
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GProductPricingFieldData_pricing_priceRange_start get start;
-  @nullable
   GProductPricingFieldData_pricing_priceRange_stop get stop;
   static Serializer<GProductPricingFieldData_pricing_priceRange>
       get serializer => _$gProductPricingFieldDataPricingPriceRangeSerializer;
@@ -3102,99 +1710,6 @@ abstract class GProductPricingFieldData_pricing_priceRange
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductPricingFieldData_pricing_priceRange.serializer, json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRange_start
-    implements
-        Built<GProductPricingFieldData_pricing_priceRange_start,
-            GProductPricingFieldData_pricing_priceRange_startBuilder>,
-        GProductPricingField_pricing_priceRange_start,
-        GPrice {
-  GProductPricingFieldData_pricing_priceRange_start._();
-
-  factory GProductPricingFieldData_pricing_priceRange_start(
-      [Function(GProductPricingFieldData_pricing_priceRange_startBuilder b)
-          updates]) = _$GProductPricingFieldData_pricing_priceRange_start;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRange_startBuilder b) =>
-      b..G__typename = 'TaxedMoney';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GProductPricingFieldData_pricing_priceRange_start_gross get gross;
-  GProductPricingFieldData_pricing_priceRange_start_net get net;
-  static Serializer<GProductPricingFieldData_pricing_priceRange_start>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeStartSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRange_start.serializer, this);
-  static GProductPricingFieldData_pricing_priceRange_start fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRange_start.serializer, json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRange_start_gross
-    implements
-        Built<GProductPricingFieldData_pricing_priceRange_start_gross,
-            GProductPricingFieldData_pricing_priceRange_start_grossBuilder>,
-        GProductPricingField_pricing_priceRange_start_gross,
-        GPrice_gross {
-  GProductPricingFieldData_pricing_priceRange_start_gross._();
-
-  factory GProductPricingFieldData_pricing_priceRange_start_gross(
-      [Function(
-              GProductPricingFieldData_pricing_priceRange_start_grossBuilder b)
-          updates]) = _$GProductPricingFieldData_pricing_priceRange_start_gross;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRange_start_grossBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductPricingFieldData_pricing_priceRange_start_gross>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeStartGrossSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRange_start_gross.serializer, this);
-  static GProductPricingFieldData_pricing_priceRange_start_gross fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRange_start_gross.serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRange_start_net
-    implements
-        Built<GProductPricingFieldData_pricing_priceRange_start_net,
-            GProductPricingFieldData_pricing_priceRange_start_netBuilder>,
-        GProductPricingField_pricing_priceRange_start_net,
-        GPrice_net {
-  GProductPricingFieldData_pricing_priceRange_start_net._();
-
-  factory GProductPricingFieldData_pricing_priceRange_start_net(
-      [Function(GProductPricingFieldData_pricing_priceRange_start_netBuilder b)
-          updates]) = _$GProductPricingFieldData_pricing_priceRange_start_net;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRange_start_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductPricingFieldData_pricing_priceRange_start_net>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeStartNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRange_start_net.serializer, this);
-  static GProductPricingFieldData_pricing_priceRange_start_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRange_start_net.serializer,
-          json);
 }
 
 abstract class GProductPricingFieldData_pricing_priceRange_stop
@@ -3215,7 +1730,6 @@ abstract class GProductPricingFieldData_pricing_priceRange_stop
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GProductPricingFieldData_pricing_priceRange_stop_gross get gross;
-  GProductPricingFieldData_pricing_priceRange_stop_net get net;
   static Serializer<GProductPricingFieldData_pricing_priceRange_stop>
       get serializer =>
           _$gProductPricingFieldDataPricingPriceRangeStopSerializer;
@@ -3255,37 +1769,6 @@ abstract class GProductPricingFieldData_pricing_priceRange_stop_gross
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductPricingFieldData_pricing_priceRange_stop_gross.serializer,
-          json);
-}
-
-abstract class GProductPricingFieldData_pricing_priceRange_stop_net
-    implements
-        Built<GProductPricingFieldData_pricing_priceRange_stop_net,
-            GProductPricingFieldData_pricing_priceRange_stop_netBuilder>,
-        GProductPricingField_pricing_priceRange_stop_net,
-        GPrice_net {
-  GProductPricingFieldData_pricing_priceRange_stop_net._();
-
-  factory GProductPricingFieldData_pricing_priceRange_stop_net(
-      [Function(GProductPricingFieldData_pricing_priceRange_stop_netBuilder b)
-          updates]) = _$GProductPricingFieldData_pricing_priceRange_stop_net;
-
-  static void _initializeBuilder(
-          GProductPricingFieldData_pricing_priceRange_stop_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductPricingFieldData_pricing_priceRange_stop_net>
-      get serializer =>
-          _$gProductPricingFieldDataPricingPriceRangeStopNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductPricingFieldData_pricing_priceRange_stop_net.serializer, this);
-  static GProductPricingFieldData_pricing_priceRange_stop_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductPricingFieldData_pricing_priceRange_stop_net.serializer,
           json);
 }
 
@@ -3428,7 +1911,6 @@ abstract class GProductVariantFields_pricing_priceUndiscounted
     implements GPrice {
   String get G__typename;
   GProductVariantFields_pricing_priceUndiscounted_gross get gross;
-  GProductVariantFields_pricing_priceUndiscounted_net get net;
   Map<String, dynamic> toJson();
 }
 
@@ -3440,30 +1922,14 @@ abstract class GProductVariantFields_pricing_priceUndiscounted_gross
   Map<String, dynamic> toJson();
 }
 
-abstract class GProductVariantFields_pricing_priceUndiscounted_net
-    implements GPrice_net {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
 abstract class GProductVariantFields_pricing_price implements GPrice {
   String get G__typename;
   GProductVariantFields_pricing_price_gross get gross;
-  GProductVariantFields_pricing_price_net get net;
   Map<String, dynamic> toJson();
 }
 
 abstract class GProductVariantFields_pricing_price_gross
     implements GPrice_gross {
-  String get G__typename;
-  double get amount;
-  String get currency;
-  Map<String, dynamic> toJson();
-}
-
-abstract class GProductVariantFields_pricing_price_net implements GPrice_net {
   String get G__typename;
   double get amount;
   String get currency;
@@ -3602,7 +2068,6 @@ abstract class GProductVariantFieldsData_pricing_priceUndiscounted
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GProductVariantFieldsData_pricing_priceUndiscounted_gross get gross;
-  GProductVariantFieldsData_pricing_priceUndiscounted_net get net;
   static Serializer<GProductVariantFieldsData_pricing_priceUndiscounted>
       get serializer =>
           _$gProductVariantFieldsDataPricingPriceUndiscountedSerializer;
@@ -3648,38 +2113,6 @@ abstract class GProductVariantFieldsData_pricing_priceUndiscounted_gross
           json);
 }
 
-abstract class GProductVariantFieldsData_pricing_priceUndiscounted_net
-    implements
-        Built<GProductVariantFieldsData_pricing_priceUndiscounted_net,
-            GProductVariantFieldsData_pricing_priceUndiscounted_netBuilder>,
-        GProductVariantFields_pricing_priceUndiscounted_net,
-        GPrice_net {
-  GProductVariantFieldsData_pricing_priceUndiscounted_net._();
-
-  factory GProductVariantFieldsData_pricing_priceUndiscounted_net(
-      [Function(
-              GProductVariantFieldsData_pricing_priceUndiscounted_netBuilder b)
-          updates]) = _$GProductVariantFieldsData_pricing_priceUndiscounted_net;
-
-  static void _initializeBuilder(
-          GProductVariantFieldsData_pricing_priceUndiscounted_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductVariantFieldsData_pricing_priceUndiscounted_net>
-      get serializer =>
-          _$gProductVariantFieldsDataPricingPriceUndiscountedNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductVariantFieldsData_pricing_priceUndiscounted_net.serializer, this);
-  static GProductVariantFieldsData_pricing_priceUndiscounted_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductVariantFieldsData_pricing_priceUndiscounted_net.serializer,
-          json);
-}
-
 abstract class GProductVariantFieldsData_pricing_price
     implements
         Built<GProductVariantFieldsData_pricing_price,
@@ -3698,7 +2131,6 @@ abstract class GProductVariantFieldsData_pricing_price
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   GProductVariantFieldsData_pricing_price_gross get gross;
-  GProductVariantFieldsData_pricing_price_net get net;
   static Serializer<GProductVariantFieldsData_pricing_price> get serializer =>
       _$gProductVariantFieldsDataPricingPriceSerializer;
   Map<String, dynamic> toJson() => _i1.serializers
@@ -3736,35 +2168,6 @@ abstract class GProductVariantFieldsData_pricing_price_gross
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
           GProductVariantFieldsData_pricing_price_gross.serializer, json);
-}
-
-abstract class GProductVariantFieldsData_pricing_price_net
-    implements
-        Built<GProductVariantFieldsData_pricing_price_net,
-            GProductVariantFieldsData_pricing_price_netBuilder>,
-        GProductVariantFields_pricing_price_net,
-        GPrice_net {
-  GProductVariantFieldsData_pricing_price_net._();
-
-  factory GProductVariantFieldsData_pricing_price_net(
-      [Function(GProductVariantFieldsData_pricing_price_netBuilder b)
-          updates]) = _$GProductVariantFieldsData_pricing_price_net;
-
-  static void _initializeBuilder(
-          GProductVariantFieldsData_pricing_price_netBuilder b) =>
-      b..G__typename = 'Money';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  double get amount;
-  String get currency;
-  static Serializer<GProductVariantFieldsData_pricing_price_net>
-      get serializer => _$gProductVariantFieldsDataPricingPriceNetSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GProductVariantFieldsData_pricing_price_net.serializer, this);
-  static GProductVariantFieldsData_pricing_price_net fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GProductVariantFieldsData_pricing_price_net.serializer, json);
 }
 
 abstract class GProductVariantFieldsData_attributes

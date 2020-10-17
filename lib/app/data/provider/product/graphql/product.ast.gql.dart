@@ -27,25 +27,6 @@ const Price = _i1.FragmentDefinitionNode(
                 arguments: [],
                 directives: [],
                 selectionSet: null)
-          ])),
-      _i1.FieldNode(
-          name: _i1.NameNode(value: 'net'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'amount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'currency'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null)
           ]))
     ]));
 const BasicProductFields = _i1.FragmentDefinitionNode(
@@ -107,45 +88,11 @@ const ProductPricingField = _i1.FragmentDefinitionNode(
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'priceRangeUndiscounted'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'start'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: _i1.SelectionSetNode(selections: [
-                        _i1.FragmentSpreadNode(
-                            name: _i1.NameNode(value: 'Price'), directives: [])
-                      ])),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'stop'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: _i1.SelectionSetNode(selections: [
-                        _i1.FragmentSpreadNode(
-                            name: _i1.NameNode(value: 'Price'), directives: [])
-                      ]))
-                ])),
-            _i1.FieldNode(
                 name: _i1.NameNode(value: 'priceRange'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'start'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: _i1.SelectionSetNode(selections: [
-                        _i1.FragmentSpreadNode(
-                            name: _i1.NameNode(value: 'Price'), directives: [])
-                      ])),
                   _i1.FieldNode(
                       name: _i1.NameNode(value: 'stop'),
                       alias: null,

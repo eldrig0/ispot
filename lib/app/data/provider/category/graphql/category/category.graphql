@@ -1,3 +1,4 @@
+
 query Category(
   $id: ID!
   $attributes: [AttributeInput]
@@ -57,36 +58,23 @@ query Category(
       node {
         id
         name
+        pricing{
+          onSale
+          priceRange {
+            stop {
+              gross {
+                amount
+                currency
+              } 
+            }
+          }
+        }
         images {
           url
         }
         thumbnail {
           url
           alt
-        }
-        pricing {
-          priceRange {
-            start {
-              gross {
-                amount
-                currency
-              }
-              net {
-                amount
-                currency
-              }
-            }
-            stop {
-              gross {
-                amount
-                currency
-              }
-              net {
-                amount
-                currency
-              }
-            }
-          }
         }
       }
     }

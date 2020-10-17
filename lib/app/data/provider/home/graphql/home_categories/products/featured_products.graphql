@@ -14,24 +14,19 @@ query FeaturedProducts {
             node{
               id
               name
-              category{
-                name
-              }
-              pricing{
-                priceRange{
-                   start{
-                    currency
+              pricing {
+                onSale
+                priceRange {
+                  stop {
                     gross {
                       amount
-                    }
-                  }
-                  stop {
-                    currency
-                    gross{
-                      amount
+                      currency
                     }
                   }
                 }
+              }
+              category{
+                name
               }
               thumbnail{
                 url

@@ -26,10 +26,6 @@ Serializer<GFeaturedProductsData_shop_homepageCollection_products_edges_node>
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodeSerializer =
     new _$GFeaturedProductsData_shop_homepageCollection_products_edges_nodeSerializer();
 Serializer<
-        GFeaturedProductsData_shop_homepageCollection_products_edges_node_category>
-    _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodeCategorySerializer =
-    new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_categorySerializer();
-Serializer<
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing>
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingSerializer =
     new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingSerializer();
@@ -38,14 +34,6 @@ Serializer<
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingPriceRangeSerializer =
     new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeSerializer();
 Serializer<
-        GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start>
-    _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingPriceRangeStartSerializer =
-    new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startSerializer();
-Serializer<
-        GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross>
-    _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingPriceRangeStartGrossSerializer =
-    new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossSerializer();
-Serializer<
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop>
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingPriceRangeStopSerializer =
     new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopSerializer();
@@ -53,6 +41,10 @@ Serializer<
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross>
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodePricingPriceRangeStopGrossSerializer =
     new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossSerializer();
+Serializer<
+        GFeaturedProductsData_shop_homepageCollection_products_edges_node_category>
+    _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodeCategorySerializer =
+    new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_categorySerializer();
 Serializer<
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail>
     _$gFeaturedProductsDataShopHomepageCollectionProductsEdgesNodeThumbnailSerializer =
@@ -468,19 +460,19 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_nodeSeriali
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
-    if (object.category != null) {
-      result
-        ..add('category')
-        ..add(serializers.serialize(object.category,
-            specifiedType: const FullType(
-                GFeaturedProductsData_shop_homepageCollection_products_edges_node_category)));
-    }
     if (object.pricing != null) {
       result
         ..add('pricing')
         ..add(serializers.serialize(object.pricing,
             specifiedType: const FullType(
                 GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing)));
+    }
+    if (object.category != null) {
+      result
+        ..add('category')
+        ..add(serializers.serialize(object.category,
+            specifiedType: const FullType(
+                GFeaturedProductsData_shop_homepageCollection_products_edges_node_category)));
     }
     if (object.thumbnail != null) {
       result
@@ -517,23 +509,289 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_nodeSeriali
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'category':
-          result.category.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_category))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_category);
-          break;
         case 'pricing':
           result.pricing.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing))
               as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing);
           break;
+        case 'category':
+          result.category.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_category))
+              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_category);
+          break;
         case 'thumbnail':
           result.thumbnail.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail))
               as GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingSerializer
+    implements
+        StructuredSerializer<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing> {
+  @override
+  final Iterable<Type> types = const [
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing,
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+  ];
+  @override
+  final String wireName =
+      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers,
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    if (object.onSale != null) {
+      result
+        ..add('onSale')
+        ..add(serializers.serialize(object.onSale,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.priceRange != null) {
+      result
+        ..add('priceRange')
+        ..add(serializers.serialize(object.priceRange,
+            specifiedType: const FullType(
+                GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange)));
+    }
+    return result;
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+      deserialize(Serializers serializers, Iterable<Object> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'onSale':
+          result.onSale = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'priceRange':
+          result.priceRange.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange))
+              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeSerializer
+    implements
+        StructuredSerializer<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange> {
+  @override
+  final Iterable<Type> types = const [
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange,
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+  ];
+  @override
+  final String wireName =
+      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers,
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    if (object.stop != null) {
+      result
+        ..add('stop')
+        ..add(serializers.serialize(object.stop,
+            specifiedType: const FullType(
+                GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop)));
+    }
+    return result;
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+      deserialize(Serializers serializers, Iterable<Object> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'stop':
+          result.stop.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop))
+              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopSerializer
+    implements
+        StructuredSerializer<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop> {
+  @override
+  final Iterable<Type> types = const [
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop,
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+  ];
+  @override
+  final String wireName =
+      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers,
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'gross',
+      serializers.serialize(object.gross,
+          specifiedType: const FullType(
+              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+      deserialize(Serializers serializers, Iterable<Object> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'gross':
+          result.gross.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross))
+              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossSerializer
+    implements
+        StructuredSerializer<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross> {
+  @override
+  final Iterable<Type> types = const [
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross,
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+  ];
+  @override
+  final String wireName =
+      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers,
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'amount',
+      serializers.serialize(object.amount,
+          specifiedType: const FullType(double)),
+      'currency',
+      serializers.serialize(object.currency,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+      deserialize(Serializers serializers, Iterable<Object> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'amount':
+          result.amount = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double;
+          break;
+        case 'currency':
+          result.currency = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -592,403 +850,6 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_catego
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-    ];
-    if (object.priceRange != null) {
-      result
-        ..add('priceRange')
-        ..add(serializers.serialize(object.priceRange,
-            specifiedType: const FullType(
-                GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange)));
-    }
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'priceRange':
-          result.priceRange.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-    ];
-    if (object.start != null) {
-      result
-        ..add('start')
-        ..add(serializers.serialize(object.start,
-            specifiedType: const FullType(
-                GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start)));
-    }
-    if (object.stop != null) {
-      result
-        ..add('stop')
-        ..add(serializers.serialize(object.stop,
-            specifiedType: const FullType(
-                GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop)));
-    }
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'start':
-          result.start.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start);
-          break;
-        case 'stop':
-          result.stop.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'currency',
-      serializers.serialize(object.currency,
-          specifiedType: const FullType(String)),
-      'gross',
-      serializers.serialize(object.gross,
-          specifiedType: const FullType(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'currency':
-          result.currency = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'gross':
-          result.gross.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'amount',
-      serializers.serialize(object.amount,
-          specifiedType: const FullType(double)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'amount':
-          result.amount = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'currency',
-      serializers.serialize(object.currency,
-          specifiedType: const FullType(String)),
-      'gross',
-      serializers.serialize(object.gross,
-          specifiedType: const FullType(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'currency':
-          result.currency = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'gross':
-          result.gross.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross))
-              as GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossSerializer
-    implements
-        StructuredSerializer<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross> {
-  @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross,
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-  ];
-  @override
-  final String wireName =
-      'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers,
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-          object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'amount',
-      serializers.serialize(object.amount,
-          specifiedType: const FullType(double)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-      deserialize(Serializers serializers, Iterable<Object> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'amount':
-          result.amount = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
           break;
       }
     }
@@ -1899,11 +1760,11 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node
   @override
   final String name;
   @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
-      category;
-  @override
   final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
       pricing;
+  @override
+  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
+      category;
   @override
   final GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail
       thumbnail;
@@ -1920,8 +1781,8 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node
       {this.G__typename,
       this.id,
       this.name,
-      this.category,
       this.pricing,
+      this.category,
       this.thumbnail})
       : super._() {
     if (G__typename == null) {
@@ -1962,8 +1823,8 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
-        category == other.category &&
         pricing == other.pricing &&
+        category == other.category &&
         thumbnail == other.thumbnail;
   }
 
@@ -1974,8 +1835,8 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node
             $jc(
                 $jc($jc($jc(0, G__typename.hashCode), id.hashCode),
                     name.hashCode),
-                category.hashCode),
-            pricing.hashCode),
+                pricing.hashCode),
+            category.hashCode),
         thumbnail.hashCode));
   }
 
@@ -1986,8 +1847,8 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
-          ..add('category', category)
           ..add('pricing', pricing)
+          ..add('category', category)
           ..add('thumbnail', thumbnail))
         .toString();
   }
@@ -2012,16 +1873,6 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_nodeBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
-      _category;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
-      get category => _$this._category ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder();
-  set category(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
-              category) =>
-      _$this._category = category;
-
   GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
       _pricing;
   GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
@@ -2031,6 +1882,16 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_nodeBuilder
           GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
               pricing) =>
       _$this._pricing = pricing;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
+      _category;
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
+      get category => _$this._category ??=
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder();
+  set category(
+          GFeaturedProductsData_shop_homepageCollection_products_edges_node_categoryBuilder
+              category) =>
+      _$this._category = category;
 
   GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnailBuilder
       _thumbnail;
@@ -2053,8 +1914,8 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_nodeBuilder
       _G__typename = _$v.G__typename;
       _id = _$v.id;
       _name = _$v.name;
-      _category = _$v.category?.toBuilder();
       _pricing = _$v.pricing?.toBuilder();
+      _category = _$v.category?.toBuilder();
       _thumbnail = _$v.thumbnail?.toBuilder();
       _$v = null;
     }
@@ -2090,16 +1951,16 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_nodeBuilder
               G__typename: G__typename,
               id: id,
               name: name,
-              category: _category?.build(),
               pricing: _pricing?.build(),
+              category: _category?.build(),
               thumbnail: _thumbnail?.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'category';
-        _category?.build();
         _$failedField = 'pricing';
         _pricing?.build();
+        _$failedField = 'category';
+        _category?.build();
         _$failedField = 'thumbnail';
         _thumbnail?.build();
       } catch (e) {
@@ -2110,6 +1971,608 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_nodeBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing {
+  @override
+  final String G__typename;
+  @override
+  final bool onSale;
+  @override
+  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+      priceRange;
+
+  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing(
+          [void Function(
+                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
+              updates]) =>
+      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder()
+            ..update(updates))
+          .build();
+
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing._(
+      {this.G__typename, this.onSale, this.priceRange})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing',
+          'G__typename');
+    }
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing rebuild(
+          void Function(
+                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
+      toBuilder() =>
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing &&
+        G__typename == other.G__typename &&
+        onSale == other.onSale &&
+        priceRange == other.priceRange;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, G__typename.hashCode), onSale.hashCode),
+        priceRange.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing')
+          ..add('G__typename', G__typename)
+          ..add('onSale', onSale)
+          ..add('priceRange', priceRange))
+        .toString();
+  }
+}
+
+class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
+    implements
+        Builder<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing,
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder> {
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+      _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  bool _onSale;
+  bool get onSale => _$this._onSale;
+  set onSale(bool onSale) => _$this._onSale = onSale;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+      _priceRange;
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+      get priceRange => _$this._priceRange ??=
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder();
+  set priceRange(
+          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+              priceRange) =>
+      _$this._priceRange = priceRange;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder() {
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+        ._initializeBuilder(this);
+  }
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
+      get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _onSale = _$v.onSale;
+      _priceRange = _$v.priceRange?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+          other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other
+        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing;
+  }
+
+  @override
+  void update(
+      void Function(
+              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+      build() {
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+        _$result;
+    try {
+      _$result = _$v ??
+          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+                  ._(
+              G__typename: G__typename,
+              onSale: onSale,
+              priceRange: _priceRange?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'priceRange';
+        _priceRange?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange {
+  @override
+  final String G__typename;
+  @override
+  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+      stop;
+
+  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange(
+          [void Function(
+                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
+              updates]) =>
+      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder()
+            ..update(updates))
+          .build();
+
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange._(
+      {this.G__typename, this.stop})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange',
+          'G__typename');
+    }
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+      rebuild(
+              void Function(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
+                  updates) =>
+          (toBuilder()..update(updates)).build();
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+      toBuilder() =>
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange &&
+        G__typename == other.G__typename &&
+        stop == other.stop;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), stop.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange')
+          ..add('G__typename', G__typename)
+          ..add('stop', stop))
+        .toString();
+  }
+}
+
+class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+    implements
+        Builder<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange,
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder> {
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+      _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+      _stop;
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+      get stop => _$this._stop ??=
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder();
+  set stop(
+          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+              stop) =>
+      _$this._stop = stop;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder() {
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+        ._initializeBuilder(this);
+  }
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
+      get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _stop = _$v.stop?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+          other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other
+        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange;
+  }
+
+  @override
+  void update(
+      void Function(
+              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+      build() {
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+        _$result;
+    try {
+      _$result = _$v ??
+          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+              ._(G__typename: G__typename, stop: _stop?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'stop';
+        _stop?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop {
+  @override
+  final String G__typename;
+  @override
+  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+      gross;
+
+  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop(
+          [void Function(
+                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
+              updates]) =>
+      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder()
+            ..update(updates))
+          .build();
+
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop._(
+      {this.G__typename, this.gross})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
+          'G__typename');
+    }
+    if (gross == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
+          'gross');
+    }
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+      rebuild(
+              void Function(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
+                  updates) =>
+          (toBuilder()..update(updates)).build();
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+      toBuilder() =>
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop &&
+        G__typename == other.G__typename &&
+        gross == other.gross;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), gross.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop')
+          ..add('G__typename', G__typename)
+          ..add('gross', gross))
+        .toString();
+  }
+}
+
+class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+    implements
+        Builder<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop,
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder> {
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+      _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+      _gross;
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+      get gross => _$this._gross ??=
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder();
+  set gross(
+          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+              gross) =>
+      _$this._gross = gross;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder() {
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+        ._initializeBuilder(this);
+  }
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
+      get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _gross = _$v.gross?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+          other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other
+        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop;
+  }
+
+  @override
+  void update(
+      void Function(
+              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+      build() {
+    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+        _$result;
+    try {
+      _$result = _$v ??
+          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
+              ._(G__typename: G__typename, gross: gross.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'gross';
+        gross.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross {
+  @override
+  final String G__typename;
+  @override
+  final double amount;
+  @override
+  final String currency;
+
+  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross(
+          [void Function(
+                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
+              updates]) =>
+      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder()
+            ..update(updates))
+          .build();
+
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross._(
+      {this.G__typename, this.amount, this.currency})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross',
+          'G__typename');
+    }
+    if (amount == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross',
+          'amount');
+    }
+    if (currency == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross',
+          'currency');
+    }
+  }
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+      rebuild(
+              void Function(
+                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
+                  updates) =>
+          (toBuilder()..update(updates)).build();
+
+  @override
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+      toBuilder() =>
+          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross &&
+        G__typename == other.G__typename &&
+        amount == other.amount &&
+        currency == other.currency;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc($jc(0, G__typename.hashCode), amount.hashCode), currency.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross')
+          ..add('G__typename', G__typename)
+          ..add('amount', amount)
+          ..add('currency', currency))
+        .toString();
+  }
+}
+
+class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+    implements
+        Builder<
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross,
+            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder> {
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+      _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  double _amount;
+  double get amount => _$this._amount;
+  set amount(double amount) => _$this._amount = amount;
+
+  String _currency;
+  String get currency => _$this._currency;
+  set currency(String currency) => _$this._currency = currency;
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder() {
+    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+        ._initializeBuilder(this);
+  }
+
+  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
+      get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _amount = _$v.amount;
+      _currency = _$v.currency;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+          other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other
+        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross;
+  }
+
+  @override
+  void update(
+      void Function(
+              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+      build() {
+    final _$result = _$v ??
+        new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
+            ._(G__typename: G__typename, amount: amount, currency: currency);
     replace(_$result);
     return _$result;
   }
@@ -2239,919 +2702,6 @@ class GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
     final _$result = _$v ??
         new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
             ._(G__typename: G__typename, name: name);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing {
-  @override
-  final String G__typename;
-  @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-      priceRange;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing._(
-      {this.G__typename, this.priceRange})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing',
-          'G__typename');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing rebuild(
-          void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing &&
-        G__typename == other.G__typename &&
-        priceRange == other.priceRange;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), priceRange.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing')
-          ..add('G__typename', G__typename)
-          ..add('priceRange', priceRange))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-      _priceRange;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-      get priceRange => _$this._priceRange ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder();
-  set priceRange(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-              priceRange) =>
-      _$this._priceRange = priceRange;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _priceRange = _$v.priceRange?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricingBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-      build() {
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-        _$result;
-    try {
-      _$result = _$v ??
-          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-              ._(G__typename: G__typename, priceRange: _priceRange?.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'priceRange';
-        _priceRange?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange {
-  @override
-  final String G__typename;
-  @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-      start;
-  @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-      stop;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange._(
-      {this.G__typename, this.start, this.stop})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange',
-          'G__typename');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-      rebuild(
-              void Function(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange &&
-        G__typename == other.G__typename &&
-        start == other.start &&
-        stop == other.stop;
-  }
-
-  @override
-  int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, G__typename.hashCode), start.hashCode), stop.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange')
-          ..add('G__typename', G__typename)
-          ..add('start', start)
-          ..add('stop', stop))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-      _start;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-      get start => _$this._start ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder();
-  set start(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-              start) =>
-      _$this._start = start;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-      _stop;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-      get stop => _$this._stop ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder();
-  set stop(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-              stop) =>
-      _$this._stop = stop;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _start = _$v.start?.toBuilder();
-      _stop = _$v.stop?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRangeBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-      build() {
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-        _$result;
-    try {
-      _$result = _$v ??
-          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-                  ._(
-              G__typename: G__typename,
-              start: _start?.build(),
-              stop: _stop?.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'start';
-        _start?.build();
-        _$failedField = 'stop';
-        _stop?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start {
-  @override
-  final String G__typename;
-  @override
-  final String currency;
-  @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-      gross;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start._(
-      {this.G__typename, this.currency, this.gross})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start',
-          'G__typename');
-    }
-    if (currency == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start',
-          'currency');
-    }
-    if (gross == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start',
-          'gross');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-      rebuild(
-              void Function(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start &&
-        G__typename == other.G__typename &&
-        currency == other.currency &&
-        gross == other.gross;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(
-        $jc($jc(0, G__typename.hashCode), currency.hashCode), gross.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start')
-          ..add('G__typename', G__typename)
-          ..add('currency', currency)
-          ..add('gross', gross))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  String _currency;
-  String get currency => _$this._currency;
-  set currency(String currency) => _$this._currency = currency;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-      _gross;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-      get gross => _$this._gross ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder();
-  set gross(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-              gross) =>
-      _$this._gross = gross;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _currency = _$v.currency;
-      _gross = _$v.gross?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_startBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-      build() {
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-        _$result;
-    try {
-      _$result = _$v ??
-          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-                  ._(
-              G__typename: G__typename,
-              currency: currency,
-              gross: gross.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'gross';
-        gross.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross {
-  @override
-  final String G__typename;
-  @override
-  final double amount;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross._(
-      {this.G__typename, this.amount})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross',
-          'G__typename');
-    }
-    if (amount == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross',
-          'amount');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-      rebuild(
-              void Function(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross &&
-        G__typename == other.G__typename &&
-        amount == other.amount;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), amount.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross')
-          ..add('G__typename', G__typename)
-          ..add('amount', amount))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  double _amount;
-  double get amount => _$this._amount;
-  set amount(double amount) => _$this._amount = amount;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _amount = _$v.amount;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_grossBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-      build() {
-    final _$result = _$v ??
-        new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_gross
-            ._(G__typename: G__typename, amount: amount);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop {
-  @override
-  final String G__typename;
-  @override
-  final String currency;
-  @override
-  final GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-      gross;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop._(
-      {this.G__typename, this.currency, this.gross})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
-          'G__typename');
-    }
-    if (currency == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
-          'currency');
-    }
-    if (gross == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
-          'gross');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-      rebuild(
-              void Function(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop &&
-        G__typename == other.G__typename &&
-        currency == other.currency &&
-        gross == other.gross;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(
-        $jc($jc(0, G__typename.hashCode), currency.hashCode), gross.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop')
-          ..add('G__typename', G__typename)
-          ..add('currency', currency)
-          ..add('gross', gross))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  String _currency;
-  String get currency => _$this._currency;
-  set currency(String currency) => _$this._currency = currency;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-      _gross;
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-      get gross => _$this._gross ??=
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder();
-  set gross(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-              gross) =>
-      _$this._gross = gross;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _currency = _$v.currency;
-      _gross = _$v.gross?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stopBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-      build() {
-    _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-        _$result;
-    try {
-      _$result = _$v ??
-          new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
-                  ._(
-              G__typename: G__typename,
-              currency: currency,
-              gross: gross.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'gross';
-        gross.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-    extends GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross {
-  @override
-  final String G__typename;
-  @override
-  final double amount;
-
-  factory _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross(
-          [void Function(
-                  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
-              updates]) =>
-      (new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder()
-            ..update(updates))
-          .build();
-
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross._(
-      {this.G__typename, this.amount})
-      : super._() {
-    if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross',
-          'G__typename');
-    }
-    if (amount == null) {
-      throw new BuiltValueNullFieldError(
-          'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross',
-          'amount');
-    }
-  }
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-      rebuild(
-              void Function(
-                      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
-
-  @override
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-      toBuilder() =>
-          new GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder()
-            ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other
-            is GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross &&
-        G__typename == other.G__typename &&
-        amount == other.amount;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), amount.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            'GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross')
-          ..add('G__typename', G__typename)
-          ..add('amount', amount))
-        .toString();
-  }
-}
-
-class GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-    implements
-        Builder<
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross,
-            GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder> {
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-      _$v;
-
-  String _G__typename;
-  String get G__typename => _$this._G__typename;
-  set G__typename(String G__typename) => _$this._G__typename = G__typename;
-
-  double _amount;
-  double get amount => _$this._amount;
-  set amount(double amount) => _$this._amount = amount;
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder() {
-    GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-        ._initializeBuilder(this);
-  }
-
-  GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder
-      get _$this {
-    if (_$v != null) {
-      _G__typename = _$v.G__typename;
-      _amount = _$v.amount;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(
-      GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-          other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other
-        as _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross;
-  }
-
-  @override
-  void update(
-      void Function(
-              GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_grossBuilder)
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-      build() {
-    final _$result = _$v ??
-        new _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_gross
-            ._(G__typename: G__typename, amount: amount);
     replace(_$result);
     return _$result;
   }

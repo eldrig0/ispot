@@ -11,7 +11,7 @@ class ProductController extends GetxController {
   final selectedVariant = Rx<ProductVariant>();
   final test = 0.obs;
 
-  Map<String, Attribute> attributes = {};
+  final attributes = Rx<Map<String, Attribute>>({});
 
   ProductController(this._productRepository);
 
@@ -36,26 +36,28 @@ class ProductController extends GetxController {
   _getProductVariants() {
     this.product.value.variants.forEach((product) {
       product.attributes.forEach((element) {
-        if (this.attributes.containsKey(element.name)) {
+        if (this.attributes.value.containsKey(element.name)) {
           if (!_attributesValueExists(
-              this.attributes[element.name], element.values.first))
-            this.attributes[element.name].values.add(element.values.first);
+              this.attributes.value[element.name], element.values.first))
+            this
+                .attributes
+                .value[element.name]
+                .values
+                .add(element.values.first);
         } else
-          this.attributes[element.name] = element;
+          this.attributes.value[element.name] = element;
       });
     });
   }
 
   _attributesValueExists(Attribute attribute, AttributeValue value) {
     bool hasAttributeValue = false;
-
     attribute.values.forEach((element) {
       if (element.name == value.name) {
         hasAttributeValue = true;
         return;
       }
     });
-
     return hasAttributeValue;
   }
 }

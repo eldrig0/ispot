@@ -28,7 +28,6 @@ class ProductProvider {
           productId: product.id,
           description: product.description,
           productName: product.name,
-          currency: "BHT",
           variants: _mapProductVariant(product));
     });
   }
@@ -69,7 +68,9 @@ class ProductProvider {
 
   _buildPrice(GProductDetailsData_product_variants variant) {
     return Price(
-        amount: variant.pricing.price.net.amount,
-        currency: variant.pricing.price.net.currency);
+        amount: variant.pricing.price.gross.amount,
+        currency: variant.pricing.price.gross.currency);
   }
+
+  _mapPrice() {}
 }

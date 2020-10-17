@@ -1,6 +1,7 @@
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/model/category.dart';
 import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/home/graphql/home_categories/categories/home_category.req.gql.dart';
 import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.req.gql.dart';
 import 'package:meta/meta.dart';
@@ -32,8 +33,12 @@ class HomeProvider {
               categoryName: product.node.category.name,
               productId: product.node.id,
               productName: product.node.name,
-              currency: product.node.pricing.priceRange.start.currency,
-              price: product.node.pricing.priceRange.stop.gross.amount,
+              price: () {
+                return Price(
+                    currency:
+                        product.node.pricing.priceRange.stop.gross.currency,
+                    amount: product.node.pricing.priceRange.stop.gross.amount);
+              }(),
               productThumbnail: product.node.thumbnail.url))
           .toList();
     });

@@ -3,10 +3,6 @@ fragment Price on TaxedMoney {
     amount
     currency
   }
-  net {
-    amount
-    currency
-  }
 }
 
 fragment BasicProductFields on Product {
@@ -21,18 +17,9 @@ fragment BasicProductFields on Product {
 fragment ProductPricingField on Product {
   pricing {
     onSale
-    priceRangeUndiscounted {
-      start {
-        ...Price
-      }
-      stop {
-        ...Price
-      }
-    }
+   
     priceRange {
-      start {
-        ...Price
-      }
+    
       stop {
         ...Price
       }
@@ -62,7 +49,7 @@ fragment ProductVariantFields on ProductVariant {
     url
     alt
   }
-  pricing {
+  pricing { 
     onSale
     priceUndiscounted {
       ...Price
@@ -89,6 +76,7 @@ query ProductDetails($id: ID!) {
     ...BasicProductFields
     ...ProductPricingField
     description
+    
     category {
       id
       name
