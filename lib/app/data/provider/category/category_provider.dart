@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/category.dart';
 import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/category/graphql/category/category.data.gql.dart';
 import 'package:ispot/app/data/provider/category/graphql/category/category.req.gql.dart';
 import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart';
@@ -61,6 +62,11 @@ class CategoryProvider {
           productName: node.name,
           productThumbnail: node.thumbnail.url,
           categoryId: response.data.category.id,
+          price: () {
+            return Price(
+                amount: node.pricing.priceRange.stop.gross.amount,
+                currency: node.pricing.priceRange.stop.gross.currency);
+          }(),
           categoryName: response.data.category.name,
           productImages: node.images.map((image) => image.url).toList());
     }).toList();

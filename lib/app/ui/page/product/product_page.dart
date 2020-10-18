@@ -7,6 +7,9 @@ import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/widgets/ispot_chips/ispot_chip.dart';
+
+import 'package:chips_choice/chips_choice.dart';
 import 'package:ispot/main.dart';
 
 class ProductPage extends GetView {
@@ -50,29 +53,35 @@ class ProductWidget extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                ...buildAttributesWidget(_controller.attributes.value)
+                ...buildAttributesWidget(
+                    _controller.attributes.value, _controller)
               ],
             ),
           ),
           SliverToBoxAdapter(
-            child: buildPriceWidget(_controller.product.value.price)
-          )
+              child: buildPriceWidget(_controller.product.value.price))
         ],
       ),
     );
   }
 
-  List<Widget> buildAttributesWidget(Map<String, Attribute> attributes) {
+  List<Widget> buildAttributesWidget(
+      Map<String, List<Attribute>> attributes, ProductController controller) {
     List<Widget> _children = <Widget>[];
 
     attributes.forEach((key, value) {
-      Widget attributeWidget = Column(
-        children: [
-          Text(value.name),
-          Row(
-            children: [...value.values.map((value) => Text(value.name))],
-          ),
-        ],
+      Widget attributeWidget = Obx(
+        () => ChipsChoice<Attribute>.single(
+          value: controller.selectedAttributes.value[key],
+          onChanged: (val) {
+            print('change');
+            controller.selecteAttribute(val);
+          },
+          choiceItems: C2Choice.listFrom(
+              source: controller.attributes.value[key],
+              value: (i, Attribute v) => v,
+              label: (i, Attribute v) => v.values.first.name),
+        ),
       );
       _children.add(attributeWidget);
     });

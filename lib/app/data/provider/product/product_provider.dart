@@ -26,6 +26,11 @@ class ProductProvider {
           categoryName: product.category.name,
           productThumbnail: product.thumbnail.url,
           productId: product.id,
+          price: () {
+            return Price(
+                amount: product.pricing.priceRange.stop.gross.amount,
+                currency: product.pricing.priceRange.stop.gross.currency);
+          }(),
           description: product.description,
           productName: product.name,
           variants: _mapProductVariant(product));
@@ -71,6 +76,4 @@ class ProductProvider {
         amount: variant.pricing.price.gross.amount,
         currency: variant.pricing.price.gross.currency);
   }
-
-  _mapPrice() {}
 }

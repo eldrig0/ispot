@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/main.dart';
 
-class AttributeValueChip extends StatefulWidget {
+class ISpotChip extends StatefulWidget {
   bool isSelected;
 
   final Function onPressed;
   final String label;
 
-  AttributeValueChip(
+  ISpotChip(
       {@required this.isSelected,
       @required this.onPressed,
       @required this.label});
@@ -16,7 +15,7 @@ class AttributeValueChip extends StatefulWidget {
   _ChipState createState() => _ChipState();
 }
 
-class _ChipState extends State<AttributeValueChip> {
+class _ChipState extends State<ISpotChip> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
