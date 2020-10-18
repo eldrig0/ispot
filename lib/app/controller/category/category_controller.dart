@@ -5,6 +5,7 @@ import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/category.dart';
 import 'package:ispot/app/data/repository/category/category_repository.dart';
 import 'package:ispot/app/misc/sort_options.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;
@@ -17,7 +18,6 @@ class CategoryController extends GetxController {
   final sortOptions = SORTOPTIONS;
 
   Rx<SortOption> selectedSortOption;
-
   var selectedAttributes = <Attribute>[].obs;
 
   CategoryController(this.categoryRepository) {

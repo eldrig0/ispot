@@ -26,6 +26,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   animations: ^1.1.2
   chips_choice: ^2.0.1
+  reactive_forms: ^6.0.4
 
 dev_dependencies:
 

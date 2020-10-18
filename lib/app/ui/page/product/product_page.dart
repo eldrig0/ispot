@@ -11,6 +11,7 @@ import 'package:ispot/app/ui/widgets/ispot_chips/ispot_chip.dart';
 
 import 'package:chips_choice/chips_choice.dart';
 import 'package:ispot/main.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class ProductPage extends GetView {
   @override
@@ -48,6 +49,9 @@ class ProductWidget extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
+            child: buildAvailabilityWidget(_controller),
+          ),
+          SliverToBoxAdapter(
             child: Text(product.description),
           ),
           SliverToBoxAdapter(
@@ -59,7 +63,10 @@ class ProductWidget extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-              child: buildPriceWidget(_controller.product.value.price))
+              child: buildPriceWidget(_controller.product.value.price)),
+          SliverToBoxAdapter(
+            child: buildQuantityInput(_controller),
+          )
         ],
       ),
     );
@@ -114,7 +121,32 @@ class ProductWidget extends StatelessWidget {
     );
   }
 
+  buildQuantityInput(ProductController controller) {
+    return ReactiveForm(
+      formGroup: controller.form,
+      child: ReactiveTextField(
+        validationMessages: {
+          'maximumQuantity': 'Maximum quantity you can order is 3'
+        },
+        formControlName: 'quantity',
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          labelText: 'Quantity',
+        ),
+      ),
+    );
+  }
+
   buildPriceWidget(Price pricing) {
     return Text('${pricing.currency} ${pricing.amount}');
+  }
+
+  buildAvailabilityWidget(ProductController controller) {
+    return Obx(() => Column(
+          children: [
+            if (!controller.selectedVariant.value.isAvailable)
+              Text('This product is not available')
+          ],
+        ));
   }
 }

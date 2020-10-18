@@ -1,3 +1,4 @@
+import 'package:ispot/app/misc/validators/cuatom_validators.dart';
 import 'package:meta/meta.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
@@ -5,6 +6,7 @@ import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/repository/product/product_repository.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class ProductController extends GetxController {
   final ProductRepository _productRepository;
@@ -18,6 +20,13 @@ class ProductController extends GetxController {
   final isVariantChanged = false.obs;
 
   final selectedAttributes = RxMap<String, Attribute>({});
+
+  final form = FormGroup({
+    'quantity': FormControl<int>(value: 0, validators: [
+      Validators.required,
+      CustomValidators.validateProductQuantity
+    ])
+  });
 
   ProductController(this._productRepository);
 
@@ -36,6 +45,9 @@ class ProductController extends GetxController {
     getProductDetails(id);
     selectedAttributes.listen((value) {
       this.selectProductVariant();
+    });
+    form.control('quantity').valueChanges.listen((value) {
+      print(value);
     });
     super.onInit();
   }
