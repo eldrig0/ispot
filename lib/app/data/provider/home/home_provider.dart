@@ -38,14 +38,13 @@ class HomeProvider {
                 return Pricing(
                     start: Price(
                         amount:
-                            product.node.pricing.priceRange.start.gross.amount,
-                        currency: product
-                            .node.pricing.priceRange.stop.gross.currency),
+                            product.node.pricing.priceRange.start.net.amount,
+                        currency:
+                            product.node.pricing.priceRange.start.net.currency),
                     stop: Price(
-                        amount:
-                            product.node.pricing.priceRange.start.gross.amount,
-                        currency: product
-                            .node.pricing.priceRange.stop.gross.currency));
+                        amount: product.node.pricing.priceRange.stop.net.amount,
+                        currency:
+                            product.node.pricing.priceRange.stop.net.currency));
               }(),
               productThumbnail: product.node.thumbnail.url))
           .toList();

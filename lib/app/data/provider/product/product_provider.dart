@@ -30,11 +30,11 @@ class ProductProvider {
           pricing: () {
             return Pricing(
                 start: Price(
-                    amount: product.pricing.priceRange.start.gross.amount,
-                    currency: product.pricing.priceRange.start.gross.currency),
+                    amount: product.pricing.priceRange.start.net.amount,
+                    currency: product.pricing.priceRange.start.net.currency),
                 stop: Price(
-                    amount: product.pricing.priceRange.stop.gross.amount,
-                    currency: product.pricing.priceRange.stop.gross.currency));
+                    amount: product.pricing.priceRange.stop.net.amount,
+                    currency: product.pricing.priceRange.stop.net.currency));
           }(),
           description: product.description,
           productName: product.name,
@@ -78,7 +78,7 @@ class ProductProvider {
 
   _buildVariantPrice(GProductDetailsData_product_variants variant) {
     return Price(
-        amount: variant.pricing.price.gross.amount,
-        currency: variant.pricing.price.gross.currency);
+        amount: variant.pricing.price.net.amount,
+        currency: variant.pricing.price.net.currency);
   }
 }

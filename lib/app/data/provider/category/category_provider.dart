@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/category/graphql/category/category.data.gql.dart';
@@ -62,10 +63,14 @@ class CategoryProvider {
           productName: node.name,
           productThumbnail: node.thumbnail.url,
           categoryId: response.data.category.id,
-          price: () {
-            return Price(
-                amount: node.pricing.priceRange.stop.gross.amount,
-                currency: node.pricing.priceRange.stop.gross.currency);
+          pricing: () {
+            return Pricing(
+                start: Price(
+                    amount: node.pricing.priceRange.start.net.amount,
+                    currency: node.pricing.priceRange.start.net.currency),
+                stop: Price(
+                    amount: node.pricing.priceRange.stop.net.amount,
+                    currency: node.pricing.priceRange.stop.net.currency));
           }(),
           categoryName: response.data.category.name,
           productImages: node.images.map((image) => image.url).toList());

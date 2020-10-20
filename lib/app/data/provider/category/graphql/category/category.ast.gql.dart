@@ -331,8 +331,7 @@ const Category = _i1.OperationDefinitionNode(
                                         selectionSet:
                                             _i1.SelectionSetNode(selections: [
                                           _i1.FieldNode(
-                                              name:
-                                                  _i1.NameNode(value: 'gross'),
+                                              name: _i1.NameNode(value: 'net'),
                                               alias: null,
                                               arguments: [],
                                               directives: [],
@@ -363,8 +362,7 @@ const Category = _i1.OperationDefinitionNode(
                                         selectionSet:
                                             _i1.SelectionSetNode(selections: [
                                           _i1.FieldNode(
-                                              name:
-                                                  _i1.NameNode(value: 'gross'),
+                                              name: _i1.NameNode(value: 'net'),
                                               alias: null,
                                               arguments: [],
                                               directives: [],

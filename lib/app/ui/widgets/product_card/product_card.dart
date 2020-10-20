@@ -48,11 +48,15 @@ class ProductCard extends StatelessWidget {
                       product.categoryName,
                       style: TextStyle(color: Colors.white),
                     ),
-                    Text(
-                        '${product.pricing.start.currency} ${product.pricing.start.amount}'),
-                    Text('to'),
-                    Text(
-                        '${product.pricing.stop.currency} ${product.pricing.stop.amount}'),
+                    Row(
+                      children: [
+                        Text(
+                            '${product.pricing.start.currency} ${product.pricing.start.amount}'),
+                        Text('to'),
+                        Text(
+                            '${product.pricing.stop.currency} ${product.pricing.stop.amount}'),
+                      ],
+                    ),
                   ],
                 ),
               ),

@@ -62,13 +62,13 @@ query Category(
           onSale
           priceRange {
             start {
-              gross {
+              net {
                 amount
                 currency
               } 
             }
             stop {
-              gross {
+              net {
                 amount
                 currency
               } 

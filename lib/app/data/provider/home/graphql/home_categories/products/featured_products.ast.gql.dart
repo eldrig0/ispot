@@ -127,7 +127,7 @@ const FeaturedProducts = _i1.OperationDefinitionNode(
                                                                     .SelectionSetNode(
                                                                         selections: [
                                                                       _i1.FieldNode(
-                                                                          name: _i1.NameNode(value: 'gross'),
+                                                                          name: _i1.NameNode(value: 'net'),
                                                                           alias: null,
                                                                           arguments: [],
                                                                           directives: [],
@@ -157,7 +157,7 @@ const FeaturedProducts = _i1.OperationDefinitionNode(
                                                                     .SelectionSetNode(
                                                                         selections: [
                                                                       _i1.FieldNode(
-                                                                          name: _i1.NameNode(value: 'gross'),
+                                                                          name: _i1.NameNode(value: 'net'),
                                                                           alias: null,
                                                                           arguments: [],
                                                                           directives: [],

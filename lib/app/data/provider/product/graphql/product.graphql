@@ -1,5 +1,5 @@
 fragment Price on TaxedMoney {
-  gross {
+  net {
     amount
     currency
   }
