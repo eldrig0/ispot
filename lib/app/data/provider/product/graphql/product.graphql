@@ -19,7 +19,9 @@ fragment ProductPricingField on Product {
     onSale
    
     priceRange {
-    
+      start {
+        ...Price
+      }
       stop {
         ...Price
       }

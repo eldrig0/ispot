@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/product/product_controller.dart';
 import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
@@ -63,9 +64,12 @@ class ProductWidget extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-              child: buildPriceWidget(_controller.product.value.price)),
+              child: buildPriceWidget(_controller.product.value.pricing)),
           SliverToBoxAdapter(
             child: buildQuantityInput(_controller),
+          ),
+          SliverToBoxAdapter(
+            child: buildBuyButton(),
           )
         ],
       ),
@@ -137,8 +141,14 @@ class ProductWidget extends StatelessWidget {
     );
   }
 
-  buildPriceWidget(Price pricing) {
-    return Text('${pricing.currency} ${pricing.amount}');
+  buildPriceWidget(Pricing pricing) {
+    return Row(
+      children: [
+        Text('${pricing.start.currency} ${pricing.start.amount}'),
+        Text('to'),
+        Text('${pricing.stop.currency} ${pricing.stop.amount}'),
+      ],
+    );
   }
 
   buildAvailabilityWidget(ProductController controller) {
@@ -148,5 +158,13 @@ class ProductWidget extends StatelessWidget {
               Text('This product is not available')
           ],
         ));
+  }
+
+  buildBuyButton() {
+    return RaisedButton(
+      color: ISpotTheme.primaryColor,
+      onPressed: () {},
+      child: Text("Buy"),
+    );
   }
 }

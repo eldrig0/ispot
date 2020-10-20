@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
+import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 
 class Product {
@@ -11,19 +12,19 @@ class Product {
   String categoryName;
   String categoryId;
   String productThumbnail;
-  Price price;
+  Pricing pricing;
   bool isAvailable;
   String description;
   List<String> productImages;
-
   List<ProductVariant> variants;
+
   Product({
     this.productId,
     this.productName,
     this.categoryName,
     this.categoryId,
     this.productThumbnail,
-    this.price,
+    this.pricing,
     this.isAvailable,
     this.description,
     this.productImages,
@@ -36,7 +37,7 @@ class Product {
     String categoryName,
     String categoryId,
     String productThumbnail,
-    Price price,
+    Pricing pricing,
     bool isAvailable,
     String description,
     List<String> productImages,
@@ -48,7 +49,7 @@ class Product {
       categoryName: categoryName ?? this.categoryName,
       categoryId: categoryId ?? this.categoryId,
       productThumbnail: productThumbnail ?? this.productThumbnail,
-      price: price ?? this.price,
+      pricing: pricing ?? this.pricing,
       isAvailable: isAvailable ?? this.isAvailable,
       description: description ?? this.description,
       productImages: productImages ?? this.productImages,
@@ -63,7 +64,7 @@ class Product {
       'categoryName': categoryName,
       'categoryId': categoryId,
       'productThumbnail': productThumbnail,
-      'price': price?.toMap(),
+      'pricing': pricing?.toMap(),
       'isAvailable': isAvailable,
       'description': description,
       'productImages': productImages,
@@ -80,7 +81,7 @@ class Product {
       categoryName: map['categoryName'],
       categoryId: map['categoryId'],
       productThumbnail: map['productThumbnail'],
-      price: Price.fromMap(map['price']),
+      pricing: Pricing.fromMap(map['pricing']),
       isAvailable: map['isAvailable'],
       description: map['description'],
       productImages: List<String>.from(map['productImages']),
@@ -96,13 +97,12 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, price: $price, isAvailable: $isAvailable, description: $description, productImages: $productImages, variants: $variants)';
+    return 'Product(productId: $productId, productName: $productName, categoryName: $categoryName, categoryId: $categoryId, productThumbnail: $productThumbnail, pricing: $pricing, isAvailable: $isAvailable, description: $description, productImages: $productImages, variants: $variants)';
   }
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
-    final listEquals = const DeepCollectionEquality().equals;
 
     return o is Product &&
         o.productId == productId &&
@@ -110,7 +110,7 @@ class Product {
         o.categoryName == categoryName &&
         o.categoryId == categoryId &&
         o.productThumbnail == productThumbnail &&
-        o.price == price &&
+        o.pricing == pricing &&
         o.isAvailable == isAvailable &&
         o.description == description &&
         listEquals(o.productImages, productImages) &&
@@ -124,7 +124,7 @@ class Product {
         categoryName.hashCode ^
         categoryId.hashCode ^
         productThumbnail.hashCode ^
-        price.hashCode ^
+        pricing.hashCode ^
         isAvailable.hashCode ^
         description.hashCode ^
         productImages.hashCode ^

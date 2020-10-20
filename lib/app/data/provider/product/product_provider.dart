@@ -1,5 +1,6 @@
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart';
@@ -26,10 +27,14 @@ class ProductProvider {
           categoryName: product.category.name,
           productThumbnail: product.thumbnail.url,
           productId: product.id,
-          price: () {
-            return Price(
-                amount: product.pricing.priceRange.stop.gross.amount,
-                currency: product.pricing.priceRange.stop.gross.currency);
+          pricing: () {
+            return Pricing(
+                start: Price(
+                    amount: product.pricing.priceRange.start.gross.amount,
+                    currency: product.pricing.priceRange.start.gross.currency),
+                stop: Price(
+                    amount: product.pricing.priceRange.stop.gross.amount,
+                    currency: product.pricing.priceRange.stop.gross.currency));
           }(),
           description: product.description,
           productName: product.name,
@@ -45,7 +50,7 @@ class ProductProvider {
             name: variant.name,
             images: variant.images.map((image) => image.url).toList(),
             isAvailable: variant.isAvailable,
-            price: _buildPrice(variant),
+            price: _buildVariantPrice(variant),
             stockQuantity: variant.stockQuantity,
             attributes: buildVariantAttributes(variant),
           ),
@@ -71,7 +76,7 @@ class ProductProvider {
         .toList();
   }
 
-  _buildPrice(GProductDetailsData_product_variants variant) {
+  _buildVariantPrice(GProductDetailsData_product_variants variant) {
     return Price(
         amount: variant.pricing.price.gross.amount,
         currency: variant.pricing.price.gross.currency);

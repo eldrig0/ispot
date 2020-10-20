@@ -61,6 +61,12 @@ query Category(
         pricing{
           onSale
           priceRange {
+            start {
+              gross {
+                amount
+                currency
+              } 
+            }
             stop {
               gross {
                 amount
