@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:ispot/app/ui/page/home/widets/cart/cart_widget.dart';
 import 'package:ispot/app/ui/page/home/widets/home/home_widget.dart';
 
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
@@ -30,9 +32,7 @@ class _HomePageState extends State<HomePage> {
 
     _viewsByIndex = [
       HomeWidget(),
-      Container(
-        child: Text('cart'),
-      ),
+      CartWidget(),
     ];
   }
 

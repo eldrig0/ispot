@@ -50,16 +50,6 @@ class CategoryPage extends GetWidget {
       body: CustomScrollView(
         slivers: [
           if (_controller.category.value != null) ...[
-            SliverAppBar(
-              expandedHeight: 200,
-              leading: Container(),
-              flexibleSpace: FlexibleSpaceBar(
-                background: Image.network(
-                  _controller.category.value.categoryImageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 final product = _controller.category.value.products[index];

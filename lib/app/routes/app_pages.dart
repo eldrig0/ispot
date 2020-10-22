@@ -1,4 +1,5 @@
 import 'package:get/route_manager.dart';
+import 'package:ispot/app/binding/cart/cart_binding.dart';
 import 'package:ispot/app/binding/category/category_binding.dart';
 import 'package:ispot/app/binding/home/home/home_binding.dart';
 import 'package:ispot/app/binding/product/product_binding.dart';
@@ -11,7 +12,9 @@ part './app_routes.dart';
 class AppPages {
   static final routes = [
     GetPage(
-        name: Routes.HOME, page: () => HomePage(), bindings: [HomeBinding()]),
+        name: Routes.HOME,
+        page: () => HomePage(),
+        bindings: [HomeBinding(), CartBinding()]),
     GetPage(
         name: Routes.CATEGORY,
         page: () => CategoryPage(),

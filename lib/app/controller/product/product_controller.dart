@@ -1,3 +1,4 @@
+import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/misc/validators/cuatom_validators.dart';
 import 'package:meta/meta.dart';
 import 'package:get/get.dart';
@@ -46,9 +47,6 @@ class ProductController extends GetxController {
     selectedAttributes.listen((value) {
       this.selectProductVariant();
     });
-    form.control('quantity').valueChanges.listen((value) {
-      print(value);
-    });
     super.onInit();
   }
 
@@ -83,11 +81,16 @@ class ProductController extends GetxController {
   Map<String, Attribute> _initializeSelectedAttribute(
       Map<String, List<Attribute>> attributes) {
     Map<String, Attribute> initialAttributes = {};
-
-    attributes.forEach((key, value) {
-      initialAttributes[key] = value.first;
+    this
+        .product
+        .value
+        .variants
+        .where((element) => element.isAvailable == true)
+        .toList()[0]
+        .attributes
+        .forEach((element) {
+      initialAttributes[element.name] = element;
     });
-
     return initialAttributes;
   }
 
@@ -95,6 +98,15 @@ class ProductController extends GetxController {
     this.selectedAttributes.update(attribute.name, (val) => attribute);
     update();
   }
+
+  bool get disableBuyButton {
+    return !(this.selectedVariant.value.isAvailable &&
+        this.selectedVariant.value.stockQuantity >= _quantity);
+  }
+
+  int get _quantity => this.form.control('quantity').value ?? 0;
+
+  bool get isStockLow => this.selectedVariant.value.stockQuantity < _quantity;
 
   selectProductVariant() {
     List<ProductVariant> productVariants = product.value.variants;
@@ -110,4 +122,6 @@ class ProductController extends GetxController {
     });
     this.selectedVariant.value = productVariants.first;
   }
+
+  Price get price => this.selectedVariant.value.price;
 }

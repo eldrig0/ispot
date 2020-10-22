@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:ispot/app/controller/cart/cart_controller.dart';
 import 'package:ispot/app/controller/product/product_controller.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/pricing.dart';
@@ -18,6 +19,7 @@ class ProductPage extends GetView {
   @override
   Widget build(BuildContext context) {
     final _controller = Get.find<ProductController>();
+
     return SafeArea(
       child: GetX(
         builder: (_) {
@@ -39,6 +41,7 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _controller = Get.find<ProductController>();
+    final _cart = Get.find<CartController>();
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -69,7 +72,7 @@ class ProductWidget extends StatelessWidget {
             child: buildQuantityInput(_controller),
           ),
           SliverToBoxAdapter(
-            child: buildBuyButton(),
+            child: buildBuyButton(_controller, _cart),
           )
         ],
       ),
@@ -155,16 +158,25 @@ class ProductWidget extends StatelessWidget {
     return Obx(() => Column(
           children: [
             if (!controller.selectedVariant.value.isAvailable)
-              Text('This product is not available')
+              Text('This product is not available'),
+            if (controller.isStockLow)
+              Text(
+                  'We have only ${controller.selectedVariant.value.stockQuantity}')
           ],
         ));
   }
 
-  buildBuyButton() {
-    return RaisedButton(
-      color: ISpotTheme.primaryColor,
-      onPressed: () {},
-      child: Text("Buy"),
+  buildBuyButton(ProductController controller, CartController cart) {
+    return Obx(
+      () => RaisedButton(
+        color: ISpotTheme.primaryColor,
+        onPressed: controller.disableBuyButton
+            ? null
+            : () {
+                cart.addItem(controller.selectedVariant.value);
+              },
+        child: Text("Buy"),
+      ),
     );
   }
 }
