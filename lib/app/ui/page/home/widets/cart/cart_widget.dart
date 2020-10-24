@@ -8,10 +8,6 @@ class CartWidget extends GetView {
   @override
   Widget build(BuildContext context) {
     final _cart = Get.find<CartController>();
-    return GetX(builder: (_) {
-      return Column(
-        children: [Text(_cart.cartItems.value.length.toString())],
-      );
-    });
+    return GetX(builder: (_) {});
   }
 }
