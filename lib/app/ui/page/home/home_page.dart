@@ -1,76 +1,142 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:ispot/app/ui/page/home/widets/cart/cart_widget.dart';
-import 'package:ispot/app/ui/page/home/widets/home/home_widget.dart';
-
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/app/ui/widgets/tab_bar/navbar.dart';
-import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+import 'package:ispot/main.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<NavBarItemData> _navBarItems;
-  int _selectedNavIndex = 0;
-
-  List<Widget> _viewsByIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    _navBarItems = [
-      NavBarItemData('Home', AntDesign.home, 200, ISpotTheme.primaryColor),
-      NavBarItemData(
-          'Cart', AntDesign.shoppingcart, 200, ISpotTheme.primaryColor),
-    ];
-
-    _viewsByIndex = [
-      HomeWidget(),
-      CartWidget(),
-    ];
-  }
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var navBar = NavBar(
-      items: _navBarItems,
-      itemTapped: _handleNavBtnTapped,
-      currentIndex: _selectedNavIndex,
-    );
-
-    var _contentView =
-        _viewsByIndex[min(_selectedNavIndex, _viewsByIndex.length - 1)];
     return Scaffold(
-      appBar: UIHelper.buildIspotAppBar(
-          leading:
-              IconButton(icon: Icon(AntDesign.menu_fold), onPressed: null)),
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          child: AnimatedSwitcher(
-              duration: Duration(milliseconds: 350),
-              //Pass the current accent color down as a theme, so our overscroll indicator matches the btn color
-              child: _contentView),
+        appBar: AppBar(
+          elevation: 0,
+          leading: Padding(
+            padding: EdgeInsets.all(8),
+            child: ClipOval(
+              child: Image.network(
+                'https://bestprofilepix.com/wp-content/uploads/2014/03/sad-and-alone-boys-facebook-profile-pictures.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          actions: [
+            IconButton(icon: Icon(AntDesign.bars), onPressed: () {}),
+            _shoppingCartBadge()
+          ],
         ),
+        body: Column(
+          children: [
+            Container(
+              height: 200,
+              width: _getDeviceWidth(context),
+              color: ISpotTheme.primaryColor,
+            ),
+          ],
+        ));
+  }
+
+  Widget _shoppingCartBadge() {
+    return Badge(
+      badgeColor: ISpotTheme.primaryColor,
+      position: BadgePosition.topEnd(top: 0, end: 3),
+      animationDuration: Duration(milliseconds: 300),
+      animationType: BadgeAnimationType.slide,
+      badgeContent: Text(
+        '1',
+        style: TextStyle(color: Colors.white),
       ),
-      bottomNavigationBar: navBar, //Pass our custom navBar into the scaffold
+      child: IconButton(icon: Icon(AntDesign.shoppingcart), onPressed: () {}),
     );
   }
 
-  void _handleNavBtnTapped(int index) {
-    //Save the new index and trigger a rebuild
-    setState(() {
-      //This will be passed into the NavBar and change it's selected state, also controls the active content page
-      _selectedNavIndex = index;
-    });
-  }
+  double _getDeviceWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width;
 }
+
+// import 'dart:math';
+
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
+// import 'package:ispot/app/ui/page/home/widets/cart/cart_widget.dart';
+// import 'package:ispot/app/ui/page/home/widets/home/home_widget.dart';
+
+// import 'package:ispot/app/ui/theme/ispot_theme.dart';
+// import 'package:ispot/app/ui/widgets/tab_bar/navbar.dart';
+// import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+
+// class HomePage extends StatefulWidget {
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   List<NavBarItemData> _navBarItems;
+//   int _selectedNavIndex = 0;
+
+//   List<Widget> _viewsByIndex;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _navBarItems = [
+//       NavBarItemData('Home', AntDesign.home, 200, ISpotTheme.primaryColor),
+//       NavBarItemData(
+//           'Cart', AntDesign.shoppingcart, 200, ISpotTheme.primaryColor),
+//     ];
+
+//     _viewsByIndex = [
+//       HomeWidget(),
+//       CartWidget(),
+//     ];
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     var navBar = NavBar(
+//       items: _navBarItems,
+//       itemTapped: _handleNavBtnTapped,
+//       currentIndex: _selectedNavIndex,
+//     );
+
+//     var _contentView =
+//         _viewsByIndex[min(_selectedNavIndex, _viewsByIndex.length - 1)];
+//     return Scaffold(
+//       appBar: UIHelper.buildIspotAppBar(
+//           actions: [
+//             IconButton(
+//                 icon: Icon(
+//                   EvilIcons.user,
+//                   size: 40,
+//                 ),
+//                 onPressed: () {})
+//           ],
+//           leading: IconButton(
+//               icon: Icon(
+//                 AntDesign.menu_fold,
+//               ),
+//               onPressed: null)),
+//       body: SafeArea(
+//         child: Container(
+//           width: double.infinity,
+//           child: AnimatedSwitcher(
+//               duration: Duration(milliseconds: 350),
+//               //Pass the current accent color down as a theme, so our overscroll indicator matches the btn color
+//               child: _contentView),
+//         ),
+//       ),
+//       bottomNavigationBar: navBar, //Pass our custom navBar into the scaffold
+//     );
+//   }
+
+//   void _handleNavBtnTapped(int index) {
+//     //Save the new index and trigger a rebuild
+//     setState(() {
+//       //This will be passed into the NavBar and change it's selected state, also controls the active content page
+//       _selectedNavIndex = index;
+//     });
+//   }
+// }
 
 // class HomePage extends GetView<HomeController> {
 //   List<NavBarItemData> _navBarItems;

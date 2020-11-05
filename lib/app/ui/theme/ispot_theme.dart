@@ -8,8 +8,8 @@ class ISpotTheme {
   static const double titleFont1 = 27;
 
   static final Color canvasColor = Colors.grey[50];
-  static const Color primaryColor = Colors.black;
-  static const Color secondaryColor = Color.fromRGBO(255, 223, 0, 1);
+  static const Color primaryColor = Color.fromRGBO(72, 196, 194, 1);
+  static const Color secondaryColor = Colors.black;
   static const Color textColor = Colors.black54;
   static const Color titleColor = Colors.black87;
   static const Color primaryIconColor = Colors.black87;
@@ -84,6 +84,7 @@ class ISpotTheme {
         primaryColor: primaryColor,
         accentColor: secondaryColor,
         buttonColor: primaryColor,
+        iconTheme: IconThemeData(color: primaryColor),
         buttonTheme: ButtonThemeData(
             colorScheme: colorScheme, textTheme: ButtonTextTheme.primary),
         textTheme: _buildTextTheme(base.textTheme),

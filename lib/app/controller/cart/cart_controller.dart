@@ -11,11 +11,13 @@ class CartController extends GetxController {
     for (CartItem item in cartItems.value) {
       if (item.product == variant) {
         exists = true;
+        if (exists) cartItems[cartItems.value.indexOf(item)].count++;
+        update();
         return;
       }
     }
 
-    if (exists) cartItems.add(CartItem(count: 1, product: variant));
+    cartItems.add(CartItem(count: 1, product: variant));
     update();
   }
 

@@ -36,7 +36,8 @@ class FilterWidget extends StatelessWidget {
               Column(
                 children: [
                   buildSortOptions(),
-                  if (!controller.category.value.attributes.isNullOrBlank)
+                  if (!controller.category.isNullOrBlank &&
+                      !controller.category.value.attributes.isNullOrBlank)
                     ...buildAttributes()
                   else
                     CircularProgressIndicator()

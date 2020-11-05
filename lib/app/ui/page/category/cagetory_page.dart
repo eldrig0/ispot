@@ -14,16 +14,15 @@ class CategoryPage extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return GetX(
-      initState: (state) => _controller.getCategory(),
       builder: (_) {
         return _controller.showFilter.value
             ? FilterWidget(controller: _controller)
-            : buildProductWidgets();
+            : buildProductWidgets(_controller);
       },
     );
   }
 
-  Scaffold buildProductWidgets() {
+  Scaffold buildProductWidgets(CategoryController controller) {
     return Scaffold(
       appBar: UIHelper.buildIspotAppBar(
         actions: [
@@ -36,7 +35,7 @@ class CategoryPage extends GetWidget {
           IconButton(
             icon: Icon(AntDesign.filter),
             onPressed: () {
-              _controller.toggleFilterDisplay();
+              controller.toggleFilterDisplay();
             },
           )
         ],
@@ -52,7 +51,7 @@ class CategoryPage extends GetWidget {
           if (_controller.category.value != null) ...[
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
-                final product = _controller.category.value.products[index];
+                final product = controller.category.value.products[index];
 
                 return Padding(
                     padding: const EdgeInsets.symmetric(
@@ -63,7 +62,7 @@ class CategoryPage extends GetWidget {
                         Get.toNamed('/product/${product.productId}');
                       },
                     ));
-              }, childCount: _controller.category.value.products.length),
+              }, childCount: controller.category.value.products.length),
             ),
           ]
         ],

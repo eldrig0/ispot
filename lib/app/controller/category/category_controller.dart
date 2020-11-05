@@ -9,7 +9,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;
-  final test = 0.obs;
+  final gotData = false.obs;
   final pageSize = 10.obs;
   final category = Rx<CategoryModel>();
 
@@ -24,6 +24,12 @@ class CategoryController extends GetxController {
     selectedSortOption = sortOptions[0].obs;
   }
 
+  @override
+  void onInit() {
+    this.getCategory();
+    super.onInit();
+  }
+
   void getCategory() {
     categoryRepository
         .getCategory(
@@ -34,6 +40,9 @@ class CategoryController extends GetxController {
         .take(1)
         .listen((response) {
       category.value = response;
+
+      this.gotData.value = true;
+      print('category value set');
     });
   }
 

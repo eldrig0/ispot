@@ -17,32 +17,54 @@ class HomeWidget extends GetView<HomeController> {
       return CustomScrollView(slivers: [
         if (_controller.homeProducts.isNotEmpty)
           _buildFeaturedProductSwiper(context),
-        if (_controller.homeCategories.isNotEmpty)
-          buildFeaturedProducts(context)
+        if (_controller.homeCategories.isNotEmpty) buildShopByCategory(context)
       ]);
     });
   }
 
-  SliverToBoxAdapter buildFeaturedProducts(BuildContext context) {
+  SliverToBoxAdapter buildShopByCategory(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.only(top: 30.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Shop by category',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 18.0),
+              child: Text(
+                'Shop by category',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
             ),
-            Swiper(
-              itemCount: _controller.homeCategories.length,
-              itemHeight: 200,
-              itemWidth: MediaQuery.of(context).size.width,
-              layout: SwiperLayout.STACK,
-              itemBuilder: (context, index) {
-                final category = _controller.homeCategories[index];
-                return CategoryCard(category);
-              },
-            )
+
+            ..._controller.homeCategories.map((category) => Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 8),
+                      child: Container(
+                        height: 200,
+                        width: MediaQuery.of(context).size.width - 36,
+                        child: Image.network(
+                          category.categoryImageUrl,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
+                    // Text(category.categoryName),
+                  ],
+                )),
+
+            // Swiper(
+            //   itemCount: _controller.homeCategories.length,
+            //   itemHeight: 200,
+            //   itemWidth: MediaQuery.of(context).size.width,
+            //   layout: SwiperLayout.STACK,
+            //   itemBuilder: (context, index) {
+            //     final category = _controller.homeCategories[index];
+            //     return CategoryCard(category);
+            //   },
+            // )
           ],
         ),
       ),
@@ -52,16 +74,19 @@ class HomeWidget extends GetView<HomeController> {
   _buildFeaturedProductSwiper(BuildContext context) {
     return SliverToBoxAdapter(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Feature Products',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 18),
+            child: Text(
+              'Featured Products',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
           ),
           Swiper(
             itemBuilder: (context, int index) {
               final product = _controller.homeProducts[index];
-              return ProductCard(product: product);
+              return ProductCard(onClick: () {}, product: product);
             },
             itemCount: _controller.homeProducts.length,
             itemWidth: 300,

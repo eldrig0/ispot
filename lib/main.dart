@@ -9,8 +9,8 @@ import 'package:get/get.dart';
 
 void main() async {
   final client = await initClient();
-  Get.lazyPut<Client>(() => client);
-  Get.lazyPut<CartController>(() => CartController());
+  Get.put<Client>(client);
+  Get.put<CartController>(CartController());
   runApp(Ispot());
 }
 

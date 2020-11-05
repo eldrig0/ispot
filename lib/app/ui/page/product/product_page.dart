@@ -1,4 +1,6 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
@@ -8,6 +10,7 @@ import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
+import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/ispot_chips/ispot_chip.dart';
 
@@ -174,6 +177,7 @@ class ProductWidget extends StatelessWidget {
             ? null
             : () {
                 cart.addItem(controller.selectedVariant.value);
+                Get.offAllNamed(Routes.HOME);
               },
         child: Text("Buy"),
       ),

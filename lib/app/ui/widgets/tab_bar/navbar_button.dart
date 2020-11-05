@@ -87,7 +87,7 @@ class _NavbarButtonState extends State<NavbarButton>
           //Use BoxDecoration top create a rounded container
           decoration: BoxDecoration(
             color: widget.isSelected ? widget.data.selectedColor : Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(24)),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
           //Wrap the row in a ClippedView to suppress any overflow errors if we momentarily exceed the screen size
           child: ClippedView(
