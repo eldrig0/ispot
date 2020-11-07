@@ -12,6 +12,12 @@ class HomeController extends GetxController {
 
   HomeController({@required this.repository});
 
+  @override
+  void onInit() {
+    getHomePageProducts();
+    super.onInit();
+  }
+
   void getHomePageCategories() {
     repository.getHomeCategories().take(1).listen((event) {
       homeCategories.clear();
@@ -20,6 +26,7 @@ class HomeController extends GetxController {
   }
 
   void getHomePageProducts() {
+    print('got products');
     repository.getHomeProducts().take(1).listen((products) {
       homeProducts.clear();
       homeProducts.addAll(products);

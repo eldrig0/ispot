@@ -18,6 +18,7 @@ class Ispot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ISpotTheme.lightTheme(),
       initialRoute: Routes.HOME,
       getPages: AppPages.routes,

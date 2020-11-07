@@ -9,12 +9,16 @@ class ISpotTheme {
 
   static final Color canvasColor = Colors.grey[50];
   static const Color primaryColor = Color.fromRGBO(72, 196, 194, 1);
-  static const Color secondaryColor = Colors.black;
-  static const Color textColor = Colors.black54;
-  static const Color titleColor = Colors.black87;
+  static const Color secondaryColor = Colors.black54;
+  static const Color textColor = Colors.black87;
+  static const Color titleColor = Colors.black;
   static const Color primaryIconColor = Colors.black87;
   static const Color secondaryIconColor = Colors.black54;
   static const Color cardBackgroundColor = Color.fromRGBO(241, 245, 245, 1);
+
+  static const double opacityValue2 = 0.2;
+  static const Color primaryImageBackground = Color.fromRGBO(72, 196, 194, .15);
+  static const Color primarySearchColor = Color.fromRGBO(72, 196, 194, .1);
 
   static const fontName = 'Roboto';
   static const TextStyle titleTextStyle =
@@ -36,7 +40,7 @@ class ISpotTheme {
 
   static TextTheme _buildTextTheme(TextTheme base) {
     var fontName = 'Roboto';
-    Color textColor = Colors.black54;
+    Color textColor = Colors.black87;
 
     return base.copyWith(
       headline6: base.headline6.copyWith(

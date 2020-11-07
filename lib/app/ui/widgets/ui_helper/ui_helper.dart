@@ -11,4 +11,33 @@ class UIHelper {
       actions: actions,
     );
   }
+
+  static Text buildPricingText(double start, double stop, String currency,
+      {TextStyle style}) {
+    return start == stop
+        ? Text(
+            '$currency ${_getPriceString(start)}',
+            style: style,
+          )
+        : Text(
+            '$currency ${_getPriceString(start)} to ${_getPriceString(stop)}',
+            style: style,
+          );
+  }
+
+  static String _getPriceString(double price) {
+    if (price.toString().length < 4) {
+      return price.toString();
+    }
+
+    List<String> priceChar = price.toString().characters.toList();
+    String resultString = '';
+    for (int index = 0; index < priceChar.length; index++) {
+      if (index == 1) {
+        resultString = '$resultString${priceChar[index]},';
+      }
+      resultString = '$resultString${priceChar[index]}';
+    }
+    return resultString;
+  }
 }
