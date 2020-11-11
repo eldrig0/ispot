@@ -2,13 +2,13 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:ferry/ferry.dart' as _i1;
+import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.ast.gql.dart'
+import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.ast.gql.dart'
     as _i5;
-import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.data.gql.dart'
+import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.data.gql.dart'
     as _i2;
-import 'package:ispot/app/data/provider/home/graphql/home_categories/products/featured_products.var.gql.dart'
+import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.var.gql.dart'
     as _i3;
 import 'package:ispot/graphql/serializers.gql.dart' as _i7;
 import 'package:uuid/uuid.dart' as _i6;
@@ -29,7 +29,8 @@ abstract class GFeaturedProductsReq
   static void _initializeBuilder(GFeaturedProductsReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'FeaturedProducts')
-    ..requestId = _i6.Uuid().v1();
+    ..requestId = _i6.Uuid().v1()
+    ..executeOnListen = true;
   _i3.GFeaturedProductsVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
@@ -48,6 +49,8 @@ abstract class GFeaturedProductsReq
   Map<String, dynamic> get updateCacheHandlerContext;
   @nullable
   _i1.FetchPolicy get fetchPolicy;
+  @nullable
+  bool get executeOnListen;
   @override
   _i2.GFeaturedProductsData parseData(Map<String, dynamic> json) =>
       _i2.GFeaturedProductsData.fromJson(json);

@@ -15,6 +15,10 @@ abstract class GFeaturedProductsData
           [Function(GFeaturedProductsDataBuilder b) updates]) =
       _$GFeaturedProductsData;
 
+  static void _initializeBuilder(GFeaturedProductsDataBuilder b) =>
+      b..G__typename = 'Query';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
   GFeaturedProductsData_shop get shop;
   static Serializer<GFeaturedProductsData> get serializer =>
       _$gFeaturedProductsDataSerializer;

@@ -14,6 +14,10 @@ abstract class GCategoryData
   factory GCategoryData([Function(GCategoryDataBuilder b) updates]) =
       _$GCategoryData;
 
+  static void _initializeBuilder(GCategoryDataBuilder b) =>
+      b..G__typename = 'Query';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
   @nullable
   GCategoryData_category get category;
   @nullable

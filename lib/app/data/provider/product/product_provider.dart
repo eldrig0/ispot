@@ -17,7 +17,7 @@ class ProductProvider {
 
   Stream<Product> getProduct(String id) {
     return _client
-        .responseStream(GProductDetailsReq((request) => request..vars.id = id))
+        .request(GProductDetailsReq((request) => request..vars.id = id))
         .map((event) {
       final product = event.data.product;
       return Product(

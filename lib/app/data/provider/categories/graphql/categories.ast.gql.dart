@@ -2,9 +2,9 @@
 
 import 'package:gql/ast.dart' as _i1;
 
-const HomeCategoryList = _i1.OperationDefinitionNode(
+const CategoryList = _i1.OperationDefinitionNode(
     type: _i1.OperationType.query,
-    name: _i1.NameNode(value: 'HomeCategoryList'),
+    name: _i1.NameNode(value: 'CategoryList'),
     variableDefinitions: [],
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
@@ -17,7 +17,7 @@ const HomeCategoryList = _i1.OperationDefinitionNode(
                 value: _i1.IntValueNode(value: '0')),
             _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'first'),
-                value: _i1.IntValueNode(value: '4'))
+                value: _i1.IntValueNode(value: '10'))
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
@@ -62,4 +62,4 @@ const HomeCategoryList = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [HomeCategoryList]);
+const document = _i1.DocumentNode(definitions: [CategoryList]);

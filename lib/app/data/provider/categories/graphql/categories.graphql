@@ -1,0 +1,13 @@
+query CategoryList {
+  categories(level: 0, first: 10) {
+    edges {
+      node {
+        id
+        name
+        backgroundImage {
+          url
+        }
+      }
+    }
+  }
+}

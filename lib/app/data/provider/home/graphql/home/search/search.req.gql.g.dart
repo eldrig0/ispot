@@ -1,32 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'featured_products.req.gql.dart';
+part of 'search.req.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GFeaturedProductsReq> _$gFeaturedProductsReqSerializer =
-    new _$GFeaturedProductsReqSerializer();
+Serializer<GSearchProductsReq> _$gSearchProductsReqSerializer =
+    new _$GSearchProductsReqSerializer();
 
-class _$GFeaturedProductsReqSerializer
-    implements StructuredSerializer<GFeaturedProductsReq> {
+class _$GSearchProductsReqSerializer
+    implements StructuredSerializer<GSearchProductsReq> {
   @override
-  final Iterable<Type> types = const [
-    GFeaturedProductsReq,
-    _$GFeaturedProductsReq
-  ];
+  final Iterable<Type> types = const [GSearchProductsReq, _$GSearchProductsReq];
   @override
-  final String wireName = 'GFeaturedProductsReq';
+  final String wireName = 'GSearchProductsReq';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, GFeaturedProductsReq object,
+  Iterable<Object> serialize(Serializers serializers, GSearchProductsReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GFeaturedProductsVars)),
+          specifiedType: const FullType(_i3.GSearchProductsVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -41,7 +37,7 @@ class _$GFeaturedProductsReqSerializer
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GFeaturedProductsData)));
+            specifiedType: const FullType(_i2.GSearchProductsData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -62,14 +58,20 @@ class _$GFeaturedProductsReqSerializer
         ..add(serializers.serialize(object.fetchPolicy,
             specifiedType: const FullType(_i1.FetchPolicy)));
     }
+    if (object.executeOnListen != null) {
+      result
+        ..add('executeOnListen')
+        ..add(serializers.serialize(object.executeOnListen,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
   @override
-  GFeaturedProductsReq deserialize(
+  GSearchProductsReq deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GFeaturedProductsReqBuilder();
+    final result = new GSearchProductsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -79,8 +81,8 @@ class _$GFeaturedProductsReqSerializer
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GFeaturedProductsVars))
-              as _i3.GFeaturedProductsVars);
+                  specifiedType: const FullType(_i3.GSearchProductsVars))
+              as _i3.GSearchProductsVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -92,8 +94,8 @@ class _$GFeaturedProductsReqSerializer
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GFeaturedProductsData))
-              as _i2.GFeaturedProductsData);
+                  specifiedType: const FullType(_i2.GSearchProductsData))
+              as _i2.GSearchProductsData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -111,6 +113,10 @@ class _$GFeaturedProductsReqSerializer
                   specifiedType: const FullType(_i1.FetchPolicy))
               as _i1.FetchPolicy;
           break;
+        case 'executeOnListen':
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
       }
     }
 
@@ -118,30 +124,32 @@ class _$GFeaturedProductsReqSerializer
   }
 }
 
-class _$GFeaturedProductsReq extends GFeaturedProductsReq {
+class _$GSearchProductsReq extends GSearchProductsReq {
   @override
-  final _i3.GFeaturedProductsVars vars;
+  final _i3.GSearchProductsVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GFeaturedProductsData Function(
-      _i2.GFeaturedProductsData, _i2.GFeaturedProductsData) updateResult;
+  final _i2.GSearchProductsData Function(
+      _i2.GSearchProductsData, _i2.GSearchProductsData) updateResult;
   @override
-  final _i2.GFeaturedProductsData optimisticResponse;
+  final _i2.GSearchProductsData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
   final Map<String, dynamic> updateCacheHandlerContext;
   @override
   final _i1.FetchPolicy fetchPolicy;
+  @override
+  final bool executeOnListen;
 
-  factory _$GFeaturedProductsReq(
-          [void Function(GFeaturedProductsReqBuilder) updates]) =>
-      (new GFeaturedProductsReqBuilder()..update(updates)).build();
+  factory _$GSearchProductsReq(
+          [void Function(GSearchProductsReqBuilder) updates]) =>
+      (new GSearchProductsReqBuilder()..update(updates)).build();
 
-  _$GFeaturedProductsReq._(
+  _$GSearchProductsReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -149,30 +157,31 @@ class _$GFeaturedProductsReq extends GFeaturedProductsReq {
       this.optimisticResponse,
       this.updateCacheHandlerKey,
       this.updateCacheHandlerContext,
-      this.fetchPolicy})
+      this.fetchPolicy,
+      this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GFeaturedProductsReq', 'vars');
+      throw new BuiltValueNullFieldError('GSearchProductsReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GFeaturedProductsReq', 'operation');
+      throw new BuiltValueNullFieldError('GSearchProductsReq', 'operation');
     }
   }
 
   @override
-  GFeaturedProductsReq rebuild(
-          void Function(GFeaturedProductsReqBuilder) updates) =>
+  GSearchProductsReq rebuild(
+          void Function(GSearchProductsReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GFeaturedProductsReqBuilder toBuilder() =>
-      new GFeaturedProductsReqBuilder()..replace(this);
+  GSearchProductsReqBuilder toBuilder() =>
+      new GSearchProductsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GFeaturedProductsReq &&
+    return other is GSearchProductsReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -180,7 +189,8 @@ class _$GFeaturedProductsReq extends GFeaturedProductsReq {
         optimisticResponse == other.optimisticResponse &&
         updateCacheHandlerKey == other.updateCacheHandlerKey &&
         updateCacheHandlerContext == other.updateCacheHandlerContext &&
-        fetchPolicy == other.fetchPolicy;
+        fetchPolicy == other.fetchPolicy &&
+        executeOnListen == other.executeOnListen;
   }
 
   @override
@@ -190,18 +200,20 @@ class _$GFeaturedProductsReq extends GFeaturedProductsReq {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, vars.hashCode), operation.hashCode),
-                            requestId.hashCode),
-                        updateResult.hashCode),
-                    optimisticResponse.hashCode),
-                updateCacheHandlerKey.hashCode),
-            updateCacheHandlerContext.hashCode),
-        fetchPolicy.hashCode));
+                        $jc(
+                            $jc($jc($jc(0, vars.hashCode), operation.hashCode),
+                                requestId.hashCode),
+                            updateResult.hashCode),
+                        optimisticResponse.hashCode),
+                    updateCacheHandlerKey.hashCode),
+                updateCacheHandlerContext.hashCode),
+            fetchPolicy.hashCode),
+        executeOnListen.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GFeaturedProductsReq')
+    return (newBuiltValueToStringHelper('GSearchProductsReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -209,19 +221,20 @@ class _$GFeaturedProductsReq extends GFeaturedProductsReq {
           ..add('optimisticResponse', optimisticResponse)
           ..add('updateCacheHandlerKey', updateCacheHandlerKey)
           ..add('updateCacheHandlerContext', updateCacheHandlerContext)
-          ..add('fetchPolicy', fetchPolicy))
+          ..add('fetchPolicy', fetchPolicy)
+          ..add('executeOnListen', executeOnListen))
         .toString();
   }
 }
 
-class GFeaturedProductsReqBuilder
-    implements Builder<GFeaturedProductsReq, GFeaturedProductsReqBuilder> {
-  _$GFeaturedProductsReq _$v;
+class GSearchProductsReqBuilder
+    implements Builder<GSearchProductsReq, GSearchProductsReqBuilder> {
+  _$GSearchProductsReq _$v;
 
-  _i3.GFeaturedProductsVarsBuilder _vars;
-  _i3.GFeaturedProductsVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GFeaturedProductsVarsBuilder();
-  set vars(_i3.GFeaturedProductsVarsBuilder vars) => _$this._vars = vars;
+  _i3.GSearchProductsVarsBuilder _vars;
+  _i3.GSearchProductsVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GSearchProductsVarsBuilder();
+  set vars(_i3.GSearchProductsVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -231,21 +244,21 @@ class GFeaturedProductsReqBuilder
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GFeaturedProductsData Function(
-      _i2.GFeaturedProductsData, _i2.GFeaturedProductsData) _updateResult;
-  _i2.GFeaturedProductsData Function(
-          _i2.GFeaturedProductsData, _i2.GFeaturedProductsData)
+  _i2.GSearchProductsData Function(
+      _i2.GSearchProductsData, _i2.GSearchProductsData) _updateResult;
+  _i2.GSearchProductsData Function(
+          _i2.GSearchProductsData, _i2.GSearchProductsData)
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GFeaturedProductsData Function(
-                  _i2.GFeaturedProductsData, _i2.GFeaturedProductsData)
+          _i2.GSearchProductsData Function(
+                  _i2.GSearchProductsData, _i2.GSearchProductsData)
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GFeaturedProductsDataBuilder _optimisticResponse;
-  _i2.GFeaturedProductsDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GFeaturedProductsDataBuilder();
-  set optimisticResponse(_i2.GFeaturedProductsDataBuilder optimisticResponse) =>
+  _i2.GSearchProductsDataBuilder _optimisticResponse;
+  _i2.GSearchProductsDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GSearchProductsDataBuilder();
+  set optimisticResponse(_i2.GSearchProductsDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -265,11 +278,16 @@ class GFeaturedProductsReqBuilder
   set fetchPolicy(_i1.FetchPolicy fetchPolicy) =>
       _$this._fetchPolicy = fetchPolicy;
 
-  GFeaturedProductsReqBuilder() {
-    GFeaturedProductsReq._initializeBuilder(this);
+  bool _executeOnListen;
+  bool get executeOnListen => _$this._executeOnListen;
+  set executeOnListen(bool executeOnListen) =>
+      _$this._executeOnListen = executeOnListen;
+
+  GSearchProductsReqBuilder() {
+    GSearchProductsReq._initializeBuilder(this);
   }
 
-  GFeaturedProductsReqBuilder get _$this {
+  GSearchProductsReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -279,30 +297,31 @@ class GFeaturedProductsReqBuilder
       _updateCacheHandlerKey = _$v.updateCacheHandlerKey;
       _updateCacheHandlerContext = _$v.updateCacheHandlerContext;
       _fetchPolicy = _$v.fetchPolicy;
+      _executeOnListen = _$v.executeOnListen;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GFeaturedProductsReq other) {
+  void replace(GSearchProductsReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GFeaturedProductsReq;
+    _$v = other as _$GSearchProductsReq;
   }
 
   @override
-  void update(void Function(GFeaturedProductsReqBuilder) updates) {
+  void update(void Function(GSearchProductsReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GFeaturedProductsReq build() {
-    _$GFeaturedProductsReq _$result;
+  _$GSearchProductsReq build() {
+    _$GSearchProductsReq _$result;
     try {
       _$result = _$v ??
-          new _$GFeaturedProductsReq._(
+          new _$GSearchProductsReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -310,7 +329,8 @@ class GFeaturedProductsReqBuilder
               optimisticResponse: _optimisticResponse?.build(),
               updateCacheHandlerKey: updateCacheHandlerKey,
               updateCacheHandlerContext: updateCacheHandlerContext,
-              fetchPolicy: fetchPolicy);
+              fetchPolicy: fetchPolicy,
+              executeOnListen: executeOnListen);
     } catch (_) {
       String _$failedField;
       try {
@@ -321,7 +341,7 @@ class GFeaturedProductsReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GFeaturedProductsReq', _$failedField, e.toString());
+            'GSearchProductsReq', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -1,32 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_category.req.gql.dart';
+part of 'categories.req.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GHomeCategoryListReq> _$gHomeCategoryListReqSerializer =
-    new _$GHomeCategoryListReqSerializer();
+Serializer<GCategoryListReq> _$gCategoryListReqSerializer =
+    new _$GCategoryListReqSerializer();
 
-class _$GHomeCategoryListReqSerializer
-    implements StructuredSerializer<GHomeCategoryListReq> {
+class _$GCategoryListReqSerializer
+    implements StructuredSerializer<GCategoryListReq> {
   @override
-  final Iterable<Type> types = const [
-    GHomeCategoryListReq,
-    _$GHomeCategoryListReq
-  ];
+  final Iterable<Type> types = const [GCategoryListReq, _$GCategoryListReq];
   @override
-  final String wireName = 'GHomeCategoryListReq';
+  final String wireName = 'GCategoryListReq';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, GHomeCategoryListReq object,
+  Iterable<Object> serialize(Serializers serializers, GCategoryListReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GHomeCategoryListVars)),
+          specifiedType: const FullType(_i3.GCategoryListVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -41,7 +37,7 @@ class _$GHomeCategoryListReqSerializer
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GHomeCategoryListData)));
+            specifiedType: const FullType(_i2.GCategoryListData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -62,14 +58,20 @@ class _$GHomeCategoryListReqSerializer
         ..add(serializers.serialize(object.fetchPolicy,
             specifiedType: const FullType(_i1.FetchPolicy)));
     }
+    if (object.executeOnListen != null) {
+      result
+        ..add('executeOnListen')
+        ..add(serializers.serialize(object.executeOnListen,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
   @override
-  GHomeCategoryListReq deserialize(
+  GCategoryListReq deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GHomeCategoryListReqBuilder();
+    final result = new GCategoryListReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -79,8 +81,8 @@ class _$GHomeCategoryListReqSerializer
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GHomeCategoryListVars))
-              as _i3.GHomeCategoryListVars);
+                  specifiedType: const FullType(_i3.GCategoryListVars))
+              as _i3.GCategoryListVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -92,8 +94,8 @@ class _$GHomeCategoryListReqSerializer
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GHomeCategoryListData))
-              as _i2.GHomeCategoryListData);
+                  specifiedType: const FullType(_i2.GCategoryListData))
+              as _i2.GCategoryListData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -111,6 +113,10 @@ class _$GHomeCategoryListReqSerializer
                   specifiedType: const FullType(_i1.FetchPolicy))
               as _i1.FetchPolicy;
           break;
+        case 'executeOnListen':
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
       }
     }
 
@@ -118,30 +124,32 @@ class _$GHomeCategoryListReqSerializer
   }
 }
 
-class _$GHomeCategoryListReq extends GHomeCategoryListReq {
+class _$GCategoryListReq extends GCategoryListReq {
   @override
-  final _i3.GHomeCategoryListVars vars;
+  final _i3.GCategoryListVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GHomeCategoryListData Function(
-      _i2.GHomeCategoryListData, _i2.GHomeCategoryListData) updateResult;
+  final _i2.GCategoryListData Function(
+      _i2.GCategoryListData, _i2.GCategoryListData) updateResult;
   @override
-  final _i2.GHomeCategoryListData optimisticResponse;
+  final _i2.GCategoryListData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
   final Map<String, dynamic> updateCacheHandlerContext;
   @override
   final _i1.FetchPolicy fetchPolicy;
+  @override
+  final bool executeOnListen;
 
-  factory _$GHomeCategoryListReq(
-          [void Function(GHomeCategoryListReqBuilder) updates]) =>
-      (new GHomeCategoryListReqBuilder()..update(updates)).build();
+  factory _$GCategoryListReq(
+          [void Function(GCategoryListReqBuilder) updates]) =>
+      (new GCategoryListReqBuilder()..update(updates)).build();
 
-  _$GHomeCategoryListReq._(
+  _$GCategoryListReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -149,30 +157,30 @@ class _$GHomeCategoryListReq extends GHomeCategoryListReq {
       this.optimisticResponse,
       this.updateCacheHandlerKey,
       this.updateCacheHandlerContext,
-      this.fetchPolicy})
+      this.fetchPolicy,
+      this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GHomeCategoryListReq', 'vars');
+      throw new BuiltValueNullFieldError('GCategoryListReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GHomeCategoryListReq', 'operation');
+      throw new BuiltValueNullFieldError('GCategoryListReq', 'operation');
     }
   }
 
   @override
-  GHomeCategoryListReq rebuild(
-          void Function(GHomeCategoryListReqBuilder) updates) =>
+  GCategoryListReq rebuild(void Function(GCategoryListReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListReqBuilder toBuilder() =>
-      new GHomeCategoryListReqBuilder()..replace(this);
+  GCategoryListReqBuilder toBuilder() =>
+      new GCategoryListReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GHomeCategoryListReq &&
+    return other is GCategoryListReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -180,7 +188,8 @@ class _$GHomeCategoryListReq extends GHomeCategoryListReq {
         optimisticResponse == other.optimisticResponse &&
         updateCacheHandlerKey == other.updateCacheHandlerKey &&
         updateCacheHandlerContext == other.updateCacheHandlerContext &&
-        fetchPolicy == other.fetchPolicy;
+        fetchPolicy == other.fetchPolicy &&
+        executeOnListen == other.executeOnListen;
   }
 
   @override
@@ -190,18 +199,20 @@ class _$GHomeCategoryListReq extends GHomeCategoryListReq {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, vars.hashCode), operation.hashCode),
-                            requestId.hashCode),
-                        updateResult.hashCode),
-                    optimisticResponse.hashCode),
-                updateCacheHandlerKey.hashCode),
-            updateCacheHandlerContext.hashCode),
-        fetchPolicy.hashCode));
+                        $jc(
+                            $jc($jc($jc(0, vars.hashCode), operation.hashCode),
+                                requestId.hashCode),
+                            updateResult.hashCode),
+                        optimisticResponse.hashCode),
+                    updateCacheHandlerKey.hashCode),
+                updateCacheHandlerContext.hashCode),
+            fetchPolicy.hashCode),
+        executeOnListen.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GHomeCategoryListReq')
+    return (newBuiltValueToStringHelper('GCategoryListReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -209,19 +220,20 @@ class _$GHomeCategoryListReq extends GHomeCategoryListReq {
           ..add('optimisticResponse', optimisticResponse)
           ..add('updateCacheHandlerKey', updateCacheHandlerKey)
           ..add('updateCacheHandlerContext', updateCacheHandlerContext)
-          ..add('fetchPolicy', fetchPolicy))
+          ..add('fetchPolicy', fetchPolicy)
+          ..add('executeOnListen', executeOnListen))
         .toString();
   }
 }
 
-class GHomeCategoryListReqBuilder
-    implements Builder<GHomeCategoryListReq, GHomeCategoryListReqBuilder> {
-  _$GHomeCategoryListReq _$v;
+class GCategoryListReqBuilder
+    implements Builder<GCategoryListReq, GCategoryListReqBuilder> {
+  _$GCategoryListReq _$v;
 
-  _i3.GHomeCategoryListVarsBuilder _vars;
-  _i3.GHomeCategoryListVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GHomeCategoryListVarsBuilder();
-  set vars(_i3.GHomeCategoryListVarsBuilder vars) => _$this._vars = vars;
+  _i3.GCategoryListVarsBuilder _vars;
+  _i3.GCategoryListVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GCategoryListVarsBuilder();
+  set vars(_i3.GCategoryListVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -231,21 +243,20 @@ class GHomeCategoryListReqBuilder
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GHomeCategoryListData Function(
-      _i2.GHomeCategoryListData, _i2.GHomeCategoryListData) _updateResult;
-  _i2.GHomeCategoryListData Function(
-          _i2.GHomeCategoryListData, _i2.GHomeCategoryListData)
+  _i2.GCategoryListData Function(_i2.GCategoryListData, _i2.GCategoryListData)
+      _updateResult;
+  _i2.GCategoryListData Function(_i2.GCategoryListData, _i2.GCategoryListData)
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GHomeCategoryListData Function(
-                  _i2.GHomeCategoryListData, _i2.GHomeCategoryListData)
+          _i2.GCategoryListData Function(
+                  _i2.GCategoryListData, _i2.GCategoryListData)
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GHomeCategoryListDataBuilder _optimisticResponse;
-  _i2.GHomeCategoryListDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GHomeCategoryListDataBuilder();
-  set optimisticResponse(_i2.GHomeCategoryListDataBuilder optimisticResponse) =>
+  _i2.GCategoryListDataBuilder _optimisticResponse;
+  _i2.GCategoryListDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GCategoryListDataBuilder();
+  set optimisticResponse(_i2.GCategoryListDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -265,11 +276,16 @@ class GHomeCategoryListReqBuilder
   set fetchPolicy(_i1.FetchPolicy fetchPolicy) =>
       _$this._fetchPolicy = fetchPolicy;
 
-  GHomeCategoryListReqBuilder() {
-    GHomeCategoryListReq._initializeBuilder(this);
+  bool _executeOnListen;
+  bool get executeOnListen => _$this._executeOnListen;
+  set executeOnListen(bool executeOnListen) =>
+      _$this._executeOnListen = executeOnListen;
+
+  GCategoryListReqBuilder() {
+    GCategoryListReq._initializeBuilder(this);
   }
 
-  GHomeCategoryListReqBuilder get _$this {
+  GCategoryListReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -279,30 +295,31 @@ class GHomeCategoryListReqBuilder
       _updateCacheHandlerKey = _$v.updateCacheHandlerKey;
       _updateCacheHandlerContext = _$v.updateCacheHandlerContext;
       _fetchPolicy = _$v.fetchPolicy;
+      _executeOnListen = _$v.executeOnListen;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GHomeCategoryListReq other) {
+  void replace(GCategoryListReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GHomeCategoryListReq;
+    _$v = other as _$GCategoryListReq;
   }
 
   @override
-  void update(void Function(GHomeCategoryListReqBuilder) updates) {
+  void update(void Function(GCategoryListReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListReq build() {
-    _$GHomeCategoryListReq _$result;
+  _$GCategoryListReq build() {
+    _$GCategoryListReq _$result;
     try {
       _$result = _$v ??
-          new _$GHomeCategoryListReq._(
+          new _$GCategoryListReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -310,7 +327,8 @@ class GHomeCategoryListReqBuilder
               optimisticResponse: _optimisticResponse?.build(),
               updateCacheHandlerKey: updateCacheHandlerKey,
               updateCacheHandlerContext: updateCacheHandlerContext,
-              fetchPolicy: fetchPolicy);
+              fetchPolicy: fetchPolicy,
+              executeOnListen: executeOnListen);
     } catch (_) {
       String _$failedField;
       try {
@@ -321,7 +339,7 @@ class GHomeCategoryListReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GHomeCategoryListReq', _$failedField, e.toString());
+            'GCategoryListReq', _$failedField, e.toString());
       }
       rethrow;
     }

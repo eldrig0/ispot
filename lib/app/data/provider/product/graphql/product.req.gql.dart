@@ -2,7 +2,7 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:ferry/ferry.dart' as _i1;
+import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql/ast.dart' as _i8;
 import 'package:gql_exec/gql_exec.dart' as _i4;
 import 'package:ispot/app/data/provider/product/graphql/product.ast.gql.dart'
@@ -28,7 +28,8 @@ abstract class GProductDetailsReq
   static void _initializeBuilder(GProductDetailsReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'ProductDetails')
-    ..requestId = _i6.Uuid().v1();
+    ..requestId = _i6.Uuid().v1()
+    ..executeOnListen = true;
   _i3.GProductDetailsVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
@@ -47,6 +48,8 @@ abstract class GProductDetailsReq
   Map<String, dynamic> get updateCacheHandlerContext;
   @nullable
   _i1.FetchPolicy get fetchPolicy;
+  @nullable
+  bool get executeOnListen;
   @override
   _i2.GProductDetailsData parseData(Map<String, dynamic> json) =>
       _i2.GProductDetailsData.fromJson(json);
@@ -70,7 +73,8 @@ abstract class GVariantListReq
   static void _initializeBuilder(GVariantListReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'VariantList')
-    ..requestId = _i6.Uuid().v1();
+    ..requestId = _i6.Uuid().v1()
+    ..executeOnListen = true;
   _i3.GVariantListVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
@@ -89,6 +93,8 @@ abstract class GVariantListReq
   Map<String, dynamic> get updateCacheHandlerContext;
   @nullable
   _i1.FetchPolicy get fetchPolicy;
+  @nullable
+  bool get executeOnListen;
   @override
   _i2.GVariantListData parseData(Map<String, dynamic> json) =>
       _i2.GVariantListData.fromJson(json);

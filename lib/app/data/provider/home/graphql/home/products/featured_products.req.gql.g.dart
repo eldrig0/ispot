@@ -1,27 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'category.req.gql.dart';
+part of 'featured_products.req.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GCategoryReq> _$gCategoryReqSerializer =
-    new _$GCategoryReqSerializer();
+Serializer<GFeaturedProductsReq> _$gFeaturedProductsReqSerializer =
+    new _$GFeaturedProductsReqSerializer();
 
-class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
+class _$GFeaturedProductsReqSerializer
+    implements StructuredSerializer<GFeaturedProductsReq> {
   @override
-  final Iterable<Type> types = const [GCategoryReq, _$GCategoryReq];
+  final Iterable<Type> types = const [
+    GFeaturedProductsReq,
+    _$GFeaturedProductsReq
+  ];
   @override
-  final String wireName = 'GCategoryReq';
+  final String wireName = 'GFeaturedProductsReq';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GCategoryReq object,
+  Iterable<Object> serialize(
+      Serializers serializers, GFeaturedProductsReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GCategoryVars)),
+          specifiedType: const FullType(_i3.GFeaturedProductsVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -36,7 +41,7 @@ class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GCategoryData)));
+            specifiedType: const FullType(_i2.GFeaturedProductsData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -67,9 +72,10 @@ class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
   }
 
   @override
-  GCategoryReq deserialize(Serializers serializers, Iterable<Object> serialized,
+  GFeaturedProductsReq deserialize(
+      Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GCategoryReqBuilder();
+    final result = new GFeaturedProductsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -79,8 +85,8 @@ class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GCategoryVars))
-              as _i3.GCategoryVars);
+                  specifiedType: const FullType(_i3.GFeaturedProductsVars))
+              as _i3.GFeaturedProductsVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -92,8 +98,8 @@ class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GCategoryData))
-              as _i2.GCategoryData);
+                  specifiedType: const FullType(_i2.GFeaturedProductsData))
+              as _i2.GFeaturedProductsData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -122,18 +128,18 @@ class _$GCategoryReqSerializer implements StructuredSerializer<GCategoryReq> {
   }
 }
 
-class _$GCategoryReq extends GCategoryReq {
+class _$GFeaturedProductsReq extends GFeaturedProductsReq {
   @override
-  final _i3.GCategoryVars vars;
+  final _i3.GFeaturedProductsVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GCategoryData Function(_i2.GCategoryData, _i2.GCategoryData)
-      updateResult;
+  final _i2.GFeaturedProductsData Function(
+      _i2.GFeaturedProductsData, _i2.GFeaturedProductsData) updateResult;
   @override
-  final _i2.GCategoryData optimisticResponse;
+  final _i2.GFeaturedProductsData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
@@ -143,10 +149,11 @@ class _$GCategoryReq extends GCategoryReq {
   @override
   final bool executeOnListen;
 
-  factory _$GCategoryReq([void Function(GCategoryReqBuilder) updates]) =>
-      (new GCategoryReqBuilder()..update(updates)).build();
+  factory _$GFeaturedProductsReq(
+          [void Function(GFeaturedProductsReqBuilder) updates]) =>
+      (new GFeaturedProductsReqBuilder()..update(updates)).build();
 
-  _$GCategoryReq._(
+  _$GFeaturedProductsReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -158,25 +165,27 @@ class _$GCategoryReq extends GCategoryReq {
       this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GCategoryReq', 'vars');
+      throw new BuiltValueNullFieldError('GFeaturedProductsReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GCategoryReq', 'operation');
+      throw new BuiltValueNullFieldError('GFeaturedProductsReq', 'operation');
     }
   }
 
   @override
-  GCategoryReq rebuild(void Function(GCategoryReqBuilder) updates) =>
+  GFeaturedProductsReq rebuild(
+          void Function(GFeaturedProductsReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GCategoryReqBuilder toBuilder() => new GCategoryReqBuilder()..replace(this);
+  GFeaturedProductsReqBuilder toBuilder() =>
+      new GFeaturedProductsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GCategoryReq &&
+    return other is GFeaturedProductsReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -208,7 +217,7 @@ class _$GCategoryReq extends GCategoryReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GCategoryReq')
+    return (newBuiltValueToStringHelper('GFeaturedProductsReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -222,14 +231,14 @@ class _$GCategoryReq extends GCategoryReq {
   }
 }
 
-class GCategoryReqBuilder
-    implements Builder<GCategoryReq, GCategoryReqBuilder> {
-  _$GCategoryReq _$v;
+class GFeaturedProductsReqBuilder
+    implements Builder<GFeaturedProductsReq, GFeaturedProductsReqBuilder> {
+  _$GFeaturedProductsReq _$v;
 
-  _i3.GCategoryVarsBuilder _vars;
-  _i3.GCategoryVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GCategoryVarsBuilder();
-  set vars(_i3.GCategoryVarsBuilder vars) => _$this._vars = vars;
+  _i3.GFeaturedProductsVarsBuilder _vars;
+  _i3.GFeaturedProductsVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GFeaturedProductsVarsBuilder();
+  set vars(_i3.GFeaturedProductsVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -239,19 +248,21 @@ class GCategoryReqBuilder
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GCategoryData Function(_i2.GCategoryData, _i2.GCategoryData)
-      _updateResult;
-  _i2.GCategoryData Function(_i2.GCategoryData, _i2.GCategoryData)
+  _i2.GFeaturedProductsData Function(
+      _i2.GFeaturedProductsData, _i2.GFeaturedProductsData) _updateResult;
+  _i2.GFeaturedProductsData Function(
+          _i2.GFeaturedProductsData, _i2.GFeaturedProductsData)
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GCategoryData Function(_i2.GCategoryData, _i2.GCategoryData)
+          _i2.GFeaturedProductsData Function(
+                  _i2.GFeaturedProductsData, _i2.GFeaturedProductsData)
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GCategoryDataBuilder _optimisticResponse;
-  _i2.GCategoryDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GCategoryDataBuilder();
-  set optimisticResponse(_i2.GCategoryDataBuilder optimisticResponse) =>
+  _i2.GFeaturedProductsDataBuilder _optimisticResponse;
+  _i2.GFeaturedProductsDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GFeaturedProductsDataBuilder();
+  set optimisticResponse(_i2.GFeaturedProductsDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -276,11 +287,11 @@ class GCategoryReqBuilder
   set executeOnListen(bool executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GCategoryReqBuilder() {
-    GCategoryReq._initializeBuilder(this);
+  GFeaturedProductsReqBuilder() {
+    GFeaturedProductsReq._initializeBuilder(this);
   }
 
-  GCategoryReqBuilder get _$this {
+  GFeaturedProductsReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -297,24 +308,24 @@ class GCategoryReqBuilder
   }
 
   @override
-  void replace(GCategoryReq other) {
+  void replace(GFeaturedProductsReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GCategoryReq;
+    _$v = other as _$GFeaturedProductsReq;
   }
 
   @override
-  void update(void Function(GCategoryReqBuilder) updates) {
+  void update(void Function(GFeaturedProductsReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GCategoryReq build() {
-    _$GCategoryReq _$result;
+  _$GFeaturedProductsReq build() {
+    _$GFeaturedProductsReq _$result;
     try {
       _$result = _$v ??
-          new _$GCategoryReq._(
+          new _$GFeaturedProductsReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -334,7 +345,7 @@ class GCategoryReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GCategoryReq', _$failedField, e.toString());
+            'GFeaturedProductsReq', _$failedField, e.toString());
       }
       rethrow;
     }

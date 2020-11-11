@@ -238,7 +238,11 @@ class _$GProductDetailsDataSerializer
   Iterable<Object> serialize(
       Serializers serializers, GProductDetailsData object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
     if (object.product != null) {
       result
         ..add('product')
@@ -260,6 +264,10 @@ class _$GProductDetailsDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'product':
           result.product.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GProductDetailsData_product))
@@ -2600,7 +2608,11 @@ class _$GVariantListDataSerializer
   @override
   Iterable<Object> serialize(Serializers serializers, GVariantListData object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
     if (object.productVariants != null) {
       result
         ..add('productVariants')
@@ -2622,6 +2634,10 @@ class _$GVariantListDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'productVariants':
           result.productVariants.replace(serializers.deserialize(value,
                   specifiedType:
@@ -5205,13 +5221,19 @@ class _$GProductVariantFieldsData_attributes_valuesSerializer
 
 class _$GProductDetailsData extends GProductDetailsData {
   @override
+  final String G__typename;
+  @override
   final GProductDetailsData_product product;
 
   factory _$GProductDetailsData(
           [void Function(GProductDetailsDataBuilder) updates]) =>
       (new GProductDetailsDataBuilder()..update(updates)).build();
 
-  _$GProductDetailsData._({this.product}) : super._();
+  _$GProductDetailsData._({this.G__typename, this.product}) : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError('GProductDetailsData', 'G__typename');
+    }
+  }
 
   @override
   GProductDetailsData rebuild(
@@ -5225,17 +5247,20 @@ class _$GProductDetailsData extends GProductDetailsData {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GProductDetailsData && product == other.product;
+    return other is GProductDetailsData &&
+        G__typename == other.G__typename &&
+        product == other.product;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, product.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), product.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GProductDetailsData')
+          ..add('G__typename', G__typename)
           ..add('product', product))
         .toString();
   }
@@ -5245,16 +5270,23 @@ class GProductDetailsDataBuilder
     implements Builder<GProductDetailsData, GProductDetailsDataBuilder> {
   _$GProductDetailsData _$v;
 
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
   GProductDetailsData_productBuilder _product;
   GProductDetailsData_productBuilder get product =>
       _$this._product ??= new GProductDetailsData_productBuilder();
   set product(GProductDetailsData_productBuilder product) =>
       _$this._product = product;
 
-  GProductDetailsDataBuilder();
+  GProductDetailsDataBuilder() {
+    GProductDetailsData._initializeBuilder(this);
+  }
 
   GProductDetailsDataBuilder get _$this {
     if (_$v != null) {
+      _G__typename = _$v.G__typename;
       _product = _$v.product?.toBuilder();
       _$v = null;
     }
@@ -5278,7 +5310,9 @@ class GProductDetailsDataBuilder
   _$GProductDetailsData build() {
     _$GProductDetailsData _$result;
     try {
-      _$result = _$v ?? new _$GProductDetailsData._(product: _product?.build());
+      _$result = _$v ??
+          new _$GProductDetailsData._(
+              G__typename: G__typename, product: _product?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -10195,13 +10229,19 @@ class GProductDetailsData_product_variants_attributes_valuesBuilder
 
 class _$GVariantListData extends GVariantListData {
   @override
+  final String G__typename;
+  @override
   final GVariantListData_productVariants productVariants;
 
   factory _$GVariantListData(
           [void Function(GVariantListDataBuilder) updates]) =>
       (new GVariantListDataBuilder()..update(updates)).build();
 
-  _$GVariantListData._({this.productVariants}) : super._();
+  _$GVariantListData._({this.G__typename, this.productVariants}) : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError('GVariantListData', 'G__typename');
+    }
+  }
 
   @override
   GVariantListData rebuild(void Function(GVariantListDataBuilder) updates) =>
@@ -10215,17 +10255,19 @@ class _$GVariantListData extends GVariantListData {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GVariantListData &&
+        G__typename == other.G__typename &&
         productVariants == other.productVariants;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, productVariants.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), productVariants.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GVariantListData')
+          ..add('G__typename', G__typename)
           ..add('productVariants', productVariants))
         .toString();
   }
@@ -10235,6 +10277,10 @@ class GVariantListDataBuilder
     implements Builder<GVariantListData, GVariantListDataBuilder> {
   _$GVariantListData _$v;
 
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
   GVariantListData_productVariantsBuilder _productVariants;
   GVariantListData_productVariantsBuilder get productVariants =>
       _$this._productVariants ??= new GVariantListData_productVariantsBuilder();
@@ -10242,10 +10288,13 @@ class GVariantListDataBuilder
           GVariantListData_productVariantsBuilder productVariants) =>
       _$this._productVariants = productVariants;
 
-  GVariantListDataBuilder();
+  GVariantListDataBuilder() {
+    GVariantListData._initializeBuilder(this);
+  }
 
   GVariantListDataBuilder get _$this {
     if (_$v != null) {
+      _G__typename = _$v.G__typename;
       _productVariants = _$v.productVariants?.toBuilder();
       _$v = null;
     }
@@ -10270,7 +10319,9 @@ class GVariantListDataBuilder
     _$GVariantListData _$result;
     try {
       _$result = _$v ??
-          new _$GVariantListData._(productVariants: _productVariants?.build());
+          new _$GVariantListData._(
+              G__typename: G__typename,
+              productVariants: _productVariants?.build());
     } catch (_) {
       String _$failedField;
       try {

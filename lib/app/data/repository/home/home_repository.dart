@@ -7,10 +7,6 @@ class HomeRepository {
 
   HomeRepository(this._provider);
 
-  Stream<List<CategoryModel>> getHomeCategories() {
-    return _provider.getHomeCategories();
-  }
-
   Stream<List<Product>> getHomeProducts() {
     return _provider.getFeaturedProducts();
   }

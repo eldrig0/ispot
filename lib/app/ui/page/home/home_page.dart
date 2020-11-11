@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/home/home/home_controller.dart';
+import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import 'package:ispot/main.dart';
@@ -37,7 +38,7 @@ class HomePage extends GetView {
         slivers: [
           _buildAppBar(),
           _buildHomeTitle(),
-          _buildSearchBar(context),
+          // _buildSearchBar(context),
           _buildFeaturedProducts(context)
         ],
       ),
@@ -67,7 +68,8 @@ class HomePage extends GetView {
           ),
           actions: [
             IconButton(icon: Icon(AntDesign.bars), onPressed: () {}),
-            _shoppingCartBadge()
+            Padding(
+                padding: EdgeInsets.only(left: 18), child: _shoppingCartBadge())
           ]);
 
   Widget _buildSearchBar(BuildContext context) {
@@ -112,42 +114,9 @@ class HomePage extends GetView {
               childAspectRatio: .7,
               children: _controller.homeProducts
                   .map(
-                    (product) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                color: ISpotTheme.primaryImageBackground,
-                              ),
-                              width: MediaQuery.of(context).size.width -
-                                  ((18 * 2) + 10),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.network(
-                                  product.productThumbnail,
-                                  fit: BoxFit.fitHeight,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            product.productName,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          UIHelper.buildPricingText(
-                              product.pricing.start.amount,
-                              product.pricing.stop.amount,
-                              product.pricing.start.currency,
-                              style: TextStyle(fontWeight: FontWeight.w600))
-                        ]),
+                    (product) => ProductCard(
+                      product: product,
+                    ),
                   )
                   .toList()),
         ),
@@ -188,4 +157,49 @@ class HomePage extends GetView {
 
   double _getDeviceWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;
+}
+
+class ProductCard extends StatelessWidget {
+  final Product product;
+  const ProductCard({
+    this.product,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: ISpotTheme.primaryImageBackground,
+              ),
+              width: MediaQuery.of(context).size.width - ((18 * 2) + 10),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(
+                  product.productThumbnail,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 4,
+          ),
+          Text(
+            product.productName,
+          ),
+          SizedBox(
+            height: 4,
+          ),
+          UIHelper.buildPricingText(product.pricing.start.amount,
+              product.pricing.stop.amount, product.pricing.start.currency,
+              style: TextStyle(fontWeight: FontWeight.w600))
+        ]);
+  }
 }

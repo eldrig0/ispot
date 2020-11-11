@@ -1,16 +1,22 @@
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/data/model/category.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/data/repository/home/home_repository.dart';
 import 'package:meta/meta.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../../data/model/category.dart';
+import '../../../data/model/product.dart';
+import '../../../data/repository/categories/categories_repository.dart';
+import '../../../data/repository/home/home_repository.dart';
 
 class HomeController extends GetxController {
-  HomeRepository repository;
-  final homeCategories = <CategoryModel>[].obs;
+  HomeRepository homeRepository;
+  final CategoriesRepository categoriesRepository;
+  final categories = <CategoryModel>[].obs;
   final homeProducts = <Product>[].obs;
+  bool isSearchResout = false;
+  FormControl searchControl = FormControl(value: '');
 
-  HomeController({@required this.repository});
+  HomeController(
+      {@required this.homeRepository, @required this.categoriesRepository});
 
   @override
   void onInit() {
@@ -18,18 +24,28 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  void getHomePageCategories() {
-    repository.getHomeCategories().take(1).listen((event) {
-      homeCategories.clear();
-      homeCategories.addAll(event);
-    });
-  }
-
   void getHomePageProducts() {
-    print('got products');
-    repository.getHomeProducts().take(1).listen((products) {
+    homeRepository.getHomeProducts().take(1).listen((products) {
       homeProducts.clear();
       homeProducts.addAll(products);
     });
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+  }
+
+  void getCategories() {
+    categoriesRepository.getCategories().listen((categories) {
+      this.categories.addAll(categories);
+    });
+  }
+
+  void listenToSearch() {
+    this.searchControl.valueChanges
+      ..listen((event) {
+        print(event());
+      });
   }
 }

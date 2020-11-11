@@ -73,6 +73,9 @@ class _$GFeaturedProductsDataSerializer
       Serializers serializers, GFeaturedProductsData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'shop',
       serializers.serialize(object.shop,
           specifiedType: const FullType(GFeaturedProductsData_shop)),
@@ -93,6 +96,10 @@ class _$GFeaturedProductsDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'shop':
           result.shop.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GFeaturedProductsData_shop))
@@ -1067,13 +1074,19 @@ class _$GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbn
 
 class _$GFeaturedProductsData extends GFeaturedProductsData {
   @override
+  final String G__typename;
+  @override
   final GFeaturedProductsData_shop shop;
 
   factory _$GFeaturedProductsData(
           [void Function(GFeaturedProductsDataBuilder) updates]) =>
       (new GFeaturedProductsDataBuilder()..update(updates)).build();
 
-  _$GFeaturedProductsData._({this.shop}) : super._() {
+  _$GFeaturedProductsData._({this.G__typename, this.shop}) : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GFeaturedProductsData', 'G__typename');
+    }
     if (shop == null) {
       throw new BuiltValueNullFieldError('GFeaturedProductsData', 'shop');
     }
@@ -1091,17 +1104,20 @@ class _$GFeaturedProductsData extends GFeaturedProductsData {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GFeaturedProductsData && shop == other.shop;
+    return other is GFeaturedProductsData &&
+        G__typename == other.G__typename &&
+        shop == other.shop;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, shop.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), shop.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GFeaturedProductsData')
+          ..add('G__typename', G__typename)
           ..add('shop', shop))
         .toString();
   }
@@ -1111,15 +1127,22 @@ class GFeaturedProductsDataBuilder
     implements Builder<GFeaturedProductsData, GFeaturedProductsDataBuilder> {
   _$GFeaturedProductsData _$v;
 
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
   GFeaturedProductsData_shopBuilder _shop;
   GFeaturedProductsData_shopBuilder get shop =>
       _$this._shop ??= new GFeaturedProductsData_shopBuilder();
   set shop(GFeaturedProductsData_shopBuilder shop) => _$this._shop = shop;
 
-  GFeaturedProductsDataBuilder();
+  GFeaturedProductsDataBuilder() {
+    GFeaturedProductsData._initializeBuilder(this);
+  }
 
   GFeaturedProductsDataBuilder get _$this {
     if (_$v != null) {
+      _G__typename = _$v.G__typename;
       _shop = _$v.shop?.toBuilder();
       _$v = null;
     }
@@ -1143,7 +1166,9 @@ class GFeaturedProductsDataBuilder
   _$GFeaturedProductsData build() {
     _$GFeaturedProductsData _$result;
     try {
-      _$result = _$v ?? new _$GFeaturedProductsData._(shop: shop.build());
+      _$result = _$v ??
+          new _$GFeaturedProductsData._(
+              G__typename: G__typename, shop: shop.build());
     } catch (_) {
       String _$failedField;
       try {

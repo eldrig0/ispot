@@ -14,6 +14,10 @@ abstract class GProductDetailsData
   factory GProductDetailsData(
       [Function(GProductDetailsDataBuilder b) updates]) = _$GProductDetailsData;
 
+  static void _initializeBuilder(GProductDetailsDataBuilder b) =>
+      b..G__typename = 'Query';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
   @nullable
   GProductDetailsData_product get product;
   static Serializer<GProductDetailsData> get serializer =>
@@ -1126,6 +1130,10 @@ abstract class GVariantListData
   factory GVariantListData([Function(GVariantListDataBuilder b) updates]) =
       _$GVariantListData;
 
+  static void _initializeBuilder(GVariantListDataBuilder b) =>
+      b..G__typename = 'Query';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
   @nullable
   GVariantListData_productVariants get productVariants;
   static Serializer<GVariantListData> get serializer =>

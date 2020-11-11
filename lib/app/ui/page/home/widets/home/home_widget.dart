@@ -12,7 +12,6 @@ class HomeWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetX(initState: (_) {
       _controller.getHomePageProducts();
-      _controller.getHomePageCategories();
     }, builder: (_) {
       return CustomScrollView(slivers: [
         if (_controller.homeProducts.isNotEmpty)

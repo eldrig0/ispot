@@ -1,55 +1,55 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_category.data.gql.dart';
+part of 'categories.data.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GHomeCategoryListData> _$gHomeCategoryListDataSerializer =
-    new _$GHomeCategoryListDataSerializer();
-Serializer<GHomeCategoryListData_categories>
-    _$gHomeCategoryListDataCategoriesSerializer =
-    new _$GHomeCategoryListData_categoriesSerializer();
-Serializer<GHomeCategoryListData_categories_edges>
-    _$gHomeCategoryListDataCategoriesEdgesSerializer =
-    new _$GHomeCategoryListData_categories_edgesSerializer();
-Serializer<GHomeCategoryListData_categories_edges_node>
-    _$gHomeCategoryListDataCategoriesEdgesNodeSerializer =
-    new _$GHomeCategoryListData_categories_edges_nodeSerializer();
-Serializer<GHomeCategoryListData_categories_edges_node_backgroundImage>
-    _$gHomeCategoryListDataCategoriesEdgesNodeBackgroundImageSerializer =
-    new _$GHomeCategoryListData_categories_edges_node_backgroundImageSerializer();
+Serializer<GCategoryListData> _$gCategoryListDataSerializer =
+    new _$GCategoryListDataSerializer();
+Serializer<GCategoryListData_categories>
+    _$gCategoryListDataCategoriesSerializer =
+    new _$GCategoryListData_categoriesSerializer();
+Serializer<GCategoryListData_categories_edges>
+    _$gCategoryListDataCategoriesEdgesSerializer =
+    new _$GCategoryListData_categories_edgesSerializer();
+Serializer<GCategoryListData_categories_edges_node>
+    _$gCategoryListDataCategoriesEdgesNodeSerializer =
+    new _$GCategoryListData_categories_edges_nodeSerializer();
+Serializer<GCategoryListData_categories_edges_node_backgroundImage>
+    _$gCategoryListDataCategoriesEdgesNodeBackgroundImageSerializer =
+    new _$GCategoryListData_categories_edges_node_backgroundImageSerializer();
 
-class _$GHomeCategoryListDataSerializer
-    implements StructuredSerializer<GHomeCategoryListData> {
+class _$GCategoryListDataSerializer
+    implements StructuredSerializer<GCategoryListData> {
   @override
-  final Iterable<Type> types = const [
-    GHomeCategoryListData,
-    _$GHomeCategoryListData
-  ];
+  final Iterable<Type> types = const [GCategoryListData, _$GCategoryListData];
   @override
-  final String wireName = 'GHomeCategoryListData';
+  final String wireName = 'GCategoryListData';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, GHomeCategoryListData object,
+  Iterable<Object> serialize(Serializers serializers, GCategoryListData object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
     if (object.categories != null) {
       result
         ..add('categories')
         ..add(serializers.serialize(object.categories,
-            specifiedType: const FullType(GHomeCategoryListData_categories)));
+            specifiedType: const FullType(GCategoryListData_categories)));
     }
     return result;
   }
 
   @override
-  GHomeCategoryListData deserialize(
+  GCategoryListData deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GHomeCategoryListDataBuilder();
+    final result = new GCategoryListDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -57,11 +57,14 @@ class _$GHomeCategoryListDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'categories':
           result.categories.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GHomeCategoryListData_categories))
-              as GHomeCategoryListData_categories);
+                  specifiedType: const FullType(GCategoryListData_categories))
+              as GCategoryListData_categories);
           break;
       }
     }
@@ -70,19 +73,19 @@ class _$GHomeCategoryListDataSerializer
   }
 }
 
-class _$GHomeCategoryListData_categoriesSerializer
-    implements StructuredSerializer<GHomeCategoryListData_categories> {
+class _$GCategoryListData_categoriesSerializer
+    implements StructuredSerializer<GCategoryListData_categories> {
   @override
   final Iterable<Type> types = const [
-    GHomeCategoryListData_categories,
-    _$GHomeCategoryListData_categories
+    GCategoryListData_categories,
+    _$GCategoryListData_categories
   ];
   @override
-  final String wireName = 'GHomeCategoryListData_categories';
+  final String wireName = 'GCategoryListData_categories';
 
   @override
   Iterable<Object> serialize(
-      Serializers serializers, GHomeCategoryListData_categories object,
+      Serializers serializers, GCategoryListData_categories object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -91,17 +94,17 @@ class _$GHomeCategoryListData_categoriesSerializer
       'edges',
       serializers.serialize(object.edges,
           specifiedType: const FullType(BuiltList,
-              const [const FullType(GHomeCategoryListData_categories_edges)])),
+              const [const FullType(GCategoryListData_categories_edges)])),
     ];
 
     return result;
   }
 
   @override
-  GHomeCategoryListData_categories deserialize(
+  GCategoryListData_categories deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GHomeCategoryListData_categoriesBuilder();
+    final result = new GCategoryListData_categoriesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -116,7 +119,7 @@ class _$GHomeCategoryListData_categoriesSerializer
         case 'edges':
           result.edges.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
-                const FullType(GHomeCategoryListData_categories_edges)
+                const FullType(GCategoryListData_categories_edges)
               ])) as BuiltList<Object>);
           break;
       }
@@ -126,19 +129,19 @@ class _$GHomeCategoryListData_categoriesSerializer
   }
 }
 
-class _$GHomeCategoryListData_categories_edgesSerializer
-    implements StructuredSerializer<GHomeCategoryListData_categories_edges> {
+class _$GCategoryListData_categories_edgesSerializer
+    implements StructuredSerializer<GCategoryListData_categories_edges> {
   @override
   final Iterable<Type> types = const [
-    GHomeCategoryListData_categories_edges,
-    _$GHomeCategoryListData_categories_edges
+    GCategoryListData_categories_edges,
+    _$GCategoryListData_categories_edges
   ];
   @override
-  final String wireName = 'GHomeCategoryListData_categories_edges';
+  final String wireName = 'GCategoryListData_categories_edges';
 
   @override
   Iterable<Object> serialize(
-      Serializers serializers, GHomeCategoryListData_categories_edges object,
+      Serializers serializers, GCategoryListData_categories_edges object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -147,17 +150,17 @@ class _$GHomeCategoryListData_categories_edgesSerializer
       'node',
       serializers.serialize(object.node,
           specifiedType:
-              const FullType(GHomeCategoryListData_categories_edges_node)),
+              const FullType(GCategoryListData_categories_edges_node)),
     ];
 
     return result;
   }
 
   @override
-  GHomeCategoryListData_categories_edges deserialize(
+  GCategoryListData_categories_edges deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GHomeCategoryListData_categories_edgesBuilder();
+    final result = new GCategoryListData_categories_edgesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -171,9 +174,9 @@ class _$GHomeCategoryListData_categories_edgesSerializer
           break;
         case 'node':
           result.node.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GHomeCategoryListData_categories_edges_node))
-              as GHomeCategoryListData_categories_edges_node);
+                  specifiedType:
+                      const FullType(GCategoryListData_categories_edges_node))
+              as GCategoryListData_categories_edges_node);
           break;
       }
     }
@@ -182,20 +185,19 @@ class _$GHomeCategoryListData_categories_edgesSerializer
   }
 }
 
-class _$GHomeCategoryListData_categories_edges_nodeSerializer
-    implements
-        StructuredSerializer<GHomeCategoryListData_categories_edges_node> {
+class _$GCategoryListData_categories_edges_nodeSerializer
+    implements StructuredSerializer<GCategoryListData_categories_edges_node> {
   @override
   final Iterable<Type> types = const [
-    GHomeCategoryListData_categories_edges_node,
-    _$GHomeCategoryListData_categories_edges_node
+    GCategoryListData_categories_edges_node,
+    _$GCategoryListData_categories_edges_node
   ];
   @override
-  final String wireName = 'GHomeCategoryListData_categories_edges_node';
+  final String wireName = 'GCategoryListData_categories_edges_node';
 
   @override
-  Iterable<Object> serialize(Serializers serializers,
-      GHomeCategoryListData_categories_edges_node object,
+  Iterable<Object> serialize(
+      Serializers serializers, GCategoryListData_categories_edges_node object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -211,16 +213,16 @@ class _$GHomeCategoryListData_categories_edges_nodeSerializer
         ..add('backgroundImage')
         ..add(serializers.serialize(object.backgroundImage,
             specifiedType: const FullType(
-                GHomeCategoryListData_categories_edges_node_backgroundImage)));
+                GCategoryListData_categories_edges_node_backgroundImage)));
     }
     return result;
   }
 
   @override
-  GHomeCategoryListData_categories_edges_node deserialize(
+  GCategoryListData_categories_edges_node deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GHomeCategoryListData_categories_edges_nodeBuilder();
+    final result = new GCategoryListData_categories_edges_nodeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -243,8 +245,8 @@ class _$GHomeCategoryListData_categories_edges_nodeSerializer
         case 'backgroundImage':
           result.backgroundImage.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      GHomeCategoryListData_categories_edges_node_backgroundImage))
-              as GHomeCategoryListData_categories_edges_node_backgroundImage);
+                      GCategoryListData_categories_edges_node_backgroundImage))
+              as GCategoryListData_categories_edges_node_backgroundImage);
           break;
       }
     }
@@ -253,22 +255,22 @@ class _$GHomeCategoryListData_categories_edges_nodeSerializer
   }
 }
 
-class _$GHomeCategoryListData_categories_edges_node_backgroundImageSerializer
+class _$GCategoryListData_categories_edges_node_backgroundImageSerializer
     implements
         StructuredSerializer<
-            GHomeCategoryListData_categories_edges_node_backgroundImage> {
+            GCategoryListData_categories_edges_node_backgroundImage> {
   @override
   final Iterable<Type> types = const [
-    GHomeCategoryListData_categories_edges_node_backgroundImage,
-    _$GHomeCategoryListData_categories_edges_node_backgroundImage
+    GCategoryListData_categories_edges_node_backgroundImage,
+    _$GCategoryListData_categories_edges_node_backgroundImage
   ];
   @override
   final String wireName =
-      'GHomeCategoryListData_categories_edges_node_backgroundImage';
+      'GCategoryListData_categories_edges_node_backgroundImage';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GHomeCategoryListData_categories_edges_node_backgroundImage object,
+      GCategoryListData_categories_edges_node_backgroundImage object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -282,11 +284,11 @@ class _$GHomeCategoryListData_categories_edges_node_backgroundImageSerializer
   }
 
   @override
-  GHomeCategoryListData_categories_edges_node_backgroundImage deserialize(
+  GCategoryListData_categories_edges_node_backgroundImage deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GHomeCategoryListData_categories_edges_node_backgroundImageBuilder();
+        new GCategoryListData_categories_edges_node_backgroundImageBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -309,58 +311,73 @@ class _$GHomeCategoryListData_categories_edges_node_backgroundImageSerializer
   }
 }
 
-class _$GHomeCategoryListData extends GHomeCategoryListData {
+class _$GCategoryListData extends GCategoryListData {
   @override
-  final GHomeCategoryListData_categories categories;
+  final String G__typename;
+  @override
+  final GCategoryListData_categories categories;
 
-  factory _$GHomeCategoryListData(
-          [void Function(GHomeCategoryListDataBuilder) updates]) =>
-      (new GHomeCategoryListDataBuilder()..update(updates)).build();
+  factory _$GCategoryListData(
+          [void Function(GCategoryListDataBuilder) updates]) =>
+      (new GCategoryListDataBuilder()..update(updates)).build();
 
-  _$GHomeCategoryListData._({this.categories}) : super._();
+  _$GCategoryListData._({this.G__typename, this.categories}) : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError('GCategoryListData', 'G__typename');
+    }
+  }
 
   @override
-  GHomeCategoryListData rebuild(
-          void Function(GHomeCategoryListDataBuilder) updates) =>
+  GCategoryListData rebuild(void Function(GCategoryListDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListDataBuilder toBuilder() =>
-      new GHomeCategoryListDataBuilder()..replace(this);
+  GCategoryListDataBuilder toBuilder() =>
+      new GCategoryListDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GHomeCategoryListData && categories == other.categories;
+    return other is GCategoryListData &&
+        G__typename == other.G__typename &&
+        categories == other.categories;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, categories.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), categories.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GHomeCategoryListData')
+    return (newBuiltValueToStringHelper('GCategoryListData')
+          ..add('G__typename', G__typename)
           ..add('categories', categories))
         .toString();
   }
 }
 
-class GHomeCategoryListDataBuilder
-    implements Builder<GHomeCategoryListData, GHomeCategoryListDataBuilder> {
-  _$GHomeCategoryListData _$v;
+class GCategoryListDataBuilder
+    implements Builder<GCategoryListData, GCategoryListDataBuilder> {
+  _$GCategoryListData _$v;
 
-  GHomeCategoryListData_categoriesBuilder _categories;
-  GHomeCategoryListData_categoriesBuilder get categories =>
-      _$this._categories ??= new GHomeCategoryListData_categoriesBuilder();
-  set categories(GHomeCategoryListData_categoriesBuilder categories) =>
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  GCategoryListData_categoriesBuilder _categories;
+  GCategoryListData_categoriesBuilder get categories =>
+      _$this._categories ??= new GCategoryListData_categoriesBuilder();
+  set categories(GCategoryListData_categoriesBuilder categories) =>
       _$this._categories = categories;
 
-  GHomeCategoryListDataBuilder();
+  GCategoryListDataBuilder() {
+    GCategoryListData._initializeBuilder(this);
+  }
 
-  GHomeCategoryListDataBuilder get _$this {
+  GCategoryListDataBuilder get _$this {
     if (_$v != null) {
+      _G__typename = _$v.G__typename;
       _categories = _$v.categories?.toBuilder();
       _$v = null;
     }
@@ -368,24 +385,25 @@ class GHomeCategoryListDataBuilder
   }
 
   @override
-  void replace(GHomeCategoryListData other) {
+  void replace(GCategoryListData other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GHomeCategoryListData;
+    _$v = other as _$GCategoryListData;
   }
 
   @override
-  void update(void Function(GHomeCategoryListDataBuilder) updates) {
+  void update(void Function(GCategoryListDataBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListData build() {
-    _$GHomeCategoryListData _$result;
+  _$GCategoryListData build() {
+    _$GCategoryListData _$result;
     try {
       _$result = _$v ??
-          new _$GHomeCategoryListData._(categories: _categories?.build());
+          new _$GCategoryListData._(
+              G__typename: G__typename, categories: _categories?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -393,7 +411,7 @@ class GHomeCategoryListDataBuilder
         _categories?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GHomeCategoryListData', _$failedField, e.toString());
+            'GCategoryListData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -402,42 +420,40 @@ class GHomeCategoryListDataBuilder
   }
 }
 
-class _$GHomeCategoryListData_categories
-    extends GHomeCategoryListData_categories {
+class _$GCategoryListData_categories extends GCategoryListData_categories {
   @override
   final String G__typename;
   @override
-  final BuiltList<GHomeCategoryListData_categories_edges> edges;
+  final BuiltList<GCategoryListData_categories_edges> edges;
 
-  factory _$GHomeCategoryListData_categories(
-          [void Function(GHomeCategoryListData_categoriesBuilder) updates]) =>
-      (new GHomeCategoryListData_categoriesBuilder()..update(updates)).build();
+  factory _$GCategoryListData_categories(
+          [void Function(GCategoryListData_categoriesBuilder) updates]) =>
+      (new GCategoryListData_categoriesBuilder()..update(updates)).build();
 
-  _$GHomeCategoryListData_categories._({this.G__typename, this.edges})
-      : super._() {
+  _$GCategoryListData_categories._({this.G__typename, this.edges}) : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories', 'G__typename');
+          'GCategoryListData_categories', 'G__typename');
     }
     if (edges == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories', 'edges');
+          'GCategoryListData_categories', 'edges');
     }
   }
 
   @override
-  GHomeCategoryListData_categories rebuild(
-          void Function(GHomeCategoryListData_categoriesBuilder) updates) =>
+  GCategoryListData_categories rebuild(
+          void Function(GCategoryListData_categoriesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListData_categoriesBuilder toBuilder() =>
-      new GHomeCategoryListData_categoriesBuilder()..replace(this);
+  GCategoryListData_categoriesBuilder toBuilder() =>
+      new GCategoryListData_categoriesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GHomeCategoryListData_categories &&
+    return other is GCategoryListData_categories &&
         G__typename == other.G__typename &&
         edges == other.edges;
   }
@@ -449,35 +465,34 @@ class _$GHomeCategoryListData_categories
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GHomeCategoryListData_categories')
+    return (newBuiltValueToStringHelper('GCategoryListData_categories')
           ..add('G__typename', G__typename)
           ..add('edges', edges))
         .toString();
   }
 }
 
-class GHomeCategoryListData_categoriesBuilder
+class GCategoryListData_categoriesBuilder
     implements
-        Builder<GHomeCategoryListData_categories,
-            GHomeCategoryListData_categoriesBuilder> {
-  _$GHomeCategoryListData_categories _$v;
+        Builder<GCategoryListData_categories,
+            GCategoryListData_categoriesBuilder> {
+  _$GCategoryListData_categories _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  ListBuilder<GHomeCategoryListData_categories_edges> _edges;
-  ListBuilder<GHomeCategoryListData_categories_edges> get edges =>
-      _$this._edges ??=
-          new ListBuilder<GHomeCategoryListData_categories_edges>();
-  set edges(ListBuilder<GHomeCategoryListData_categories_edges> edges) =>
+  ListBuilder<GCategoryListData_categories_edges> _edges;
+  ListBuilder<GCategoryListData_categories_edges> get edges =>
+      _$this._edges ??= new ListBuilder<GCategoryListData_categories_edges>();
+  set edges(ListBuilder<GCategoryListData_categories_edges> edges) =>
       _$this._edges = edges;
 
-  GHomeCategoryListData_categoriesBuilder() {
-    GHomeCategoryListData_categories._initializeBuilder(this);
+  GCategoryListData_categoriesBuilder() {
+    GCategoryListData_categories._initializeBuilder(this);
   }
 
-  GHomeCategoryListData_categoriesBuilder get _$this {
+  GCategoryListData_categoriesBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _edges = _$v.edges?.toBuilder();
@@ -487,24 +502,24 @@ class GHomeCategoryListData_categoriesBuilder
   }
 
   @override
-  void replace(GHomeCategoryListData_categories other) {
+  void replace(GCategoryListData_categories other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GHomeCategoryListData_categories;
+    _$v = other as _$GCategoryListData_categories;
   }
 
   @override
-  void update(void Function(GHomeCategoryListData_categoriesBuilder) updates) {
+  void update(void Function(GCategoryListData_categoriesBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListData_categories build() {
-    _$GHomeCategoryListData_categories _$result;
+  _$GCategoryListData_categories build() {
+    _$GCategoryListData_categories _$result;
     try {
       _$result = _$v ??
-          new _$GHomeCategoryListData_categories._(
+          new _$GCategoryListData_categories._(
               G__typename: G__typename, edges: edges.build());
     } catch (_) {
       String _$failedField;
@@ -513,7 +528,7 @@ class GHomeCategoryListData_categoriesBuilder
         edges.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GHomeCategoryListData_categories', _$failedField, e.toString());
+            'GCategoryListData_categories', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -522,45 +537,43 @@ class GHomeCategoryListData_categoriesBuilder
   }
 }
 
-class _$GHomeCategoryListData_categories_edges
-    extends GHomeCategoryListData_categories_edges {
+class _$GCategoryListData_categories_edges
+    extends GCategoryListData_categories_edges {
   @override
   final String G__typename;
   @override
-  final GHomeCategoryListData_categories_edges_node node;
+  final GCategoryListData_categories_edges_node node;
 
-  factory _$GHomeCategoryListData_categories_edges(
-          [void Function(GHomeCategoryListData_categories_edgesBuilder)
-              updates]) =>
-      (new GHomeCategoryListData_categories_edgesBuilder()..update(updates))
+  factory _$GCategoryListData_categories_edges(
+          [void Function(GCategoryListData_categories_edgesBuilder) updates]) =>
+      (new GCategoryListData_categories_edgesBuilder()..update(updates))
           .build();
 
-  _$GHomeCategoryListData_categories_edges._({this.G__typename, this.node})
+  _$GCategoryListData_categories_edges._({this.G__typename, this.node})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges', 'G__typename');
+          'GCategoryListData_categories_edges', 'G__typename');
     }
     if (node == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges', 'node');
+          'GCategoryListData_categories_edges', 'node');
     }
   }
 
   @override
-  GHomeCategoryListData_categories_edges rebuild(
-          void Function(GHomeCategoryListData_categories_edgesBuilder)
-              updates) =>
+  GCategoryListData_categories_edges rebuild(
+          void Function(GCategoryListData_categories_edgesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListData_categories_edgesBuilder toBuilder() =>
-      new GHomeCategoryListData_categories_edgesBuilder()..replace(this);
+  GCategoryListData_categories_edgesBuilder toBuilder() =>
+      new GCategoryListData_categories_edgesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GHomeCategoryListData_categories_edges &&
+    return other is GCategoryListData_categories_edges &&
         G__typename == other.G__typename &&
         node == other.node;
   }
@@ -572,35 +585,34 @@ class _$GHomeCategoryListData_categories_edges
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            'GHomeCategoryListData_categories_edges')
+    return (newBuiltValueToStringHelper('GCategoryListData_categories_edges')
           ..add('G__typename', G__typename)
           ..add('node', node))
         .toString();
   }
 }
 
-class GHomeCategoryListData_categories_edgesBuilder
+class GCategoryListData_categories_edgesBuilder
     implements
-        Builder<GHomeCategoryListData_categories_edges,
-            GHomeCategoryListData_categories_edgesBuilder> {
-  _$GHomeCategoryListData_categories_edges _$v;
+        Builder<GCategoryListData_categories_edges,
+            GCategoryListData_categories_edgesBuilder> {
+  _$GCategoryListData_categories_edges _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GHomeCategoryListData_categories_edges_nodeBuilder _node;
-  GHomeCategoryListData_categories_edges_nodeBuilder get node =>
-      _$this._node ??= new GHomeCategoryListData_categories_edges_nodeBuilder();
-  set node(GHomeCategoryListData_categories_edges_nodeBuilder node) =>
+  GCategoryListData_categories_edges_nodeBuilder _node;
+  GCategoryListData_categories_edges_nodeBuilder get node =>
+      _$this._node ??= new GCategoryListData_categories_edges_nodeBuilder();
+  set node(GCategoryListData_categories_edges_nodeBuilder node) =>
       _$this._node = node;
 
-  GHomeCategoryListData_categories_edgesBuilder() {
-    GHomeCategoryListData_categories_edges._initializeBuilder(this);
+  GCategoryListData_categories_edgesBuilder() {
+    GCategoryListData_categories_edges._initializeBuilder(this);
   }
 
-  GHomeCategoryListData_categories_edgesBuilder get _$this {
+  GCategoryListData_categories_edgesBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _node = _$v.node?.toBuilder();
@@ -610,25 +622,25 @@ class GHomeCategoryListData_categories_edgesBuilder
   }
 
   @override
-  void replace(GHomeCategoryListData_categories_edges other) {
+  void replace(GCategoryListData_categories_edges other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GHomeCategoryListData_categories_edges;
+    _$v = other as _$GCategoryListData_categories_edges;
   }
 
   @override
   void update(
-      void Function(GHomeCategoryListData_categories_edgesBuilder) updates) {
+      void Function(GCategoryListData_categories_edgesBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListData_categories_edges build() {
-    _$GHomeCategoryListData_categories_edges _$result;
+  _$GCategoryListData_categories_edges build() {
+    _$GCategoryListData_categories_edges _$result;
     try {
       _$result = _$v ??
-          new _$GHomeCategoryListData_categories_edges._(
+          new _$GCategoryListData_categories_edges._(
               G__typename: G__typename, node: node.build());
     } catch (_) {
       String _$failedField;
@@ -637,9 +649,7 @@ class GHomeCategoryListData_categories_edgesBuilder
         node.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GHomeCategoryListData_categories_edges',
-            _$failedField,
-            e.toString());
+            'GCategoryListData_categories_edges', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -648,8 +658,8 @@ class GHomeCategoryListData_categories_edgesBuilder
   }
 }
 
-class _$GHomeCategoryListData_categories_edges_node
-    extends GHomeCategoryListData_categories_edges_node {
+class _$GCategoryListData_categories_edges_node
+    extends GCategoryListData_categories_edges_node {
   @override
   final String G__typename;
   @override
@@ -657,47 +667,45 @@ class _$GHomeCategoryListData_categories_edges_node
   @override
   final String name;
   @override
-  final GHomeCategoryListData_categories_edges_node_backgroundImage
-      backgroundImage;
+  final GCategoryListData_categories_edges_node_backgroundImage backgroundImage;
 
-  factory _$GHomeCategoryListData_categories_edges_node(
-          [void Function(GHomeCategoryListData_categories_edges_nodeBuilder)
+  factory _$GCategoryListData_categories_edges_node(
+          [void Function(GCategoryListData_categories_edges_nodeBuilder)
               updates]) =>
-      (new GHomeCategoryListData_categories_edges_nodeBuilder()
-            ..update(updates))
+      (new GCategoryListData_categories_edges_nodeBuilder()..update(updates))
           .build();
 
-  _$GHomeCategoryListData_categories_edges_node._(
+  _$GCategoryListData_categories_edges_node._(
       {this.G__typename, this.id, this.name, this.backgroundImage})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges_node', 'G__typename');
+          'GCategoryListData_categories_edges_node', 'G__typename');
     }
     if (id == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges_node', 'id');
+          'GCategoryListData_categories_edges_node', 'id');
     }
     if (name == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges_node', 'name');
+          'GCategoryListData_categories_edges_node', 'name');
     }
   }
 
   @override
-  GHomeCategoryListData_categories_edges_node rebuild(
-          void Function(GHomeCategoryListData_categories_edges_nodeBuilder)
+  GCategoryListData_categories_edges_node rebuild(
+          void Function(GCategoryListData_categories_edges_nodeBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListData_categories_edges_nodeBuilder toBuilder() =>
-      new GHomeCategoryListData_categories_edges_nodeBuilder()..replace(this);
+  GCategoryListData_categories_edges_nodeBuilder toBuilder() =>
+      new GCategoryListData_categories_edges_nodeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GHomeCategoryListData_categories_edges_node &&
+    return other is GCategoryListData_categories_edges_node &&
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
@@ -714,7 +722,7 @@ class _$GHomeCategoryListData_categories_edges_node
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GHomeCategoryListData_categories_edges_node')
+            'GCategoryListData_categories_edges_node')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
@@ -723,11 +731,11 @@ class _$GHomeCategoryListData_categories_edges_node
   }
 }
 
-class GHomeCategoryListData_categories_edges_nodeBuilder
+class GCategoryListData_categories_edges_nodeBuilder
     implements
-        Builder<GHomeCategoryListData_categories_edges_node,
-            GHomeCategoryListData_categories_edges_nodeBuilder> {
-  _$GHomeCategoryListData_categories_edges_node _$v;
+        Builder<GCategoryListData_categories_edges_node,
+            GCategoryListData_categories_edges_nodeBuilder> {
+  _$GCategoryListData_categories_edges_node _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -741,21 +749,21 @@ class GHomeCategoryListData_categories_edges_nodeBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
+  GCategoryListData_categories_edges_node_backgroundImageBuilder
       _backgroundImage;
-  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
+  GCategoryListData_categories_edges_node_backgroundImageBuilder
       get backgroundImage => _$this._backgroundImage ??=
-          new GHomeCategoryListData_categories_edges_node_backgroundImageBuilder();
+          new GCategoryListData_categories_edges_node_backgroundImageBuilder();
   set backgroundImage(
-          GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
+          GCategoryListData_categories_edges_node_backgroundImageBuilder
               backgroundImage) =>
       _$this._backgroundImage = backgroundImage;
 
-  GHomeCategoryListData_categories_edges_nodeBuilder() {
-    GHomeCategoryListData_categories_edges_node._initializeBuilder(this);
+  GCategoryListData_categories_edges_nodeBuilder() {
+    GCategoryListData_categories_edges_node._initializeBuilder(this);
   }
 
-  GHomeCategoryListData_categories_edges_nodeBuilder get _$this {
+  GCategoryListData_categories_edges_nodeBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _id = _$v.id;
@@ -767,26 +775,25 @@ class GHomeCategoryListData_categories_edges_nodeBuilder
   }
 
   @override
-  void replace(GHomeCategoryListData_categories_edges_node other) {
+  void replace(GCategoryListData_categories_edges_node other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GHomeCategoryListData_categories_edges_node;
+    _$v = other as _$GCategoryListData_categories_edges_node;
   }
 
   @override
   void update(
-      void Function(GHomeCategoryListData_categories_edges_nodeBuilder)
-          updates) {
+      void Function(GCategoryListData_categories_edges_nodeBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListData_categories_edges_node build() {
-    _$GHomeCategoryListData_categories_edges_node _$result;
+  _$GCategoryListData_categories_edges_node build() {
+    _$GCategoryListData_categories_edges_node _$result;
     try {
       _$result = _$v ??
-          new _$GHomeCategoryListData_categories_edges_node._(
+          new _$GCategoryListData_categories_edges_node._(
               G__typename: G__typename,
               id: id,
               name: name,
@@ -798,7 +805,7 @@ class GHomeCategoryListData_categories_edges_nodeBuilder
         _backgroundImage?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GHomeCategoryListData_categories_edges_node',
+            'GCategoryListData_categories_edges_node',
             _$failedField,
             e.toString());
       }
@@ -809,53 +816,51 @@ class GHomeCategoryListData_categories_edges_nodeBuilder
   }
 }
 
-class _$GHomeCategoryListData_categories_edges_node_backgroundImage
-    extends GHomeCategoryListData_categories_edges_node_backgroundImage {
+class _$GCategoryListData_categories_edges_node_backgroundImage
+    extends GCategoryListData_categories_edges_node_backgroundImage {
   @override
   final String G__typename;
   @override
   final String url;
 
-  factory _$GHomeCategoryListData_categories_edges_node_backgroundImage(
+  factory _$GCategoryListData_categories_edges_node_backgroundImage(
           [void Function(
-                  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder)
+                  GCategoryListData_categories_edges_node_backgroundImageBuilder)
               updates]) =>
-      (new GHomeCategoryListData_categories_edges_node_backgroundImageBuilder()
+      (new GCategoryListData_categories_edges_node_backgroundImageBuilder()
             ..update(updates))
           .build();
 
-  _$GHomeCategoryListData_categories_edges_node_backgroundImage._(
+  _$GCategoryListData_categories_edges_node_backgroundImage._(
       {this.G__typename, this.url})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges_node_backgroundImage',
+          'GCategoryListData_categories_edges_node_backgroundImage',
           'G__typename');
     }
     if (url == null) {
       throw new BuiltValueNullFieldError(
-          'GHomeCategoryListData_categories_edges_node_backgroundImage', 'url');
+          'GCategoryListData_categories_edges_node_backgroundImage', 'url');
     }
   }
 
   @override
-  GHomeCategoryListData_categories_edges_node_backgroundImage rebuild(
+  GCategoryListData_categories_edges_node_backgroundImage rebuild(
           void Function(
-                  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder)
+                  GCategoryListData_categories_edges_node_backgroundImageBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
-      toBuilder() =>
-          new GHomeCategoryListData_categories_edges_node_backgroundImageBuilder()
-            ..replace(this);
+  GCategoryListData_categories_edges_node_backgroundImageBuilder toBuilder() =>
+      new GCategoryListData_categories_edges_node_backgroundImageBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is GHomeCategoryListData_categories_edges_node_backgroundImage &&
+    return other is GCategoryListData_categories_edges_node_backgroundImage &&
         G__typename == other.G__typename &&
         url == other.url;
   }
@@ -868,18 +873,18 @@ class _$GHomeCategoryListData_categories_edges_node_backgroundImage
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GHomeCategoryListData_categories_edges_node_backgroundImage')
+            'GCategoryListData_categories_edges_node_backgroundImage')
           ..add('G__typename', G__typename)
           ..add('url', url))
         .toString();
   }
 }
 
-class GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
+class GCategoryListData_categories_edges_node_backgroundImageBuilder
     implements
-        Builder<GHomeCategoryListData_categories_edges_node_backgroundImage,
-            GHomeCategoryListData_categories_edges_node_backgroundImageBuilder> {
-  _$GHomeCategoryListData_categories_edges_node_backgroundImage _$v;
+        Builder<GCategoryListData_categories_edges_node_backgroundImage,
+            GCategoryListData_categories_edges_node_backgroundImageBuilder> {
+  _$GCategoryListData_categories_edges_node_backgroundImage _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -889,13 +894,12 @@ class GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
   String get url => _$this._url;
   set url(String url) => _$this._url = url;
 
-  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder() {
-    GHomeCategoryListData_categories_edges_node_backgroundImage
-        ._initializeBuilder(this);
+  GCategoryListData_categories_edges_node_backgroundImageBuilder() {
+    GCategoryListData_categories_edges_node_backgroundImage._initializeBuilder(
+        this);
   }
 
-  GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
-      get _$this {
+  GCategoryListData_categories_edges_node_backgroundImageBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _url = _$v.url;
@@ -905,27 +909,25 @@ class GHomeCategoryListData_categories_edges_node_backgroundImageBuilder
   }
 
   @override
-  void replace(
-      GHomeCategoryListData_categories_edges_node_backgroundImage other) {
+  void replace(GCategoryListData_categories_edges_node_backgroundImage other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v =
-        other as _$GHomeCategoryListData_categories_edges_node_backgroundImage;
+    _$v = other as _$GCategoryListData_categories_edges_node_backgroundImage;
   }
 
   @override
   void update(
       void Function(
-              GHomeCategoryListData_categories_edges_node_backgroundImageBuilder)
+              GCategoryListData_categories_edges_node_backgroundImageBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GHomeCategoryListData_categories_edges_node_backgroundImage build() {
+  _$GCategoryListData_categories_edges_node_backgroundImage build() {
     final _$result = _$v ??
-        new _$GHomeCategoryListData_categories_edges_node_backgroundImage._(
+        new _$GCategoryListData_categories_edges_node_backgroundImage._(
             G__typename: G__typename, url: url);
     replace(_$result);
     return _$result;

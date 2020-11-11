@@ -65,6 +65,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GCategoryData_products_pageInfo.serializer)
       ..add(GCategoryFilterInput.serializer)
       ..add(GCategoryInput.serializer)
+      ..add(GCategoryListData.serializer)
+      ..add(GCategoryListData_categories.serializer)
+      ..add(GCategoryListData_categories_edges.serializer)
+      ..add(GCategoryListData_categories_edges_node.serializer)
+      ..add(GCategoryListData_categories_edges_node_backgroundImage.serializer)
+      ..add(GCategoryListReq.serializer)
+      ..add(GCategoryListVars.serializer)
       ..add(GCategoryReq.serializer)
       ..add(GCategorySortField.serializer)
       ..add(GCategorySortingInput.serializer)
@@ -107,15 +114,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
           .serializer)
       ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node
           .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-              .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+          .serializer)
       ..add(
           GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
               .serializer)
@@ -140,14 +144,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GGiftCardCreateInput.serializer)
       ..add(GGiftCardErrorCode.serializer)
       ..add(GGiftCardUpdateInput.serializer)
-      ..add(GHomeCategoryListData.serializer)
-      ..add(GHomeCategoryListData_categories.serializer)
-      ..add(GHomeCategoryListData_categories_edges.serializer)
-      ..add(GHomeCategoryListData_categories_edges_node.serializer)
-      ..add(GHomeCategoryListData_categories_edges_node_backgroundImage
-          .serializer)
-      ..add(GHomeCategoryListReq.serializer)
-      ..add(GHomeCategoryListVars.serializer)
       ..add(GIntRangeInput.serializer)
       ..add(GJSONString.serializer)
       ..add(GLanguageCodeEnum.serializer)
@@ -312,6 +308,26 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GSaleSortField.serializer)
       ..add(GSaleSortingInput.serializer)
       ..add(GSaleType.serializer)
+      ..add(GSearchProductsData.serializer)
+      ..add(GSearchProductsData_products.serializer)
+      ..add(GSearchProductsData_products_edges.serializer)
+      ..add(GSearchProductsData_products_edges_node.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing.serializer)
+      ..add(
+          GSearchProductsData_products_edges_node_pricing_priceRange.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start
+          .serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start_net
+          .serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_stop
+          .serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_stop_net
+          .serializer)
+      ..add(GSearchProductsData_products_edges_node_thumbnail.serializer)
+      ..add(GSearchProductsData_products_edges_node_thumbnail2x.serializer)
+      ..add(GSearchProductsData_products_pageInfo.serializer)
+      ..add(GSearchProductsReq.serializer)
+      ..add(GSearchProductsVars.serializer)
       ..add(GSelectedAttributeFieldsData.serializer)
       ..add(GSelectedAttributeFieldsData_attribute.serializer)
       ..add(GSelectedAttributeFieldsData_values.serializer)
@@ -365,14 +381,11 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GVariantListData_productVariants_edges_node_pricing.serializer)
       ..add(
           GVariantListData_productVariants_edges_node_pricing_price.serializer)
-      ..add(
-          GVariantListData_productVariants_edges_node_pricing_priceUndiscounted
-              .serializer)
-      ..add(
-          GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
-              .serializer)
-      ..add(GVariantListData_productVariants_edges_node_pricing_price_net
+      ..add(GVariantListData_productVariants_edges_node_pricing_priceUndiscounted
           .serializer)
+      ..add(GVariantListData_productVariants_edges_node_pricing_priceUndiscounted_net
+          .serializer)
+      ..add(GVariantListData_productVariants_edges_node_pricing_price_net.serializer)
       ..add(GVariantListData_productVariants_edges_node_product.serializer)
       ..add(GVariantListData_productVariants_edges_node_product_thumbnail.serializer)
       ..add(GVariantListReq.serializer)
@@ -418,13 +431,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryData_category_ancestors_edges)]), () => new ListBuilder<GCategoryData_category_ancestors_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryData_products_edges)]), () => new ListBuilder<GCategoryData_products_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryData_products_edges_node_images)]), () => new ListBuilder<GCategoryData_products_edges_node_images>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryListData_categories_edges)]), () => new ListBuilder<GCategoryListData_categories_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCheckoutLineInput)]), () => new ListBuilder<GCheckoutLineInput>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GConfigurationItemInput)]), () => new ListBuilder<GConfigurationItemInput>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GDiscountStatusEnum)]), () => new ListBuilder<GDiscountStatusEnum>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GDiscountStatusEnum)]), () => new ListBuilder<GDiscountStatusEnum>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GVoucherDiscountType)]), () => new ListBuilder<GVoucherDiscountType>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GFeaturedProductsData_shop_homepageCollection_products_edges)]), () => new ListBuilder<GFeaturedProductsData_shop_homepageCollection_products_edges>())
-      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GHomeCategoryListData_categories_edges)]), () => new ListBuilder<GHomeCategoryListData_categories_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GMenuItemInput)]), () => new ListBuilder<GMenuItemInput>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GOrderFulfillLineInput)]), () => new ListBuilder<GOrderFulfillLineInput>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GOrderFulfillStockInput)]), () => new ListBuilder<GOrderFulfillStockInput>())
@@ -450,6 +463,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GProductVariantFieldsData_attributes_values)]), () => new ListBuilder<GProductVariantFieldsData_attributes_values>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GProductVariantFieldsData_images)]), () => new ListBuilder<GProductVariantFieldsData_images>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GProductVariantFieldsData_attributes)]), () => new ListBuilder<GProductVariantFieldsData_attributes>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GSearchProductsData_products_edges)]), () => new ListBuilder<GSearchProductsData_products_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GSelectedAttributeFieldsData_values)]), () => new ListBuilder<GSelectedAttributeFieldsData_values>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GVariantListData_productVariants_edges)]), () => new ListBuilder<GVariantListData_productVariants_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GVariantListData_productVariants_edges_node_attributes_values)]), () => new ListBuilder<GVariantListData_productVariants_edges_node_attributes_values>())

@@ -70,6 +70,12 @@ class _$GProductDetailsReqSerializer
         ..add(serializers.serialize(object.fetchPolicy,
             specifiedType: const FullType(_i1.FetchPolicy)));
     }
+    if (object.executeOnListen != null) {
+      result
+        ..add('executeOnListen')
+        ..add(serializers.serialize(object.executeOnListen,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -118,6 +124,10 @@ class _$GProductDetailsReqSerializer
           result.fetchPolicy = serializers.deserialize(value,
                   specifiedType: const FullType(_i1.FetchPolicy))
               as _i1.FetchPolicy;
+          break;
+        case 'executeOnListen':
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
       }
     }
@@ -175,6 +185,12 @@ class _$GVariantListReqSerializer
         ..add(serializers.serialize(object.fetchPolicy,
             specifiedType: const FullType(_i1.FetchPolicy)));
     }
+    if (object.executeOnListen != null) {
+      result
+        ..add('executeOnListen')
+        ..add(serializers.serialize(object.executeOnListen,
+            specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -223,6 +239,10 @@ class _$GVariantListReqSerializer
           result.fetchPolicy = serializers.deserialize(value,
                   specifiedType: const FullType(_i1.FetchPolicy))
               as _i1.FetchPolicy;
+          break;
+        case 'executeOnListen':
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
       }
     }
@@ -608,6 +628,8 @@ class _$GProductDetailsReq extends GProductDetailsReq {
   final Map<String, dynamic> updateCacheHandlerContext;
   @override
   final _i1.FetchPolicy fetchPolicy;
+  @override
+  final bool executeOnListen;
 
   factory _$GProductDetailsReq(
           [void Function(GProductDetailsReqBuilder) updates]) =>
@@ -621,7 +643,8 @@ class _$GProductDetailsReq extends GProductDetailsReq {
       this.optimisticResponse,
       this.updateCacheHandlerKey,
       this.updateCacheHandlerContext,
-      this.fetchPolicy})
+      this.fetchPolicy,
+      this.executeOnListen})
       : super._() {
     if (vars == null) {
       throw new BuiltValueNullFieldError('GProductDetailsReq', 'vars');
@@ -652,7 +675,8 @@ class _$GProductDetailsReq extends GProductDetailsReq {
         optimisticResponse == other.optimisticResponse &&
         updateCacheHandlerKey == other.updateCacheHandlerKey &&
         updateCacheHandlerContext == other.updateCacheHandlerContext &&
-        fetchPolicy == other.fetchPolicy;
+        fetchPolicy == other.fetchPolicy &&
+        executeOnListen == other.executeOnListen;
   }
 
   @override
@@ -662,13 +686,15 @@ class _$GProductDetailsReq extends GProductDetailsReq {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, vars.hashCode), operation.hashCode),
-                            requestId.hashCode),
-                        updateResult.hashCode),
-                    optimisticResponse.hashCode),
-                updateCacheHandlerKey.hashCode),
-            updateCacheHandlerContext.hashCode),
-        fetchPolicy.hashCode));
+                        $jc(
+                            $jc($jc($jc(0, vars.hashCode), operation.hashCode),
+                                requestId.hashCode),
+                            updateResult.hashCode),
+                        optimisticResponse.hashCode),
+                    updateCacheHandlerKey.hashCode),
+                updateCacheHandlerContext.hashCode),
+            fetchPolicy.hashCode),
+        executeOnListen.hashCode));
   }
 
   @override
@@ -681,7 +707,8 @@ class _$GProductDetailsReq extends GProductDetailsReq {
           ..add('optimisticResponse', optimisticResponse)
           ..add('updateCacheHandlerKey', updateCacheHandlerKey)
           ..add('updateCacheHandlerContext', updateCacheHandlerContext)
-          ..add('fetchPolicy', fetchPolicy))
+          ..add('fetchPolicy', fetchPolicy)
+          ..add('executeOnListen', executeOnListen))
         .toString();
   }
 }
@@ -737,6 +764,11 @@ class GProductDetailsReqBuilder
   set fetchPolicy(_i1.FetchPolicy fetchPolicy) =>
       _$this._fetchPolicy = fetchPolicy;
 
+  bool _executeOnListen;
+  bool get executeOnListen => _$this._executeOnListen;
+  set executeOnListen(bool executeOnListen) =>
+      _$this._executeOnListen = executeOnListen;
+
   GProductDetailsReqBuilder() {
     GProductDetailsReq._initializeBuilder(this);
   }
@@ -751,6 +783,7 @@ class GProductDetailsReqBuilder
       _updateCacheHandlerKey = _$v.updateCacheHandlerKey;
       _updateCacheHandlerContext = _$v.updateCacheHandlerContext;
       _fetchPolicy = _$v.fetchPolicy;
+      _executeOnListen = _$v.executeOnListen;
       _$v = null;
     }
     return this;
@@ -782,7 +815,8 @@ class GProductDetailsReqBuilder
               optimisticResponse: _optimisticResponse?.build(),
               updateCacheHandlerKey: updateCacheHandlerKey,
               updateCacheHandlerContext: updateCacheHandlerContext,
-              fetchPolicy: fetchPolicy);
+              fetchPolicy: fetchPolicy,
+              executeOnListen: executeOnListen);
     } catch (_) {
       String _$failedField;
       try {
@@ -820,6 +854,8 @@ class _$GVariantListReq extends GVariantListReq {
   final Map<String, dynamic> updateCacheHandlerContext;
   @override
   final _i1.FetchPolicy fetchPolicy;
+  @override
+  final bool executeOnListen;
 
   factory _$GVariantListReq([void Function(GVariantListReqBuilder) updates]) =>
       (new GVariantListReqBuilder()..update(updates)).build();
@@ -832,7 +868,8 @@ class _$GVariantListReq extends GVariantListReq {
       this.optimisticResponse,
       this.updateCacheHandlerKey,
       this.updateCacheHandlerContext,
-      this.fetchPolicy})
+      this.fetchPolicy,
+      this.executeOnListen})
       : super._() {
     if (vars == null) {
       throw new BuiltValueNullFieldError('GVariantListReq', 'vars');
@@ -862,7 +899,8 @@ class _$GVariantListReq extends GVariantListReq {
         optimisticResponse == other.optimisticResponse &&
         updateCacheHandlerKey == other.updateCacheHandlerKey &&
         updateCacheHandlerContext == other.updateCacheHandlerContext &&
-        fetchPolicy == other.fetchPolicy;
+        fetchPolicy == other.fetchPolicy &&
+        executeOnListen == other.executeOnListen;
   }
 
   @override
@@ -872,13 +910,15 @@ class _$GVariantListReq extends GVariantListReq {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, vars.hashCode), operation.hashCode),
-                            requestId.hashCode),
-                        updateResult.hashCode),
-                    optimisticResponse.hashCode),
-                updateCacheHandlerKey.hashCode),
-            updateCacheHandlerContext.hashCode),
-        fetchPolicy.hashCode));
+                        $jc(
+                            $jc($jc($jc(0, vars.hashCode), operation.hashCode),
+                                requestId.hashCode),
+                            updateResult.hashCode),
+                        optimisticResponse.hashCode),
+                    updateCacheHandlerKey.hashCode),
+                updateCacheHandlerContext.hashCode),
+            fetchPolicy.hashCode),
+        executeOnListen.hashCode));
   }
 
   @override
@@ -891,7 +931,8 @@ class _$GVariantListReq extends GVariantListReq {
           ..add('optimisticResponse', optimisticResponse)
           ..add('updateCacheHandlerKey', updateCacheHandlerKey)
           ..add('updateCacheHandlerContext', updateCacheHandlerContext)
-          ..add('fetchPolicy', fetchPolicy))
+          ..add('fetchPolicy', fetchPolicy)
+          ..add('executeOnListen', executeOnListen))
         .toString();
   }
 }
@@ -946,6 +987,11 @@ class GVariantListReqBuilder
   set fetchPolicy(_i1.FetchPolicy fetchPolicy) =>
       _$this._fetchPolicy = fetchPolicy;
 
+  bool _executeOnListen;
+  bool get executeOnListen => _$this._executeOnListen;
+  set executeOnListen(bool executeOnListen) =>
+      _$this._executeOnListen = executeOnListen;
+
   GVariantListReqBuilder() {
     GVariantListReq._initializeBuilder(this);
   }
@@ -960,6 +1006,7 @@ class GVariantListReqBuilder
       _updateCacheHandlerKey = _$v.updateCacheHandlerKey;
       _updateCacheHandlerContext = _$v.updateCacheHandlerContext;
       _fetchPolicy = _$v.fetchPolicy;
+      _executeOnListen = _$v.executeOnListen;
       _$v = null;
     }
     return this;
@@ -991,7 +1038,8 @@ class GVariantListReqBuilder
               optimisticResponse: _optimisticResponse?.build(),
               updateCacheHandlerKey: updateCacheHandlerKey,
               updateCacheHandlerContext: updateCacheHandlerContext,
-              fetchPolicy: fetchPolicy);
+              fetchPolicy: fetchPolicy,
+              executeOnListen: executeOnListen);
     } catch (_) {
       String _$failedField;
       try {

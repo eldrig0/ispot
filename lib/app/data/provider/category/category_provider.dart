@@ -39,7 +39,7 @@ class CategoryProvider {
       ..vars.sortBy = sortBy
       ..vars.attributes = attributeList);
 
-    return client.responseStream(request).map(
+    return client.request(request).map(
           (response) => CategoryModel(
             categoryId: response.data.category.id,
             categoryName: response.data.category.name,

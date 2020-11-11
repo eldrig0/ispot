@@ -1,0 +1,49 @@
+query SearchProducts(
+  $query: String!
+  $pageSize: Int
+  $sortBy: ProductOrder
+  $after: String
+) {
+  products(
+    filter: { search: $query }
+    first: $pageSize
+    sortBy: $sortBy
+    after: $after
+  ) {
+    totalCount
+    edges {
+      node {
+        pricing {
+          onSale
+          priceRange {
+            start {
+              net {
+                amount
+                currency
+              }
+            }
+            stop {
+              net {
+                amount
+                currency
+              }
+            }
+          }
+        }
+        id
+        name
+        thumbnail {
+          url
+          alt
+        }
+        thumbnail2x: thumbnail(size: 510) {
+          url
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}

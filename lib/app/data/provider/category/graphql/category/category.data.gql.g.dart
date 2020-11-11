@@ -78,7 +78,11 @@ class _$GCategoryDataSerializer implements StructuredSerializer<GCategoryData> {
   @override
   Iterable<Object> serialize(Serializers serializers, GCategoryData object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
     if (object.category != null) {
       result
         ..add('category')
@@ -112,6 +116,10 @@ class _$GCategoryDataSerializer implements StructuredSerializer<GCategoryData> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'category':
           result.category.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GCategoryData_category))
@@ -1519,6 +1527,8 @@ class _$GCategoryData_products_edges_node_thumbnailSerializer
 
 class _$GCategoryData extends GCategoryData {
   @override
+  final String G__typename;
+  @override
   final GCategoryData_category category;
   @override
   final GCategoryData_attributes attributes;
@@ -1528,8 +1538,13 @@ class _$GCategoryData extends GCategoryData {
   factory _$GCategoryData([void Function(GCategoryDataBuilder) updates]) =>
       (new GCategoryDataBuilder()..update(updates)).build();
 
-  _$GCategoryData._({this.category, this.attributes, this.products})
-      : super._();
+  _$GCategoryData._(
+      {this.G__typename, this.category, this.attributes, this.products})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError('GCategoryData', 'G__typename');
+    }
+  }
 
   @override
   GCategoryData rebuild(void Function(GCategoryDataBuilder) updates) =>
@@ -1542,6 +1557,7 @@ class _$GCategoryData extends GCategoryData {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GCategoryData &&
+        G__typename == other.G__typename &&
         category == other.category &&
         attributes == other.attributes &&
         products == other.products;
@@ -1549,13 +1565,16 @@ class _$GCategoryData extends GCategoryData {
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, category.hashCode), attributes.hashCode),
+    return $jf($jc(
+        $jc($jc($jc(0, G__typename.hashCode), category.hashCode),
+            attributes.hashCode),
         products.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GCategoryData')
+          ..add('G__typename', G__typename)
           ..add('category', category)
           ..add('attributes', attributes)
           ..add('products', products))
@@ -1566,6 +1585,10 @@ class _$GCategoryData extends GCategoryData {
 class GCategoryDataBuilder
     implements Builder<GCategoryData, GCategoryDataBuilder> {
   _$GCategoryData _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
   GCategoryData_categoryBuilder _category;
   GCategoryData_categoryBuilder get category =>
@@ -1585,10 +1608,13 @@ class GCategoryDataBuilder
   set products(GCategoryData_productsBuilder products) =>
       _$this._products = products;
 
-  GCategoryDataBuilder();
+  GCategoryDataBuilder() {
+    GCategoryData._initializeBuilder(this);
+  }
 
   GCategoryDataBuilder get _$this {
     if (_$v != null) {
+      _G__typename = _$v.G__typename;
       _category = _$v.category?.toBuilder();
       _attributes = _$v.attributes?.toBuilder();
       _products = _$v.products?.toBuilder();
@@ -1616,6 +1642,7 @@ class GCategoryDataBuilder
     try {
       _$result = _$v ??
           new _$GCategoryData._(
+              G__typename: G__typename,
               category: _category?.build(),
               attributes: _attributes?.build(),
               products: _products?.build());
