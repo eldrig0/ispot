@@ -10,8 +10,7 @@ import 'package:ispot/app/data/provider/category/graphql/category/category.data.
     as _i2;
 import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart'
     as _i3;
-import 'package:ispot/graphql/serializers.gql.dart' as _i7;
-import 'package:uuid/uuid.dart' as _i6;
+import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'category.req.gql.g.dart';
 
@@ -27,7 +26,6 @@ abstract class GCategoryReq
   static void _initializeBuilder(GCategoryReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'Category')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GCategoryVars get vars;
   _i4.Operation get operation;
@@ -54,7 +52,7 @@ abstract class GCategoryReq
       _i2.GCategoryData.fromJson(json);
   static Serializer<GCategoryReq> get serializer => _$gCategoryReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GCategoryReq.serializer, this);
+      _i6.serializers.serializeWith(GCategoryReq.serializer, this);
   static GCategoryReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GCategoryReq.serializer, json);
+      _i6.serializers.deserializeWith(GCategoryReq.serializer, json);
 }

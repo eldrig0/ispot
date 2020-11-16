@@ -12,17 +12,12 @@ class UIHelper {
     );
   }
 
-  static Text buildPricingText(double start, double stop, String currency,
+  static Text buildPricingText(double start, String currency,
       {TextStyle style}) {
-    return start == stop
-        ? Text(
-            '$currency ${_getPriceString(start)}',
-            style: style,
-          )
-        : Text(
-            '$currency ${_getPriceString(start)} to ${_getPriceString(stop)}',
-            style: style,
-          );
+    return Text(
+      '$currency ${_getPriceString(start)}',
+      style: style,
+    );
   }
 
   static String _getPriceString(double price) {

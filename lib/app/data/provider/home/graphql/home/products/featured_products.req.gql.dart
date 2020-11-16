@@ -10,8 +10,7 @@ import 'package:ispot/app/data/provider/home/graphql/home/products/featured_prod
     as _i2;
 import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.var.gql.dart'
     as _i3;
-import 'package:ispot/graphql/serializers.gql.dart' as _i7;
-import 'package:uuid/uuid.dart' as _i6;
+import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'featured_products.req.gql.g.dart';
 
@@ -29,7 +28,6 @@ abstract class GFeaturedProductsReq
   static void _initializeBuilder(GFeaturedProductsReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'FeaturedProducts')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GFeaturedProductsVars get vars;
   _i4.Operation get operation;
@@ -57,7 +55,7 @@ abstract class GFeaturedProductsReq
   static Serializer<GFeaturedProductsReq> get serializer =>
       _$gFeaturedProductsReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GFeaturedProductsReq.serializer, this);
+      _i6.serializers.serializeWith(GFeaturedProductsReq.serializer, this);
   static GFeaturedProductsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GFeaturedProductsReq.serializer, json);
+      _i6.serializers.deserializeWith(GFeaturedProductsReq.serializer, json);
 }

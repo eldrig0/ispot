@@ -1,10 +1,12 @@
 import '../../model/category.dart';
-import '../../provider/categories/categories.dart';
+import '../../provider/categories/categories_provider.dart';
+import 'package:meta/meta.dart';
 
 class CategoriesRepository {
   final CategoriesProvider _provider;
 
   CategoriesRepository(this._provider);
 
-  Stream<List<CategoryModel>> getCategories() => _provider.getHomeCategories();
+  Stream<Categories> getCategories({@required int first, String after}) =>
+      _provider.getHomeCategories(first: first, after: after);
 }

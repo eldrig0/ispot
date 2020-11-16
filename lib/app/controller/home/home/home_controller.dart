@@ -1,4 +1,8 @@
-import 'package:get/state_manager.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:ispot/app/data/failures/failure.dart';
+import 'package:ispot/app/data/model/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -10,17 +14,22 @@ import '../../../data/repository/home/home_repository.dart';
 class HomeController extends GetxController {
   HomeRepository homeRepository;
   final CategoriesRepository categoriesRepository;
-  final categories = <CategoryModel>[].obs;
+  Rx<Categories> _categories;
   final homeProducts = <Product>[].obs;
-  bool isSearchResout = false;
+  bool isSearchResult = false;
   FormControl searchControl = FormControl(value: '');
+  Rx<Collections> collections;
+  ScrollController scrollController;
 
   HomeController(
       {@required this.homeRepository, @required this.categoriesRepository});
 
   @override
   void onInit() {
+    scrollController = ScrollController();
     getHomePageProducts();
+    getCategories();
+    getCollections();
     super.onInit();
   }
 
@@ -37,8 +46,8 @@ class HomeController extends GetxController {
   }
 
   void getCategories() {
-    categoriesRepository.getCategories().listen((categories) {
-      this.categories.addAll(categories);
+    categoriesRepository.getCategories(first: 4).listen((categories) {
+      this._categories = Rx(categories);
     });
   }
 
@@ -48,4 +57,12 @@ class HomeController extends GetxController {
         print(event());
       });
   }
+
+  void getCollections() {
+    this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
+      this.collections = Rx(collections);
+    });
+  }
+
+  List<CategoryModel> get categories => _categories.value.categories;
 }

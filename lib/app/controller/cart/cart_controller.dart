@@ -8,59 +8,59 @@ class CartController extends GetxController {
   addItem(ProductVariant variant) {
     bool exists = false;
 
-    for (CartItem item in cartItems.value) {
+    for (CartItem item in cartItems) {
       if (item.product == variant) {
         exists = true;
-        if (exists) cartItems[cartItems.value.indexOf(item)].count++;
+        if (exists) cartItems[cartItems.indexOf(item)].count++;
         update();
         return;
       }
+
+      cartItems.add(CartItem(count: 1, product: variant));
+      update();
     }
 
-    cartItems.add(CartItem(count: 1, product: variant));
-    update();
-  }
-
-  removeFromCart(ProductVariant variant) {
-    for (CartItem item in cartItems.value) {
-      if (item.product == variant) {
-        if (item.count == 1) {
-          cartItems.remove(item);
-          return;
-        } else {
-          int index = cartItems.value.indexOf(item);
-          cartItems.value[index].count - 1;
-          return;
-        }
-      }
-      return;
-    }
-    update();
-  }
-
-  incrementProductCount(CartItem item) {
-    cartItems.value.forEach((element) {
-      if (element == item) {
-        int index = cartItems.value.indexOf(element);
-        cartItems.value[index].count++;
-        return;
-      }
-    });
-    update();
-  }
-
-  decreaseProductCount(CartItem item) {
-    cartItems.value.forEach((element) {
-      if (element == item) {
-        if (element.count == 1) {
-          this.cartItems.remove(element);
-        } else {
-          int index = cartItems.value.indexOf(element);
-          this.cartItems[index].count--;
+    removeFromCart(ProductVariant variant) {
+      for (CartItem item in cartItems) {
+        if (item.product == variant) {
+          if (item.count == 1) {
+            cartItems.remove(item);
+            return;
+          } else {
+            int index = cartItems.indexOf(item);
+            cartItems[index].count - 1;
+            return;
+          }
         }
         return;
       }
-    });
-    update();
+      update();
+    }
+
+    incrementProductCount(CartItem item) {
+      cartItems.value.forEach((element) {
+        if (element == item) {
+          int index = cartItems.indexOf(element);
+          cartItems[index].count++;
+          return;
+        }
+      });
+      update();
+    }
+
+    decreaseProductCount(CartItem item) {
+      cartItems.forEach((element) {
+        if (element == item) {
+          if (element.count == 1) {
+            this.cartItems.remove(element);
+          } else {
+            int index = cartItems.indexOf(element);
+            this.cartItems[index].count--;
+          }
+          return;
+        }
+      });
+      update();
+    }
   }
 }

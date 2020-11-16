@@ -3,7 +3,7 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
-import 'package:gql/ast.dart' as _i8;
+import 'package:gql/ast.dart' as _i7;
 import 'package:gql_exec/gql_exec.dart' as _i4;
 import 'package:ispot/app/data/provider/product/graphql/product.ast.gql.dart'
     as _i5;
@@ -11,8 +11,7 @@ import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart'
     as _i2;
 import 'package:ispot/app/data/provider/product/graphql/product.var.gql.dart'
     as _i3;
-import 'package:ispot/graphql/serializers.gql.dart' as _i7;
-import 'package:uuid/uuid.dart' as _i6;
+import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'product.req.gql.g.dart';
 
@@ -28,7 +27,6 @@ abstract class GProductDetailsReq
   static void _initializeBuilder(GProductDetailsReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'ProductDetails')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GProductDetailsVars get vars;
   _i4.Operation get operation;
@@ -56,9 +54,9 @@ abstract class GProductDetailsReq
   static Serializer<GProductDetailsReq> get serializer =>
       _$gProductDetailsReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GProductDetailsReq.serializer, this);
+      _i6.serializers.serializeWith(GProductDetailsReq.serializer, this);
   static GProductDetailsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GProductDetailsReq.serializer, json);
+      _i6.serializers.deserializeWith(GProductDetailsReq.serializer, json);
 }
 
 abstract class GVariantListReq
@@ -73,7 +71,6 @@ abstract class GVariantListReq
   static void _initializeBuilder(GVariantListReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'VariantList')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GVariantListVars get vars;
   _i4.Operation get operation;
@@ -101,9 +98,9 @@ abstract class GVariantListReq
   static Serializer<GVariantListReq> get serializer =>
       _$gVariantListReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GVariantListReq.serializer, this);
+      _i6.serializers.serializeWith(GVariantListReq.serializer, this);
   static GVariantListReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GVariantListReq.serializer, json);
+      _i6.serializers.deserializeWith(GVariantListReq.serializer, json);
 }
 
 abstract class GPriceReq
@@ -118,7 +115,7 @@ abstract class GPriceReq
     ..document = _i5.document
     ..fragmentName = 'Price';
   _i3.GPriceVars get vars;
-  _i8.DocumentNode get document;
+  _i7.DocumentNode get document;
   String get fragmentName;
   Map<String, dynamic> get idFields;
   @override
@@ -126,9 +123,9 @@ abstract class GPriceReq
       _i2.GPriceData.fromJson(json);
   static Serializer<GPriceReq> get serializer => _$gPriceReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GPriceReq.serializer, this);
+      _i6.serializers.serializeWith(GPriceReq.serializer, this);
   static GPriceReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GPriceReq.serializer, json);
+      _i6.serializers.deserializeWith(GPriceReq.serializer, json);
 }
 
 abstract class GBasicProductFieldsReq
@@ -146,7 +143,7 @@ abstract class GBasicProductFieldsReq
     ..document = _i5.document
     ..fragmentName = 'BasicProductFields';
   _i3.GBasicProductFieldsVars get vars;
-  _i8.DocumentNode get document;
+  _i7.DocumentNode get document;
   String get fragmentName;
   Map<String, dynamic> get idFields;
   @override
@@ -155,9 +152,9 @@ abstract class GBasicProductFieldsReq
   static Serializer<GBasicProductFieldsReq> get serializer =>
       _$gBasicProductFieldsReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GBasicProductFieldsReq.serializer, this);
+      _i6.serializers.serializeWith(GBasicProductFieldsReq.serializer, this);
   static GBasicProductFieldsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GBasicProductFieldsReq.serializer, json);
+      _i6.serializers.deserializeWith(GBasicProductFieldsReq.serializer, json);
 }
 
 abstract class GProductPricingFieldReq
@@ -175,7 +172,7 @@ abstract class GProductPricingFieldReq
     ..document = _i5.document
     ..fragmentName = 'ProductPricingField';
   _i3.GProductPricingFieldVars get vars;
-  _i8.DocumentNode get document;
+  _i7.DocumentNode get document;
   String get fragmentName;
   Map<String, dynamic> get idFields;
   @override
@@ -184,9 +181,9 @@ abstract class GProductPricingFieldReq
   static Serializer<GProductPricingFieldReq> get serializer =>
       _$gProductPricingFieldReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GProductPricingFieldReq.serializer, this);
+      _i6.serializers.serializeWith(GProductPricingFieldReq.serializer, this);
   static GProductPricingFieldReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GProductPricingFieldReq.serializer, json);
+      _i6.serializers.deserializeWith(GProductPricingFieldReq.serializer, json);
 }
 
 abstract class GSelectedAttributeFieldsReq
@@ -204,7 +201,7 @@ abstract class GSelectedAttributeFieldsReq
     ..document = _i5.document
     ..fragmentName = 'SelectedAttributeFields';
   _i3.GSelectedAttributeFieldsVars get vars;
-  _i8.DocumentNode get document;
+  _i7.DocumentNode get document;
   String get fragmentName;
   Map<String, dynamic> get idFields;
   @override
@@ -212,10 +209,10 @@ abstract class GSelectedAttributeFieldsReq
       _i2.GSelectedAttributeFieldsData.fromJson(json);
   static Serializer<GSelectedAttributeFieldsReq> get serializer =>
       _$gSelectedAttributeFieldsReqSerializer;
-  Map<String, dynamic> toJson() => _i7.serializers
+  Map<String, dynamic> toJson() => _i6.serializers
       .serializeWith(GSelectedAttributeFieldsReq.serializer, this);
   static GSelectedAttributeFieldsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers
+      _i6.serializers
           .deserializeWith(GSelectedAttributeFieldsReq.serializer, json);
 }
 
@@ -234,7 +231,7 @@ abstract class GProductVariantFieldsReq
     ..document = _i5.document
     ..fragmentName = 'ProductVariantFields';
   _i3.GProductVariantFieldsVars get vars;
-  _i8.DocumentNode get document;
+  _i7.DocumentNode get document;
   String get fragmentName;
   Map<String, dynamic> get idFields;
   @override
@@ -243,8 +240,8 @@ abstract class GProductVariantFieldsReq
   static Serializer<GProductVariantFieldsReq> get serializer =>
       _$gProductVariantFieldsReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GProductVariantFieldsReq.serializer, this);
+      _i6.serializers.serializeWith(GProductVariantFieldsReq.serializer, this);
   static GProductVariantFieldsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers
+      _i6.serializers
           .deserializeWith(GProductVariantFieldsReq.serializer, json);
 }

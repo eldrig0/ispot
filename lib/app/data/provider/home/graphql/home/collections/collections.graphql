@@ -1,13 +1,14 @@
-query CategoryList($first: Int!, $after: String) {
-  categories(first: $first, after: $after) {
+query Collections($first: Int!, $after: String) {
+  collections(first: $first, after: $after) {
     pageInfo {
-      endCursor
       hasNextPage
+      endCursor
     }
     edges {
       node {
-        id
         name
+        id
+        isPublished
         backgroundImage {
           url
         }

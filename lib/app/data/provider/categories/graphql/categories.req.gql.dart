@@ -10,8 +10,7 @@ import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.d
     as _i2;
 import 'package:ispot/app/data/provider/categories/graphql/categories.var.gql.dart'
     as _i3;
-import 'package:ispot/graphql/serializers.gql.dart' as _i7;
-import 'package:uuid/uuid.dart' as _i6;
+import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'categories.req.gql.g.dart';
 
@@ -27,7 +26,6 @@ abstract class GCategoryListReq
   static void _initializeBuilder(GCategoryListReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'CategoryList')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GCategoryListVars get vars;
   _i4.Operation get operation;
@@ -55,7 +53,7 @@ abstract class GCategoryListReq
   static Serializer<GCategoryListReq> get serializer =>
       _$gCategoryListReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GCategoryListReq.serializer, this);
+      _i6.serializers.serializeWith(GCategoryListReq.serializer, this);
   static GCategoryListReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GCategoryListReq.serializer, json);
+      _i6.serializers.deserializeWith(GCategoryListReq.serializer, json);
 }

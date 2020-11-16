@@ -42,6 +42,7 @@ abstract class GCategoryListData_categories
       b..G__typename = 'CategoryCountableConnection';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
+  GCategoryListData_categories_pageInfo get pageInfo;
   BuiltList<GCategoryListData_categories_edges> get edges;
   static Serializer<GCategoryListData_categories> get serializer =>
       _$gCategoryListDataCategoriesSerializer;
@@ -50,6 +51,34 @@ abstract class GCategoryListData_categories
   static GCategoryListData_categories fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GCategoryListData_categories.serializer, json);
+}
+
+abstract class GCategoryListData_categories_pageInfo
+    implements
+        Built<GCategoryListData_categories_pageInfo,
+            GCategoryListData_categories_pageInfoBuilder> {
+  GCategoryListData_categories_pageInfo._();
+
+  factory GCategoryListData_categories_pageInfo(
+          [Function(GCategoryListData_categories_pageInfoBuilder b) updates]) =
+      _$GCategoryListData_categories_pageInfo;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_pageInfoBuilder b) =>
+      b..G__typename = 'PageInfo';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  String get endCursor;
+  bool get hasNextPage;
+  static Serializer<GCategoryListData_categories_pageInfo> get serializer =>
+      _$gCategoryListDataCategoriesPageInfoSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers
+      .serializeWith(GCategoryListData_categories_pageInfo.serializer, this);
+  static GCategoryListData_categories_pageInfo fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GCategoryListData_categories_pageInfo.serializer, json);
 }
 
 abstract class GCategoryListData_categories_edges

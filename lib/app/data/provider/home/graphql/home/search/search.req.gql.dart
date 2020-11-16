@@ -10,8 +10,7 @@ import 'package:ispot/app/data/provider/home/graphql/home/search/search.data.gql
     as _i2;
 import 'package:ispot/app/data/provider/home/graphql/home/search/search.var.gql.dart'
     as _i3;
-import 'package:ispot/graphql/serializers.gql.dart' as _i7;
-import 'package:uuid/uuid.dart' as _i6;
+import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'search.req.gql.g.dart';
 
@@ -27,7 +26,6 @@ abstract class GSearchProductsReq
   static void _initializeBuilder(GSearchProductsReqBuilder b) => b
     ..operation =
         _i4.Operation(document: _i5.document, operationName: 'SearchProducts')
-    ..requestId = _i6.Uuid().v1()
     ..executeOnListen = true;
   _i3.GSearchProductsVars get vars;
   _i4.Operation get operation;
@@ -55,7 +53,7 @@ abstract class GSearchProductsReq
   static Serializer<GSearchProductsReq> get serializer =>
       _$gSearchProductsReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i7.serializers.serializeWith(GSearchProductsReq.serializer, this);
+      _i6.serializers.serializeWith(GSearchProductsReq.serializer, this);
   static GSearchProductsReq fromJson(Map<String, dynamic> json) =>
-      _i7.serializers.deserializeWith(GSearchProductsReq.serializer, json);
+      _i6.serializers.deserializeWith(GSearchProductsReq.serializer, json);
 }

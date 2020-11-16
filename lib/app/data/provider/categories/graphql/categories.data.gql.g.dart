@@ -11,6 +11,9 @@ Serializer<GCategoryListData> _$gCategoryListDataSerializer =
 Serializer<GCategoryListData_categories>
     _$gCategoryListDataCategoriesSerializer =
     new _$GCategoryListData_categoriesSerializer();
+Serializer<GCategoryListData_categories_pageInfo>
+    _$gCategoryListDataCategoriesPageInfoSerializer =
+    new _$GCategoryListData_categories_pageInfoSerializer();
 Serializer<GCategoryListData_categories_edges>
     _$gCategoryListDataCategoriesEdgesSerializer =
     new _$GCategoryListData_categories_edgesSerializer();
@@ -91,6 +94,9 @@ class _$GCategoryListData_categoriesSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'pageInfo',
+      serializers.serialize(object.pageInfo,
+          specifiedType: const FullType(GCategoryListData_categories_pageInfo)),
       'edges',
       serializers.serialize(object.edges,
           specifiedType: const FullType(BuiltList,
@@ -116,11 +122,79 @@ class _$GCategoryListData_categoriesSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'pageInfo':
+          result.pageInfo.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GCategoryListData_categories_pageInfo))
+              as GCategoryListData_categories_pageInfo);
+          break;
         case 'edges':
           result.edges.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(GCategoryListData_categories_edges)
               ])) as BuiltList<Object>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GCategoryListData_categories_pageInfoSerializer
+    implements StructuredSerializer<GCategoryListData_categories_pageInfo> {
+  @override
+  final Iterable<Type> types = const [
+    GCategoryListData_categories_pageInfo,
+    _$GCategoryListData_categories_pageInfo
+  ];
+  @override
+  final String wireName = 'GCategoryListData_categories_pageInfo';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, GCategoryListData_categories_pageInfo object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'hasNextPage',
+      serializers.serialize(object.hasNextPage,
+          specifiedType: const FullType(bool)),
+    ];
+    if (object.endCursor != null) {
+      result
+        ..add('endCursor')
+        ..add(serializers.serialize(object.endCursor,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GCategoryListData_categories_pageInfo deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GCategoryListData_categories_pageInfoBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'endCursor':
+          result.endCursor = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'hasNextPage':
+          result.hasNextPage = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
       }
     }
@@ -424,16 +498,24 @@ class _$GCategoryListData_categories extends GCategoryListData_categories {
   @override
   final String G__typename;
   @override
+  final GCategoryListData_categories_pageInfo pageInfo;
+  @override
   final BuiltList<GCategoryListData_categories_edges> edges;
 
   factory _$GCategoryListData_categories(
           [void Function(GCategoryListData_categoriesBuilder) updates]) =>
       (new GCategoryListData_categoriesBuilder()..update(updates)).build();
 
-  _$GCategoryListData_categories._({this.G__typename, this.edges}) : super._() {
+  _$GCategoryListData_categories._(
+      {this.G__typename, this.pageInfo, this.edges})
+      : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
           'GCategoryListData_categories', 'G__typename');
+    }
+    if (pageInfo == null) {
+      throw new BuiltValueNullFieldError(
+          'GCategoryListData_categories', 'pageInfo');
     }
     if (edges == null) {
       throw new BuiltValueNullFieldError(
@@ -455,18 +537,21 @@ class _$GCategoryListData_categories extends GCategoryListData_categories {
     if (identical(other, this)) return true;
     return other is GCategoryListData_categories &&
         G__typename == other.G__typename &&
+        pageInfo == other.pageInfo &&
         edges == other.edges;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), edges.hashCode));
+    return $jf($jc(
+        $jc($jc(0, G__typename.hashCode), pageInfo.hashCode), edges.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GCategoryListData_categories')
           ..add('G__typename', G__typename)
+          ..add('pageInfo', pageInfo)
           ..add('edges', edges))
         .toString();
   }
@@ -482,6 +567,12 @@ class GCategoryListData_categoriesBuilder
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
+  GCategoryListData_categories_pageInfoBuilder _pageInfo;
+  GCategoryListData_categories_pageInfoBuilder get pageInfo =>
+      _$this._pageInfo ??= new GCategoryListData_categories_pageInfoBuilder();
+  set pageInfo(GCategoryListData_categories_pageInfoBuilder pageInfo) =>
+      _$this._pageInfo = pageInfo;
+
   ListBuilder<GCategoryListData_categories_edges> _edges;
   ListBuilder<GCategoryListData_categories_edges> get edges =>
       _$this._edges ??= new ListBuilder<GCategoryListData_categories_edges>();
@@ -495,6 +586,7 @@ class GCategoryListData_categoriesBuilder
   GCategoryListData_categoriesBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
+      _pageInfo = _$v.pageInfo?.toBuilder();
       _edges = _$v.edges?.toBuilder();
       _$v = null;
     }
@@ -520,10 +612,14 @@ class GCategoryListData_categoriesBuilder
     try {
       _$result = _$v ??
           new _$GCategoryListData_categories._(
-              G__typename: G__typename, edges: edges.build());
+              G__typename: G__typename,
+              pageInfo: pageInfo.build(),
+              edges: edges.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'pageInfo';
+        pageInfo.build();
         _$failedField = 'edges';
         edges.build();
       } catch (e) {
@@ -532,6 +628,127 @@ class GCategoryListData_categoriesBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GCategoryListData_categories_pageInfo
+    extends GCategoryListData_categories_pageInfo {
+  @override
+  final String G__typename;
+  @override
+  final String endCursor;
+  @override
+  final bool hasNextPage;
+
+  factory _$GCategoryListData_categories_pageInfo(
+          [void Function(GCategoryListData_categories_pageInfoBuilder)
+              updates]) =>
+      (new GCategoryListData_categories_pageInfoBuilder()..update(updates))
+          .build();
+
+  _$GCategoryListData_categories_pageInfo._(
+      {this.G__typename, this.endCursor, this.hasNextPage})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GCategoryListData_categories_pageInfo', 'G__typename');
+    }
+    if (hasNextPage == null) {
+      throw new BuiltValueNullFieldError(
+          'GCategoryListData_categories_pageInfo', 'hasNextPage');
+    }
+  }
+
+  @override
+  GCategoryListData_categories_pageInfo rebuild(
+          void Function(GCategoryListData_categories_pageInfoBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GCategoryListData_categories_pageInfoBuilder toBuilder() =>
+      new GCategoryListData_categories_pageInfoBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GCategoryListData_categories_pageInfo &&
+        G__typename == other.G__typename &&
+        endCursor == other.endCursor &&
+        hasNextPage == other.hasNextPage;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, G__typename.hashCode), endCursor.hashCode),
+        hasNextPage.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GCategoryListData_categories_pageInfo')
+          ..add('G__typename', G__typename)
+          ..add('endCursor', endCursor)
+          ..add('hasNextPage', hasNextPage))
+        .toString();
+  }
+}
+
+class GCategoryListData_categories_pageInfoBuilder
+    implements
+        Builder<GCategoryListData_categories_pageInfo,
+            GCategoryListData_categories_pageInfoBuilder> {
+  _$GCategoryListData_categories_pageInfo _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  String _endCursor;
+  String get endCursor => _$this._endCursor;
+  set endCursor(String endCursor) => _$this._endCursor = endCursor;
+
+  bool _hasNextPage;
+  bool get hasNextPage => _$this._hasNextPage;
+  set hasNextPage(bool hasNextPage) => _$this._hasNextPage = hasNextPage;
+
+  GCategoryListData_categories_pageInfoBuilder() {
+    GCategoryListData_categories_pageInfo._initializeBuilder(this);
+  }
+
+  GCategoryListData_categories_pageInfoBuilder get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _endCursor = _$v.endCursor;
+      _hasNextPage = _$v.hasNextPage;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GCategoryListData_categories_pageInfo other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GCategoryListData_categories_pageInfo;
+  }
+
+  @override
+  void update(
+      void Function(GCategoryListData_categories_pageInfoBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GCategoryListData_categories_pageInfo build() {
+    final _$result = _$v ??
+        new _$GCategoryListData_categories_pageInfo._(
+            G__typename: G__typename,
+            endCursor: endCursor,
+            hasNextPage: hasNextPage);
     replace(_$result);
     return _$result;
   }

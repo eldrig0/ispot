@@ -9,7 +9,8 @@ import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.d
         GCategoryListData_categories,
         GCategoryListData_categories_edges,
         GCategoryListData_categories_edges_node,
-        GCategoryListData_categories_edges_node_backgroundImage;
+        GCategoryListData_categories_edges_node_backgroundImage,
+        GCategoryListData_categories_pageInfo;
 import 'package:ispot/app/data/provider/categories/graphql/categories.req.gql.dart'
     show GCategoryListReq;
 import 'package:ispot/app/data/provider/categories/graphql/categories.var.gql.dart'
@@ -42,6 +43,18 @@ import 'package:ispot/app/data/provider/category/graphql/category/category.req.g
     show GCategoryReq;
 import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart'
     show GCategoryVars;
+import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.data.gql.dart'
+    show
+        GCollectionsData,
+        GCollectionsData_collections,
+        GCollectionsData_collections_edges,
+        GCollectionsData_collections_edges_node,
+        GCollectionsData_collections_edges_node_backgroundImage,
+        GCollectionsData_collections_pageInfo;
+import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.req.gql.dart'
+    show GCollectionsReq;
+import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.var.gql.dart'
+    show GCollectionsVars;
 import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.data.gql.dart'
     show
         GFeaturedProductsData,
@@ -455,6 +468,7 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GCategoryListData_categories_edges,
   GCategoryListData_categories_edges_node,
   GCategoryListData_categories_edges_node_backgroundImage,
+  GCategoryListData_categories_pageInfo,
   GCategoryListReq,
   GCategoryListVars,
   GCategoryReq,
@@ -470,6 +484,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GCollectionPublished,
   GCollectionSortField,
   GCollectionSortingInput,
+  GCollectionsData,
+  GCollectionsData_collections,
+  GCollectionsData_collections_edges,
+  GCollectionsData_collections_edges_node,
+  GCollectionsData_collections_edges_node_backgroundImage,
+  GCollectionsData_collections_pageInfo,
+  GCollectionsReq,
+  GCollectionsVars,
   GConfigurationItemInput,
   GConfigurationTypeFieldEnum,
   GCountryCode,

@@ -266,7 +266,7 @@ class _$GPriceReqSerializer implements StructuredSerializer<GPriceReq> {
           specifiedType: const FullType(_i3.GPriceVars)),
       'document',
       serializers.serialize(object.document,
-          specifiedType: const FullType(_i8.DocumentNode)),
+          specifiedType: const FullType(_i7.DocumentNode)),
       'fragmentName',
       serializers.serialize(object.fragmentName,
           specifiedType: const FullType(String)),
@@ -296,8 +296,8 @@ class _$GPriceReqSerializer implements StructuredSerializer<GPriceReq> {
           break;
         case 'document':
           result.document = serializers.deserialize(value,
-                  specifiedType: const FullType(_i8.DocumentNode))
-              as _i8.DocumentNode;
+                  specifiedType: const FullType(_i7.DocumentNode))
+              as _i7.DocumentNode;
           break;
         case 'fragmentName':
           result.fragmentName = serializers.deserialize(value,
@@ -337,7 +337,7 @@ class _$GBasicProductFieldsReqSerializer
           specifiedType: const FullType(_i3.GBasicProductFieldsVars)),
       'document',
       serializers.serialize(object.document,
-          specifiedType: const FullType(_i8.DocumentNode)),
+          specifiedType: const FullType(_i7.DocumentNode)),
       'fragmentName',
       serializers.serialize(object.fragmentName,
           specifiedType: const FullType(String)),
@@ -369,8 +369,8 @@ class _$GBasicProductFieldsReqSerializer
           break;
         case 'document':
           result.document = serializers.deserialize(value,
-                  specifiedType: const FullType(_i8.DocumentNode))
-              as _i8.DocumentNode;
+                  specifiedType: const FullType(_i7.DocumentNode))
+              as _i7.DocumentNode;
           break;
         case 'fragmentName':
           result.fragmentName = serializers.deserialize(value,
@@ -410,7 +410,7 @@ class _$GProductPricingFieldReqSerializer
           specifiedType: const FullType(_i3.GProductPricingFieldVars)),
       'document',
       serializers.serialize(object.document,
-          specifiedType: const FullType(_i8.DocumentNode)),
+          specifiedType: const FullType(_i7.DocumentNode)),
       'fragmentName',
       serializers.serialize(object.fragmentName,
           specifiedType: const FullType(String)),
@@ -442,8 +442,8 @@ class _$GProductPricingFieldReqSerializer
           break;
         case 'document':
           result.document = serializers.deserialize(value,
-                  specifiedType: const FullType(_i8.DocumentNode))
-              as _i8.DocumentNode;
+                  specifiedType: const FullType(_i7.DocumentNode))
+              as _i7.DocumentNode;
           break;
         case 'fragmentName':
           result.fragmentName = serializers.deserialize(value,
@@ -483,7 +483,7 @@ class _$GSelectedAttributeFieldsReqSerializer
           specifiedType: const FullType(_i3.GSelectedAttributeFieldsVars)),
       'document',
       serializers.serialize(object.document,
-          specifiedType: const FullType(_i8.DocumentNode)),
+          specifiedType: const FullType(_i7.DocumentNode)),
       'fragmentName',
       serializers.serialize(object.fragmentName,
           specifiedType: const FullType(String)),
@@ -516,8 +516,8 @@ class _$GSelectedAttributeFieldsReqSerializer
           break;
         case 'document':
           result.document = serializers.deserialize(value,
-                  specifiedType: const FullType(_i8.DocumentNode))
-              as _i8.DocumentNode;
+                  specifiedType: const FullType(_i7.DocumentNode))
+              as _i7.DocumentNode;
           break;
         case 'fragmentName':
           result.fragmentName = serializers.deserialize(value,
@@ -557,7 +557,7 @@ class _$GProductVariantFieldsReqSerializer
           specifiedType: const FullType(_i3.GProductVariantFieldsVars)),
       'document',
       serializers.serialize(object.document,
-          specifiedType: const FullType(_i8.DocumentNode)),
+          specifiedType: const FullType(_i7.DocumentNode)),
       'fragmentName',
       serializers.serialize(object.fragmentName,
           specifiedType: const FullType(String)),
@@ -589,8 +589,8 @@ class _$GProductVariantFieldsReqSerializer
           break;
         case 'document':
           result.document = serializers.deserialize(value,
-                  specifiedType: const FullType(_i8.DocumentNode))
-              as _i8.DocumentNode;
+                  specifiedType: const FullType(_i7.DocumentNode))
+              as _i7.DocumentNode;
           break;
         case 'fragmentName':
           result.fragmentName = serializers.deserialize(value,
@@ -1063,7 +1063,7 @@ class _$GPriceReq extends GPriceReq {
   @override
   final _i3.GPriceVars vars;
   @override
-  final _i8.DocumentNode document;
+  final _i7.DocumentNode document;
   @override
   final String fragmentName;
   @override
@@ -1132,9 +1132,9 @@ class GPriceReqBuilder implements Builder<GPriceReq, GPriceReqBuilder> {
       _$this._vars ??= new _i3.GPriceVarsBuilder();
   set vars(_i3.GPriceVarsBuilder vars) => _$this._vars = vars;
 
-  _i8.DocumentNode _document;
-  _i8.DocumentNode get document => _$this._document;
-  set document(_i8.DocumentNode document) => _$this._document = document;
+  _i7.DocumentNode _document;
+  _i7.DocumentNode get document => _$this._document;
+  set document(_i7.DocumentNode document) => _$this._document = document;
 
   String _fragmentName;
   String get fragmentName => _$this._fragmentName;
@@ -1202,7 +1202,7 @@ class _$GBasicProductFieldsReq extends GBasicProductFieldsReq {
   @override
   final _i3.GBasicProductFieldsVars vars;
   @override
-  final _i8.DocumentNode document;
+  final _i7.DocumentNode document;
   @override
   final String fragmentName;
   @override
@@ -1277,9 +1277,9 @@ class GBasicProductFieldsReqBuilder
       _$this._vars ??= new _i3.GBasicProductFieldsVarsBuilder();
   set vars(_i3.GBasicProductFieldsVarsBuilder vars) => _$this._vars = vars;
 
-  _i8.DocumentNode _document;
-  _i8.DocumentNode get document => _$this._document;
-  set document(_i8.DocumentNode document) => _$this._document = document;
+  _i7.DocumentNode _document;
+  _i7.DocumentNode get document => _$this._document;
+  set document(_i7.DocumentNode document) => _$this._document = document;
 
   String _fragmentName;
   String get fragmentName => _$this._fragmentName;
@@ -1347,7 +1347,7 @@ class _$GProductPricingFieldReq extends GProductPricingFieldReq {
   @override
   final _i3.GProductPricingFieldVars vars;
   @override
-  final _i8.DocumentNode document;
+  final _i7.DocumentNode document;
   @override
   final String fragmentName;
   @override
@@ -1423,9 +1423,9 @@ class GProductPricingFieldReqBuilder
       _$this._vars ??= new _i3.GProductPricingFieldVarsBuilder();
   set vars(_i3.GProductPricingFieldVarsBuilder vars) => _$this._vars = vars;
 
-  _i8.DocumentNode _document;
-  _i8.DocumentNode get document => _$this._document;
-  set document(_i8.DocumentNode document) => _$this._document = document;
+  _i7.DocumentNode _document;
+  _i7.DocumentNode get document => _$this._document;
+  set document(_i7.DocumentNode document) => _$this._document = document;
 
   String _fragmentName;
   String get fragmentName => _$this._fragmentName;
@@ -1493,7 +1493,7 @@ class _$GSelectedAttributeFieldsReq extends GSelectedAttributeFieldsReq {
   @override
   final _i3.GSelectedAttributeFieldsVars vars;
   @override
-  final _i8.DocumentNode document;
+  final _i7.DocumentNode document;
   @override
   final String fragmentName;
   @override
@@ -1572,9 +1572,9 @@ class GSelectedAttributeFieldsReqBuilder
       _$this._vars ??= new _i3.GSelectedAttributeFieldsVarsBuilder();
   set vars(_i3.GSelectedAttributeFieldsVarsBuilder vars) => _$this._vars = vars;
 
-  _i8.DocumentNode _document;
-  _i8.DocumentNode get document => _$this._document;
-  set document(_i8.DocumentNode document) => _$this._document = document;
+  _i7.DocumentNode _document;
+  _i7.DocumentNode get document => _$this._document;
+  set document(_i7.DocumentNode document) => _$this._document = document;
 
   String _fragmentName;
   String get fragmentName => _$this._fragmentName;
@@ -1642,7 +1642,7 @@ class _$GProductVariantFieldsReq extends GProductVariantFieldsReq {
   @override
   final _i3.GProductVariantFieldsVars vars;
   @override
-  final _i8.DocumentNode document;
+  final _i7.DocumentNode document;
   @override
   final String fragmentName;
   @override
@@ -1720,9 +1720,9 @@ class GProductVariantFieldsReqBuilder
       _$this._vars ??= new _i3.GProductVariantFieldsVarsBuilder();
   set vars(_i3.GProductVariantFieldsVarsBuilder vars) => _$this._vars = vars;
 
-  _i8.DocumentNode _document;
-  _i8.DocumentNode get document => _$this._document;
-  set document(_i8.DocumentNode document) => _$this._document = document;
+  _i7.DocumentNode _document;
+  _i7.DocumentNode get document => _$this._document;
+  set document(_i7.DocumentNode document) => _$this._document = document;
 
   String _fragmentName;
   String get fragmentName => _$this._fragmentName;

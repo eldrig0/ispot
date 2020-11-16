@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'categories.var.gql.dart';
+part of 'collections.var.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GCategoryListVars> _$gCategoryListVarsSerializer =
-    new _$GCategoryListVarsSerializer();
+Serializer<GCollectionsVars> _$gCollectionsVarsSerializer =
+    new _$GCollectionsVarsSerializer();
 
-class _$GCategoryListVarsSerializer
-    implements StructuredSerializer<GCategoryListVars> {
+class _$GCollectionsVarsSerializer
+    implements StructuredSerializer<GCollectionsVars> {
   @override
-  final Iterable<Type> types = const [GCategoryListVars, _$GCategoryListVars];
+  final Iterable<Type> types = const [GCollectionsVars, _$GCollectionsVars];
   @override
-  final String wireName = 'GCategoryListVars';
+  final String wireName = 'GCollectionsVars';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GCategoryListVars object,
+  Iterable<Object> serialize(Serializers serializers, GCollectionsVars object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'first',
@@ -33,10 +33,10 @@ class _$GCategoryListVarsSerializer
   }
 
   @override
-  GCategoryListVars deserialize(
+  GCollectionsVars deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GCategoryListVarsBuilder();
+    final result = new GCollectionsVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -59,34 +59,34 @@ class _$GCategoryListVarsSerializer
   }
 }
 
-class _$GCategoryListVars extends GCategoryListVars {
+class _$GCollectionsVars extends GCollectionsVars {
   @override
   final int first;
   @override
   final String after;
 
-  factory _$GCategoryListVars(
-          [void Function(GCategoryListVarsBuilder) updates]) =>
-      (new GCategoryListVarsBuilder()..update(updates)).build();
+  factory _$GCollectionsVars(
+          [void Function(GCollectionsVarsBuilder) updates]) =>
+      (new GCollectionsVarsBuilder()..update(updates)).build();
 
-  _$GCategoryListVars._({this.first, this.after}) : super._() {
+  _$GCollectionsVars._({this.first, this.after}) : super._() {
     if (first == null) {
-      throw new BuiltValueNullFieldError('GCategoryListVars', 'first');
+      throw new BuiltValueNullFieldError('GCollectionsVars', 'first');
     }
   }
 
   @override
-  GCategoryListVars rebuild(void Function(GCategoryListVarsBuilder) updates) =>
+  GCollectionsVars rebuild(void Function(GCollectionsVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GCategoryListVarsBuilder toBuilder() =>
-      new GCategoryListVarsBuilder()..replace(this);
+  GCollectionsVarsBuilder toBuilder() =>
+      new GCollectionsVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GCategoryListVars &&
+    return other is GCollectionsVars &&
         first == other.first &&
         after == other.after;
   }
@@ -98,16 +98,16 @@ class _$GCategoryListVars extends GCategoryListVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GCategoryListVars')
+    return (newBuiltValueToStringHelper('GCollectionsVars')
           ..add('first', first)
           ..add('after', after))
         .toString();
   }
 }
 
-class GCategoryListVarsBuilder
-    implements Builder<GCategoryListVars, GCategoryListVarsBuilder> {
-  _$GCategoryListVars _$v;
+class GCollectionsVarsBuilder
+    implements Builder<GCollectionsVars, GCollectionsVarsBuilder> {
+  _$GCollectionsVars _$v;
 
   int _first;
   int get first => _$this._first;
@@ -117,9 +117,9 @@ class GCategoryListVarsBuilder
   String get after => _$this._after;
   set after(String after) => _$this._after = after;
 
-  GCategoryListVarsBuilder();
+  GCollectionsVarsBuilder();
 
-  GCategoryListVarsBuilder get _$this {
+  GCollectionsVarsBuilder get _$this {
     if (_$v != null) {
       _first = _$v.first;
       _after = _$v.after;
@@ -129,22 +129,22 @@ class GCategoryListVarsBuilder
   }
 
   @override
-  void replace(GCategoryListVars other) {
+  void replace(GCollectionsVars other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GCategoryListVars;
+    _$v = other as _$GCollectionsVars;
   }
 
   @override
-  void update(void Function(GCategoryListVarsBuilder) updates) {
+  void update(void Function(GCollectionsVarsBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GCategoryListVars build() {
+  _$GCollectionsVars build() {
     final _$result =
-        _$v ?? new _$GCategoryListVars._(first: first, after: after);
+        _$v ?? new _$GCollectionsVars._(first: first, after: after);
     replace(_$result);
     return _$result;
   }

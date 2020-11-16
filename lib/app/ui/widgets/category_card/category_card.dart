@@ -8,21 +8,19 @@ class CategoryCard extends StatelessWidget {
   CategoryCard(this.category);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
-      child: GestureDetector(
-        onTap: () {
-          Get.toNamed('/category', arguments: category.categoryId);
-        },
-        child: Card(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  category.categoryImageUrl,
-                ),
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed('/category', arguments: category.categoryId);
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                category.categoryImageUrl,
               ),
             ),
           ),

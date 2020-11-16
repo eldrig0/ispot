@@ -13,6 +13,9 @@ abstract class GCategoryListVars
   factory GCategoryListVars([Function(GCategoryListVarsBuilder b) updates]) =
       _$GCategoryListVars;
 
+  int get first;
+  @nullable
+  String get after;
   static Serializer<GCategoryListVars> get serializer =>
       _$gCategoryListVarsSerializer;
   Map<String, dynamic> toJson() =>

@@ -2,9 +2,9 @@
 
 import 'package:gql/ast.dart' as _i1;
 
-const CategoryList = _i1.OperationDefinitionNode(
+const Collections = _i1.OperationDefinitionNode(
     type: _i1.OperationType.query,
-    name: _i1.NameNode(value: 'CategoryList'),
+    name: _i1.NameNode(value: 'Collections'),
     variableDefinitions: [
       _i1.VariableDefinitionNode(
           variable: _i1.VariableNode(name: _i1.NameNode(value: 'first')),
@@ -22,7 +22,7 @@ const CategoryList = _i1.OperationDefinitionNode(
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
       _i1.FieldNode(
-          name: _i1.NameNode(value: 'categories'),
+          name: _i1.NameNode(value: 'collections'),
           alias: null,
           arguments: [
             _i1.ArgumentNode(
@@ -41,13 +41,13 @@ const CategoryList = _i1.OperationDefinitionNode(
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'endCursor'),
+                      name: _i1.NameNode(value: 'hasNextPage'),
                       alias: null,
                       arguments: [],
                       directives: [],
                       selectionSet: null),
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hasNextPage'),
+                      name: _i1.NameNode(value: 'endCursor'),
                       alias: null,
                       arguments: [],
                       directives: [],
@@ -66,13 +66,19 @@ const CategoryList = _i1.OperationDefinitionNode(
                       directives: [],
                       selectionSet: _i1.SelectionSetNode(selections: [
                         _i1.FieldNode(
+                            name: _i1.NameNode(value: 'name'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
                             name: _i1.NameNode(value: 'id'),
                             alias: null,
                             arguments: [],
                             directives: [],
                             selectionSet: null),
                         _i1.FieldNode(
-                            name: _i1.NameNode(value: 'name'),
+                            name: _i1.NameNode(value: 'isPublished'),
                             alias: null,
                             arguments: [],
                             directives: [],
@@ -94,4 +100,4 @@ const CategoryList = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [CategoryList]);
+const document = _i1.DocumentNode(definitions: [Collections]);

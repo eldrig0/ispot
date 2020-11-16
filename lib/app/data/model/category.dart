@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/product.dart';
 
 class CategoryModel {
@@ -98,4 +99,61 @@ class CategoryModel {
   String toString() {
     return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, totalProductCount: $totalProductCount, attributes: $attributes, products: $products)';
   }
+}
+
+class Categories {
+  PageInfo pageInfo;
+  List<CategoryModel> categories;
+  Categories({
+    this.pageInfo,
+    this.categories,
+  });
+
+  Categories copyWith({
+    PageInfo pageInfo,
+    List<CategoryModel> categories,
+  }) {
+    return Categories(
+      pageInfo: pageInfo ?? this.pageInfo,
+      categories: categories ?? this.categories,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'pageInfo': pageInfo?.toMap(),
+      'categories': categories?.map((x) => x?.toMap())?.toList(),
+    };
+  }
+
+  factory Categories.fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
+    return Categories(
+      pageInfo: PageInfo.fromMap(map['pageInfo']),
+      categories: List<CategoryModel>.from(
+          map['categories']?.map((x) => CategoryModel.fromMap(x))),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Categories.fromJson(String source) =>
+      Categories.fromMap(json.decode(source));
+
+  @override
+  String toString() =>
+      'Categories(pageInfo: $pageInfo, categories: $categories)';
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Categories &&
+        o.pageInfo == pageInfo &&
+        listEquals(o.categories, categories);
+  }
+
+  @override
+  int get hashCode => pageInfo.hashCode ^ categories.hashCode;
 }
