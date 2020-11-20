@@ -11,15 +11,22 @@ import '../../../data/model/product.dart';
 import '../../../data/repository/categories/categories_repository.dart';
 import '../../../data/repository/home/home_repository.dart';
 
+const CATEGORIES = 'categories';
+const PRODUCTS = 'products';
+const COLLECTIONS = 'collections';
+
 class HomeController extends GetxController {
   HomeRepository homeRepository;
   final CategoriesRepository categoriesRepository;
   Rx<Categories> _categories;
   final homeProducts = <Product>[].obs;
+
   bool isSearchResult = false;
   FormControl searchControl = FormControl(value: '');
-  Rx<Collections> collections;
+  Rx<Collections> _collections;
   ScrollController scrollController;
+  final _dataFetchFlags =
+      {CATEGORIES: false, COLLECTIONS: false, PRODUCTS: false}.obs;
 
   HomeController(
       {@required this.homeRepository, @required this.categoriesRepository});
@@ -37,6 +44,7 @@ class HomeController extends GetxController {
     homeRepository.getHomeProducts().take(1).listen((products) {
       homeProducts.clear();
       homeProducts.addAll(products);
+      _updateDataFetchStates(PRODUCTS, true);
     });
   }
 
@@ -45,24 +53,38 @@ class HomeController extends GetxController {
     // TODO: implement onClose
   }
 
+  void _updateDataFetchStates(String key, bool state) {
+    this._dataFetchFlags[key] = state;
+  }
+
   void getCategories() {
-    categoriesRepository.getCategories(first: 4).listen((categories) {
+    categoriesRepository.getCategories(first: 4).take(1).listen((categories) {
       this._categories = Rx(categories);
+      _updateDataFetchStates(CATEGORIES, true);
     });
   }
 
   void listenToSearch() {
-    this.searchControl.valueChanges
-      ..listen((event) {
-        print(event());
-      });
+    this.searchControl.valueChanges.listen((event) {
+      print(event());
+    });
   }
 
   void getCollections() {
     this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
-      this.collections = Rx(collections);
+      this._collections = Rx(collections);
+      _updateDataFetchStates(COLLECTIONS, true);
     });
   }
 
-  List<CategoryModel> get categories => _categories.value.categories;
+  bool _getDateFetchState(String key) => this._dataFetchFlags[key];
+
+  bool get dataFetched =>
+      _getDateFetchState(CATEGORIES) &&
+      _getDateFetchState(COLLECTIONS) &&
+      _getDateFetchState(PRODUCTS);
+
+  List<Collection> get collections => _collections?.value.collections;
+
+  List<CategoryModel> get categories => _categories?.value.categories;
 }

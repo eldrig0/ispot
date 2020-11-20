@@ -158,15 +158,17 @@ class ProductWidget extends StatelessWidget {
   }
 
   buildAvailabilityWidget(ProductController controller) {
-    return Obx(() => Column(
-          children: [
-            if (!controller.selectedVariant.value.isAvailable)
-              Text('This product is not available'),
-            if (controller.isStockLow)
-              Text(
-                  'We have only ${controller.selectedVariant.value.stockQuantity}')
-          ],
-        ));
+    return Obx(
+      () => Column(
+        children: [
+          if (!controller.selectedVariant.value.isAvailable)
+            Text('This product is not available'),
+          if (controller.isStockLow)
+            Text(
+                'We have only ${controller.selectedVariant.value.stockQuantity}')
+        ],
+      ),
+    );
   }
 
   buildBuyButton(ProductController controller, CartController cart) {

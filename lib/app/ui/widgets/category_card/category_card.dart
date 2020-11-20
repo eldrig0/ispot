@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/ui/page/search/search_page.dart';
+import 'package:ripple_effect/ripple_effect.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel category;
@@ -10,7 +12,8 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed('/category', arguments: category.categoryId);
+        Navigator.push(context, FadeRouteBuilder(page: SearchPage()));
+        // Get.toNamed('/category', arguments: category.categoryId,);
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),

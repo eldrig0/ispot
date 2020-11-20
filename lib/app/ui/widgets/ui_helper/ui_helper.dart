@@ -35,4 +35,7 @@ class UIHelper {
     }
     return resultString;
   }
+
+  static double getDeviceWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width;
 }

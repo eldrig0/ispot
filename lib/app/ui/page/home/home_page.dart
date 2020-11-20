@@ -8,38 +8,63 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+
 import 'package:ispot/app/controller/home/home/home_controller.dart';
-import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/ui/page/search/search_page.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/category_card/category_card.dart';
+import 'package:ispot/app/ui/widgets/product_card/product_card.dart';
+import 'package:ispot/app/ui/widgets/ripple_transition/ripple_transition.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
-import 'package:ispot/main.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
-class HomePage extends GetView {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final _controller = Get.find<HomeController>();
+
+  final GlobalKey _fabButtonKey = GlobalKey();
+  RipplePageTransition _ripplePageTransition;
+
+  @override
+  void initState() {
+    _ripplePageTransition = RipplePageTransition(_fabButtonKey);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: ISpotTheme.primaryColor,
-        child: Icon(
-          AntDesign.search1,
-          color: Colors.white,
-        ),
-        onPressed: () {},
-      ),
-      body: CustomScrollView(
-        slivers: [
-          _buildAppBar(),
-          _buildCollection(context),
-          _buildTitle('FEATURED PRODUCTS'),
-          _buildFeaturedProducts(context),
-          _buildTitle('SHOP BY CATEGORIES'),
-          _buildCategories(context)
-        ],
-      ),
+    return Stack(
+      children: [
+        Scaffold(
+            backgroundColor: ISpotTheme.canvasColor,
+            floatingActionButton: FloatingActionButton(
+                key: _fabButtonKey,
+                backgroundColor: ISpotTheme.primaryColor,
+                child: Icon(
+                  AntDesign.search1,
+                  color: Colors.white,
+                ),
+                onPressed: () =>
+                    _ripplePageTransition.navigateTo(SearchPage())),
+            body: Obx(
+              () => _controller.dataFetched
+                  ? CustomScrollView(
+                      slivers: [
+                        _buildAppBar(),
+                        _buildCollection(context),
+                        _buildTitle('FEATURED PRODUCTS'),
+                        _buildFeaturedProducts(context),
+                        _buildTitle('SHOP BY CATEGORIES'),
+                        _buildCategories(context)
+                      ],
+                    )
+                  : Container(),
+            )),
+        _ripplePageTransition,
+      ],
     );
   }
 
@@ -47,16 +72,14 @@ class HomePage extends GetView {
       child: Obx(() => Padding(
             padding:
                 const EdgeInsets.only(left: 18, right: 18, bottom: 18, top: 36),
-            child: Neumorphic(
-              style: NeumorphicStyle(
-                  color: ISpotTheme.canvasColor,
-                  lightSource: LightSource.topLeft,
-                  depth: 8,
-                  intensity: 0.5),
-              child: Image.network(
-                _controller.collections.value.collections[0].backgroundImage,
-                height: 150,
-                fit: BoxFit.fitHeight,
+            child: Card(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  _controller.collections[0].backgroundImage,
+                  height: 150,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           )));
@@ -80,7 +103,7 @@ class HomePage extends GetView {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: GestureDetector(
-                child: Icon(AntDesign.search1),
+                child: Icon(AntDesign.bars),
               ),
             ),
             Padding(
@@ -140,7 +163,7 @@ class HomePage extends GetView {
           () => Swiper(
               itemHeight: 200,
               outer: true,
-              itemWidth: _getDeviceWidth(context),
+              itemWidth: UIHelper.getDeviceWidth(context),
               itemCount: _controller.categories.length,
               layout: SwiperLayout.TINDER,
               itemBuilder: (context, index) {
@@ -149,52 +172,5 @@ class HomePage extends GetView {
         ),
       ),
     );
-  }
-
-  double _getDeviceWidth(BuildContext context) =>
-      MediaQuery.of(context).size.width;
-}
-
-class ProductCard extends StatelessWidget {
-  final Product product;
-  const ProductCard({
-    this.product,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: ISpotTheme.primaryImageBackground,
-            ),
-            width: MediaQuery.of(context).size.width - ((18 * 2) + 10),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.network(
-                product.productThumbnail,
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 4,
-          ),
-          Text(
-            product.productName,
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(
-            height: 4,
-          ),
-          UIHelper.buildPricingText(
-              product.pricing.start.amount, product.pricing.start.currency,
-              style: TextStyle(fontWeight: FontWeight.w600))
-        ]);
   }
 }

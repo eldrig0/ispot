@@ -1,72 +1,54 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 
 class ProductCard extends StatelessWidget {
-  final Function() onClick;
-  const ProductCard({
-    Key key,
-    @required this.product,
-    @required this.onClick,
-  }) : super(key: key);
-
   final Product product;
+  final Function onClick;
+  const ProductCard({
+    this.product,
+    this.onClick,
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: this.onClick,
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8), color: Colors.red),
-        child: Stack(
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Center(
-              child: Image.network(
-                product.productThumbnail,
-                fit: BoxFit.contain,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: ISpotTheme.primaryImageBackground,
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(.8),
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(8),
-                        bottomRight: Radius.circular(8))),
-                height: 60,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      product.productName,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Text(
-                      product.categoryName,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '${product.pricing.start.currency} ${product.pricing.start.amount}',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Text('to'),
-                        Text(
-                            '${product.pricing.stop.currency} ${product.pricing.stop.amount}',
-                            style: TextStyle(color: Colors.white)),
-                      ],
-                    ),
-                  ],
+              width: MediaQuery.of(context).size.width - ((18 * 2) + 10),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(
+                  product.productThumbnail,
+                  fit: BoxFit.fitHeight,
                 ),
               ),
             ),
-          ],
-        ),
-      ),
+            SizedBox(
+              height: 4,
+            ),
+            Text(
+              product.productName,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            UIHelper.buildPricingText(
+                product.pricing.start.amount, product.pricing.start.currency,
+                style: TextStyle(fontWeight: FontWeight.w600))
+          ]),
     );
   }
 }
