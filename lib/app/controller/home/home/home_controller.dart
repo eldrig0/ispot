@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/data/failures/failure.dart';
-import 'package:ispot/app/data/model/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../data/model/category.dart';
-import '../../../data/model/product.dart';
-import '../../../data/repository/categories/categories_repository.dart';
-import '../../../data/repository/home/home_repository.dart';
+import '../../../failures/failure.dart';
+import '../../../model/category.dart';
+import '../../../model/collection.dart';
+import '../../../model/product.dart';
+import '../../../repository/categories/categories_repository.dart';
+import '../../../repository/home/home_repository.dart';
 
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';

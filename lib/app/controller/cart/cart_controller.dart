@@ -1,6 +1,6 @@
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/data/model/cart_item.dart';
-import 'package:ispot/app/data/model/product_variant.dart';
+import 'package:ispot/app/model/cart_item.dart';
+import 'package:ispot/app/model/product_variant.dart';
 
 class CartController extends GetxController {
   final cartItems = <CartItem>[].obs;

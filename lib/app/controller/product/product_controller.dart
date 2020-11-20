@@ -1,13 +1,12 @@
-import 'package:ispot/app/data/model/pricing.dart';
-import 'package:ispot/app/misc/validators/cuatom_validators.dart';
-import 'package:meta/meta.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/data/model/product_variant.dart';
-import 'package:ispot/app/data/repository/product/product_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../model/attribute.dart';
+import '../../model/product.dart';
+import '../../model/product_variant.dart';
+import '../../misc/validators/cuatom_validators.dart';
+import '../../repository/product/product_repository.dart';
 
 class ProductController extends GetxController {
   final ProductRepository _productRepository;

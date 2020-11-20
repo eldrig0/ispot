@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/category.dart';
-import 'package:ispot/app/data/repository/category/category_repository.dart';
-import 'package:ispot/app/misc/sort_options.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../../app/repository/category/category_repository.dart';
+import '../../model/attribute.dart';
+import '../../model/category.dart';
+import '../../misc/sort_options.dart';
 
 class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;

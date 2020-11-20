@@ -3,7 +3,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
-import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.dart'
+import 'package:ispot/app/provider/categories/graphql/categories.data.gql.dart'
     show
         GCategoryListData,
         GCategoryListData_categories,
@@ -11,11 +11,11 @@ import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.d
         GCategoryListData_categories_edges_node,
         GCategoryListData_categories_edges_node_backgroundImage,
         GCategoryListData_categories_pageInfo;
-import 'package:ispot/app/data/provider/categories/graphql/categories.req.gql.dart'
+import 'package:ispot/app/provider/categories/graphql/categories.req.gql.dart'
     show GCategoryListReq;
-import 'package:ispot/app/data/provider/categories/graphql/categories.var.gql.dart'
+import 'package:ispot/app/provider/categories/graphql/categories.var.gql.dart'
     show GCategoryListVars;
-import 'package:ispot/app/data/provider/category/graphql/category/category.data.gql.dart'
+import 'package:ispot/app/provider/category/graphql/category/category.data.gql.dart'
     show
         GCategoryData,
         GCategoryData_attributes,
@@ -39,11 +39,11 @@ import 'package:ispot/app/data/provider/category/graphql/category/category.data.
         GCategoryData_products_edges_node_pricing_priceRange_stop_net,
         GCategoryData_products_edges_node_thumbnail,
         GCategoryData_products_pageInfo;
-import 'package:ispot/app/data/provider/category/graphql/category/category.req.gql.dart'
+import 'package:ispot/app/provider/category/graphql/category/category.req.gql.dart'
     show GCategoryReq;
-import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart'
+import 'package:ispot/app/provider/category/graphql/category/category.var.gql.dart'
     show GCategoryVars;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.data.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/collections/collections.data.gql.dart'
     show
         GCollectionsData,
         GCollectionsData_collections,
@@ -51,11 +51,11 @@ import 'package:ispot/app/data/provider/home/graphql/home/collections/collection
         GCollectionsData_collections_edges_node,
         GCollectionsData_collections_edges_node_backgroundImage,
         GCollectionsData_collections_pageInfo;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.req.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/collections/collections.req.gql.dart'
     show GCollectionsReq;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.var.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/collections/collections.var.gql.dart'
     show GCollectionsVars;
-import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.data.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/products/featured_products.data.gql.dart'
     show
         GFeaturedProductsData,
         GFeaturedProductsData_shop,
@@ -72,11 +72,11 @@ import 'package:ispot/app/data/provider/home/graphql/home/products/featured_prod
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop,
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_net,
         GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail;
-import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.req.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/products/featured_products.req.gql.dart'
     show GFeaturedProductsReq;
-import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.var.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/products/featured_products.var.gql.dart'
     show GFeaturedProductsVars;
-import 'package:ispot/app/data/provider/home/graphql/home/search/search.data.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/search/search.data.gql.dart'
     show
         GSearchProductsData,
         GSearchProductsData_products,
@@ -91,11 +91,11 @@ import 'package:ispot/app/data/provider/home/graphql/home/search/search.data.gql
         GSearchProductsData_products_edges_node_thumbnail,
         GSearchProductsData_products_edges_node_thumbnail2x,
         GSearchProductsData_products_pageInfo;
-import 'package:ispot/app/data/provider/home/graphql/home/search/search.req.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/search/search.req.gql.dart'
     show GSearchProductsReq;
-import 'package:ispot/app/data/provider/home/graphql/home/search/search.var.gql.dart'
+import 'package:ispot/app/provider/home/graphql/home/search/search.var.gql.dart'
     show GSearchProductsVars;
-import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart'
+import 'package:ispot/app/provider/product/graphql/product.data.gql.dart'
     show
         GBasicProductFieldsData,
         GBasicProductFieldsData_thumbnail,
@@ -170,7 +170,7 @@ import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart'
         GVariantListData_productVariants_edges_node_pricing_price_net,
         GVariantListData_productVariants_edges_node_product,
         GVariantListData_productVariants_edges_node_product_thumbnail;
-import 'package:ispot/app/data/provider/product/graphql/product.req.gql.dart'
+import 'package:ispot/app/provider/product/graphql/product.req.gql.dart'
     show
         GBasicProductFieldsReq,
         GPriceReq,
@@ -179,7 +179,7 @@ import 'package:ispot/app/data/provider/product/graphql/product.req.gql.dart'
         GProductVariantFieldsReq,
         GSelectedAttributeFieldsReq,
         GVariantListReq;
-import 'package:ispot/app/data/provider/product/graphql/product.var.gql.dart'
+import 'package:ispot/app/provider/product/graphql/product.var.gql.dart'
     show
         GBasicProductFieldsVars,
         GPriceVars,

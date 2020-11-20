@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/model/category.dart';
 import 'package:ispot/app/ui/page/search/search_page.dart';
 import 'package:ripple_effect/ripple_effect.dart';
 

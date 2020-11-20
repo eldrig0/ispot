@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:ispot/app/controller/category/category_controller.dart';
-import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/model/attribute.dart';
 import 'package:ispot/app/ui/page/category/widgets/ispot_checkbox/ispot_checkbox.dart';
 import 'package:ispot/app/ui/widgets/ispot_chips/ispot_chip.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
