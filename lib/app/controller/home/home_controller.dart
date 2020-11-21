@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../failures/failure.dart';
-import '../../../model/category.dart';
-import '../../../model/collection.dart';
-import '../../../model/product.dart';
-import '../../../repository/categories/categories_repository.dart';
-import '../../../repository/home/home_repository.dart';
+import '../../failures/failure.dart';
+import '../../model/category.dart';
+import '../../model/collection.dart';
+import '../../model/product.dart';
+import '../../repository/categories/categories_repository.dart';
+import '../../repository/home/home_repository.dart';
 
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';

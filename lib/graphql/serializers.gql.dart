@@ -76,25 +76,6 @@ import 'package:ispot/app/provider/home/graphql/home/products/featured_products.
     show GFeaturedProductsReq;
 import 'package:ispot/app/provider/home/graphql/home/products/featured_products.var.gql.dart'
     show GFeaturedProductsVars;
-import 'package:ispot/app/provider/home/graphql/home/search/search.data.gql.dart'
-    show
-        GSearchProductsData,
-        GSearchProductsData_products,
-        GSearchProductsData_products_edges,
-        GSearchProductsData_products_edges_node,
-        GSearchProductsData_products_edges_node_pricing,
-        GSearchProductsData_products_edges_node_pricing_priceRange,
-        GSearchProductsData_products_edges_node_pricing_priceRange_start,
-        GSearchProductsData_products_edges_node_pricing_priceRange_start_net,
-        GSearchProductsData_products_edges_node_pricing_priceRange_stop,
-        GSearchProductsData_products_edges_node_pricing_priceRange_stop_net,
-        GSearchProductsData_products_edges_node_thumbnail,
-        GSearchProductsData_products_edges_node_thumbnail2x,
-        GSearchProductsData_products_pageInfo;
-import 'package:ispot/app/provider/home/graphql/home/search/search.req.gql.dart'
-    show GSearchProductsReq;
-import 'package:ispot/app/provider/home/graphql/home/search/search.var.gql.dart'
-    show GSearchProductsVars;
 import 'package:ispot/app/provider/product/graphql/product.data.gql.dart'
     show
         GBasicProductFieldsData,
@@ -188,6 +169,25 @@ import 'package:ispot/app/provider/product/graphql/product.var.gql.dart'
         GProductVariantFieldsVars,
         GSelectedAttributeFieldsVars,
         GVariantListVars;
+import 'package:ispot/app/provider/search/graphql/search.data.gql.dart'
+    show
+        GSearchProductsData,
+        GSearchProductsData_products,
+        GSearchProductsData_products_edges,
+        GSearchProductsData_products_edges_node,
+        GSearchProductsData_products_edges_node_pricing,
+        GSearchProductsData_products_edges_node_pricing_priceRange,
+        GSearchProductsData_products_edges_node_pricing_priceRange_start,
+        GSearchProductsData_products_edges_node_pricing_priceRange_start_net,
+        GSearchProductsData_products_edges_node_pricing_priceRange_stop,
+        GSearchProductsData_products_edges_node_pricing_priceRange_stop_net,
+        GSearchProductsData_products_edges_node_thumbnail,
+        GSearchProductsData_products_edges_node_thumbnail2x,
+        GSearchProductsData_products_pageInfo;
+import 'package:ispot/app/provider/search/graphql/search.req.gql.dart'
+    show GSearchProductsReq;
+import 'package:ispot/app/provider/search/graphql/search.var.gql.dart'
+    show GSearchProductsVars;
 import 'package:ispot/graphql/schema.schema.gql.dart'
     show
         GAccountErrorCode,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/fade_in_router/fade_in_router.dart';
 
@@ -12,25 +13,25 @@ class RipplePageTransition extends StatefulWidget {
   final Color color;
   final _state = _RipplePageTransitionState();
 
-  void navigateTo(Widget page) => _state.startSpreadOutAnimation(page);
+  void navigateTo(String pageName) => _state.startSpreadOutAnimation(pageName);
 
   @override
   _RipplePageTransitionState createState() => _state;
 }
 
 class _RipplePageTransitionState extends State<RipplePageTransition> {
-  Widget _page;
+  String _pageRoute;
   Rect _originalWidgetRect;
   Rect _ripplePageTransitionRect;
 
   // Starts ripple effect from the original widget size to the whole screen.
-  void startSpreadOutAnimation(Widget page) {
+  void startSpreadOutAnimation(String pageRoute) {
     if (!mounted) {
       return;
     }
 
     setState(() {
-      _page = page;
+      _pageRoute = pageRoute;
       _originalWidgetRect = _getWidgetRect(widget._originalWidgetKey);
       _ripplePageTransitionRect = _originalWidgetRect;
     });
@@ -85,12 +86,15 @@ class _RipplePageTransitionState extends State<RipplePageTransition> {
         bool shouldNavigatePage =
             _ripplePageTransitionRect != _originalWidgetRect;
         if (shouldNavigatePage) {
-          Navigator.push(
-            context,
-            FadeRouteBuilder(page: _page),
-          ).then((_) {
+          Get.toNamed(_pageRoute).then((_) {
             _startShrinkInAnimation();
           });
+          // Navigator.push(
+          //   context,
+          //   FadeRouteBuilder(page: _page),
+          // ).then((_) {
+          //   _startShrinkInAnimation();
+          // });
         } else {
           if (!mounted) {
             return;

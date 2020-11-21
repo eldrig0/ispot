@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
+import 'package:ispot/app/model/page_info.dart';
 import 'package:ispot/app/model/pricing.dart';
 import 'package:ispot/app/model/product_variant.dart';
 
@@ -130,4 +131,60 @@ class Product {
         productImages.hashCode ^
         variants.hashCode;
   }
+}
+
+class Products {
+  PageInfo pageInfo;
+  List<Product> products;
+  Products({
+    this.pageInfo,
+    this.products,
+  });
+
+  Products copyWith({
+    PageInfo pageInfo,
+    List<Product> products,
+  }) {
+    return Products(
+      pageInfo: pageInfo ?? this.pageInfo,
+      products: products ?? this.products,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'pageInfo': pageInfo?.toMap(),
+      'products': products?.map((x) => x?.toMap())?.toList(),
+    };
+  }
+
+  factory Products.fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
+    return Products(
+      pageInfo: PageInfo.fromMap(map['pageInfo']),
+      products:
+          List<Product>.from(map['products']?.map((x) => Product.fromMap(x))),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Products.fromJson(String source) =>
+      Products.fromMap(json.decode(source));
+
+  @override
+  String toString() => 'Products(pageInfo: $pageInfo, products: $products)';
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Products &&
+        o.pageInfo == pageInfo &&
+        listEquals(o.products, products);
+  }
+
+  @override
+  int get hashCode => pageInfo.hashCode ^ products.hashCode;
 }

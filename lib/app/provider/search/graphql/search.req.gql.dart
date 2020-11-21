@@ -4,12 +4,9 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:ispot/app/provider/home/graphql/home/search/search.ast.gql.dart'
-    as _i5;
-import 'package:ispot/app/provider/home/graphql/home/search/search.data.gql.dart'
-    as _i2;
-import 'package:ispot/app/provider/home/graphql/home/search/search.var.gql.dart'
-    as _i3;
+import 'package:ispot/app/provider/search/graphql/search.ast.gql.dart' as _i5;
+import 'package:ispot/app/provider/search/graphql/search.data.gql.dart' as _i2;
+import 'package:ispot/app/provider/search/graphql/search.var.gql.dart' as _i3;
 import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'search.req.gql.g.dart';

@@ -12,8 +12,11 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, FadeRouteBuilder(page: SearchPage()));
-        // Get.toNamed('/category', arguments: category.categoryId,);
+        // Navigator.push(context, FadeRouteBuilder(page: SearchPage()));
+        Get.toNamed(
+          '/category',
+          arguments: category.categoryId,
+        );
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),

@@ -1,21 +1,18 @@
 import 'package:badges/badges.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import 'package:ispot/app/controller/home/home/home_controller.dart';
-import 'package:ispot/app/ui/page/search/search_page.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/app/ui/widgets/category_card/category_card.dart';
-import 'package:ispot/app/ui/widgets/product_card/product_card.dart';
-import 'package:ispot/app/ui/widgets/ripple_transition/ripple_transition.dart';
-import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+import '../../../controller/home/home_controller.dart';
+import '../../theme/ispot_theme.dart';
+import '../../widgets/category_card/category_card.dart';
+import '../../widgets/product_grid/product_grid.dart';
+import '../../widgets/ripple_transition/ripple_transition.dart';
+import '../../widgets/ui_helper/ui_helper.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -47,8 +44,7 @@ class _HomePageState extends State<HomePage> {
                   AntDesign.search1,
                   color: Colors.white,
                 ),
-                onPressed: () =>
-                    _ripplePageTransition.navigateTo(SearchPage())),
+                onPressed: () => _ripplePageTransition.navigateTo('/search')),
             body: Obx(
               () => _controller.dataFetched
                   ? CustomScrollView(
@@ -56,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                         _buildAppBar(),
                         _buildCollection(context),
                         _buildTitle('FEATURED PRODUCTS'),
-                        _buildFeaturedProducts(context),
+                        _buildFeaturedProducts(),
                         _buildTitle('SHOP BY CATEGORIES'),
                         _buildCategories(context)
                       ],
@@ -69,12 +65,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCollection(BuildContext context) => SliverToBoxAdapter(
-      child: Obx(() => Padding(
+        child: Obx(
+          () => Padding(
             padding:
                 const EdgeInsets.only(left: 18, right: 18, bottom: 18, top: 36),
             child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(16),
                 child: Image.network(
                   _controller.collections[0].backgroundImage,
                   height: 150,
@@ -82,7 +81,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-          )));
+          ),
+        ),
+      );
 
   Widget _buildAppBar() => SliverAppBar(
           floating: true,
@@ -104,6 +105,9 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(left: 8.0),
               child: GestureDetector(
                 child: Icon(AntDesign.bars),
+                onTap: () {
+                  Get.toNamed('/search');
+                },
               ),
             ),
             Padding(
@@ -111,21 +115,9 @@ class _HomePageState extends State<HomePage> {
                 child: _shoppingCartBadge())
           ]);
 
-  Widget _buildFeaturedProducts(BuildContext context) => SliverPadding(
-        padding: const EdgeInsets.all(18),
-        sliver: Obx(
-          () => SliverStaggeredGrid.countBuilder(
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 9,
-            crossAxisCount: 4,
-            itemBuilder: (context, index) => ProductCard(
-              product: _controller.homeProducts[index],
-            ),
-            itemCount: _controller.homeProducts.length,
-            staggeredTileBuilder: (index) => StaggeredTile.fit(2),
-          ),
-        ),
-      );
+  Widget _buildFeaturedProducts() => SliverPadding(
+      padding: EdgeInsets.all(18),
+      sliver: ProductGrid(products: _controller.homeProducts));
 
   Widget _buildTitle(String title) {
     return SliverToBoxAdapter(
