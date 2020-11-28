@@ -16,13 +16,11 @@ class CategoryController extends GetxController {
 
   final showFilter = false.obs;
 
-  final sortOptions = SORTOPTIONS;
-
   Rx<SortOption> selectedSortOption;
   var selectedAttributes = <Attribute>[].obs;
 
   CategoryController(this.categoryRepository) {
-    selectedSortOption = sortOptions[0].obs;
+    selectedSortOption = Rx(SORTOPTIONS[0]);
   }
 
   @override
@@ -32,18 +30,24 @@ class CategoryController extends GetxController {
   }
 
   void getCategory() {
+    print(selectedSortOption.value);
     categoryRepository
         .getCategory(
             id: Get.parameters['categoryId'],
             pageSize: pageSize.value,
+            after: category?.value?.pageInfo?.endCursor,
             attributes: selectedAttributes.value,
-            sortOption: selectedSortOption.value)
+            sortOption: selectedSortOption?.value)
         .take(1)
         .listen((response) {
       category.value = response;
 
       this.gotData.value = true;
     });
+  }
+
+  void showMore() {
+    this.getCategory();
   }
 
   void toggleFilterDisplay() {
@@ -88,6 +92,10 @@ class CategoryController extends GetxController {
   void setSelectedAttributes(List<Attribute> attributes) {
     this.selectedAttributes.clear();
     this.selectedAttributes.addAll(attributes);
+  }
+
+  void setSelectedSortOption(SortOption sortOption) {
+    this.selectedSortOption.value = sortOption;
   }
 
   // bool isAttributeValueSelected(

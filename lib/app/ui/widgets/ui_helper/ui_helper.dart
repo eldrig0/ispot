@@ -45,18 +45,15 @@ class UIHelper {
         ));
   }
 
-  static Padding buildFilterIcon(
+  static Widget buildFilterIcon(
       {@required Widget badgeContent, @required Function onPressed}) {
-    return Padding(
-      padding: EdgeInsets.only(right: 18),
-      child: Badge(
-        badgeColor: ISpotTheme.primaryColor,
-        position: BadgePosition.topEnd(top: 0, end: 1),
-        animationDuration: Duration(milliseconds: 300),
-        animationType: BadgeAnimationType.slide,
-        badgeContent: badgeContent,
-        child: IconButton(icon: Icon(AntDesign.filter), onPressed: onPressed),
-      ),
+    return Badge(
+      badgeColor: ISpotTheme.primaryColor,
+      position: BadgePosition.topEnd(top: 0, end: 1),
+      animationDuration: Duration(milliseconds: 300),
+      animationType: BadgeAnimationType.slide,
+      badgeContent: badgeContent,
+      child: IconButton(icon: Icon(AntDesign.filter), onPressed: onPressed),
     );
   }
 
@@ -75,7 +72,7 @@ class UIHelper {
 
   static Widget buildCategoriesIcon({@required Function onPressed}) => Padding(
         padding: const EdgeInsets.only(left: 8.0),
-        child: GestureDetector(child: Icon(AntDesign.bars), onTap: onPressed),
+        child: IconButton(icon: Icon(AntDesign.bars), onPressed: onPressed),
       );
 
   static Text buildPricingText(double start, String currency,

@@ -1,4 +1,3 @@
-
 query Category(
   $id: ID!
   $attributes: [AttributeInput]
@@ -51,27 +50,25 @@ query Category(
     pageInfo {
       endCursor
       hasNextPage
-      hasPreviousPage
-      startCursor
     }
     edges {
       node {
         id
         name
-        pricing{
+        pricing {
           onSale
           priceRange {
             start {
               net {
                 amount
                 currency
-              } 
+              }
             }
             stop {
               net {
                 amount
                 currency
-              } 
+              }
             }
           }
         }

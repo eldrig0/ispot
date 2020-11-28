@@ -35,6 +35,7 @@ class AppPages {
     GetPage(
       name: Routes.FILTER,
       page: () => FilterPage(),
+      maintainState: true,
       binding: FilterBinding(),
     )
   ];

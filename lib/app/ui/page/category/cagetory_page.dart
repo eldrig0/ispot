@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/controller/cart/cart_controller.dart';
 import 'package:ispot/app/controller/category/category_controller.dart';
+import 'package:ispot/app/misc/sort_options.dart';
 import 'package:ispot/app/ui/page/category/widgets/filter_widget/filter_widget.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/product_grid/product_grid.dart';
@@ -16,11 +17,39 @@ class CategoryPage extends GetWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX(
-      builder: (_) {
-        return buildProductWidgets(_controller);
-      },
+    return Scaffold(
+      backgroundColor: ISpotTheme.canvasColor,
+      body: Obx(() => _controller.gotData.value
+          ? CustomScrollView(
+              slivers: [
+                UIHelper.buildSliverAppBar(
+                    leading: UIHelper.buildUserIcon(),
+                    actions: [
+                      UIHelper.buildCategoriesIcon(onPressed: () {}),
+                      _buildFilterIcon(),
+                      UIHelper.buildCartIcon(_cart)
+                    ]),
+                _buildCategoryTitle(),
+                if (_controller.category.value != null) ...[
+                  SliverPadding(
+                    padding: EdgeInsets.all(18),
+                    sliver: ProductGrid(
+                        products: _controller.category.value.products),
+                  ),
+                ],
+                _buildShowMoreButton()
+              ],
+            )
+          : Container()),
     );
+
+    // return GetX(
+    //   builder: (_) {
+    //     return !_controller.category.value.isNull
+    //         ? buildProductWidgets(_controller)
+    //         : Container();
+    //   },
+    // );
   }
 
   Scaffold buildProductWidgets(CategoryController controller) {
@@ -28,6 +57,7 @@ class CategoryPage extends GetWidget {
       backgroundColor: ISpotTheme.canvasColor,
       body: CustomScrollView(
         slivers: [
+          _buildCategoryTitle(),
           UIHelper.buildSliverAppBar(
               leading: UIHelper.buildUserIcon(),
               actions: [
@@ -41,8 +71,32 @@ class CategoryPage extends GetWidget {
               sliver:
                   ProductGrid(products: _controller.category.value.products),
             ),
-          ]
+          ],
+          _buildShowMoreButton()
         ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryTitle() {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
+        child: Text(
+          _controller.category.value.categoryName,
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildShowMoreButton() {
+    return SliverToBoxAdapter(
+      child: Obx(
+        () => !_controller.category.value.isNull &&
+                _controller.category.value.pageInfo.hasNextPage
+            ? FlatButton(onPressed: () {}, child: Text('SHOW MORE'))
+            : Container(),
       ),
     );
   }
@@ -55,16 +109,21 @@ class CategoryPage extends GetWidget {
 
   _showFilterPage(CategoryController _controller) async {
     if (_controller.selectedAttributes.isEmpty) {
-      var selectedAttribute = await Get.toNamed(
+      var filterResult = await Get.toNamed(
           'filter/${_controller.category.value.categoryId}',
-          arguments: []);
-      _controller.setSelectedAttributes(selectedAttribute);
+          arguments: {'sort': SORTOPTIONS[0], 'attributes': []});
+
+      _controller.setSelectedSortOption(filterResult['sort']);
       _controller.getCategory();
     } else {
-      var selectedAttributes = await Get.toNamed(
+      var filterResult = await Get.toNamed(
           'filter/${_controller.category.value.categoryId}',
-          arguments: _controller.selectedAttributes);
-      _controller.selectedAttributes(selectedAttributes);
+          arguments: {
+            'sort': _controller.selectedSortOption.value,
+            'attributes': _controller.selectedAttributes
+          });
+      _controller.selectedAttributes(filterResult['attributes']);
+      _controller.setSelectedSortOption(filterResult['sort']);
       _controller.getCategory();
     }
   }

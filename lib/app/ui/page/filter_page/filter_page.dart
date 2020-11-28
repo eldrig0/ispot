@@ -21,17 +21,29 @@ class FilterPage extends StatelessWidget {
         leading: IconButton(
             icon: Icon(AntDesign.close),
             onPressed: () {
-              Get.back(result: _controller.selectedAttributes);
+              Get.back(result: {
+                'sort': _controller.selectedSortOption.value,
+                'attributes': _controller.selectedAttributes
+              });
             }),
       ),
       body: Padding(
-          padding: EdgeInsets.all(18),
-          child: ListView(
-            children: [
-              buildSortOptions(),
-              ...buildAttributeWidget(),
-            ],
-          )),
+        padding: EdgeInsets.all(18),
+        child: Obx(
+          () => _controller.isLoaded.value
+              ? ListView(
+                  children: [
+                    buildSortOptions(),
+                    ...buildAttributeWidget(),
+                  ],
+                )
+              : Container(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+        ),
+      ),
     );
   }
 
@@ -55,23 +67,25 @@ class FilterPage extends StatelessWidget {
                 runSpacing: 10,
                 alignment: WrapAlignment.center,
                 children: [
-                  ...attribute.values.map(
-                    (attributeValue) => Obx(
-                      () => ISpotChip(
-                          isSelected: _controller.isAttributeValueSelected(
-                              attributeId: attribute.id,
-                              attributeValue: attributeValue),
-                          label: attributeValue.name,
-                          onPressed: () {
-                            _controller.toogleAttributeSelection(
-                              attribute: Attribute(
-                                  id: attribute.id,
-                                  name: attribute.name,
-                                  values: [attributeValue]),
-                            );
-                          }),
-                    ),
-                  ),
+                  ...attribute.values
+                      .map(
+                        (attributeValue) => Obx(
+                          () => ISpotChip(
+                              isSelected: _controller.isAttributeValueSelected(
+                                  attributeId: attribute.id,
+                                  attributeValue: attributeValue),
+                              label: attributeValue.name,
+                              onPressed: () {
+                                _controller.toogleAttributeSelection(
+                                  attribute: Attribute(
+                                      id: attribute.id,
+                                      name: attribute.name,
+                                      values: [attributeValue]),
+                                );
+                              }),
+                        ),
+                      )
+                      .toList(),
                 ],
               ),
             ],
@@ -98,10 +112,10 @@ class FilterPage extends StatelessWidget {
             ..._controller.sortOptions
                 .map(
                   (option) => Obx(
-                    () => SortChip(
-                        label: option.name,
-                        isSelected: _controller.isSortOptionSelected(option),
-                        onPressed: (_) {
+                    () => ChoiceChip(
+                        label: Text(option.name),
+                        selected: _controller.isSortOptionSelected(option),
+                        onSelected: (_) {
                           _controller.selectedSortOption.value = option;
                         }),
                   ),

@@ -14,10 +14,12 @@ class CategoryRepository {
       {@required String id,
       @required int pageSize,
       @required List<Attribute> attributes,
+      @required String after,
       @required SortOption sortOption}) {
     return this.provider.getCategory(
         id: id,
         pageSize: pageSize,
+        after: after,
         attributes: attributes,
         sortOption: sortOption);
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
-class SortChip extends StatefulWidget {
+class SortChip extends StatelessWidget {
   bool isSelected;
 
   final Function onPressed;
@@ -11,16 +11,12 @@ class SortChip extends StatefulWidget {
       {@required this.isSelected,
       @required this.onPressed,
       @required this.label});
-  @override
-  _ChipState createState() => _ChipState();
-}
 
-class _ChipState extends State<SortChip> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.onPressed();
+        onPressed();
       },
       child: Container(
         decoration: BoxDecoration(
@@ -28,15 +24,15 @@ class _ChipState extends State<SortChip> {
               Radius.circular(16),
             ),
             border: Border.all(
-                color: widget.isSelected
+                color: isSelected
                     ? ISpotTheme.primaryColor
                     : ISpotTheme.textColor)),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: Text(
-            widget.label,
+            label,
             style: TextStyle(
-                color: widget.isSelected
+                color: isSelected
                     ? ISpotTheme.primaryColor
                     : ISpotTheme.textColor),
           ),

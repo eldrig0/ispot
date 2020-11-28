@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ispot/app/model/attribute.dart';
 import 'package:ispot/app/model/category.dart';
+import 'package:ispot/app/model/page_info.dart';
 import 'package:ispot/app/model/pricing.dart';
 import 'package:ispot/app/model/product.dart';
 import 'package:ispot/app/model/product_variant.dart';
@@ -25,6 +26,7 @@ class CategoryProvider {
       {@required String id,
       @required int pageSize,
       @required List<Attribute> attributes,
+      @required String after,
       @required SortOption sortOption}) {
     final sortBy = sortOption.productOrder;
     final attributeList = ListBuilder<GAttributeInput>(attributes
@@ -37,12 +39,15 @@ class CategoryProvider {
       ..vars.id = id
       ..vars.pageSize = pageSize
       ..vars.sortBy = sortBy
-      ..vars.attributes = attributeList);
+      ..vars.attributes = attributeList
+      ..vars.after = after);
 
     return client.request(request).map(
           (response) => CategoryModel(
             categoryId: response.data.category.id,
             categoryName: response.data.category.name,
+            pageInfo:
+                PageInfo.fromMap(response.data.products.pageInfo.toJson()),
             totalProductCount: response.data.products.totalCount,
             attributes: _mapAttribute(response),
             categoryImageUrl: response.data.category.backgroundImage.url,

@@ -11,17 +11,18 @@ class CategoryModel {
   String categoryId;
   String categoryImageUrl;
   int totalProductCount;
+  PageInfo pageInfo;
   List<Attribute> attributes;
   List<Product> products;
 
-  CategoryModel({
-    this.categoryName,
-    this.categoryId,
-    this.categoryImageUrl,
-    this.totalProductCount,
-    this.attributes,
-    this.products,
-  });
+  CategoryModel(
+      {this.categoryName,
+      this.categoryId,
+      this.categoryImageUrl,
+      this.totalProductCount,
+      this.attributes,
+      this.products,
+      this.pageInfo});
 
   @override
   bool operator ==(Object o) {

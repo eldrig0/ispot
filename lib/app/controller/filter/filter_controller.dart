@@ -13,6 +13,7 @@ class FilterController extends GetxController {
 
   final attributes = <Attribute>[].obs;
   var selectedAttributes = <Attribute>[].obs;
+  var isLoaded = false.obs;
 
   final sortOptions = SORTOPTIONS;
 
@@ -25,12 +26,14 @@ class FilterController extends GetxController {
         .take(1)
         .listen((result) {
       this.attributes.addAll(result);
+      this.isLoaded.value = true;
     });
 
-    final List list = Get.arguments;
-    if (list.isNotEmpty) {
-      selectedAttributes.addAll(list as List<Attribute>);
+    final args = Get.arguments;
+    if (args['attributes'].isNotEmpty) {
+      selectedAttributes.addAll(args['attributes'] as List<Attribute>);
     }
+    selectedSortOption.value = args['sort'];
     super.onInit();
   }
 
