@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:ispot/app/model/category.dart';
-import 'package:ispot/app/ui/page/search/search_page.dart';
-import 'package:ripple_effect/ripple_effect.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel category;
@@ -14,8 +12,7 @@ class CategoryCard extends StatelessWidget {
       onTap: () {
         // Navigator.push(context, FadeRouteBuilder(page: SearchPage()));
         Get.toNamed(
-          '/category',
-          arguments: category.categoryId,
+          '/category/${category.categoryId}',
         );
       },
       child: Card(

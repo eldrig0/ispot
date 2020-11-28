@@ -43,6 +43,18 @@ import 'package:ispot/app/provider/category/graphql/category/category.req.gql.da
     show GCategoryReq;
 import 'package:ispot/app/provider/category/graphql/category/category.var.gql.dart'
     show GCategoryVars;
+import 'package:ispot/app/provider/filter/graphql/attributes.data.gql.dart'
+    show
+        GattributesData,
+        GattributesData_attributes,
+        GattributesData_attributes_edges,
+        GattributesData_attributes_edges_node,
+        GattributesData_attributes_edges_node_values,
+        GattributesData_attributes_pageInfo;
+import 'package:ispot/app/provider/filter/graphql/attributes.req.gql.dart'
+    show GattributesReq;
+import 'package:ispot/app/provider/filter/graphql/attributes.var.gql.dart'
+    show GattributesVars;
 import 'package:ispot/app/provider/home/graphql/home/collections/collections.data.gql.dart'
     show
         GCollectionsData,
@@ -779,6 +791,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWebhookUpdateInput,
   GWeightScalar,
   GWeightUnitsEnum,
-  G_Any
+  G_Any,
+  GattributesData,
+  GattributesData_attributes,
+  GattributesData_attributes_edges,
+  GattributesData_attributes_edges_node,
+  GattributesData_attributes_edges_node_values,
+  GattributesData_attributes_pageInfo,
+  GattributesReq,
+  GattributesVars
 ])
 final Serializers serializers = _serializersBuilder.build();

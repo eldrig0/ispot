@@ -34,7 +34,7 @@ class CategoryController extends GetxController {
   void getCategory() {
     categoryRepository
         .getCategory(
-            id: Get.arguments,
+            id: Get.parameters['categoryId'],
             pageSize: pageSize.value,
             attributes: selectedAttributes.value,
             sortOption: selectedSortOption.value)
@@ -43,7 +43,6 @@ class CategoryController extends GetxController {
       category.value = response;
 
       this.gotData.value = true;
-      print('category value set');
     });
   }
 
@@ -51,41 +50,58 @@ class CategoryController extends GetxController {
     showFilter.value = !showFilter.value;
   }
 
+  int get filterLength {
+    int length = 0;
+
+    selectedAttributes.forEach((element) {
+      length += element.values.length;
+    });
+
+    return length;
+  }
   //TODO: Refactor this function, Stupid!.
-  void toogleAttributeSelection({@required Attribute attribute}) {
-    final matchedAttributes =
-        selectedAttributes.where((element) => element.id == attribute.id);
+  // void toogleAttributeSelection({@required Attribute attribute}) {
+  //   final matchedAttributes =
+  //       selectedAttributes.where((element) => element.id == attribute.id);
 
-    final matchedAttribute =
-        matchedAttributes.length > 0 ? matchedAttributes.first : null;
+  //   final matchedAttribute =
+  //       matchedAttributes.length > 0 ? matchedAttributes.first : null;
 
-    if (matchedAttribute == null) {
-      selectedAttributes.add(attribute);
-      return;
-    }
-    bool hasSelectedValue =
-        matchedAttribute.values.contains(attribute.values.first);
+  //   if (matchedAttribute == null) {
+  //     selectedAttributes.add(attribute);
+  //     return;
+  //   }
+  //   bool hasSelectedValue =
+  //       matchedAttribute.values.contains(attribute.values.first);
 
-    if (hasSelectedValue) {
-      matchedAttribute.values.remove(attribute.values.first);
-      if (matchedAttribute.values.length == 0) {
-        selectedAttributes
-            .removeWhere((attribute) => attribute.id == matchedAttribute.id);
-      }
-    } else {
-      matchedAttribute.values.add(attribute.values.first);
-    }
+  //   if (hasSelectedValue) {
+  //     matchedAttribute.values.remove(attribute.values.first);
+  //     if (matchedAttribute.values.length == 0) {
+  //       selectedAttributes
+  //           .removeWhere((attribute) => attribute.id == matchedAttribute.id);
+  //     }
+  //   } else {
+  //     matchedAttribute.values.add(attribute.values.first);
+  //   }
+  // }
+
+  void setSelectedAttributes(List<Attribute> attributes) {
+    this.selectedAttributes.clear();
+    this.selectedAttributes.addAll(attributes);
   }
 
-  bool isSortOptionSelected(SortOption option) {
-    return option == selectedSortOption.value;
-  }
+  // bool isAttributeValueSelected(
+  //     {@required String attributeId, @required AttributeValue attributeValue}) {
+  //   final matchedAttribute =
+  //       selectedAttributes.where((attribute) => attribute.id == attributeId);
+  //   if (matchedAttribute.isEmpty) return false;
+  //   return matchedAttribute.first.values.contains(attributeValue);
+  // }
 
-  bool isAttributeValueSelected(
-      {@required String attributeId, @required AttributeValue attributeValue}) {
-    final matchedAttribute =
-        selectedAttributes.where((attribute) => attribute.id == attributeId);
-    if (matchedAttribute.isEmpty) return false;
-    return matchedAttribute.first.values.contains(attributeValue);
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    print('closing controller');
   }
 }

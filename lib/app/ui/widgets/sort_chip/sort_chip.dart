@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
-class ISpotChip extends StatefulWidget {
+class SortChip extends StatefulWidget {
   bool isSelected;
 
   final Function onPressed;
   final String label;
 
-  ISpotChip(
+  SortChip(
       {@required this.isSelected,
       @required this.onPressed,
       @required this.label});
@@ -15,14 +15,11 @@ class ISpotChip extends StatefulWidget {
   _ChipState createState() => _ChipState();
 }
 
-class _ChipState extends State<ISpotChip> {
+class _ChipState extends State<SortChip> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          widget.isSelected = !widget.isSelected;
-        });
         widget.onPressed();
       },
       child: Container(

@@ -6,6 +6,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/controller/cart/cart_controller.dart';
 
 import '../../../controller/home/home_controller.dart';
 import '../../theme/ispot_theme.dart';
@@ -21,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _controller = Get.find<HomeController>();
+  final _cart = Get.find<CartController>();
 
   final GlobalKey _fabButtonKey = GlobalKey();
   RipplePageTransition _ripplePageTransition;
@@ -85,35 +87,11 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget _buildAppBar() => SliverAppBar(
-          floating: true,
-          backgroundColor: ISpotTheme.canvasColor,
-          elevation: 0,
-          leading: Padding(
-            padding: EdgeInsets.only(left: 18, bottom: 9, top: 9),
-            child: ClipOval(
-              clipBehavior: Clip.antiAlias,
-              child: Image.network(
-                'https://bestprofilepix.com/wp-content/uploads/2014/03/sad-and-alone-boys-facebook-profile-pictures.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          actions: [
-            //GestureDetector(child: Icon(AntDesign.bars), onTap: () {}),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: GestureDetector(
-                child: Icon(AntDesign.bars),
-                onTap: () {
-                  Get.toNamed('/search');
-                },
-              ),
-            ),
-            Padding(
-                padding: EdgeInsets.only(right: 18),
-                child: _shoppingCartBadge())
-          ]);
+  Widget _buildAppBar() =>
+      UIHelper.buildSliverAppBar(leading: UIHelper.buildUserIcon(), actions: [
+        UIHelper.buildCategoriesIcon(onPressed: () {}),
+        UIHelper.buildCartIcon(_cart)
+      ]);
 
   Widget _buildFeaturedProducts() => SliverPadding(
       padding: EdgeInsets.all(18),
@@ -130,20 +108,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _shoppingCartBadge() {
-    return Badge(
-      badgeColor: ISpotTheme.primaryColor,
-      position: BadgePosition.topEnd(top: 0, end: 1),
-      animationDuration: Duration(milliseconds: 300),
-      animationType: BadgeAnimationType.slide,
-      badgeContent: Text(
-        '1',
-        style: TextStyle(color: Colors.white),
-      ),
-      child: IconButton(icon: Icon(AntDesign.shoppingcart), onPressed: () {}),
     );
   }
 

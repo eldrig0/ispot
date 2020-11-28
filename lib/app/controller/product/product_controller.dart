@@ -93,7 +93,7 @@ class ProductController extends GetxController {
     return initialAttributes;
   }
 
-  selecteAttribute(Attribute attribute) {
+  selectedAttribute(Attribute attribute) {
     this.selectedAttributes.update(attribute.name, (val) => attribute);
     update();
   }

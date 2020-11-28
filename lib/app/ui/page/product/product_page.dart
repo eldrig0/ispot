@@ -92,7 +92,7 @@ class ProductWidget extends StatelessWidget {
           value: controller.selectedAttributes.value[key],
           onChanged: (val) {
             print('change');
-            controller.selecteAttribute(val);
+            controller.selectedAttribute(val);
           },
           choiceItems: C2Choice.listFrom(
               source: controller.attributes.value[key],

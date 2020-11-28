@@ -1,10 +1,12 @@
 import 'package:get/route_manager.dart';
 import 'package:ispot/app/binding/cart/cart_binding.dart';
 import 'package:ispot/app/binding/category/category_binding.dart';
+import 'package:ispot/app/binding/filter/filter_binding.dart';
 import 'package:ispot/app/binding/home/home_binding.dart';
 import 'package:ispot/app/binding/product/product_binding.dart';
 import 'package:ispot/app/binding/search/search_binding.dart';
 import 'package:ispot/app/ui/page/category/cagetory_page.dart';
+import 'package:ispot/app/ui/page/filter_page/filter_page.dart';
 import 'package:ispot/app/ui/page/home/home_page.dart';
 import 'package:ispot/app/ui/page/product/product_page.dart';
 import 'package:ispot/app/ui/page/search/search_page.dart';
@@ -29,6 +31,11 @@ class AppPages {
         transition: Transition.fadeIn,
         name: Routes.SEARCH,
         page: () => SearchPage(),
-        binding: SearchBinding())
+        binding: SearchBinding()),
+    GetPage(
+      name: Routes.FILTER,
+      page: () => FilterPage(),
+      binding: FilterBinding(),
+    )
   ];
 }
