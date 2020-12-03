@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
+import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/repository/category/category_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../app/repository/category/category_repository.dart';
-import '../../model/attribute.dart';
-import '../../model/category.dart';
 import '../../misc/sort_options.dart';
 
 class CategoryController extends GetxController {
@@ -63,6 +63,7 @@ class CategoryController extends GetxController {
 
     return length;
   }
+
   //TODO: Refactor this function, Stupid!.
   // void toogleAttributeSelection({@required Attribute attribute}) {
   //   final matchedAttributes =

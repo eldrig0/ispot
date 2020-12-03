@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/data/model/product_variant.dart';
+import 'package:ispot/app/data/repository/product/product_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../model/attribute.dart';
-import '../../model/product.dart';
-import '../../model/product_variant.dart';
 import '../../misc/validators/cuatom_validators.dart';
-import '../../repository/product/product_repository.dart';
 
 class ProductController extends GetxController {
   final ProductRepository _productRepository;
@@ -14,11 +14,8 @@ class ProductController extends GetxController {
   final product = Rx<Product>();
   final selectedVariant = Rx<ProductVariant>();
   final test = 0.obs;
-
   final attributes = Rx<Map<String, List<Attribute>>>({});
-
   final isVariantChanged = false.obs;
-
   final selectedAttributes = RxMap<String, Attribute>({});
 
   final form = FormGroup({
@@ -93,9 +90,8 @@ class ProductController extends GetxController {
     return initialAttributes;
   }
 
-  selectedAttribute(Attribute attribute) {
+  selectAttribute(Attribute attribute) {
     this.selectedAttributes.update(attribute.name, (val) => attribute);
-    update();
   }
 
   bool get disableBuyButton {

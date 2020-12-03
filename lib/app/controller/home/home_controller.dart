@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/collection.dart';
+import 'package:ispot/app/data/model/product.dart';
+import 'package:ispot/app/data/repository/categories/categories_repository.dart';
+import 'package:ispot/app/data/repository/home/home_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../failures/failure.dart';
-import '../../model/category.dart';
-import '../../model/collection.dart';
-import '../../model/product.dart';
-import '../../repository/categories/categories_repository.dart';
-import '../../repository/home/home_repository.dart';
 
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';
@@ -23,7 +23,7 @@ class HomeController extends GetxController {
 
   bool isSearchResult = false;
   FormControl searchControl = FormControl(value: '');
-  Rx<Collections> _collections;
+  Rx<Collections> collections;
   ScrollController scrollController;
   final _dataFetchFlags =
       {CATEGORIES: false, COLLECTIONS: false, PRODUCTS: false}.obs;
@@ -72,7 +72,7 @@ class HomeController extends GetxController {
 
   void getCollections() {
     this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
-      this._collections = Rx(collections);
+      this.collections = Rx(collections);
       _updateDataFetchStates(COLLECTIONS, true);
     });
   }
@@ -83,8 +83,6 @@ class HomeController extends GetxController {
       _getDateFetchState(CATEGORIES) &&
       _getDateFetchState(COLLECTIONS) &&
       _getDateFetchState(PRODUCTS);
-
-  List<Collection> get collections => _collections?.value.collections;
 
   List<CategoryModel> get categories => _categories?.value.categories;
 }

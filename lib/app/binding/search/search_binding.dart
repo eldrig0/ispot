@@ -1,10 +1,10 @@
 import 'package:ferry/ferry.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
+import 'package:ispot/app/data/provider/search/search_provider.dart';
+import 'package:ispot/app/data/repository/search/search_repository.dart';
 
 import '../../controller/search/search_controller.dart';
-import '../../provider/search/search_provider.dart';
-import '../../repository/search/search_repository.dart';
 
 class SearchBinding implements Bindings {
   @override

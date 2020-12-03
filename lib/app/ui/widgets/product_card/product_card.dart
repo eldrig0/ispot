@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:ispot/app/model/product.dart';
+import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 
@@ -29,10 +29,12 @@ class ProductCard extends StatelessWidget {
               width: MediaQuery.of(context).size.width - ((18 * 2) + 10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.network(
-                  product.productThumbnail,
-                  fit: BoxFit.fitHeight,
-                ),
+                child: FadeInImage(
+                    fit: BoxFit.fitHeight,
+                    placeholder: AssetImage('assets/no-photo.png'),
+                    image: NetworkImage(
+                      product.productThumbnail,
+                    )),
               ),
             ),
             SizedBox(

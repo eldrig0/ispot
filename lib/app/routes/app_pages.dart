@@ -1,7 +1,7 @@
 import 'package:get/route_manager.dart';
+import 'package:ispot/app/binding/attribute/attribute_binding.dart';
 import 'package:ispot/app/binding/cart/cart_binding.dart';
 import 'package:ispot/app/binding/category/category_binding.dart';
-import 'package:ispot/app/binding/filter/filter_binding.dart';
 import 'package:ispot/app/binding/home/home_binding.dart';
 import 'package:ispot/app/binding/product/product_binding.dart';
 import 'package:ispot/app/binding/search/search_binding.dart';
@@ -36,7 +36,7 @@ class AppPages {
       name: Routes.FILTER,
       page: () => FilterPage(),
       maintainState: true,
-      binding: FilterBinding(),
+      binding: AttributeBinding(),
     )
   ];
 }

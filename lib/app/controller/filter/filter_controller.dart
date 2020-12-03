@@ -1,18 +1,19 @@
 import 'package:get/get.dart';
+import 'package:ispot/app/data/model/attribute.dart';
+import 'package:ispot/app/data/repository/attributes/attributes_repository.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 import 'package:meta/meta.dart';
-import 'package:ispot/app/model/attribute.dart';
-import 'package:ispot/app/repository/filter/filter_repository.dart';
 
-class FilterController extends GetxController {
-  final FilterRepository _repository;
+class AttributeController extends GetxController {
+  final AttributeRepository _repository;
 
-  FilterController(this._repository) {
+  AttributeController(this._repository) {
     selectedSortOption = sortOptions[0].obs;
   }
 
   final attributes = <Attribute>[].obs;
   var selectedAttributes = <Attribute>[].obs;
+
   var isLoaded = false.obs;
 
   final sortOptions = SORTOPTIONS;
