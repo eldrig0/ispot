@@ -11,6 +11,7 @@ class AttributeWidget extends StatelessWidget {
     return GetX<ProductController>(
       builder: (_controller) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [...buildAttributesWidget(_controller.attributes.value)],
         );
       },
@@ -21,6 +22,10 @@ class AttributeWidget extends StatelessWidget {
     List<Widget> _children = <Widget>[];
 
     attributes.forEach((key, value) {
+      _children.add(Text(
+        key,
+        style: TextStyle(fontWeight: FontWeight.w600),
+      ));
       Widget attributeWidget = GetX<ProductController>(
         builder: (controller) => ChipsChoice<Attribute>.single(
           value: controller.selectedAttributes.value[key],

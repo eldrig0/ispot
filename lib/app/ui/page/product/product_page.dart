@@ -14,7 +14,6 @@ import 'package:ispot/app/ui/page/product/widgets/product_details.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
 import 'package:chips_choice/chips_choice.dart';
-import 'package:ispot/main.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ProductPage extends GetView<ProductController> {
@@ -24,10 +23,12 @@ class ProductPage extends GetView<ProductController> {
       body: GetX<ProductController>(
         builder: (_controller) => Stack(
           children: [
-            ProductImage(
-              product: _controller.product.value,
-            ),
-            if (_controller.product.value != null) ProductDetail()
+            if (_controller.product.value != null) ...[
+              ProductImage(
+                product: _controller.product.value,
+              ),
+              ProductDetail(),
+            ]
           ],
         ),
       ),
@@ -41,9 +42,12 @@ class ProductPage extends GetView<ProductController> {
     attributes.forEach((key, value) {
       Widget attributeWidget = Obx(
         () => ChipsChoice<Attribute>.single(
+          errorBuilder: (context) {
+            print('error');
+          },
           value: controller.selectedAttributes.value[key],
           onChanged: (val) {
-            print('change');
+            // print('change');
             controller.selectAttribute(val);
           },
           choiceItems: C2Choice.listFrom(
@@ -97,6 +101,12 @@ class ProductPage extends GetView<ProductController> {
     );
   }
 
+  buildDescriptionWidget() {
+    return Container(
+      child: Text('Hello world'),
+    );
+  }
+
   buildBuyButton(ProductController controller, CartController cart) {
     return Obx(
       () => RaisedButton(
@@ -136,17 +146,15 @@ class ProductImage extends StatelessWidget {
         fade: 0.1,
         itemWidth: MediaQuery.of(context).size.width,
         itemHeight: 400,
-        itemCount: product.productImages?.length ?? 0,
+        itemCount: product?.productImages?.length ?? 0,
         itemBuilder: (context, index) {
           return Image.network(product.productImages[index],
+              errorBuilder: (context, object, stackTrace) => Image.asset(
+                    'assets/no-photo.png',
+                    fit: BoxFit.contain,
+                  ),
               fit: BoxFit.contain);
         },
-        pagination: SwiperPagination(
-          builder: DotSwiperPaginationBuilder(
-              color: Colors.grey,
-              activeColor: ISpotTheme.primaryColor,
-              activeSize: 15),
-        ),
       ),
     );
   }

@@ -29,7 +29,32 @@ class ProductDetail extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
-                children: <Widget>[buildPriceWidget(), AttributeWidget()]),
+                children: <Widget>[
+                  _buildNameWidget(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  buildPriceWidget(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  _buildAvailabilityWidget(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  AttributeWidget(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  buildQuantityInput(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  buildDescriptionWidget(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                ]),
           ),
         );
       },
@@ -37,22 +62,18 @@ class ProductDetail extends StatelessWidget {
   }
 
   buildQuantityInput() {
-    return GetX<ProductController>(
-      builder: (_controller) {
-        return ReactiveForm(
-          formGroup: _controller.form,
-          child: ReactiveTextField(
-            validationMessages: {
-              'maximumQuantity': 'Maximum quantity you can order is 3'
-            },
-            formControlName: 'quantity',
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              labelText: 'Quantity',
-            ),
-          ),
-        );
-      },
+    return ReactiveForm(
+      formGroup: Get.find<ProductController>().form,
+      child: ReactiveTextField(
+        validationMessages: {
+          'maximumQuantity': 'Maximum quantity you can order is 3'
+        },
+        formControlName: 'quantity',
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          labelText: 'Quantity',
+        ),
+      ),
     );
   }
 
@@ -62,7 +83,11 @@ class ProductDetail extends StatelessWidget {
         return Row(
           children: [
             Text(
-                '${_controller.selectedVariant.value.price.currency} ${_controller.selectedVariant.value.price.amount}'),
+              '${_controller.selectedVariant.value.price.currency} ${_controller.selectedVariant.value.price.amount}',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
           ],
         );
       },
@@ -78,6 +103,37 @@ class ProductDetail extends StatelessWidget {
           if (_controller.isStockLow)
             Text(
                 'We have only ${_controller.selectedVariant.value.stockQuantity}')
+        ],
+      ),
+    );
+  }
+
+  buildDescriptionWidget() {
+    return GetX<ProductController>(
+      builder: (_controller) {
+        return Container(
+            child: Text('${_controller.product.value.description}'));
+      },
+    );
+  }
+
+  _buildNameWidget() {
+    return GetX<ProductController>(
+      builder: (_controller) {
+        return Text(
+          '${_controller.product.value.productName}',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        );
+      },
+    );
+  }
+
+  _buildAvailabilityWidget() {
+    return GetX<ProductController>(
+      builder: (_controller) => Column(
+        children: [
+          if (!_controller.selectedVariant.value.isAvailable)
+            Text('This product is not available'),
         ],
       ),
     );
