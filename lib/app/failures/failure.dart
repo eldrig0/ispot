@@ -5,3 +5,5 @@ class Failure {
 
   get message => _message;
 }
+
+const DATAFETCHFAILUREMESSAGE = 'An error ocurred while fetching data';

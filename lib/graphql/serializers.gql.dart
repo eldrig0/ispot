@@ -55,7 +55,7 @@ import 'package:ispot/app/data/provider/category/graphql/category/category.req.g
     show GCategoryReq;
 import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart'
     show GCategoryVars;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.data.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.data.gql.dart'
     show
         GCollectionsData,
         GCollectionsData_collections,
@@ -63,9 +63,9 @@ import 'package:ispot/app/data/provider/home/graphql/home/collections/collection
         GCollectionsData_collections_edges_node,
         GCollectionsData_collections_edges_node_backgroundImage,
         GCollectionsData_collections_pageInfo;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.req.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.req.gql.dart'
     show GCollectionsReq;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.var.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.var.gql.dart'
     show GCollectionsVars;
 import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.data.gql.dart'
     show

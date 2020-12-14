@@ -3,6 +3,7 @@ import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
+import 'package:ispot/app/data/model/products.dart';
 
 import 'graphql/search.req.gql.dart';
 

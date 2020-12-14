@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:ispot/app/failures/failure.dart';
+
 import '../../model/category.dart';
 import '../../provider/categories/categories_provider.dart';
 import 'package:meta/meta.dart';
@@ -7,6 +10,7 @@ class CategoriesRepository {
 
   CategoriesRepository(this._provider);
 
-  Stream<Categories> getCategories({@required int first, String after}) =>
+  Stream<Either<Failure, Categories>> getCategories(
+          {@required int first, String after}) =>
       _provider.getHomeCategories(first: first, after: after);
 }

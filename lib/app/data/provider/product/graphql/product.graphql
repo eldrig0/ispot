@@ -17,7 +17,7 @@ fragment BasicProductFields on Product {
 fragment ProductPricingField on Product {
   pricing {
     onSale
-   
+
     priceRange {
       start {
         ...Price
@@ -51,7 +51,7 @@ fragment ProductVariantFields on ProductVariant {
     url
     alt
   }
-  pricing { 
+  pricing {
     onSale
     priceUndiscounted {
       ...Price
@@ -78,7 +78,7 @@ query ProductDetails($id: ID!) {
     ...BasicProductFields
     ...ProductPricingField
     description
-    
+
     category {
       id
       name

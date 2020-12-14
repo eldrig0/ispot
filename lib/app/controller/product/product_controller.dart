@@ -19,12 +19,10 @@ class ProductController extends GetxController {
   final isVariantChanged = false.obs;
   final selectedAttributes = RxMap<String, Attribute>({});
 
-  final form = FormGroup({
-    'quantity': FormControl<int>(value: 0, validators: [
-      Validators.required,
-      CustomValidators.validateProductQuantity
-    ])
-  });
+  final quantiyControl = FormControl<int>(value: 0, validators: [
+    Validators.required,
+    CustomValidators.validateProductQuantity
+  ]);
 
   ProductController(this._productRepository);
 
@@ -45,6 +43,7 @@ class ProductController extends GetxController {
   void initializer() {
     final id = Get.parameters['productId'];
     _getProductDetails(id);
+    listenToQuantityChange();
     selectedAttributes.listen((value) {
       print('selected attribute changed');
       this._selectProductVariant();
@@ -99,7 +98,7 @@ class ProductController extends GetxController {
         this.selectedVariant.value.stockQuantity >= _quantity);
   }
 
-  int get _quantity => this.form.control('quantity').value ?? 0;
+  int get _quantity => this.quantiyControl.value ?? 0;
 
   bool get isStockLow => this.selectedVariant.value.stockQuantity < _quantity;
 
@@ -192,4 +191,10 @@ class ProductController extends GetxController {
         this.attributes.value[attribute.name] = [attribute];
         this.selectedAttributes.value[attribute.name] = attribute;
       });
+
+  listenToQuantityChange() {
+    this.quantiyControl.valueChanges.listen((event) {
+      print(event);
+    });
+  }
 }

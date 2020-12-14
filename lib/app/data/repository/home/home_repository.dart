@@ -10,11 +10,7 @@ class HomeRepository {
 
   HomeRepository(this._provider);
 
-  Stream<List<Product>> getHomeProducts() {
+  Stream<Either<Failure, List<Product>>> getHomeProducts() {
     return _provider.getFeaturedProducts();
-  }
-
-  Stream<Collections> getCollections({@required int first, String after}) {
-    return _provider.getCollections(first: first, after: after);
   }
 }

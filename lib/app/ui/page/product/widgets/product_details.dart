@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ispot/app/controller/cart/cart_controller.dart';
 import 'package:ispot/app/controller/product/product_controller.dart';
+import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/page/product/widgets/attribute_widget.dart';
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -62,18 +65,21 @@ class ProductDetail extends StatelessWidget {
   }
 
   buildQuantityInput() {
-    return ReactiveForm(
-      formGroup: Get.find<ProductController>().form,
-      child: ReactiveTextField(
-        validationMessages: {
-          'maximumQuantity': 'Maximum quantity you can order is 3'
-        },
-        formControlName: 'quantity',
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          labelText: 'Quantity',
-        ),
-      ),
+    return GetX<ProductController>(
+      builder: (_controller) {
+        return ReactiveTextField(
+          validationMessages: {
+            'maximumQuantity': 'Maximum quantity you can order is 3'
+          },
+          formControl: Get.find<ProductController>().quantiyControl,
+          keyboardType: TextInputType.number,
+          readOnly:
+              _controller.selectedVariant.value.isAvailable ? false : true,
+          decoration: InputDecoration(
+            labelText: 'Quantity',
+          ),
+        );
+      },
     );
   }
 
@@ -135,6 +141,21 @@ class ProductDetail extends StatelessWidget {
           if (!_controller.selectedVariant.value.isAvailable)
             Text('This product is not available'),
         ],
+      ),
+    );
+  }
+
+  buildBuyButton(ProductController controller, CartController cart) {
+    return Obx(
+      () => RaisedButton(
+        color: ISpotTheme.primaryColor,
+        onPressed: controller.disableBuyButton
+            ? null
+            : () {
+                cart.addItem(controller.selectedVariant.value);
+                Get.offAllNamed(Routes.HOME);
+              },
+        child: Text("Buy"),
       ),
     );
   }

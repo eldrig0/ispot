@@ -4,11 +4,11 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.ast.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.ast.gql.dart'
     as _i5;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.data.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.data.gql.dart'
     as _i2;
-import 'package:ispot/app/data/provider/home/graphql/home/collections/collections.var.gql.dart'
+import 'package:ispot/app/data/provider/collections/graphql/collections.var.gql.dart'
     as _i3;
 import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 

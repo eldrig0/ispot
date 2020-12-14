@@ -9,8 +9,6 @@ import 'package:ispot/app/data/repository/home/home_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../failures/failure.dart';
-
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';
 const COLLECTIONS = 'collections';
@@ -36,15 +34,22 @@ class HomeController extends GetxController {
     scrollController = ScrollController();
     getHomePageProducts();
     getCategories();
-    getCollections();
+    // getCollections();
     super.onInit();
   }
 
   void getHomePageProducts() {
     homeRepository.getHomeProducts().take(1).listen((products) {
-      homeProducts.clear();
-      homeProducts.addAll(products);
-      _updateDataFetchStates(PRODUCTS, true);
+      products.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (products) {
+        homeProducts.clear();
+        homeProducts.addAll(products);
+        _updateDataFetchStates(PRODUCTS, true);
+      });
+      // homeProducts.clear();
+      // homeProducts.addAll(products);
+      // _updateDataFetchStates(PRODUCTS, true);
     });
   }
 
@@ -59,8 +64,12 @@ class HomeController extends GetxController {
 
   void getCategories() {
     categoriesRepository.getCategories(first: 4).take(1).listen((categories) {
-      this._categories = Rx(categories);
-      _updateDataFetchStates(CATEGORIES, true);
+      categories.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (result) {
+        this._categories = Rx(result);
+        _updateDataFetchStates(CATEGORIES, true);
+      });
     });
   }
 
@@ -70,12 +79,16 @@ class HomeController extends GetxController {
     });
   }
 
-  void getCollections() {
-    this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
-      this.collections = Rx(collections);
-      _updateDataFetchStates(COLLECTIONS, true);
-    });
-  }
+  // void getCollections() {
+  //   this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
+  //     collections.fold((failure) {
+  //       Get.snackbar('Error', failure.message);
+  //     }, (result) {
+  //       this.collections = Rx(result);
+  //       _updateDataFetchStates(COLLECTIONS, true);
+  //     });
+  //   });
+  // }
 
   bool _getDateFetchState(String key) => this._dataFetchFlags[key];
 
