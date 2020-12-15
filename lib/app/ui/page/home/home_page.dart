@@ -40,31 +40,39 @@ class _HomePageState extends State<HomePage> {
     return Stack(
       children: [
         Scaffold(
-            backgroundColor: ISpotTheme.canvasColor,
-            floatingActionButton: FloatingActionButton(
-                key: _fabButtonKey,
-                backgroundColor: ISpotTheme.primaryColor,
-                child: Icon(
-                  AntDesign.search1,
-                  color: Colors.white,
-                ),
-                onPressed: () => _ripplePageTransition.navigateTo('/search')),
-            body: Obx(
-              () => _controller.dataFetched
-                  ? CustomScrollView(
-                      slivers: [
-                        _buildAppBar(),
-                        _buildCollection(context),
-                        _buildTitle('FEATURED PRODUCTS'),
-                        _buildFeaturedProducts(),
-                        _buildTitle('SHOP BY CATEGORIES'),
-                        _buildCategories(context)
-                      ],
+          backgroundColor: ISpotTheme.canvasColor,
+          floatingActionButton: FloatingActionButton(
+              key: _fabButtonKey,
+              backgroundColor: ISpotTheme.primaryColor,
+              child: Icon(
+                AntDesign.search1,
+                color: Colors.white,
+              ),
+              onPressed: () => _ripplePageTransition.navigateTo('/search')),
+          body: GetX<HomeController>(
+            builder: (_controller) {
+              return CustomScrollView(
+                slivers: [
+                  _buildAppBar(),
+                  // _buildCollection(context),
+                  _buildTitle('FEATURED PRODUCTS'),
+                  if (_controller.homeProducts.isNotEmpty)
+                    SliverPadding(
+                        padding: const EdgeInsets.all(18),
+                        sliver: ProductGrid(products: _controller.homeProducts))
+                  else
+                    SliverToBoxAdapter(
+                      child: Center(
+                        child: Text('No products yet'),
+                      ),
                     )
-                  : Container(
-                      child: Text('Data fetching'),
-                    ),
-            )),
+                  // _buildTitle('SHOP BY CATEGORIES'),
+                  // _buildCategories(context)
+                ],
+              );
+            },
+          ),
+        ),
         _ripplePageTransition,
       ],
     );
@@ -108,22 +116,17 @@ class _HomePageState extends State<HomePage> {
         UIHelper.buildCartIcon(_cart)
       ]);
 
-  Widget _buildFeaturedProducts() => SliverPadding(
-      padding: EdgeInsets.all(18),
-      sliver: ProductGrid(products: _controller.homeProducts));
-
   Widget _buildTitle(String title) {
     return SliverToBoxAdapter(
-      child: Padding(
-        padding: EdgeInsets.only(left: 18, right: 18, top: 18),
-        child: Container(
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-          ),
+        child: Padding(
+      padding: EdgeInsets.only(left: 18, right: 18, top: 18),
+      child: Container(
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildCategories(BuildContext context) {
@@ -133,20 +136,16 @@ class _HomePageState extends State<HomePage> {
         builder: (_controller) {
           return Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 18),
-            child: Obx(
-              () => Swiper(
-                  itemHeight: 200,
-                  outer: true,
-                  itemWidth: UIHelper.getDeviceWidth(context),
-                  itemCount: _controller.categories.value.categories.length,
-                  layout: SwiperLayout.TINDER,
-                  itemBuilder: (context, index) {
-                    return Obx(
-                      () => CategoryCard(
-                          _controller.categories.value.categories[index]),
-                    );
-                  }),
-            ),
+            child: Swiper(
+                itemHeight: 200,
+                outer: true,
+                itemWidth: UIHelper.getDeviceWidth(context),
+                itemCount: _controller.categories.value.categories.length,
+                layout: SwiperLayout.TINDER,
+                itemBuilder: (context, index) {
+                  return CategoryCard(
+                      _controller.categories.value.categories[index]);
+                }),
           );
         },
       ),

@@ -22,15 +22,11 @@ class HomeController extends GetxController {
   bool isSearchResult = false;
   FormControl searchControl = FormControl(value: '');
   Rx<Collections> collections;
-  ScrollController scrollController;
-  final _dataFetchFlags =
-      {CATEGORIES: false, COLLECTIONS: false, PRODUCTS: false}.obs;
 
   HomeController({@required this.homeRepository});
 
   @override
   void onInit() {
-    scrollController = ScrollController();
     getHomePageProducts();
 
     // getCollections();
@@ -44,7 +40,6 @@ class HomeController extends GetxController {
       }, (products) {
         homeProducts.clear();
         homeProducts.addAll(products);
-        _updateDataFetchStates(PRODUCTS, true);
       });
       // homeProducts.clear();
       // homeProducts.addAll(products);
@@ -57,21 +52,6 @@ class HomeController extends GetxController {
     // TODO: implement onClose
   }
 
-  void _updateDataFetchStates(String key, bool state) {
-    this._dataFetchFlags[key] = state;
-  }
-
-  void updateCategories(Categories categories) {
-    this._categories = Rx(categories);
-    _updateDataFetchStates(CATEGORIES, true);
-  }
-
-  void listenToSearch() {
-    this.searchControl.valueChanges.listen((event) {
-      print(event());
-    });
-  }
-
   // void getCollections() {
   //   this.homeRepository.getCollections(first: 10).take(1).listen((collections) {
   //     collections.fold((failure) {
@@ -82,13 +62,4 @@ class HomeController extends GetxController {
   //     });
   //   });
   // }
-
-  bool _getDateFetchState(String key) => this._dataFetchFlags[key];
-
-  bool get dataFetched =>
-      _getDateFetchState(CATEGORIES) &&
-      _getDateFetchState(COLLECTIONS) &&
-      _getDateFetchState(PRODUCTS);
-
-  List<CategoryModel> get categories => _categories?.value.categories;
 }

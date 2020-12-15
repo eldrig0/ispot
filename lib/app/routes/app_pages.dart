@@ -1,6 +1,7 @@
 import 'package:get/route_manager.dart';
 import 'package:ispot/app/binding/attribute/attribute_binding.dart';
 import 'package:ispot/app/binding/cart/cart_binding.dart';
+import 'package:ispot/app/binding/categories/categories_binding.dart';
 import 'package:ispot/app/binding/category/category_binding.dart';
 import 'package:ispot/app/binding/home/home_binding.dart';
 import 'package:ispot/app/binding/product/product_binding.dart';
@@ -18,7 +19,7 @@ class AppPages {
     GetPage(
         name: Routes.HOME,
         page: () => HomePage(),
-        bindings: [HomeBinding(), CartBinding()]),
+        bindings: [HomeBinding(), CartBinding(), CategoriesBinding()]),
     GetPage(
         name: Routes.CATEGORY,
         page: () => CategoryPage(),

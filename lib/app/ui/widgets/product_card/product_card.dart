@@ -28,6 +28,7 @@ class ProductCard extends StatelessWidget {
                 color: ISpotTheme.primaryImageBackground,
               ),
               width: MediaQuery.of(context).size.width - ((18 * 2) + 10),
+              height: 200,
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.network(
