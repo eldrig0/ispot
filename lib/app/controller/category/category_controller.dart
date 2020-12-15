@@ -40,9 +40,12 @@ class CategoryController extends GetxController {
             sortOption: selectedSortOption?.value)
         .take(1)
         .listen((response) {
-      category.value = response;
-
-      this.gotData.value = true;
+      response.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (result) {
+        category.value = result;
+        this.gotData.value = true;
+      });
     });
   }
 

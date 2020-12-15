@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/provider/attribute/filter_provider.dart';
+import 'package:ispot/app/failures/failure.dart';
 
 import 'package:meta/meta.dart';
 
@@ -8,6 +10,7 @@ class AttributeRepository {
 
   AttributeRepository(this._provider);
 
-  Stream<List<Attribute>> getAttributes({@required String categoryId}) =>
+  Stream<Either<Failure, List<Attribute>>> getAttributes(
+          {@required String categoryId}) =>
       _provider.getAttributes(categoryId: categoryId);
 }

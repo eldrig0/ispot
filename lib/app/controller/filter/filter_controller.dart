@@ -26,8 +26,12 @@ class AttributeController extends GetxController {
         .getAttributes(categoryId: Get.parameters['categoryId'])
         .take(1)
         .listen((result) {
-      this.attributes.addAll(result);
-      this.isLoaded.value = true;
+      result.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (data) {
+        this.attributes.addAll(data);
+        this.isLoaded.value = true;
+      });
     });
 
     final args = Get.arguments;

@@ -35,10 +35,14 @@ class SearchController extends GetxController {
   }
 
   void search(String keyword) {
-    this._repository.search(keyword).take(1).listen((result) {
-      this.products.clear();
-      this.products.addAll(result.products);
-      this.pageInfo.value = result.pageInfo;
+    this._repository.search(keyword).take(1).listen((response) {
+      response.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (result) {
+        this.products.clear();
+        this.products.addAll(result.products);
+        this.pageInfo.value = result.pageInfo;
+      });
     });
   }
 
@@ -52,9 +56,13 @@ class SearchController extends GetxController {
         ._repository
         .search(this.searchControl.value, after: this.pageInfo.value.endCursor)
         .take(1)
-        .listen((event) {
-      this.products.addAll(event.products);
-      this.pageInfo.value = event.pageInfo;
+        .listen((response) {
+      response.fold((failure) {
+        Get.snackbar('Error', failure.message);
+      }, (result) {
+        this.products.addAll(result.products);
+        this.pageInfo.value = result.pageInfo;
+      });
     });
   }
 }

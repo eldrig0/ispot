@@ -6,6 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/cart/cart_controller.dart';
+import 'package:ispot/app/controller/categories/categories_controller.dart';
 import 'package:ispot/app/ui/widgets/ispot_image/ispot_image.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -127,19 +128,27 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildCategories(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 10, bottom: 18),
-        child: Obx(
-          () => Swiper(
-              itemHeight: 200,
-              outer: true,
-              itemWidth: UIHelper.getDeviceWidth(context),
-              itemCount: _controller.categories.length,
-              layout: SwiperLayout.TINDER,
-              itemBuilder: (context, index) {
-                return Obx(() => CategoryCard(_controller.categories[index]));
-              }),
-        ),
+      child: GetX<CategoriesController>(
+        initState: Get.find<CategoriesController>().getCategories(),
+        builder: (_controller) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 10, bottom: 18),
+            child: Obx(
+              () => Swiper(
+                  itemHeight: 200,
+                  outer: true,
+                  itemWidth: UIHelper.getDeviceWidth(context),
+                  itemCount: _controller.categories.value.categories.length,
+                  layout: SwiperLayout.TINDER,
+                  itemBuilder: (context, index) {
+                    return Obx(
+                      () => CategoryCard(
+                          _controller.categories.value.categories[index]),
+                    );
+                  }),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ispot/app/data/model/attribute.dart';
@@ -6,6 +7,7 @@ import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
+import 'package:ispot/app/failures/failure.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:ispot/graphql/schema.schema.gql.dart';
@@ -23,7 +25,7 @@ class CategoryProvider {
     ..direction = GOrderDirection.ASC
     ..field = GProductOrderField.PRICE;
 
-  Stream<CategoryModel> getCategory(
+  Stream<Either<Failure, CategoryModel>> getCategory(
       {@required String id,
       @required int pageSize,
       @required List<Attribute> attributes,
@@ -43,18 +45,23 @@ class CategoryProvider {
       ..vars.attributes = attributeList
       ..vars.after = after);
 
-    return client.request(request).map(
-          (response) => CategoryModel(
-            categoryId: response.data.category.id,
-            categoryName: response.data.category.name,
-            pageInfo:
-                PageInfo.fromMap(response.data.products.pageInfo.toJson()),
-            totalProductCount: response.data.products.totalCount,
-            attributes: _mapAttribute(response),
-            categoryImageUrl: response.data.category.backgroundImage.url,
-            products: _mapProducts(response),
-          ),
-        );
+    return client.request(request).map((response) {
+      if (response.hasErrors || response.graphqlErrors != null) {
+        return Left(Failure(DATAFETCHFAILUREMESSAGE));
+      }
+
+      return Right(
+        CategoryModel(
+          categoryId: response.data.category.id,
+          categoryName: response.data.category.name,
+          pageInfo: PageInfo.fromMap(response.data.products.pageInfo.toJson()),
+          totalProductCount: response.data.products.totalCount,
+          attributes: _mapAttribute(response),
+          categoryImageUrl: response.data.category.backgroundImage.url,
+          products: _mapProducts(response),
+        ),
+      );
+    });
   }
 
   List<Product> _mapProducts(

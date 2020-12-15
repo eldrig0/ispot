@@ -1,20 +1,14 @@
-import 'package:backdrop/backdrop.dart';
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/controller/cart/cart_controller.dart';
-import 'package:ispot/app/controller/product/product_controller.dart';
-import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/pricing.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/routes/app_pages.dart';
-import 'package:ispot/app/ui/page/product/widgets/product_details.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
-import 'package:chips_choice/chips_choice.dart';
-import 'package:reactive_forms/reactive_forms.dart';
+import '../../../controller/cart/cart_controller.dart';
+import '../../../controller/product/product_controller.dart';
+import '../../../data/model/product.dart';
+import '../../../routes/app_pages.dart';
+import '../../theme/ispot_theme.dart';
+import 'widgets/product_details.dart';
 
 class ProductPage extends GetView<ProductController> {
   @override

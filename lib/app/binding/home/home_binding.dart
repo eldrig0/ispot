@@ -11,11 +11,6 @@ class HomeBinding implements Bindings {
   void dependencies() {
     Get.lazyPut<HomeController>(
       () => HomeController(
-        categoriesRepository: CategoriesRepository(
-          CategoriesProvider(
-            Get.find<Client>(),
-          ),
-        ),
         homeRepository: HomeRepository(
           HomeProvider(
             client: Get.find<Client>(),

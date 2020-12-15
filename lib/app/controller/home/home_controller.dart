@@ -15,7 +15,7 @@ const COLLECTIONS = 'collections';
 
 class HomeController extends GetxController {
   HomeRepository homeRepository;
-  final CategoriesRepository categoriesRepository;
+  // final CategoriesRepository categoriesRepository;
   Rx<Categories> _categories;
   final homeProducts = <Product>[].obs;
 
@@ -26,14 +26,13 @@ class HomeController extends GetxController {
   final _dataFetchFlags =
       {CATEGORIES: false, COLLECTIONS: false, PRODUCTS: false}.obs;
 
-  HomeController(
-      {@required this.homeRepository, @required this.categoriesRepository});
+  HomeController({@required this.homeRepository});
 
   @override
   void onInit() {
     scrollController = ScrollController();
     getHomePageProducts();
-    getCategories();
+
     // getCollections();
     super.onInit();
   }
@@ -62,15 +61,9 @@ class HomeController extends GetxController {
     this._dataFetchFlags[key] = state;
   }
 
-  void getCategories() {
-    categoriesRepository.getCategories(first: 4).take(1).listen((categories) {
-      categories.fold((failure) {
-        Get.snackbar('Error', failure.message);
-      }, (result) {
-        this._categories = Rx(result);
-        _updateDataFetchStates(CATEGORIES, true);
-      });
-    });
+  void updateCategories(Categories categories) {
+    this._categories = Rx(categories);
+    _updateDataFetchStates(CATEGORIES, true);
   }
 
   void listenToSearch() {
