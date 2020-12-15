@@ -26,13 +26,12 @@ class _ProductGridState extends State<ProductGrid>
     super.initState();
 
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 5000),
+        duration: const Duration(milliseconds: 300),
         vsync: this,
         value: 0,
         lowerBound: 0,
         upperBound: 1);
-    _animation =
-        CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
 
     _controller.forward();
   }

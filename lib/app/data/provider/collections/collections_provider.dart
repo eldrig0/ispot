@@ -7,10 +7,10 @@ import 'package:meta/meta.dart';
 
 import 'graphql/collections.req.gql.dart';
 
-class CollectionProviders {
+class CollectionsProviders {
   final Client client;
 
-  CollectionProviders(this.client);
+  CollectionsProviders(this.client);
 
   Stream<Either<Failure, Collections>> getCollections(
       {@required int first, String after}) {

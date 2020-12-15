@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/cart/cart_controller.dart';
 import 'package:ispot/app/controller/categories/categories_controller.dart';
+import 'package:ispot/app/controller/collections/collections_controller.dart';
+import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/ui/widgets/ispot_image/ispot_image.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               return CustomScrollView(
                 slivers: [
                   _buildAppBar(),
-                  // _buildCollection(context),
+                  _buildCollection(context),
                   _buildTitle('FEATURED PRODUCTS'),
                   if (_controller.homeProducts.isNotEmpty)
                     SliverPadding(
@@ -79,34 +81,25 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCollection(BuildContext context) => SliverToBoxAdapter(
-        child: Padding(
-          padding:
-              const EdgeInsets.only(left: 18, right: 18, bottom: 18, top: 36),
-          child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Obx(
-                () => ISpotImage(
-                    url: _controller
-                        .collections.value.collections[0].backgroundImage),
-              ),
-              // child: Image.network(
-              //   _controller.collections[0].backgroundImage,
-              //   height: 150,
-              //   fit: BoxFit.cover,
-              //   loadingBuilder: (context, widget, imageChunkEvent) {
-              //     return Shimmer.fromColors(
-              //         child: Container(
-              //           height: 150,
-              //         ),
-              //         baseColor: null,
-              //         highlightColor: null);
-              //   },
-              // ),
-            ),
-          ),
+        child: GetX<CollectionsController>(
+          initState: (_) => Get.find<CollectionsController>().getCollections(),
+          builder: (_controller) {
+            if (_controller.collections.isNotEmpty)
+              return Padding(
+                padding: const EdgeInsets.only(
+                    left: 18, right: 18, bottom: 18, top: 36),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: ISpotImage(
+                        url: _controller.collections[0].backgroundImage),
+                  ),
+                ),
+              );
+            return Container();
+          },
         ),
       );
 

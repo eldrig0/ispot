@@ -3,6 +3,7 @@ import 'package:ispot/app/binding/attribute/attribute_binding.dart';
 import 'package:ispot/app/binding/cart/cart_binding.dart';
 import 'package:ispot/app/binding/categories/categories_binding.dart';
 import 'package:ispot/app/binding/category/category_binding.dart';
+import 'package:ispot/app/binding/collections/collections_binding.dart';
 import 'package:ispot/app/binding/home/home_binding.dart';
 import 'package:ispot/app/binding/product/product_binding.dart';
 import 'package:ispot/app/binding/search/search_binding.dart';
@@ -16,10 +17,12 @@ part './app_routes.dart';
 
 class AppPages {
   static final routes = [
-    GetPage(
-        name: Routes.HOME,
-        page: () => HomePage(),
-        bindings: [HomeBinding(), CartBinding(), CategoriesBinding()]),
+    GetPage(name: Routes.HOME, page: () => HomePage(), bindings: [
+      HomeBinding(),
+      CartBinding(),
+      CategoriesBinding(),
+      CollectionsBinding()
+    ]),
     GetPage(
         name: Routes.CATEGORY,
         page: () => CategoryPage(),

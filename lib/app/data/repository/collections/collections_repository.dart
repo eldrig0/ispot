@@ -4,10 +4,10 @@ import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/data/provider/collections/collections_provider.dart';
 import 'package:ispot/app/failures/failure.dart';
 
-class CollectionRepository {
-  final CollectionProviders _provider;
+class CollectionsRepository {
+  final CollectionsProviders _provider;
 
-  CollectionRepository(this._provider);
+  CollectionsRepository(this._provider);
 
   Stream<Either<Failure, Collections>> getCollections(
       {@required int first, String after}) {
