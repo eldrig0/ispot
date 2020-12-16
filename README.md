@@ -1,4 +1,5 @@
 # ispot
 
-This is an ecommerce app. 
-Will be adding more description here when I am done.
+This is an ecommerce app app for saleor cms https://saleor.io/.
+
+The project is still under development. Feel free to contribute 😀.
