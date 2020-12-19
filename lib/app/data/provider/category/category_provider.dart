@@ -7,7 +7,7 @@ import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:ispot/graphql/schema.schema.gql.dart';

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 
 import 'graphql/attributes.req.gql.dart';
 

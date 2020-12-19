@@ -5,7 +5,7 @@ import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/model/products.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 
 import 'graphql/search.req.gql.dart';
 

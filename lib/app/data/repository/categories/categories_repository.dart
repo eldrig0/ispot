@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 
 import '../../model/category.dart';
 import '../../provider/categories/categories_provider.dart';

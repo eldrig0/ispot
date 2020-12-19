@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/collection.dart';

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/data/model/page_info.dart';
-import 'package:ispot/app/failures/failure.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 import 'package:meta/meta.dart';
 
 import 'graphql/collections.req.gql.dart';
