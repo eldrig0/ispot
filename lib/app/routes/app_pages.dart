@@ -21,7 +21,7 @@ class AppPages {
       HomeBinding(),
       CartBinding(),
       CategoriesBinding(),
-      CollectionsBinding()
+      CollectionsBinding(),
     ]),
     GetPage(
         name: Routes.CATEGORY,

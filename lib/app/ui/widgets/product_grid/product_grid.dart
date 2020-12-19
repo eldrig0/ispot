@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/widgets/product_card/product_card.dart';
 
 class ProductGrid extends StatefulWidget {
@@ -34,6 +33,12 @@ class _ProductGridState extends State<ProductGrid>
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
 
     _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
   }
 
   @override

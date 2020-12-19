@@ -20,6 +20,5 @@ class CollectionsController extends GetxController {
     });
   }
 
-  List<Collection> get collections =>
-      _collections != null ? _collections.value.collections : [];
+  List<Collection> get collections => _collections.value.collections;
 }

@@ -1,20 +1,17 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:ispot/app/controller/cart/cart_controller.dart';
-import 'package:ispot/app/controller/categories/categories_controller.dart';
-import 'package:ispot/app/controller/collections/collections_controller.dart';
-import 'package:ispot/app/data/model/collection.dart';
-import 'package:ispot/app/ui/widgets/ispot_image/ispot_image.dart';
-import 'package:shimmer/shimmer.dart';
 
+import '../../../controller/cart/cart_controller.dart';
+import '../../../controller/categories/categories_controller.dart';
+import '../../../controller/collections/collections_controller.dart';
 import '../../../controller/home/home_controller.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/category_card/category_card.dart';
+import '../../widgets/ispot_image/ispot_image.dart';
 import '../../widgets/product_grid/product_grid.dart';
 import '../../widgets/ripple_transition/ripple_transition.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
@@ -56,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               return CustomScrollView(
                 slivers: [
                   _buildAppBar(),
-                  _buildCollection(context),
+                  // _buildCollection(context),
                   _buildTitle('FEATURED PRODUCTS'),
                   if (_controller.homeProducts.isNotEmpty)
                     SliverPadding(
@@ -106,7 +103,9 @@ class _HomePageState extends State<HomePage> {
   Widget _buildAppBar() =>
       UIHelper.buildSliverAppBar(leading: UIHelper.buildUserIcon(), actions: [
         UIHelper.buildCategoriesIcon(onPressed: () {}),
-        UIHelper.buildCartIcon(_cart)
+        Padding(
+            padding: EdgeInsets.only(right: 18),
+            child: UIHelper.buildCartIcon())
       ]);
 
   Widget _buildTitle(String title) {

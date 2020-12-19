@@ -27,7 +27,7 @@ class CategoryPage extends GetWidget {
                     actions: [
                       UIHelper.buildCategoriesIcon(onPressed: () {}),
                       _buildFilterIcon(),
-                      UIHelper.buildCartIcon(_cart)
+                      UIHelper.buildCartIcon()
                     ]),
                 _buildCategoryTitle(),
                 if (_controller.category.value != null) ...[
@@ -63,7 +63,7 @@ class CategoryPage extends GetWidget {
               actions: [
                 UIHelper.buildCategoriesIcon(onPressed: () {}),
                 _buildFilterIcon(),
-                UIHelper.buildCartIcon(_cart)
+                UIHelper.buildCartIcon()
               ]),
           if (_controller.category.value != null) ...[
             SliverPadding(

@@ -20,8 +20,8 @@ class HomeProvider {
     final featuredProductQuery = GFeaturedProductsReq();
 
     return client.request(featuredProductQuery).map((event) {
-      if (event.hasErrors) return Left(Failure(DATAFETCHFAILUREMESSAGE));
-
+      if (event.hasErrors || event.graphqlErrors != null)
+        return Left(Failure(DATAFETCHFAILUREMESSAGE));
       return Right(
         event.data.shop.homepageCollection.products.edges
             .map(

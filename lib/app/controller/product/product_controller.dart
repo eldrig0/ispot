@@ -13,40 +13,62 @@ class ProductController extends GetxController {
   final ProductRepository _productRepository;
 
   final product = Rx<Product>();
-  final selectedVariant = Rx<ProductVariant>();
+  var selectedVariant = Rx<ProductVariant>();
   final test = 0.obs;
   final attributes = Rx<Map<String, List<Attribute>>>({});
   final isVariantChanged = false.obs;
   final selectedAttributes = RxMap<String, Attribute>({});
+  var _disableBuyButton = false.obs;
 
-  final quantiyControl = FormControl<int>(value: 0, validators: [
-    Validators.required,
-    CustomValidators.validateProductQuantity
-  ]);
+  List<String> productImages = <String>[].obs;
+
+  FormControl<int> quantityControl;
 
   ProductController(this._productRepository);
+  _getStockQuantity() => selectedVariant.value.stockQuantity;
 
   _getProductDetails(String id) {
-    this._productRepository.getProduct(id).take(1).listen((event) {
+    _productRepository.getProduct(id).take(1).listen((event) {
       product.value = event;
-      this._initAttribute();
-      this._initializeProduceVariant();
+      _initProductImages(product.value.productImages);
+      _initAttribute();
+      _initializeProduceVariant();
+      _initFormControl();
+      _listenToQuantityChange();
+      _initDisableBuyButton();
     });
   }
 
   @override
   void onInit() {
     initializer();
+
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    selectedAttributes.close();
   }
 
   void initializer() {
     final id = Get.parameters['productId'];
     _getProductDetails(id);
-    listenToQuantityChange();
+    listenToSelectedAttribute();
+  }
+
+  void _initFormControl() {
+    quantityControl = FormControl<int>(value: 1, validators: [
+      Validators.required,
+      validateProductQuantity(selectedVariant.value.stockQuantity),
+    ]);
+  }
+
+  void listenToSelectedAttribute() {
     selectedAttributes.listen((value) {
-      print('selected attribute changed');
-      this._selectProductVariant();
+      _selectProductVariant();
     });
   }
 
@@ -54,19 +76,23 @@ class ProductController extends GetxController {
     return product.value != null;
   }
 
+  bool get disableBuyButton => _disableBuyButton.value;
+
+  void _initProductImages(List<String> images) {
+    productImages.clear();
+    productImages.addAll(images);
+  }
+
   _initializeProduceVariant() {
-    Attribute initialAttribute = this
-        .product
-        .value
-        .variants
+    Attribute initialAttribute = product.value.variants
         .where((element) => element.isAvailable)
         .first
         .attributes
         .first;
 
-    this._updateAttributes(selectedAttribute: initialAttribute);
+    _updateAttributes(selectedAttribute: initialAttribute);
 
-    this._selectProductVariant();
+    _selectProductVariant();
   }
 
   _isAttributeValuePresent(
@@ -85,52 +111,29 @@ class ProductController extends GetxController {
   }
 
   selectAttribute(Attribute attribute) {
-    this.selectedAttributes.update(
-          attribute.name,
-          (val) => attribute,
-        );
+    selectedAttributes.update(
+      attribute.name,
+      (val) => attribute,
+    );
 
-    this._updateAttributes(selectedAttribute: attribute);
+    _updateAttributes(selectedAttribute: attribute);
   }
 
-  bool get disableBuyButton {
-    return !(this.selectedVariant.value.isAvailable &&
-        this.selectedVariant.value.stockQuantity >= _quantity);
+  _initDisableBuyButton() {
+    _disableBuyButton.value = !(selectedVariant.value.isAvailable &&
+        selectedVariant.value.stockQuantity >= _quantity);
   }
 
-  int get _quantity => this.quantiyControl.value ?? 0;
+  int get _quantity => quantityControl.value ?? 0;
 
-  bool get isStockLow => this.selectedVariant.value.stockQuantity < _quantity;
+  bool get isStockLow => selectedVariant.value.stockQuantity < _quantity;
 
   _selectProductVariant() {
     List<ProductVariant> filteredVariants;
-    this.selectedAttributes.forEach((key, value) {
-      filteredVariants = _getProductVariant(value, this.product.value.variants);
+    selectedAttributes.forEach((key, value) {
+      filteredVariants = _getProductVariant(value, product.value.variants);
     });
-    // print(selectedVariant);
-
-    this.selectedVariant.value = filteredVariants.first;
-    //   List<ProductVariant> productVariants = product.value.variants;
-
-    //   if (productVariants.length > 1) {
-    //     this.selectedAttributes.value.forEach((key, value) {
-    //       productVariants = productVariants.where((variant) {
-    //         List<Attribute> attributes = variant.attributes
-    //             .where((attribute) =>
-    //                 attribute.values.first.value == value.values.first.value)
-    //             .toList();
-
-    //         if (attributes.length < 1) {
-    //           print('this will lead to a error and thus not good');
-    //         }
-    //         return attributes.length > 0;
-    //       }).toList();
-    //     });
-    //     this.selectedVariant.value = productVariants.first;
-    //   }
-    //   this.selectedVariant.value = productVariants.first;
-    //   print('executed without error');
-    // }
+    selectedVariant.value = filteredVariants.first;
   }
 
   _getProductVariant(Attribute attribute, List<ProductVariant> variants) {
@@ -143,12 +146,12 @@ class ProductController extends GetxController {
     return variant.attributes.contains(attribute);
   }
 
-  Price get price => this.selectedVariant.value.price;
+  Price get price => selectedVariant.value.price;
 
   _updateAttributes({@required Attribute selectedAttribute}) {
-    final productVariants = this.product.value.variants;
+    final productVariants = product.value.variants;
     Map<String, List<Attribute>> updatedAttributes = {};
-    this.attributes.value.forEach((key, value) {
+    attributes.value.forEach((key, value) {
       if (key != selectedAttribute.name) {
         updatedAttributes[key] = <Attribute>[];
       }
@@ -172,10 +175,10 @@ class ProductController extends GetxController {
       },
     );
 
-    this.attributes.value.forEach((key, value) {
+    attributes.value.forEach((key, value) {
       if (key != selectedAttribute.name) {
-        this.attributes.value[key].clear();
-        this.attributes.value[key].addAll(updatedAttributes[key]);
+        attributes.value[key].clear();
+        attributes.value[key].addAll(updatedAttributes[key]);
       }
     });
   }
@@ -188,13 +191,18 @@ class ProductController extends GetxController {
           .first
           .attributes
           .forEach((attribute) {
-        this.attributes.value[attribute.name] = [attribute];
-        this.selectedAttributes.value[attribute.name] = attribute;
+        attributes.value[attribute.name] = [attribute];
+        selectedAttributes.value[attribute.name] = attribute;
       });
 
-  listenToQuantityChange() {
-    this.quantiyControl.valueChanges.listen((event) {
-      print(event);
+  _listenToQuantityChange() {
+    quantityControl.valueChanges.listen((value) {
+      print(value);
+      print(quantityControl.hasErrors);
+      if (quantityControl.hasErrors)
+        _disableBuyButton.value = true;
+      else
+        _disableBuyButton.value = false;
     });
   }
 }

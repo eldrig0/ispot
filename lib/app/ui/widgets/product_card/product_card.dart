@@ -31,11 +31,14 @@ class ProductCard extends StatelessWidget {
               height: 200,
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    product.productThumbnail,
-                    errorBuilder: (context, object, stackTrace) {
-                      return Image.asset('assets/no-photo.png');
-                    },
+                  child: Hero(
+                    tag: product.productId,
+                    child: Image.network(
+                      product.productThumbnail,
+                      errorBuilder: (context, object, stackTrace) {
+                        return Image.asset('assets/no-photo.png');
+                      },
+                    ),
                   )),
             ),
             SizedBox(

@@ -25,24 +25,25 @@ class UIHelper {
           leading: leading,
           actions: actions);
 
-  static Padding buildCartIcon(CartController _cart) {
-    return Padding(
-        padding: EdgeInsets.only(right: 18),
-        child: Badge(
-          badgeColor: ISpotTheme.primaryColor,
-          position: BadgePosition.topEnd(top: 0, end: 1),
-          animationDuration: Duration(milliseconds: 300),
-          animationType: BadgeAnimationType.slide,
-          badgeContent: Obx(() => Text(
-                _cart.cartItems.length.toString(),
-                style: TextStyle(color: Colors.white),
-              )),
-          child: IconButton(
-              icon: Icon(AntDesign.shoppingcart),
-              onPressed: () {
-                Get.toNamed('/cart');
-              }),
-        ));
+  static Widget buildCartIcon() {
+    return GetX<CartController>(
+      builder: (_controller) => Badge(
+        badgeColor: ISpotTheme.primaryColor,
+        position: BadgePosition.topEnd(top: 0, end: 1),
+        animationDuration: Duration(milliseconds: 300),
+        animationType: BadgeAnimationType.slide,
+        badgeContent: Text(
+          _controller.cartItems.length.toString(),
+          style: TextStyle(color: Colors.white),
+        ),
+        child: IconButton(
+            icon: Icon(AntDesign.shoppingcart),
+            onPressed: () {
+              print(_controller.cartItems);
+              Get.toNamed('/cart');
+            }),
+      ),
+    );
   }
 
   static Widget buildFilterIcon(

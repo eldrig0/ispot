@@ -7,7 +7,7 @@ class ISpotTheme {
   static const double smallFont = 12;
   static const double titleFont1 = 27;
 
-  static final Color canvasColor = Colors.grey[300];
+  static final Color canvasColor = Colors.grey[100];
   static const Color primaryColor = Color.fromRGBO(72, 196, 194, 1);
   static const Color secondaryColor = Colors.black54;
   static const Color textColor = Colors.black87;
