@@ -7,16 +7,21 @@ import 'attribute.dart';
 class ProductVariant {
   String id;
   String name;
+  String productName;
   int stockQuantity;
   bool isAvailable;
+  String thumbnailImage;
+
   List<String> images;
   Price price;
   List<Attribute> attributes;
   ProductVariant({
     this.id,
     this.name,
+    this.productName,
     this.stockQuantity,
     this.isAvailable,
+    this.thumbnailImage,
     this.images,
     this.price,
     this.attributes,
@@ -25,8 +30,10 @@ class ProductVariant {
   ProductVariant copyWith({
     String id,
     String name,
-    String stockQuantity,
+    String productName,
+    int stockQuantity,
     bool isAvailable,
+    String thumbnailImage,
     List<String> images,
     Price price,
     List<Attribute> attributes,
@@ -34,8 +41,10 @@ class ProductVariant {
     return ProductVariant(
       id: id ?? this.id,
       name: name ?? this.name,
+      productName: productName ?? this.productName,
       stockQuantity: stockQuantity ?? this.stockQuantity,
       isAvailable: isAvailable ?? this.isAvailable,
+      thumbnailImage: thumbnailImage ?? this.thumbnailImage,
       images: images ?? this.images,
       price: price ?? this.price,
       attributes: attributes ?? this.attributes,
@@ -46,8 +55,10 @@ class ProductVariant {
     return {
       'id': id,
       'name': name,
+      'productName': productName,
       'stockQuantity': stockQuantity,
       'isAvailable': isAvailable,
+      'thumbnailImage': thumbnailImage,
       'images': images,
       'price': price?.toMap(),
       'attributes': attributes?.map((x) => x?.toMap())?.toList(),
@@ -60,8 +71,10 @@ class ProductVariant {
     return ProductVariant(
       id: map['id'],
       name: map['name'],
+      productName: map['productName'],
       stockQuantity: map['stockQuantity'],
       isAvailable: map['isAvailable'],
+      thumbnailImage: map['thumbnailImage'],
       images: List<String>.from(map['images']),
       price: Price.fromMap(map['price']),
       attributes: List<Attribute>.from(
@@ -76,7 +89,7 @@ class ProductVariant {
 
   @override
   String toString() {
-    return 'ProductVariant(id: $id, name: $name, stockQuantity: $stockQuantity, isAvailable: $isAvailable, images: $images, price: $price, attributes: $attributes)';
+    return 'ProductVariant(id: $id, name: $name, productName: $productName, stockQuantity: $stockQuantity, isAvailable: $isAvailable, thumbnailImage: $thumbnailImage, images: $images, price: $price, attributes: $attributes)';
   }
 
   @override
@@ -86,8 +99,10 @@ class ProductVariant {
     return o is ProductVariant &&
         o.id == id &&
         o.name == name &&
+        o.productName == productName &&
         o.stockQuantity == stockQuantity &&
         o.isAvailable == isAvailable &&
+        o.thumbnailImage == thumbnailImage &&
         listEquals(o.images, images) &&
         o.price == price &&
         listEquals(o.attributes, attributes);
@@ -97,8 +112,10 @@ class ProductVariant {
   int get hashCode {
     return id.hashCode ^
         name.hashCode ^
+        productName.hashCode ^
         stockQuantity.hashCode ^
         isAvailable.hashCode ^
+        thumbnailImage.hashCode ^
         images.hashCode ^
         price.hashCode ^
         attributes.hashCode;

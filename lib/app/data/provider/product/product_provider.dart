@@ -45,6 +45,8 @@ class ProductProvider {
           (variant) => ProductVariant(
             id: variant.id,
             name: variant.name,
+            productName: product.name,
+            thumbnailImage: product.thumbnail.url,
             images: variant.images.map((image) => image.url).toList(),
             isAvailable: variant.isAvailable,
             price: _buildVariantPrice(variant),

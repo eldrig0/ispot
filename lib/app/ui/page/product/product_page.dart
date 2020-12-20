@@ -15,6 +15,7 @@ class ProductPage extends GetView<ProductController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ISpotTheme.primaryColor,
       body: GetX<ProductController>(
         builder: (_controller) => Stack(
           children: [
@@ -71,15 +72,9 @@ class ProductImage extends StatelessWidget {
           Positioned(
             top: 35,
             left: 18,
-            child: IconButton(
-              icon: Icon(
-                AntDesign.arrowleft,
-                color: ISpotTheme.primaryColor,
-              ),
-              onPressed: () {
-                Get.back();
-              },
-            ),
+            child: UIHelper.buildBackButton(() {
+              Get.back();
+            }),
           ),
           Positioned(
             top: 35,

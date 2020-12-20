@@ -19,6 +19,7 @@ class ProductController extends GetxController {
   final isVariantChanged = false.obs;
   final selectedAttributes = RxMap<String, Attribute>({});
   var _disableBuyButton = false.obs;
+  final isInitialized = false.obs;
 
   List<String> productImages = <String>[].obs;
 
@@ -36,6 +37,7 @@ class ProductController extends GetxController {
       _initFormControl();
       _listenToQuantityChange();
       _initDisableBuyButton();
+      this.isInitialized.value = true;
     });
   }
 

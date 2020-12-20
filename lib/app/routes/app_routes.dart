@@ -6,4 +6,5 @@ abstract class Routes {
   static const PRODUCT = '/product/:productId';
   static const SEARCH = '/search';
   static const FILTER = '/filter/:categoryId';
+  static const CART = '/cart';
 }

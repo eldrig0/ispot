@@ -16,12 +16,25 @@ class UIHelper {
     );
   }
 
+  static IconButton buildBackButton(Function onPressed) {
+    return IconButton(
+      icon: Icon(
+        AntDesign.arrowleft,
+        color: ISpotTheme.primaryColor,
+      ),
+      onPressed: onPressed,
+    );
+  }
+
   static Widget buildSliverAppBar(
-          {@required Widget leading, @required List<Widget> actions}) =>
+          {Widget title,
+          @required Widget leading,
+          @required List<Widget> actions}) =>
       SliverAppBar(
           floating: true,
           backgroundColor: ISpotTheme.canvasColor,
           elevation: 0,
+          title: title,
           leading: leading,
           actions: actions);
 

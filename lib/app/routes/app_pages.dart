@@ -1,17 +1,19 @@
 import 'package:get/route_manager.dart';
-import 'package:ispot/app/binding/attribute/attribute_binding.dart';
-import 'package:ispot/app/binding/cart/cart_binding.dart';
-import 'package:ispot/app/binding/categories/categories_binding.dart';
-import 'package:ispot/app/binding/category/category_binding.dart';
-import 'package:ispot/app/binding/collections/collections_binding.dart';
-import 'package:ispot/app/binding/home/home_binding.dart';
-import 'package:ispot/app/binding/product/product_binding.dart';
-import 'package:ispot/app/binding/search/search_binding.dart';
-import 'package:ispot/app/ui/page/category/cagetory_page.dart';
-import 'package:ispot/app/ui/page/filter_page/filter_page.dart';
-import 'package:ispot/app/ui/page/home/home_page.dart';
-import 'package:ispot/app/ui/page/product/product_page.dart';
-import 'package:ispot/app/ui/page/search/search_page.dart';
+
+import '../binding/attribute/attribute_binding.dart';
+import '../binding/cart/cart_binding.dart';
+import '../binding/categories/categories_binding.dart';
+import '../binding/category/category_binding.dart';
+import '../binding/collections/collections_binding.dart';
+import '../binding/home/home_binding.dart';
+import '../binding/product/product_binding.dart';
+import '../binding/search/search_binding.dart';
+import '../ui/page/cart/cart_page.dart';
+import '../ui/page/category/cagetory_page.dart';
+import '../ui/page/filter_page/filter_page.dart';
+import '../ui/page/home/home_page.dart';
+import '../ui/page/product/product_page.dart';
+import '../ui/page/search/search_page.dart';
 
 part './app_routes.dart';
 
@@ -41,6 +43,11 @@ class AppPages {
       page: () => FilterPage(),
       maintainState: true,
       binding: AttributeBinding(),
+    ),
+    GetPage(
+      name: Routes.CART,
+      page: () => CartsPage(),
+      binding: CartBinding(),
     )
   ];
 }

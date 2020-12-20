@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/controller/cart/cart_controller.dart';
-import 'package:ispot/app/controller/product/product_controller.dart';
-import 'package:ispot/app/routes/app_pages.dart';
-import 'package:ispot/app/ui/page/product/widgets/attribute_widget.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/main.dart';
+import 'package:ispot/app/ui/widgets/primary_button/primary_button.dart';
+import '../../../../controller/cart/cart_controller.dart';
+import '../../../../controller/product/product_controller.dart';
+import '../../../../routes/app_pages.dart';
+import 'attribute_widget.dart';
+import '../../../theme/ispot_theme.dart';
+import '../../../../../main.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -16,84 +17,80 @@ class ProductDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      maxChildSize: .8,
-      initialChildSize: .53,
-      minChildSize: .53,
-      builder: (context, scrollController) {
-        return SingleChildScrollView(
-          controller: scrollController,
-          child: Container(
-            padding: EdgeInsets.all(18),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
+    return Container(
+      color: ISpotTheme.canvasColor,
+      child: DraggableScrollableSheet(
+        maxChildSize: .8,
+        initialChildSize: .53,
+        minChildSize: .53,
+        builder: (context, scrollController) {
+          return SingleChildScrollView(
+            controller: scrollController,
+            child: Container(
+              padding: EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+                color: ISpotTheme.canvasColor,
               ),
-              color: ISpotTheme.canvasColor,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    _buildNameWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    buildPriceWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    _buildAvailabilityWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    AttributeWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    buildQuantityInput(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    buildDescriptionWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    buildBuyButton()
+                  ]),
             ),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  _buildNameWidget(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  buildPriceWidget(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  _buildAvailabilityWidget(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  AttributeWidget(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  buildQuantityInput(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  buildDescriptionWidget(),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  buildBuyButton()
-                ]),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
   buildBuyButton() {
     return GetX<ProductController>(
       builder: (_controller) => _controller.initialized
-          ? Container(
-              width: double.infinity,
-              height: 50,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                color: ISpotTheme.primaryColor,
-                onPressed: _controller.disableBuyButton
-                    ? null
-                    : () {
-                        Get.find<CartController>()
-                            .addItem(_controller.selectedVariant.value);
-
-                        Get.back();
-                      },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(AntDesign.shoppingcart),
-                    SizedBox(width: 18),
-                    Text('ADD TO CART'),
-                  ],
-                ),
+          ? PrimaryButton(
+              onPressed: _controller.disableBuyButton
+                  ? null
+                  : () {
+                      Get.find<CartController>().addItem(
+                          variant: _controller.selectedVariant.value,
+                          count: _controller.quantityControl.value);
+                      Get.back();
+                    },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(AntDesign.shoppingcart),
+                  SizedBox(width: 18),
+                  Text('ADD TO CART'),
+                ],
               ),
             )
           : Container(),
@@ -103,7 +100,7 @@ class ProductDetail extends StatelessWidget {
   buildQuantityInput() {
     return GetX<ProductController>(
       builder: (_controller) {
-        return _controller.initialized
+        return _controller.isInitialized.value
             ? ReactiveTextField(
                 validationMessages: {
                   'maximumQuantity':
