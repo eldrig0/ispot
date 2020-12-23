@@ -39,7 +39,8 @@ class HomeController extends GetxController {
         Get.snackbar('Error', failure.message);
       }, (products) {
         homeProducts.clear();
-        homeProducts.addAll(products);
+        homeProducts.addAll(
+            [...products.where((element) => element.isAvailable ?? true)]);
       });
       // homeProducts.clear();
       // homeProducts.addAll(products);

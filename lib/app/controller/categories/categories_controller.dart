@@ -7,6 +7,7 @@ class CategoriesController extends GetxController {
   final CategoriesRepository _repository;
 
   Rx<Categories> categories;
+  final isInitialized = false.obs;
 
   CategoriesController(this._repository);
 
@@ -16,6 +17,7 @@ class CategoriesController extends GetxController {
         Get.snackbar('Error', failure.message);
       }, (result) {
         this.categories = Rx(result);
+        this.isInitialized.value = true;
       });
     });
   }

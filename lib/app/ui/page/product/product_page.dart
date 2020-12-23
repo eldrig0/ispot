@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+import 'package:ispot/app/ui/page/product/widgets/product_details.dart';
+import 'package:shimmer/shimmer.dart';
 
-import '../../../controller/cart/cart_controller.dart';
 import '../../../controller/product/product_controller.dart';
-import '../../../routes/app_pages.dart';
 import '../../theme/ispot_theme.dart';
-import 'widgets/product_details.dart';
+import '../../widgets/ui_helper/ui_helper.dart';
 
 class ProductPage extends GetView<ProductController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ISpotTheme.primaryColor,
-      body: GetX<ProductController>(
-        builder: (_controller) => Stack(
-          children: [
-            if (_controller.product.value != null) ...[
+      backgroundColor: ISpotTheme.canvasColor,
+      body: GetX<ProductController>(builder: (_controller) {
+        if (_controller.isInitialized.value)
+          return Stack(
+            children: [
               ProductImage(
                 heroTag: _controller.product.value.productId,
                 images: _controller.productImages,
               ),
               ProductDetail(),
-            ]
-          ],
-        ),
-      ),
+            ],
+          );
+        return Container();
+      }),
     );
   }
 }
@@ -43,10 +41,10 @@ class ProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
-        color: ISpotTheme.cardBackgroundColor,
-      ),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16)),
+          color: ISpotTheme.primaryImageBackground),
       height: 400,
       width: MediaQuery.of(context).size.height,
       child: Stack(
@@ -72,9 +70,11 @@ class ProductImage extends StatelessWidget {
           Positioned(
             top: 35,
             left: 18,
-            child: UIHelper.buildBackButton(() {
-              Get.back();
-            }),
+            child: UIHelper.buildBackButton(
+              () {
+                Get.back();
+              },
+            ),
           ),
           Positioned(
             top: 35,

@@ -19,7 +19,7 @@ class CartsPage extends StatelessWidget {
           slivers: [
             _buildAppBar(),
             if (_controller.cartItems.isNotEmpty) _buildItemList(_controller),
-            _buildCheckoutButton(),
+            if (_controller.cartItems.isNotEmpty) _buildCheckoutButton(),
           ],
         ),
       ),

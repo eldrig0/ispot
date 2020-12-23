@@ -64,9 +64,9 @@ class _HomePageState extends State<HomePage> {
                       child: Center(
                         child: Text('No products yet'),
                       ),
-                    )
-                  // _buildTitle('SHOP BY CATEGORIES'),
-                  // _buildCategories(context)
+                    ),
+                  _buildTitle('SHOP BY CATEGORIES'),
+                  _buildCategories(context)
                 ],
               );
             },
@@ -124,23 +124,26 @@ class _HomePageState extends State<HomePage> {
   Widget _buildCategories(BuildContext context) {
     return SliverToBoxAdapter(
       child: GetX<CategoriesController>(
-        initState: Get.find<CategoriesController>().getCategories(),
-        builder: (_controller) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 10, bottom: 18),
-            child: Swiper(
-                itemHeight: 200,
-                outer: true,
-                itemWidth: UIHelper.getDeviceWidth(context),
-                itemCount: _controller.categories.value.categories.length,
-                layout: SwiperLayout.TINDER,
-                itemBuilder: (context, index) {
-                  return CategoryCard(
-                      _controller.categories.value.categories[index]);
-                }),
-          );
-        },
-      ),
+          initState: (_) => Get.find<CategoriesController>().getCategories(),
+          builder: (_controller) {
+            if (_controller.isInitialized.value) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 18),
+                child: Swiper(
+                    itemHeight: 200,
+                    outer: true,
+                    itemWidth: UIHelper.getDeviceWidth(context),
+                    itemCount: _controller.categories.value.categories.length,
+                    layout: SwiperLayout.TINDER,
+                    itemBuilder: (context, index) {
+                      return CategoryCard(
+                          _controller.categories.value.categories[index]);
+                    }),
+              );
+            }
+
+            return Container();
+          }),
     );
   }
 }

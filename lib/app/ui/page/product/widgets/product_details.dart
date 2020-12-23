@@ -17,14 +17,13 @@ class ProductDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ISpotTheme.canvasColor,
-      child: DraggableScrollableSheet(
-        maxChildSize: .8,
-        initialChildSize: .53,
-        minChildSize: .53,
-        builder: (context, scrollController) {
-          return SingleChildScrollView(
+    return DraggableScrollableSheet(
+      maxChildSize: .8,
+      initialChildSize: .53,
+      minChildSize: .53,
+      builder: (context, scrollController) {
+        return Container(
+          child: SingleChildScrollView(
             controller: scrollController,
             child: Container(
               padding: EdgeInsets.all(18),
@@ -66,9 +65,9 @@ class ProductDetail extends StatelessWidget {
                     buildBuyButton()
                   ]),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 

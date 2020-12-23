@@ -31,6 +31,7 @@ class ProductController extends GetxController {
   _getProductDetails(String id) {
     _productRepository.getProduct(id).take(1).listen((event) {
       product.value = event;
+
       _initProductImages(product.value.productImages);
       _initAttribute();
       _initializeProduceVariant();
@@ -38,6 +39,7 @@ class ProductController extends GetxController {
       _listenToQuantityChange();
       _initDisableBuyButton();
       this.isInitialized.value = true;
+      print('initialized');
     });
   }
 
@@ -86,15 +88,19 @@ class ProductController extends GetxController {
   }
 
   _initializeProduceVariant() {
-    Attribute initialAttribute = product.value.variants
-        .where((element) => element.isAvailable)
-        .first
-        .attributes
-        .first;
+    if (product.value.variants.length > 1) {
+      Attribute initialAttribute = product.value.variants
+          .where((element) => element.isAvailable)
+          .first
+          .attributes
+          .first;
 
-    _updateAttributes(selectedAttribute: initialAttribute);
+      _updateAttributes(selectedAttribute: initialAttribute);
 
-    _selectProductVariant();
+      _selectProductVariant();
+    } else {
+      this.selectedVariant = Rx(product.value.variants.first);
+    }
   }
 
   _isAttributeValuePresent(
@@ -185,17 +191,18 @@ class ProductController extends GetxController {
     });
   }
 
-  _initAttribute() => this
-          .product
-          .value
-          .variants
-          .where((element) => element.isAvailable)
-          .first
-          .attributes
-          .forEach((attribute) {
-        attributes.value[attribute.name] = [attribute];
-        selectedAttributes.value[attribute.name] = attribute;
-      });
+  _initAttribute() {
+    if (product.value.variants.length > 1) {
+      final variants =
+          product.value.variants.where((element) => element.isAvailable);
+
+      if (variants.isNotEmpty)
+        variants.first.attributes.forEach((attribute) {
+          attributes.value[attribute.name] = [attribute];
+          selectedAttributes.value[attribute.name] = attribute;
+        });
+    }
+  }
 
   _listenToQuantityChange() {
     quantityControl.valueChanges.listen((value) {
