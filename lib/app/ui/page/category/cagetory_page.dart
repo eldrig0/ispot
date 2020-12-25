@@ -27,7 +27,10 @@ class CategoryPage extends GetWidget {
                     actions: [
                       UIHelper.buildCategoriesIcon(onPressed: () {}),
                       _buildFilterIcon(),
-                      UIHelper.buildCartIcon()
+                      Padding(
+                        padding: const EdgeInsets.only(right: 18.0),
+                        child: UIHelper.buildCartIcon(),
+                      )
                     ]),
                 _buildCategoryTitle(),
                 if (_controller.category.value != null) ...[
@@ -57,13 +60,16 @@ class CategoryPage extends GetWidget {
       backgroundColor: ISpotTheme.canvasColor,
       body: CustomScrollView(
         slivers: [
-          _buildCategoryTitle(),
+          // _buildCategoryTitle(),
           UIHelper.buildSliverAppBar(
               leading: UIHelper.buildUserIcon(),
               actions: [
                 UIHelper.buildCategoriesIcon(onPressed: () {}),
                 _buildFilterIcon(),
-                UIHelper.buildCartIcon()
+                Padding(
+                  padding: const EdgeInsets.only(right: 18.0),
+                  child: UIHelper.buildCartIcon(),
+                )
               ]),
           if (_controller.category.value != null) ...[
             SliverPadding(
@@ -102,7 +108,10 @@ class CategoryPage extends GetWidget {
   }
 
   Widget _buildFilterIcon() => UIHelper.buildFilterIcon(
-      badgeContent: Obx(() => Text(_controller.filterLength.toString())),
+      badgeContent: Obx(() => Text(
+            _controller.filterLength.toString(),
+            style: TextStyle(color: Colors.white),
+          )),
       onPressed: () {
         _showFilterPage(_controller);
       });

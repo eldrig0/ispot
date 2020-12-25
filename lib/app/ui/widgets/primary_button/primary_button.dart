@@ -17,7 +17,7 @@ class PrimaryButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: RaisedButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         color: ISpotTheme.primaryColor,
         onPressed: onPressed,
         child: child,

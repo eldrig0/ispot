@@ -86,9 +86,12 @@ class ProductDetail extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(AntDesign.shoppingcart),
+                  Icon(AntDesign.shoppingcart, color: Colors.white),
                   SizedBox(width: 18),
-                  Text('ADD TO CART'),
+                  Text(
+                    'ADD TO CART',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             )

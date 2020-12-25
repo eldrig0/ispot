@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/provider/attribute/filter_provider.dart';
+import 'package:ispot/app/data/provider/attribute/attribute_provider.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 
 import 'package:meta/meta.dart';

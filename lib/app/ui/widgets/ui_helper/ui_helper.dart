@@ -16,11 +16,12 @@ class UIHelper {
     );
   }
 
-  static IconButton buildBackButton(Function onPressed) {
+  static IconButton buildBackButton(Function onPressed,
+      {Color color = ISpotTheme.primaryIconColor}) {
     return IconButton(
       icon: Icon(
         AntDesign.arrowleft,
-        color: ISpotTheme.primaryColor,
+        color: color,
       ),
       onPressed: onPressed,
     );
@@ -38,7 +39,7 @@ class UIHelper {
           leading: leading,
           actions: actions);
 
-  static Widget buildCartIcon() {
+  static Widget buildCartIcon({Color color = ISpotTheme.primaryIconColor}) {
     return GetX<CartController>(
       builder: (_controller) => Badge(
         badgeColor: ISpotTheme.primaryColor,
@@ -52,7 +53,6 @@ class UIHelper {
         child: IconButton(
             icon: Icon(AntDesign.shoppingcart),
             onPressed: () {
-              print(_controller.cartItems);
               Get.toNamed('/cart');
             }),
       ),

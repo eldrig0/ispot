@@ -18,12 +18,13 @@ class CategoryCard extends StatelessWidget {
       },
       child: Card(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           child: ClipRRect(
-            child: ISpotImage(
-              url: category.categoryImageUrl,
-            ),
-          )),
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(
+                category.categoryImageUrl,
+                fit: BoxFit.fitHeight,
+              ))),
     );
   }
 }

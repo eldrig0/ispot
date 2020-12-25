@@ -70,11 +70,9 @@ class ProductImage extends StatelessWidget {
           Positioned(
             top: 35,
             left: 18,
-            child: UIHelper.buildBackButton(
-              () {
-                Get.back();
-              },
-            ),
+            child: UIHelper.buildBackButton(() {
+              Get.back();
+            }, color: ISpotTheme.primaryIconColor),
           ),
           Positioned(
             top: 35,

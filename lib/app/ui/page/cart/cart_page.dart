@@ -44,7 +44,7 @@ class CartsPage extends StatelessWidget {
     return UIHelper.buildSliverAppBar(
         title: Text(
           'MY CART',
-          style: TextStyle(color: ISpotTheme.primaryColor),
+          style: TextStyle(color: ISpotTheme.titleColor),
         ),
         leading: UIHelper.buildBackButton(() {
           Get.back();
@@ -55,7 +55,7 @@ class CartsPage extends StatelessWidget {
   _buildCheckoutButton() {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.only(left: 18, right: 18, bottom: 30),
+        padding: EdgeInsets.only(left: 18, right: 18, bottom: 30, top: 18),
         child: PrimaryButton(
           onPressed: () {},
           child: Text(
@@ -92,7 +92,7 @@ class CartItemWidget extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     color: ISpotTheme.cardBackgroundColor,
-                    borderRadius: BorderRadius.circular(12)),
+                    borderRadius: BorderRadius.circular(16)),
                 height: 150,
                 width: 150,
                 child: Image.network(

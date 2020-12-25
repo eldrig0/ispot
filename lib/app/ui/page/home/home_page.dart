@@ -89,10 +89,9 @@ class _HomePageState extends State<HomePage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: ISpotImage(
-                        url: _controller.collections[0].backgroundImage),
-                  ),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.network(
+                          _controller.collections.first.backgroundImage)),
                 ),
               );
             return Container();
