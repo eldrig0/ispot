@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/repository/category/category_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -25,7 +26,7 @@ class CategoryController extends GetxController {
 
   @override
   void onInit() {
-    this.getCategory();
+    getCategory();
     super.onInit();
   }
 
@@ -44,13 +45,13 @@ class CategoryController extends GetxController {
         Get.snackbar('Error', failure.message);
       }, (result) {
         category.value = result;
-        this.gotData.value = true;
+        gotData.value = true;
       });
     });
   }
 
   void showMore() {
-    this.getCategory();
+    getCategory();
   }
 
   void toggleFilterDisplay() {
@@ -67,53 +68,23 @@ class CategoryController extends GetxController {
     return length;
   }
 
-  //TODO: Refactor this function, Stupid!.
-  // void toogleAttributeSelection({@required Attribute attribute}) {
-  //   final matchedAttributes =
-  //       selectedAttributes.where((element) => element.id == attribute.id);
-
-  //   final matchedAttribute =
-  //       matchedAttributes.length > 0 ? matchedAttributes.first : null;
-
-  //   if (matchedAttribute == null) {
-  //     selectedAttributes.add(attribute);
-  //     return;
-  //   }
-  //   bool hasSelectedValue =
-  //       matchedAttribute.values.contains(attribute.values.first);
-
-  //   if (hasSelectedValue) {
-  //     matchedAttribute.values.remove(attribute.values.first);
-  //     if (matchedAttribute.values.length == 0) {
-  //       selectedAttributes
-  //           .removeWhere((attribute) => attribute.id == matchedAttribute.id);
-  //     }
-  //   } else {
-  //     matchedAttribute.values.add(attribute.values.first);
-  //   }
-  // }
-
   void setSelectedAttributes(List<Attribute> attributes) {
-    this.selectedAttributes.clear();
-    this.selectedAttributes.addAll(attributes);
+    selectedAttributes.clear();
+    selectedAttributes.addAll(attributes);
   }
 
   void setSelectedSortOption(SortOption sortOption) {
-    this.selectedSortOption.value = sortOption;
+    selectedSortOption.value = sortOption;
   }
-
-  // bool isAttributeValueSelected(
-  //     {@required String attributeId, @required AttributeValue attributeValue}) {
-  //   final matchedAttribute =
-  //       selectedAttributes.where((attribute) => attribute.id == attributeId);
-  //   if (matchedAttribute.isEmpty) return false;
-  //   return matchedAttribute.first.values.contains(attributeValue);
-  // }
 
   @override
   void onClose() {
     // TODO: implement onClose
     super.onClose();
     print('closing controller');
+  }
+
+  PageInfo get pageInfo {
+    return category.value.pageInfo;
   }
 }

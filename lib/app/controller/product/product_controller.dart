@@ -21,12 +21,13 @@ class ProductController extends GetxController {
   var _disableBuyButton = false.obs;
   final isInitialized = false.obs;
 
+  final noProductFound = false.obs;
+
   List<String> productImages = <String>[].obs;
 
   FormControl<int> quantityControl;
 
   ProductController(this._productRepository);
-  _getStockQuantity() => selectedVariant.value.stockQuantity;
 
   _getProductDetails(String id) {
     _productRepository.getProduct(id).take(1).listen((event) {
@@ -66,7 +67,9 @@ class ProductController extends GetxController {
   void _initFormControl() {
     quantityControl = FormControl<int>(value: 1, validators: [
       Validators.required,
-      validateProductQuantity(selectedVariant.value.stockQuantity),
+      validateProductQuantity(selectedVariant.value.isNull
+          ? 0
+          : selectedVariant.value.stockQuantity),
     ]);
   }
 
@@ -89,15 +92,18 @@ class ProductController extends GetxController {
 
   _initializeProduceVariant() {
     if (product.value.variants.length > 1) {
-      Attribute initialAttribute = product.value.variants
+      List<ProductVariant> availableVariants = product.value.variants
           .where((element) => element.isAvailable)
-          .first
-          .attributes
-          .first;
+          .toList();
 
-      _updateAttributes(selectedAttribute: initialAttribute);
+      if (availableVariants.isNotEmpty) {
+        Attribute initialAttribute = availableVariants.first.attributes.first;
+        _updateAttributes(selectedAttribute: initialAttribute);
 
-      _selectProductVariant();
+        _selectProductVariant();
+      }
+
+      noProductFound.value = true;
     } else {
       this.selectedVariant = Rx(product.value.variants.first);
     }
@@ -128,7 +134,8 @@ class ProductController extends GetxController {
   }
 
   _initDisableBuyButton() {
-    _disableBuyButton.value = !(selectedVariant.value.isAvailable &&
+    _disableBuyButton.value = !(selectedVariant.value != null &&
+        selectedVariant.value.isAvailable &&
         selectedVariant.value.stockQuantity >= _quantity);
   }
 

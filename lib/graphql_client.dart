@@ -13,7 +13,7 @@ Future<Client> initClient() async {
 
   // final cache = Cache(store: store);
 
-  final link = HttpLink("https://demo.saleor.io/graphql/");
+  final link = HttpLink("https://ispot-bhutan-prod.herokuapp.com/graphql/");
 
   final client = Client(link: link);
 

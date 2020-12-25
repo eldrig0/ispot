@@ -51,6 +51,7 @@ class UIHelper {
           style: TextStyle(color: Colors.white),
         ),
         child: IconButton(
+            color: color,
             icon: Icon(AntDesign.shoppingcart),
             onPressed: () {
               Get.toNamed('/cart');

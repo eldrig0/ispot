@@ -15,7 +15,8 @@ class ProductPage extends GetView<ProductController> {
     return Scaffold(
       backgroundColor: ISpotTheme.canvasColor,
       body: GetX<ProductController>(builder: (_controller) {
-        if (_controller.isInitialized.value)
+        if (_controller.isInitialized.value) if (!_controller
+            .noProductFound.value)
           return Stack(
             children: [
               ProductImage(
@@ -24,6 +25,10 @@ class ProductPage extends GetView<ProductController> {
               ),
               ProductDetail(),
             ],
+          );
+        else
+          return Center(
+            child: Text('no product found'),
           );
         return Container();
       }),
@@ -81,7 +86,7 @@ class ProductImage extends StatelessWidget {
               padding: const EdgeInsets.only(
                 right: 8.0,
               ),
-              child: UIHelper.buildCartIcon(),
+              child: UIHelper.buildCartIcon(color: ISpotTheme.primaryIconColor),
             ),
           )
         ],

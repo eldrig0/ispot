@@ -17,10 +17,8 @@ class CollectionsProviders {
     final collectionsQuery = GCollectionsReq((request) => request.vars
       ..first = 10
       ..after = after);
-    return client.request(collectionsQuery).handleError((data) {
-      print(data);
-    }).map((event) {
-      if (event.hasErrors || event.graphqlErrors == null) {
+    return client.request(collectionsQuery).map((event) {
+      if (event.hasErrors || event.graphqlErrors != null) {
         return Left(
           Failure('An error ocurred while fetching data'),
         );

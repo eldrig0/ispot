@@ -11,7 +11,6 @@ import '../../../controller/collections/collections_controller.dart';
 import '../../../controller/home/home_controller.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/category_card/category_card.dart';
-import '../../widgets/ispot_image/ispot_image.dart';
 import '../../widgets/product_grid/product_grid.dart';
 import '../../widgets/ripple_transition/ripple_transition.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
@@ -53,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               return CustomScrollView(
                 slivers: [
                   _buildAppBar(),
-                  // _buildCollection(context),
+                  _buildCollection(context),
                   _buildTitle('FEATURED PRODUCTS'),
                   if (_controller.homeProducts.isNotEmpty)
                     SliverPadding(
@@ -81,19 +80,60 @@ class _HomePageState extends State<HomePage> {
         child: GetX<CollectionsController>(
           initState: (_) => Get.find<CollectionsController>().getCollections(),
           builder: (_controller) {
-            if (_controller.collections.isNotEmpty)
+            if (_controller.isInitialised.value &&
+                !_controller.isCollectionEmpty())
               return Padding(
-                padding: const EdgeInsets.only(
-                    left: 18, right: 18, bottom: 18, top: 36),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.network(
-                          _controller.collections.first.backgroundImage)),
+                padding: const EdgeInsets.all(18.0),
+                child: Container(
+                  height: 170,
+                  child: Swiper(
+                    itemCount: _controller.collections.length,
+                    containerHeight: 170,
+                    containerWidth: double.infinity,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 1,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.network(
+                            _controller.collections[index].backgroundImage,
+                            fit: BoxFit.fitHeight,
+                            height: 170,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
+            // return Padding(
+            //   padding:
+            //       const EdgeInsets.symmetric(vertical: 18.0, ),
+            //   child: Container(
+            //     height: 170,
+            //     child: ListView.builder(
+            //         itemCount: _controller.collections.length,
+            //         scrollDirection: Axis.horizontal,
+            //         itemBuilder: (context, index) {
+            //           return Card(
+            //             shape: RoundedRectangleBorder(
+            //                 borderRadius: BorderRadius.circular(16)),
+            //             child: ClipRRect(
+            //               borderRadius: BorderRadius.circular(16),
+            //               child: Image.network(
+            //                 _controller.collections[index].backgroundImage,
+            //                 fit: BoxFit.fitHeight,
+            //                 width: MediaQuery.of(context).size.width - 18 * 2,
+            //                 height: 170,
+            //               ),
+            //             ),
+            //           );
+            //         }),
+            //   ),
+            // );
+
             return Container();
           },
         ),

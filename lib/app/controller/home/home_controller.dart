@@ -1,13 +1,12 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/data/model/category.dart';
-import 'package:ispot/app/data/model/collection.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/data/repository/categories/categories_repository.dart';
-import 'package:ispot/app/data/repository/home/home_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../data/model/category.dart';
+import '../../data/model/collection.dart';
+import '../../data/model/product.dart';
+import '../../data/repository/home/home_repository.dart';
 
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';
@@ -37,6 +36,9 @@ class HomeController extends GetxController {
     homeRepository.getHomeProducts().take(1).listen((products) {
       products.fold((failure) {
         Get.snackbar('Error', failure.message);
+        Get.bottomSheet(Container(
+          child: Text('Error'),
+        ));
       }, (products) {
         homeProducts.clear();
         homeProducts.addAll(
