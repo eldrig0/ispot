@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/repository/category/category_repository.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../misc/sort_options.dart';
 
@@ -42,7 +40,7 @@ class CategoryController extends GetxController {
         .take(1)
         .listen((response) {
       response.fold((failure) {
-        Get.snackbar('Error', failure.message);
+        // Get.snackbar('Error', failure.message);
       }, (result) {
         category.value = result;
         gotData.value = true;

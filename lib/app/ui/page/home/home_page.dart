@@ -108,32 +108,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               );
-            // return Padding(
-            //   padding:
-            //       const EdgeInsets.symmetric(vertical: 18.0, ),
-            //   child: Container(
-            //     height: 170,
-            //     child: ListView.builder(
-            //         itemCount: _controller.collections.length,
-            //         scrollDirection: Axis.horizontal,
-            //         itemBuilder: (context, index) {
-            //           return Card(
-            //             shape: RoundedRectangleBorder(
-            //                 borderRadius: BorderRadius.circular(16)),
-            //             child: ClipRRect(
-            //               borderRadius: BorderRadius.circular(16),
-            //               child: Image.network(
-            //                 _controller.collections[index].backgroundImage,
-            //                 fit: BoxFit.fitHeight,
-            //                 width: MediaQuery.of(context).size.width - 18 * 2,
-            //                 height: 170,
-            //               ),
-            //             ),
-            //           );
-            //         }),
-            //   ),
-            // );
-
             return Container();
           },
         ),
