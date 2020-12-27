@@ -12,14 +12,17 @@ class CategoryController extends GetxController {
   final gotData = false.obs;
   final pageSize = 10.obs;
   final category = Rx<CategoryModel>();
-
   final showFilter = false.obs;
+
+  var id;
+  var _showMore = false;
 
   Rx<SortOption> selectedSortOption;
   var selectedAttributes = <Attribute>[].obs;
 
   CategoryController(this.categoryRepository) {
     selectedSortOption = Rx(SORTOPTIONS[0]);
+    id = Get.parameters['categoryId'];
   }
 
   @override
@@ -29,12 +32,11 @@ class CategoryController extends GetxController {
   }
 
   void getCategory() {
-    print(selectedSortOption.value);
     categoryRepository
         .getCategory(
-            id: Get.parameters['categoryId'],
+            id: id,
             pageSize: pageSize.value,
-            after: category?.value?.pageInfo?.endCursor,
+            after: _showMore ? category?.value?.pageInfo?.endCursor : null,
             attributes: selectedAttributes.value,
             sortOption: selectedSortOption?.value)
         .take(1)
@@ -44,11 +46,13 @@ class CategoryController extends GetxController {
       }, (result) {
         category.value = result;
         gotData.value = true;
+        _showMore = false;
       });
     });
   }
 
   void showMore() {
+    _showMore = true;
     getCategory();
   }
 
@@ -73,13 +77,6 @@ class CategoryController extends GetxController {
 
   void setSelectedSortOption(SortOption sortOption) {
     selectedSortOption.value = sortOption;
-  }
-
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
-    print('closing controller');
   }
 
   PageInfo get pageInfo {

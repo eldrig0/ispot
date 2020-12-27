@@ -9,7 +9,13 @@ const attributes = _i1.OperationDefinitionNode(
       _i1.VariableDefinitionNode(
           variable: _i1.VariableNode(name: _i1.NameNode(value: 'categoryId')),
           type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'ID'), isNonNull: true),
+              name: _i1.NameNode(value: 'ID'), isNonNull: false),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: []),
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'collectionId')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'ID'), isNonNull: false),
           defaultValue: _i1.DefaultValueNode(value: null),
           directives: [])
     ],
@@ -25,7 +31,11 @@ const attributes = _i1.OperationDefinitionNode(
                   _i1.ObjectFieldNode(
                       name: _i1.NameNode(value: 'inCategory'),
                       value: _i1.VariableNode(
-                          name: _i1.NameNode(value: 'categoryId')))
+                          name: _i1.NameNode(value: 'categoryId'))),
+                  _i1.ObjectFieldNode(
+                      name: _i1.NameNode(value: 'inCollection'),
+                      value: _i1.VariableNode(
+                          name: _i1.NameNode(value: 'collectionId')))
                 ])),
             _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'first'),

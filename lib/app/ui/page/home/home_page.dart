@@ -84,27 +84,35 @@ class _HomePageState extends State<HomePage> {
                 !_controller.isCollectionEmpty())
               return Padding(
                 padding: const EdgeInsets.all(18.0),
-                child: Container(
-                  height: 170,
-                  child: Swiper(
-                    itemCount: _controller.collections.length,
-                    containerHeight: 170,
-                    containerWidth: double.infinity,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 1,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: Image.network(
-                            _controller.collections[index].backgroundImage,
-                            fit: BoxFit.fitHeight,
-                            height: 170,
+                child: GestureDetector(
+                  child: Container(
+                    height: 170,
+                    child: Swiper(
+                      itemCount: _controller.collections.length,
+                      containerHeight: 170,
+                      containerWidth: double.infinity,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          elevation: 1,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          child: GestureDetector(
+                            onTap: () {
+                              Get.toNamed(
+                                  '/collection/${_controller.collections[index].id}');
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.network(
+                                _controller.collections[index].backgroundImage,
+                                fit: BoxFit.fitHeight,
+                                height: 170,
+                              ),
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               );

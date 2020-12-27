@@ -35,10 +35,7 @@ class HomeController extends GetxController {
   void getHomePageProducts() {
     homeRepository.getHomeProducts().take(1).listen((products) {
       products.fold((failure) {
-        Get.snackbar('Error', failure.message);
-        Get.bottomSheet(Container(
-          child: Text('Error'),
-        ));
+        // Get.snackbar('Error', failure.message);
       }, (products) {
         homeProducts.clear();
         homeProducts.addAll(

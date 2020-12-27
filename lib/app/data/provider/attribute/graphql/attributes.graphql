@@ -1,5 +1,8 @@
-query attributes($categoryId: ID!) {
-  attributes(filter: { inCategory: $categoryId }, first: 10) {
+query attributes($categoryId: ID, $collectionId: ID) {
+  attributes(
+    filter: { inCategory: $categoryId, inCollection: $collectionId }
+    first: 10
+  ) {
     pageInfo {
       hasNextPage
       endCursor

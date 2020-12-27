@@ -22,8 +22,15 @@ class AttributeController extends GetxController {
 
   @override
   void onInit() {
+    final args = Get.arguments;
+    final idMap = args['id'];
+    final type = idMap['type'];
+
     _repository
-        .getAttributes(categoryId: Get.parameters['categoryId'])
+        .getAttributes(
+            ids: type == 'category'
+                ? {'categoryId': idMap[type]}
+                : {'collectionId': idMap[type]})
         .take(1)
         .listen((result) {
       result.fold((failure) {
@@ -34,7 +41,6 @@ class AttributeController extends GetxController {
       });
     });
 
-    final args = Get.arguments;
     if (args['attributes'].isNotEmpty) {
       selectedAttributes.addAll(args['attributes'] as List<Attribute>);
     }

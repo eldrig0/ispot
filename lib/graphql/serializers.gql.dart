@@ -27,7 +27,7 @@ import 'package:ispot/app/data/provider/categories/graphql/categories.req.gql.da
     show GCategoryListReq;
 import 'package:ispot/app/data/provider/categories/graphql/categories.var.gql.dart'
     show GCategoryListVars;
-import 'package:ispot/app/data/provider/category/graphql/category/category.data.gql.dart'
+import 'package:ispot/app/data/provider/category/graphql/category.data.gql.dart'
     show
         GCategoryData,
         GCategoryData_attributes,
@@ -51,10 +51,31 @@ import 'package:ispot/app/data/provider/category/graphql/category/category.data.
         GCategoryData_products_edges_node_pricing_priceRange_stop_net,
         GCategoryData_products_edges_node_thumbnail,
         GCategoryData_products_pageInfo;
-import 'package:ispot/app/data/provider/category/graphql/category/category.req.gql.dart'
+import 'package:ispot/app/data/provider/category/graphql/category.req.gql.dart'
     show GCategoryReq;
-import 'package:ispot/app/data/provider/category/graphql/category/category.var.gql.dart'
+import 'package:ispot/app/data/provider/category/graphql/category.var.gql.dart'
     show GCategoryVars;
+import 'package:ispot/app/data/provider/collection/graphql/collection.data.gql.dart'
+    show
+        GCollectionData,
+        GCollectionData_collection,
+        GCollectionData_collection_backgroundImage,
+        GCollectionData_products,
+        GCollectionData_products_edges,
+        GCollectionData_products_edges_node,
+        GCollectionData_products_edges_node_images,
+        GCollectionData_products_edges_node_pricing,
+        GCollectionData_products_edges_node_pricing_priceRange,
+        GCollectionData_products_edges_node_pricing_priceRange_start,
+        GCollectionData_products_edges_node_pricing_priceRange_start_net,
+        GCollectionData_products_edges_node_pricing_priceRange_stop,
+        GCollectionData_products_edges_node_pricing_priceRange_stop_net,
+        GCollectionData_products_edges_node_thumbnail,
+        GCollectionData_products_pageInfo;
+import 'package:ispot/app/data/provider/collection/graphql/collection.req.gql.dart'
+    show GCollectionReq;
+import 'package:ispot/app/data/provider/collection/graphql/collection.var.gql.dart'
+    show GCollectionVars;
 import 'package:ispot/app/data/provider/collections/graphql/collections.data.gql.dart'
     show
         GCollectionsData,
@@ -491,11 +512,28 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GCheckoutErrorCode,
   GCheckoutLineInput,
   GCollectionCreateInput,
+  GCollectionData,
+  GCollectionData_collection,
+  GCollectionData_collection_backgroundImage,
+  GCollectionData_products,
+  GCollectionData_products_edges,
+  GCollectionData_products_edges_node,
+  GCollectionData_products_edges_node_images,
+  GCollectionData_products_edges_node_pricing,
+  GCollectionData_products_edges_node_pricing_priceRange,
+  GCollectionData_products_edges_node_pricing_priceRange_start,
+  GCollectionData_products_edges_node_pricing_priceRange_start_net,
+  GCollectionData_products_edges_node_pricing_priceRange_stop,
+  GCollectionData_products_edges_node_pricing_priceRange_stop_net,
+  GCollectionData_products_edges_node_thumbnail,
+  GCollectionData_products_pageInfo,
   GCollectionFilterInput,
   GCollectionInput,
   GCollectionPublished,
+  GCollectionReq,
   GCollectionSortField,
   GCollectionSortingInput,
+  GCollectionVars,
   GCollectionsData,
   GCollectionsData_collections,
   GCollectionsData_collections_edges,

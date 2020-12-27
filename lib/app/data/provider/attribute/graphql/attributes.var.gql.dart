@@ -13,7 +13,10 @@ abstract class GattributesVars
   factory GattributesVars([Function(GattributesVarsBuilder b) updates]) =
       _$GattributesVars;
 
+  @nullable
   String get categoryId;
+  @nullable
+  String get collectionId;
   static Serializer<GattributesVars> get serializer =>
       _$gattributesVarsSerializer;
   Map<String, dynamic> toJson() =>

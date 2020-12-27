@@ -11,6 +11,6 @@ class AttributeRepository {
   AttributeRepository(this._provider);
 
   Stream<Either<Failure, List<Attribute>>> getAttributes(
-          {@required String categoryId}) =>
-      _provider.getAttributes(categoryId: categoryId);
+          {Map<String, String> ids}) =>
+      _provider.getAttributes(ids: ids);
 }

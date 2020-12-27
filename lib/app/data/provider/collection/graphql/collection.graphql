@@ -1,0 +1,64 @@
+query Collection(
+  $id: ID!
+  $attributes: [AttributeInput]
+  $after: String
+  $pageSize: Int
+  $sortBy: ProductOrder
+  $priceLte: Float
+  $priceGte: Float
+) {
+  collection(id: $id) {
+    id
+    name
+    backgroundImage {
+      url
+    }
+  }
+
+  products(
+    after: $after
+    first: $pageSize
+    sortBy: $sortBy
+    filter: {
+      attributes: $attributes
+      collections: [$id]
+      minimalPrice: { gte: $priceGte, lte: $priceLte }
+    }
+  ) {
+    totalCount
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    edges {
+      node {
+        id
+        name
+        pricing {
+          onSale
+          priceRange {
+            start {
+              net {
+                amount
+                currency
+              }
+            }
+            stop {
+              net {
+                amount
+                currency
+              }
+            }
+          }
+        }
+        images {
+          url
+        }
+        thumbnail {
+          url
+          alt
+        }
+      }
+    }
+  }
+}

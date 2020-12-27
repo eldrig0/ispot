@@ -3,57 +3,58 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
 import '../../../controller/cart/cart_controller.dart';
-import '../../../controller/category/category_controller.dart';
+import '../../../controller/collection/collection_controller.dart';
 import '../../../misc/sort_options.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/product_grid/product_grid.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
 
-class CategoryPage extends GetWidget<CategoryController> {
-  final _controller = Get.find<CategoryController>();
+class CollectionPage extends GetWidget {
+  final _controller = Get.find<CollectionController>();
   final _cart = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ISpotTheme.canvasColor,
-      body: Obx(() => _controller.gotData.value
-          ? CustomScrollView(
-              slivers: [
-                UIHelper.buildSliverAppBar(
-                    leading: UIHelper.buildUserIcon(),
-                    actions: [
-                      UIHelper.buildCategoriesIcon(onPressed: () {}),
-                      _buildFilterIcon(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 18.0),
-                        child: UIHelper.buildCartIcon(),
-                      )
-                    ]),
-                _buildCategoryTitle(),
-                if (_controller.category.value != null) ...[
-                  SliverPadding(
-                    padding: EdgeInsets.all(18),
-                    sliver: ProductGrid(
-                        products: _controller.category.value.products),
-                  ),
-                ],
-                _buildShowMoreButton()
-              ],
-            )
-          : Container()),
+      body: GetX<CollectionController>(
+          builder: (_controller) => _controller.gotData.value
+              ? CustomScrollView(
+                  slivers: [
+                    UIHelper.buildSliverAppBar(
+                        leading: UIHelper.buildUserIcon(),
+                        actions: [
+                          UIHelper.buildCategoriesIcon(onPressed: () {}),
+                          _buildFilterIcon(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 18.0),
+                            child: UIHelper.buildCartIcon(),
+                          )
+                        ]),
+                    _buildCategoryTitle(),
+                    if (_controller.collection.value != null) ...[
+                      SliverPadding(
+                        padding: EdgeInsets.all(18),
+                        sliver: ProductGrid(
+                            products: _controller.collection.value.products),
+                      ),
+                    ],
+                    _buildShowMoreButton()
+                  ],
+                )
+              : Container()),
     );
 
     // return GetX(
     //   builder: (_) {
-    //     return !_controller.category.value.isNull
+    //     return !_controller.collection.value.isNull
     //         ? buildProductWidgets(_controller)
     //         : Container();
     //   },
     // );
   }
 
-  Scaffold buildProductWidgets(CategoryController controller) {
+  Scaffold buildProductWidgets(CollectionController controller) {
     return Scaffold(
       backgroundColor: ISpotTheme.canvasColor,
       body: CustomScrollView(
@@ -69,11 +70,11 @@ class CategoryPage extends GetWidget<CategoryController> {
                   child: UIHelper.buildCartIcon(),
                 )
               ]),
-          if (_controller.category.value != null) ...[
+          if (_controller.collection.value != null) ...[
             SliverPadding(
               padding: EdgeInsets.all(18),
               sliver:
-                  ProductGrid(products: _controller.category.value.products),
+                  ProductGrid(products: _controller.collection.value.products),
             ),
           ],
           _buildShowMoreButton()
@@ -87,7 +88,7 @@ class CategoryPage extends GetWidget<CategoryController> {
       child: Padding(
         padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: Text(
-          _controller.category.value.categoryName,
+          _controller.collection.value.name,
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
@@ -96,12 +97,12 @@ class CategoryPage extends GetWidget<CategoryController> {
 
   Widget _buildShowMoreButton() {
     return SliverToBoxAdapter(
-      child: Obx(
-        () => !_controller.category.value.isNull &&
-                _controller.category.value.pageInfo.hasNextPage
+      child: GetX<CollectionController>(
+        builder: (_controller) => !_controller.collection.value.isNull &&
+                _controller.collection.value.pageInfo.hasNextPage
             ? FlatButton(
                 onPressed: () {
-                  _controller.getCategory();
+                  _controller.showMore();
                 },
                 child: Text('SHOW MORE'))
             : Container(),
@@ -110,7 +111,7 @@ class CategoryPage extends GetWidget<CategoryController> {
   }
 
   Widget _buildFilterIcon() => UIHelper.buildFilterIcon(
-      badgeContent: GetX<CategoryController>(
+      badgeContent: GetX<CollectionController>(
           builder: (_controller) => Text(
                 _controller.filterLength.toString(),
                 style: TextStyle(color: Colors.white),
@@ -119,20 +120,21 @@ class CategoryPage extends GetWidget<CategoryController> {
         _showFilterPage(_controller);
       });
 
-  _showFilterPage(CategoryController _controller) async {
+  _showFilterPage(CollectionController _controller) async {
+    // if (_controller.attributes.isEmpty) {
     var filterResult = await Get.toNamed(
-        'filter/${_controller.category.value.categoryId}',
+        'filter/${_controller.collection.value.id}',
         arguments: {
-          'sort': SORTOPTIONS[0],
-          'attributes': _controller.selectedAttributes ?? [],
+          'sort': _controller.selectedSortOption.value ?? SORTOPTIONS[0],
+          'attributes': _controller.attributes ?? [],
           'id': {
-            'type': 'category',
-            'category': _controller.category.value.categoryId
+            'type': 'collection',
+            'collection': _controller.collection.value.id
           }
         });
 
     _controller.setSelectedSortOption(filterResult['sort']);
-    _controller.selectedAttributes(filterResult['attributes']);
-    _controller.getCategory();
+    _controller.setAttributes(filterResult['attributes']);
+    _controller.getCollection();
   }
 }

@@ -38,6 +38,7 @@ class _ProductGridState extends State<ProductGrid>
   @override
   void dispose() {
     // TODO: implement dispose
+    super.dispose();
     _controller.dispose();
   }
 

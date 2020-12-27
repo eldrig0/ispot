@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:ispot/app/controller/filter/filter_controller.dart';
-import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/app/ui/widgets/ispot_chips/ispot_chip.dart';
-import 'package:ispot/app/ui/widgets/sort_chip/sort_chip.dart';
+
+import '../../../controller/filter/filter_controller.dart';
+import '../../../data/model/attribute.dart';
+import '../../theme/ispot_theme.dart';
+import '../../widgets/ispot_chips/ispot_chip.dart';
 
 class FilterPage extends StatelessWidget {
   final _controller = Get.find<AttributeController>();

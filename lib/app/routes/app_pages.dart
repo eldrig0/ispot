@@ -1,4 +1,6 @@
 import 'package:get/route_manager.dart';
+import 'package:ispot/app/binding/collection/collection_binding.dart';
+import 'package:ispot/app/ui/page/collection/collection_page.dart';
 
 import '../binding/attribute/attribute_binding.dart';
 import '../binding/cart/cart_binding.dart';
@@ -48,6 +50,11 @@ class AppPages {
       name: Routes.CART,
       page: () => CartsPage(),
       binding: CartBinding(),
+    ),
+    GetPage(
+      name: Routes.COLLECTION,
+      page: () => CollectionPage(),
+      binding: CollectionBinding(),
     )
   ];
 }

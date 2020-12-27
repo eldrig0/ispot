@@ -12,28 +12,35 @@ class AttributeProvider {
   AttributeProvider(this._client);
 
   Stream<Either<Failure, List<Attribute>>> getAttributes(
-      {@required String categoryId}) {
-    final request =
-        GattributesReq((request) => request.vars..categoryId = categoryId);
+      {@required Map<String, String> ids}) {
+    GattributesReq request;
+    if (ids['categoryId'] == null) {
+      request = GattributesReq(
+          (request) => request.vars..collectionId = ids['categoryId']);
+    } else {
+      request = GattributesReq(
+          (request) => request.vars..categoryId = ids['collectionId']);
+    }
 
     return _client.request(request).map((event) {
       if (event.hasErrors || event.graphqlErrors != null) {
         return Left(Failure(DATAFETCHFAILUREMESSAGE));
       }
-      return Right(event.data.attributes.edges
-          .map(
-            (edge) => Attribute(
-              id: edge.node.id,
-              name: edge.node.slug,
-              values: edge.node.values
-                  .map(
-                    (value) => AttributeValue(
-                        id: value.id, name: value.name, value: value.slug),
-                  )
-                  .toList(),
-            ),
-          )
-          .toList());
+      return Right(
+        event.data.attributes.edges
+            .map(
+              (edge) => Attribute(
+                  id: edge.node.id,
+                  name: edge.node.slug,
+                  values: edge.node.values
+                      .map(
+                        (value) => AttributeValue(
+                            id: value.id, name: value.name, value: value.slug),
+                      )
+                      .toList()),
+            )
+            .toList(),
+      );
     });
   }
 }

@@ -99,8 +99,8 @@ class ProductController extends GetxController {
       if (availableVariants.isNotEmpty) {
         Attribute initialAttribute = availableVariants.first.attributes.first;
         _updateAttributes(selectedAttribute: initialAttribute);
-
         _selectProductVariant();
+        return;
       }
 
       noProductFound.value = true;

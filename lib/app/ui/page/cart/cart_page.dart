@@ -140,7 +140,7 @@ class CartItemWidget extends StatelessWidget {
                           },
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

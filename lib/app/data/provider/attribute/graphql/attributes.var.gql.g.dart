@@ -19,12 +19,19 @@ class _$GattributesVarsSerializer
   @override
   Iterable<Object> serialize(Serializers serializers, GattributesVars object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'categoryId',
-      serializers.serialize(object.categoryId,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.categoryId != null) {
+      result
+        ..add('categoryId')
+        ..add(serializers.serialize(object.categoryId,
+            specifiedType: const FullType(String)));
+    }
+    if (object.collectionId != null) {
+      result
+        ..add('collectionId')
+        ..add(serializers.serialize(object.collectionId,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -44,6 +51,10 @@ class _$GattributesVarsSerializer
           result.categoryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'collectionId':
+          result.collectionId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -54,15 +65,13 @@ class _$GattributesVarsSerializer
 class _$GattributesVars extends GattributesVars {
   @override
   final String categoryId;
+  @override
+  final String collectionId;
 
   factory _$GattributesVars([void Function(GattributesVarsBuilder) updates]) =>
       (new GattributesVarsBuilder()..update(updates)).build();
 
-  _$GattributesVars._({this.categoryId}) : super._() {
-    if (categoryId == null) {
-      throw new BuiltValueNullFieldError('GattributesVars', 'categoryId');
-    }
-  }
+  _$GattributesVars._({this.categoryId, this.collectionId}) : super._();
 
   @override
   GattributesVars rebuild(void Function(GattributesVarsBuilder) updates) =>
@@ -75,18 +84,21 @@ class _$GattributesVars extends GattributesVars {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GattributesVars && categoryId == other.categoryId;
+    return other is GattributesVars &&
+        categoryId == other.categoryId &&
+        collectionId == other.collectionId;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, categoryId.hashCode));
+    return $jf($jc($jc(0, categoryId.hashCode), collectionId.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GattributesVars')
-          ..add('categoryId', categoryId))
+          ..add('categoryId', categoryId)
+          ..add('collectionId', collectionId))
         .toString();
   }
 }
@@ -99,11 +111,16 @@ class GattributesVarsBuilder
   String get categoryId => _$this._categoryId;
   set categoryId(String categoryId) => _$this._categoryId = categoryId;
 
+  String _collectionId;
+  String get collectionId => _$this._collectionId;
+  set collectionId(String collectionId) => _$this._collectionId = collectionId;
+
   GattributesVarsBuilder();
 
   GattributesVarsBuilder get _$this {
     if (_$v != null) {
       _categoryId = _$v.categoryId;
+      _collectionId = _$v.collectionId;
       _$v = null;
     }
     return this;
@@ -124,7 +141,9 @@ class GattributesVarsBuilder
 
   @override
   _$GattributesVars build() {
-    final _$result = _$v ?? new _$GattributesVars._(categoryId: categoryId);
+    final _$result = _$v ??
+        new _$GattributesVars._(
+            categoryId: categoryId, collectionId: collectionId);
     replace(_$result);
     return _$result;
   }
