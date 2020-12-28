@@ -29,16 +29,17 @@ class CartController extends GetxController {
       if (item.product == variant) {
         if (item.count == 1) {
           cartItems.remove(item);
+          update();
           return;
         } else {
           int index = cartItems.indexOf(item);
           cartItems[index].count - 1;
+          update();
           return;
         }
       }
       return;
     }
-    update();
   }
 
   incrementProductCount(CartItem item) {
@@ -57,11 +58,13 @@ class CartController extends GetxController {
       if (element == item) {
         if (element.count == 1) {
           this.cartItems.remove(element);
+          update();
         } else {
           int index = cartItems.indexOf(element);
           this.cartItems[index].count--;
+          update();
         }
-        update();
+
         return;
       }
     });

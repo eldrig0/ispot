@@ -18,7 +18,7 @@ class CartsPage extends StatelessWidget {
         builder: (_controller) => CustomScrollView(
           slivers: [
             _buildAppBar(),
-            if (_controller.cartItems.isNotEmpty) _buildItemList(_controller),
+            if (_controller.cartItems.isNotEmpty) _buildListItem(),
             if (_controller.cartItems.isNotEmpty) _buildCheckoutButton(),
           ],
         ),
@@ -26,17 +26,39 @@ class CartsPage extends StatelessWidget {
     );
   }
 
-  _buildItemList(CartController _controller) {
-    return SliverAnimatedList(
-      itemBuilder: (context, index, animation) {
-        final cartItem = _controller.cartItems[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
-          child: CartItemWidget(
-              index: index, cartItem: cartItem, animation: animation),
-        );
-      },
-      initialItemCount: _controller.cartItems.length,
+  // _buildItemList(CartController _controller) {
+  //   return GetX<CartController>(
+  //     builder: (_controller) => SliverAnimatedList(
+  //       itemBuilder: (context, index, animation) {
+  //         return Padding(
+  //           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
+  //           child: CartItemWidget(
+  //               index: index,
+  //               cartItem: _controller.cartItems[index],
+  //               animation: animation),
+  //         );
+  //       },
+  //       initialItemCount: _controller.cartItems.length,
+  //     ),
+  //   );
+  // }
+
+  _buildListItem() {
+    return SliverToBoxAdapter(
+      child: GetX<CartController>(
+        builder: (_controller) {
+          return Column(
+              children: _controller.cartItems.map((element) {
+            return Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
+              child: CartItemWidget(
+                  index: _controller.cartItems.indexOf(element),
+                  cartItem: element),
+            );
+          }).toList());
+        },
+      ),
     );
   }
 
@@ -71,81 +93,73 @@ class CartsPage extends StatelessWidget {
 class CartItemWidget extends StatelessWidget {
   final int index;
   final CartItem cartItem;
-  final Animation<double> animation;
 
-  const CartItemWidget(
-      {Key key,
-      @required this.index,
-      @required this.cartItem,
-      @required this.animation})
+  const CartItemWidget({Key key, @required this.index, @required this.cartItem})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartController>(
-      builder: (_controller) => SizeTransition(
-        sizeFactor: animation,
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: ISpotTheme.cardBackgroundColor,
-                    borderRadius: BorderRadius.circular(16)),
-                height: 150,
-                width: 150,
-                child: Image.network(
-                  cartItem.product.thumbnailImage,
-                ),
+      builder: (_controller) => Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: ISpotTheme.cardBackgroundColor,
+                  borderRadius: BorderRadius.circular(16)),
+              height: 150,
+              width: 150,
+              child: Image.network(
+                cartItem.product.thumbnailImage,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      cartItem.product.productName,
-                      overflow: TextOverflow.visible,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    cartItem.product.productName,
+                    overflow: TextOverflow.visible,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
                     ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    UIHelper.buildPricingText(
-                      cartItem.product.price.amount *
-                          _controller.cartItems[index].count,
-                      cartItem.product.price.currency,
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        IconButton(
-                            icon: Icon(AntDesign.minuscircle),
-                            onPressed: () {
-                              _controller.decreaseProductCount(cartItem);
-                            }),
-                        Text(
-                          _controller.cartItems[index].count.toString(),
-                        ),
-                        IconButton(
-                          icon: Icon(AntDesign.pluscircle),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  UIHelper.buildPricingText(
+                    cartItem.product.price.amount *
+                        _controller.cartItems[index].count,
+                    cartItem.product.price.currency,
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                          icon: Icon(AntDesign.minuscircle),
                           onPressed: () {
-                            _controller.incrementProductCount(cartItem);
-                          },
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                            _controller.decreaseProductCount(cartItem);
+                          }),
+                      Text(
+                        _controller.cartItems[index].count.toString(),
+                      ),
+                      IconButton(
+                        icon: Icon(AntDesign.pluscircle),
+                        onPressed: () {
+                          _controller.incrementProductCount(cartItem);
+                        },
+                      )
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
