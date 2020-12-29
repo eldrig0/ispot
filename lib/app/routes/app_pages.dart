@@ -1,5 +1,7 @@
 import 'package:get/route_manager.dart';
+import 'package:ispot/app/binding/auth/auth_binding.dart';
 import 'package:ispot/app/binding/collection/collection_binding.dart';
+import 'package:ispot/app/ui/page/auth/auth_page.dart';
 import 'package:ispot/app/ui/page/collection/collection_page.dart';
 
 import '../binding/attribute/attribute_binding.dart';
@@ -55,6 +57,11 @@ class AppPages {
       name: Routes.COLLECTION,
       page: () => CollectionPage(),
       binding: CollectionBinding(),
+    ),
+    GetPage(
+      name: Routes.AUTH,
+      page: () => AuthPage(),
+      binding: AuthBinding(),
     )
   ];
 }

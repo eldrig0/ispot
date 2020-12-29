@@ -1,0 +1,7 @@
+mutation registerAccount($input: AccountRegisterInput!) {
+  accountRegister(input: $input) {
+    user {
+      id
+    }
+  }
+}

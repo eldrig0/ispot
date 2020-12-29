@@ -121,13 +121,18 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget _buildAppBar() =>
-      UIHelper.buildSliverAppBar(leading: UIHelper.buildUserIcon(), actions: [
-        UIHelper.buildCategoriesIcon(onPressed: () {}),
-        Padding(
-            padding: EdgeInsets.only(right: 18),
-            child: UIHelper.buildCartIcon())
-      ]);
+  Widget _buildAppBar() => UIHelper.buildSliverAppBar(
+          leading: GestureDetector(
+              onTap: () {
+                Get.toNamed('/auth');
+              },
+              child: UIHelper.buildUserIcon()),
+          actions: [
+            UIHelper.buildCategoriesIcon(onPressed: () {}),
+            Padding(
+                padding: EdgeInsets.only(right: 18),
+                child: UIHelper.buildCartIcon())
+          ]);
 
   Widget _buildTitle(String title) {
     return SliverToBoxAdapter(
@@ -162,7 +167,6 @@ class _HomePageState extends State<HomePage> {
                     }),
               );
             }
-
             return Container();
           }),
     );

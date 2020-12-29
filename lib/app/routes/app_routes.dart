@@ -9,4 +9,5 @@ abstract class Routes {
   static const SEARCH = '/search';
   static const FILTER = '/filter/:categoryId';
   static const CART = '/cart';
+  static const AUTH = '/auth';
 }

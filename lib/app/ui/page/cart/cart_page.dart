@@ -26,23 +26,6 @@ class CartsPage extends StatelessWidget {
     );
   }
 
-  // _buildItemList(CartController _controller) {
-  //   return GetX<CartController>(
-  //     builder: (_controller) => SliverAnimatedList(
-  //       itemBuilder: (context, index, animation) {
-  //         return Padding(
-  //           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
-  //           child: CartItemWidget(
-  //               index: index,
-  //               cartItem: _controller.cartItems[index],
-  //               animation: animation),
-  //         );
-  //       },
-  //       initialItemCount: _controller.cartItems.length,
-  //     ),
-  //   );
-  // }
-
   _buildListItem() {
     return SliverToBoxAdapter(
       child: GetX<CartController>(

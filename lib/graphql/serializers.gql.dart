@@ -15,6 +15,15 @@ import 'package:ispot/app/data/provider/attribute/graphql/attributes.req.gql.dar
     show GattributesReq;
 import 'package:ispot/app/data/provider/attribute/graphql/attributes.var.gql.dart'
     show GattributesVars;
+import 'package:ispot/app/data/provider/auth/graphql/register/create_account.data.gql.dart'
+    show
+        GregisterAccountData,
+        GregisterAccountData_accountRegister,
+        GregisterAccountData_accountRegister_user;
+import 'package:ispot/app/data/provider/auth/graphql/register/create_account.req.gql.dart'
+    show GregisterAccountReq;
+import 'package:ispot/app/data/provider/auth/graphql/register/create_account.var.gql.dart'
+    show GregisterAccountVars;
 import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.dart'
     show
         GCategoryListData,
@@ -837,6 +846,11 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GattributesData_attributes_edges_node_values,
   GattributesData_attributes_pageInfo,
   GattributesReq,
-  GattributesVars
+  GattributesVars,
+  GregisterAccountData,
+  GregisterAccountData_accountRegister,
+  GregisterAccountData_accountRegister_user,
+  GregisterAccountReq,
+  GregisterAccountVars
 ])
 final Serializers serializers = _serializersBuilder.build();

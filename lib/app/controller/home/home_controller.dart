@@ -41,9 +41,6 @@ class HomeController extends GetxController {
         homeProducts.addAll(
             [...products.where((element) => element.isAvailable ?? true)]);
       });
-      // homeProducts.clear();
-      // homeProducts.addAll(products);
-      // _updateDataFetchStates(PRODUCTS, true);
     });
   }
 
