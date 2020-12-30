@@ -1,5 +1,10 @@
 mutation registerAccount($input: AccountRegisterInput!) {
   accountRegister(input: $input) {
+    accountErrors {
+      message
+      field
+      code
+    }
     user {
       id
     }

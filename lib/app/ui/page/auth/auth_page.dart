@@ -1,8 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/auth/auth_controller.dart';
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/primary_button/primary_button.dart';
-import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AuthPage extends GetView<AuthController> {
@@ -41,41 +42,105 @@ class AuthPage extends GetView<AuthController> {
                   height: 18,
                 ),
                 GetX<AuthController>(
-                  builder: (_controller) => PrimaryButton(
-                    onPressed: _controller.formValid.value
-                        ? () {
-                            _controller.registerUser();
-                          }
-                        : null,
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                  builder: (_controller) => _controller.isLogin.value
+                      ? buildLogInButton(_controller.formValid.value
+                          ? () {
+                              _controller.registerUser();
+                            }
+                          : null)
+                      : buildSignUpButton(controller.formValid.value
+                          ? () {
+                              _controller.registerUser();
+                            }
+                          : null),
                 ),
                 SizedBox(
                   height: 18,
                 ),
-                // GetX<AuthController>(
-                //   builder: (_controller) {
-                //     if (!controller.failureOrUser.value.isNullOrBlank) {
-                //       return controller.failureOrUser.value.fold((failure) {
-                //         Get.defaultDialog(title: failure.message);
-                //         return Container();
-                //       }, (result) {
-                //         Get.toNamed('/');
-                //         return Container();
-                //       });
-                //     }
-                //     return Container();
-                //   },
-                // )
+                GetX<AuthController>(
+                  builder: (_controller) => _controller.isLogin.value
+                      ? Center(
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Text(
+                              'Forgot password?',
+                              style: TextStyle(color: Colors.blueAccent),
+                            ),
+                          ),
+                        )
+                      : Container(),
+                ),
+                SizedBox(
+                  height: 18,
+                ),
+                GetX<AuthController>(
+                    builder: (_controller) => _controller.isLogin.value
+                        ? buildSignUpRedirect(() {
+                            _controller.showSignUpForm();
+                          })
+                        : buildLoginRedirect(() {
+                            _controller.showLogInForm();
+                          }))
               ],
             ),
           );
         }),
+      ),
+    );
+  }
+
+  Container buildLoginRedirect(Function onTap) {
+    return Container(
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+              text: 'Already have an account?',
+              style: TextStyle(color: ISpotTheme.textColor, fontSize: 18),
+              children: <TextSpan>[
+                TextSpan(
+                    text: ' Log in',
+                    style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+                    recognizer: TapGestureRecognizer()..onTap = onTap),
+              ]),
+        ),
+      ),
+    );
+  }
+
+  Container buildSignUpRedirect(Function onTap) {
+    return Container(
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+              text: 'Don\'t have an account?',
+              style: TextStyle(color: ISpotTheme.textColor, fontSize: 18),
+              children: <TextSpan>[
+                TextSpan(
+                    text: ' Sign up',
+                    style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+                    recognizer: TapGestureRecognizer()..onTap = onTap),
+              ]),
+        ),
+      ),
+    );
+  }
+
+  Widget buildLogInButton(Function onPressed) {
+    return PrimaryButton(
+      onPressed: onPressed,
+      child: Text(
+        'LOG IN',
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget buildSignUpButton(Function onPressed) {
+    return PrimaryButton(
+      onPressed: onPressed,
+      child: Text(
+        'REGISTER',
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

@@ -11,6 +11,9 @@ Serializer<GregisterAccountData> _$gregisterAccountDataSerializer =
 Serializer<GregisterAccountData_accountRegister>
     _$gregisterAccountDataAccountRegisterSerializer =
     new _$GregisterAccountData_accountRegisterSerializer();
+Serializer<GregisterAccountData_accountRegister_accountErrors>
+    _$gregisterAccountDataAccountRegisterAccountErrorsSerializer =
+    new _$GregisterAccountData_accountRegister_accountErrorsSerializer();
 Serializer<GregisterAccountData_accountRegister_user>
     _$gregisterAccountDataAccountRegisterUserSerializer =
     new _$GregisterAccountData_accountRegister_userSerializer();
@@ -91,6 +94,11 @@ class _$GregisterAccountData_accountRegisterSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'accountErrors',
+      serializers.serialize(object.accountErrors,
+          specifiedType: const FullType(BuiltList, const [
+            const FullType(GregisterAccountData_accountRegister_accountErrors)
+          ])),
     ];
     if (object.user != null) {
       result
@@ -118,11 +126,94 @@ class _$GregisterAccountData_accountRegisterSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'accountErrors':
+          result.accountErrors.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    GregisterAccountData_accountRegister_accountErrors)
+              ])) as BuiltList<Object>);
+          break;
         case 'user':
           result.user.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(GregisterAccountData_accountRegister_user))
               as GregisterAccountData_accountRegister_user);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GregisterAccountData_accountRegister_accountErrorsSerializer
+    implements
+        StructuredSerializer<
+            GregisterAccountData_accountRegister_accountErrors> {
+  @override
+  final Iterable<Type> types = const [
+    GregisterAccountData_accountRegister_accountErrors,
+    _$GregisterAccountData_accountRegister_accountErrors
+  ];
+  @override
+  final String wireName = 'GregisterAccountData_accountRegister_accountErrors';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers,
+      GregisterAccountData_accountRegister_accountErrors object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'code',
+      serializers.serialize(object.code,
+          specifiedType: const FullType(_i2.GAccountErrorCode)),
+    ];
+    if (object.message != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(object.message,
+            specifiedType: const FullType(String)));
+    }
+    if (object.field != null) {
+      result
+        ..add('field')
+        ..add(serializers.serialize(object.field,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GregisterAccountData_accountRegister_accountErrors deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GregisterAccountData_accountRegister_accountErrorsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'field':
+          result.field = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'code':
+          result.code = serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GAccountErrorCode))
+              as _i2.GAccountErrorCode;
           break;
       }
     }
@@ -302,6 +393,9 @@ class _$GregisterAccountData_accountRegister
   @override
   final String G__typename;
   @override
+  final BuiltList<GregisterAccountData_accountRegister_accountErrors>
+      accountErrors;
+  @override
   final GregisterAccountData_accountRegister_user user;
 
   factory _$GregisterAccountData_accountRegister(
@@ -310,11 +404,16 @@ class _$GregisterAccountData_accountRegister
       (new GregisterAccountData_accountRegisterBuilder()..update(updates))
           .build();
 
-  _$GregisterAccountData_accountRegister._({this.G__typename, this.user})
+  _$GregisterAccountData_accountRegister._(
+      {this.G__typename, this.accountErrors, this.user})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
           'GregisterAccountData_accountRegister', 'G__typename');
+    }
+    if (accountErrors == null) {
+      throw new BuiltValueNullFieldError(
+          'GregisterAccountData_accountRegister', 'accountErrors');
     }
   }
 
@@ -332,18 +431,21 @@ class _$GregisterAccountData_accountRegister
     if (identical(other, this)) return true;
     return other is GregisterAccountData_accountRegister &&
         G__typename == other.G__typename &&
+        accountErrors == other.accountErrors &&
         user == other.user;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), user.hashCode));
+    return $jf($jc($jc($jc(0, G__typename.hashCode), accountErrors.hashCode),
+        user.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('GregisterAccountData_accountRegister')
           ..add('G__typename', G__typename)
+          ..add('accountErrors', accountErrors)
           ..add('user', user))
         .toString();
   }
@@ -359,6 +461,16 @@ class GregisterAccountData_accountRegisterBuilder
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
+  ListBuilder<GregisterAccountData_accountRegister_accountErrors>
+      _accountErrors;
+  ListBuilder<GregisterAccountData_accountRegister_accountErrors>
+      get accountErrors => _$this._accountErrors ??=
+          new ListBuilder<GregisterAccountData_accountRegister_accountErrors>();
+  set accountErrors(
+          ListBuilder<GregisterAccountData_accountRegister_accountErrors>
+              accountErrors) =>
+      _$this._accountErrors = accountErrors;
+
   GregisterAccountData_accountRegister_userBuilder _user;
   GregisterAccountData_accountRegister_userBuilder get user =>
       _$this._user ??= new GregisterAccountData_accountRegister_userBuilder();
@@ -372,6 +484,7 @@ class GregisterAccountData_accountRegisterBuilder
   GregisterAccountData_accountRegisterBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
+      _accountErrors = _$v.accountErrors?.toBuilder();
       _user = _$v.user?.toBuilder();
       _$v = null;
     }
@@ -398,10 +511,14 @@ class GregisterAccountData_accountRegisterBuilder
     try {
       _$result = _$v ??
           new _$GregisterAccountData_accountRegister._(
-              G__typename: G__typename, user: _user?.build());
+              G__typename: G__typename,
+              accountErrors: accountErrors.build(),
+              user: _user?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'accountErrors';
+        accountErrors.build();
         _$failedField = 'user';
         _user?.build();
       } catch (e) {
@@ -412,6 +529,145 @@ class GregisterAccountData_accountRegisterBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GregisterAccountData_accountRegister_accountErrors
+    extends GregisterAccountData_accountRegister_accountErrors {
+  @override
+  final String G__typename;
+  @override
+  final String message;
+  @override
+  final String field;
+  @override
+  final _i2.GAccountErrorCode code;
+
+  factory _$GregisterAccountData_accountRegister_accountErrors(
+          [void Function(
+                  GregisterAccountData_accountRegister_accountErrorsBuilder)
+              updates]) =>
+      (new GregisterAccountData_accountRegister_accountErrorsBuilder()
+            ..update(updates))
+          .build();
+
+  _$GregisterAccountData_accountRegister_accountErrors._(
+      {this.G__typename, this.message, this.field, this.code})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GregisterAccountData_accountRegister_accountErrors', 'G__typename');
+    }
+    if (code == null) {
+      throw new BuiltValueNullFieldError(
+          'GregisterAccountData_accountRegister_accountErrors', 'code');
+    }
+  }
+
+  @override
+  GregisterAccountData_accountRegister_accountErrors rebuild(
+          void Function(
+                  GregisterAccountData_accountRegister_accountErrorsBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GregisterAccountData_accountRegister_accountErrorsBuilder toBuilder() =>
+      new GregisterAccountData_accountRegister_accountErrorsBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GregisterAccountData_accountRegister_accountErrors &&
+        G__typename == other.G__typename &&
+        message == other.message &&
+        field == other.field &&
+        code == other.code;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc($jc($jc(0, G__typename.hashCode), message.hashCode),
+            field.hashCode),
+        code.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GregisterAccountData_accountRegister_accountErrors')
+          ..add('G__typename', G__typename)
+          ..add('message', message)
+          ..add('field', field)
+          ..add('code', code))
+        .toString();
+  }
+}
+
+class GregisterAccountData_accountRegister_accountErrorsBuilder
+    implements
+        Builder<GregisterAccountData_accountRegister_accountErrors,
+            GregisterAccountData_accountRegister_accountErrorsBuilder> {
+  _$GregisterAccountData_accountRegister_accountErrors _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  String _message;
+  String get message => _$this._message;
+  set message(String message) => _$this._message = message;
+
+  String _field;
+  String get field => _$this._field;
+  set field(String field) => _$this._field = field;
+
+  _i2.GAccountErrorCode _code;
+  _i2.GAccountErrorCode get code => _$this._code;
+  set code(_i2.GAccountErrorCode code) => _$this._code = code;
+
+  GregisterAccountData_accountRegister_accountErrorsBuilder() {
+    GregisterAccountData_accountRegister_accountErrors._initializeBuilder(this);
+  }
+
+  GregisterAccountData_accountRegister_accountErrorsBuilder get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _message = _$v.message;
+      _field = _$v.field;
+      _code = _$v.code;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GregisterAccountData_accountRegister_accountErrors other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GregisterAccountData_accountRegister_accountErrors;
+  }
+
+  @override
+  void update(
+      void Function(GregisterAccountData_accountRegister_accountErrorsBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GregisterAccountData_accountRegister_accountErrors build() {
+    final _$result = _$v ??
+        new _$GregisterAccountData_accountRegister_accountErrors._(
+            G__typename: G__typename,
+            message: message,
+            field: field,
+            code: code);
     replace(_$result);
     return _$result;
   }

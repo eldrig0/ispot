@@ -27,6 +27,31 @@ const registerAccount = _i1.OperationDefinitionNode(
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
+                name: _i1.NameNode(value: 'accountErrors'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'message'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'field'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'code'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ])),
+            _i1.FieldNode(
                 name: _i1.NameNode(value: 'user'),
                 alias: null,
                 arguments: [],

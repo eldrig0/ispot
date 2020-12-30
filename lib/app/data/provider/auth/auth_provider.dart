@@ -14,13 +14,26 @@ class AuthProvider {
       {@required email, @required password}) {
     final registerUserRequest = GregisterAccountReq((request) => request
       ..vars.input.email = email
-      ..vars.input.password = password);
+      ..vars.input.password = password
+      ..vars.input.redirectUrl = 'https://ispot.store');
 
     return _client.request(registerUserRequest).map((response) {
-      if (response.hasErrors || response.graphqlErrors != null) {
-        return Left(Failure('An error occured while siging you up'));
+      if (response.hasErrors ||
+          response.graphqlErrors != null ||
+          response.data.accountRegister.accountErrors != null) {
+        if (response.data?.accountRegister?.accountErrors != null) {
+          final accountErrorMessage =
+              response.data.accountRegister?.accountErrors?.first?.message ??
+                  'An error occured while signing up';
+
+          return Left(Failure(accountErrorMessage));
+        }
+
+        final errorMessage = 'An error occured while signing you up';
+        return Left(Failure(errorMessage));
       }
-      return Right(User(id: response.data.accountRegister.user.id));
+
+      return Right(User(id: response.data?.accountRegister?.user?.id));
     });
   }
 }

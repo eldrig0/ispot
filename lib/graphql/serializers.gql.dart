@@ -19,6 +19,7 @@ import 'package:ispot/app/data/provider/auth/graphql/register/create_account.dat
     show
         GregisterAccountData,
         GregisterAccountData_accountRegister,
+        GregisterAccountData_accountRegister_accountErrors,
         GregisterAccountData_accountRegister_user;
 import 'package:ispot/app/data/provider/auth/graphql/register/create_account.req.gql.dart'
     show GregisterAccountReq;
@@ -849,6 +850,7 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GattributesVars,
   GregisterAccountData,
   GregisterAccountData_accountRegister,
+  GregisterAccountData_accountRegister_accountErrors,
   GregisterAccountData_accountRegister_user,
   GregisterAccountReq,
   GregisterAccountVars
