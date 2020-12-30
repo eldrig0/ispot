@@ -12,14 +12,6 @@ class AuthPage extends GetView<AuthController> {
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: GetX<AuthController>(builder: (_controller) {
-          // if (!controller.failureOrUser.isNullOrBlank) {
-          //   controller.failureOrUser.value.fold((failure) {
-          //     Get.defaultDialog(title: failure.message);
-          //   }, (result) {
-          //     Get.toNamed('/');
-          //   });
-          // }
-
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -50,14 +42,11 @@ class AuthPage extends GetView<AuthController> {
                 ),
                 GetX<AuthController>(
                   builder: (_controller) => PrimaryButton(
-                    // onPressed: _controller.formValid.value
-                    //     ? () {
-                    //         _controller.registerUser();
-                    //       }
-                    //     : null,
-                    onPressed: () {
-                      Get.defaultDialog(title: "hello wolrd");
-                    },
+                    onPressed: _controller.formValid.value
+                        ? () {
+                            _controller.registerUser();
+                          }
+                        : null,
                     child: Text(
                       'LOGIN',
                       style: TextStyle(
@@ -69,6 +58,20 @@ class AuthPage extends GetView<AuthController> {
                 SizedBox(
                   height: 18,
                 ),
+                // GetX<AuthController>(
+                //   builder: (_controller) {
+                //     if (!controller.failureOrUser.value.isNullOrBlank) {
+                //       return controller.failureOrUser.value.fold((failure) {
+                //         Get.defaultDialog(title: failure.message);
+                //         return Container();
+                //       }, (result) {
+                //         Get.toNamed('/');
+                //         return Container();
+                //       });
+                //     }
+                //     return Container();
+                //   },
+                // )
               ],
             ),
           );

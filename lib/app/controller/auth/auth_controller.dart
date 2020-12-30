@@ -11,7 +11,7 @@ class AuthController extends GetxController {
 
   AuthController(this._repository);
 
-  // Rx<Either<Failure, User>> failureOrUser;
+  Rx<Either<Failure, User>> failureOrUser = Rx();
 
   final form = Rx(
     FormGroup({
@@ -37,17 +37,7 @@ class AuthController extends GetxController {
             email: form.value.control('email').value,
             password: form.value.control('password').value)
         .take(1)
-        .listen((result) {
-      result.fold((failure) {
-        Get.defaultDialog(
-          title: failure.message,
-        );
-      }, (result) {
-        //save user function
-        Get.toNamed('/');
-      });
-      // failureOrUser = Rx(result);
-    });
+        .listen((result) {});
   }
 
   getForm() {
