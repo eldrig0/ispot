@@ -2,16 +2,42 @@
 
 import 'package:gql/ast.dart' as _i1;
 
-const schema = _i1.SchemaDefinitionNode(directives: [], operationTypes: [
-  _i1.OperationTypeDefinitionNode(
-      operation: _i1.OperationType.query,
-      type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'Query'), isNonNull: false)),
-  _i1.OperationTypeDefinitionNode(
-      operation: _i1.OperationType.mutation,
-      type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'Mutation'), isNonNull: false))
-]);
+const _Any = _i1.ScalarTypeDefinitionNode(
+    name: _i1.NameNode(value: '_Any'), directives: []);
+const _Entity = _i1.UnionTypeDefinitionNode(
+    name: _i1.NameNode(value: '_Entity'),
+    directives: [],
+    types: [
+      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Address'), isNonNull: false),
+      _i1.NamedTypeNode(name: _i1.NameNode(value: 'User'), isNonNull: false),
+      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Group'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'ServiceAccount'), isNonNull: false),
+      _i1.NamedTypeNode(name: _i1.NameNode(value: 'App'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'ProductVariant'), isNonNull: false),
+      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Product'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'ProductType'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Collection'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Category'), isNonNull: false),
+      _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'ProductImage'), isNonNull: false)
+    ]);
+const _Service = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: '_Service'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'sdl'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false))
+    ]);
 const AccountAddressCreate = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'AccountAddressCreate'),
     directives: [],
@@ -4314,8 +4340,7 @@ const Checkout = _i1.ObjectTypeDefinitionNode(
           args: [],
           type: _i1.ListTypeNode(
               type: _i1.NamedTypeNode(
-                  name: _i1.NameNode(value: 'PaymentGateway'),
-                  isNonNull: false),
+                  name: _i1.NameNode(value: 'PaymentGateway'), isNonNull: true),
               isNonNull: true)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'email'),
@@ -8425,51 +8450,6 @@ const DraftOrderLineDelete = _i1.ObjectTypeDefinitionNode(
                   name: _i1.NameNode(value: 'OrderError'), isNonNull: true),
               isNonNull: true))
     ]);
-const DraftOrderLineUpdate = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'DraftOrderLineUpdate'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'errors'),
-          directives: [
-            _i1.DirectiveNode(
-                name: _i1.NameNode(value: 'deprecated'),
-                arguments: [
-                  _i1.ArgumentNode(
-                      name: _i1.NameNode(value: 'reason'),
-                      value: _i1.StringValueNode(
-                          value:
-                              'Use typed errors with error codes. This field will be removed after 2020-07-31.',
-                          isBlock: false))
-                ])
-          ],
-          args: [],
-          type: _i1.ListTypeNode(
-              type: _i1.NamedTypeNode(
-                  name: _i1.NameNode(value: 'Error'), isNonNull: true),
-              isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'order'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Order'), isNonNull: false)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'orderErrors'),
-          directives: [],
-          args: [],
-          type: _i1.ListTypeNode(
-              type: _i1.NamedTypeNode(
-                  name: _i1.NameNode(value: 'OrderError'), isNonNull: true),
-              isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'orderLine'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'OrderLine'), isNonNull: false))
-    ]);
 const DraftOrderLinesBulkDelete = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'DraftOrderLinesBulkDelete'),
     directives: [],
@@ -8555,6 +8535,51 @@ const DraftOrderLinesCreate = _i1.ObjectTypeDefinitionNode(
               type: _i1.NamedTypeNode(
                   name: _i1.NameNode(value: 'OrderError'), isNonNull: true),
               isNonNull: true))
+    ]);
+const DraftOrderLineUpdate = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'DraftOrderLineUpdate'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'errors'),
+          directives: [
+            _i1.DirectiveNode(
+                name: _i1.NameNode(value: 'deprecated'),
+                arguments: [
+                  _i1.ArgumentNode(
+                      name: _i1.NameNode(value: 'reason'),
+                      value: _i1.StringValueNode(
+                          value:
+                              'Use typed errors with error codes. This field will be removed after 2020-07-31.',
+                          isBlock: false))
+                ])
+          ],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'Error'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'order'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Order'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'orderErrors'),
+          directives: [],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'OrderError'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'orderLine'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'OrderLine'), isNonNull: false))
     ]);
 const DraftOrderUpdate = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'DraftOrderUpdate'),
@@ -9613,6 +9638,8 @@ const LanguageCodeEnum = _i1.EnumTypeDefinitionNode(
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'FA'), directives: []),
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'FI'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'FR'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'HI'), directives: []),
@@ -9651,13 +9678,15 @@ const LanguageCodeEnum = _i1.EnumTypeDefinitionNode(
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'SK'), directives: []),
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'SL'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'SQ'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'SR'), directives: []),
       _i1.EnumValueDefinitionNode(
-          name: _i1.NameNode(value: 'SW'), directives: []),
-      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'SV'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'SW'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'TH'), directives: []),
       _i1.EnumValueDefinitionNode(
@@ -10404,6 +10433,13 @@ const MenuItemSortingInput = _i1.InputObjectTypeDefinitionNode(
               name: _i1.NameNode(value: 'MenuItemsSortField'), isNonNull: true),
           defaultValue: null)
     ]);
+const MenuItemsSortField = _i1.EnumTypeDefinitionNode(
+    name: _i1.NameNode(value: 'MenuItemsSortField'),
+    directives: [],
+    values: [
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'NAME'), directives: [])
+    ]);
 const MenuItemTranslatableContent = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'MenuItemTranslatableContent'),
     directives: [],
@@ -10550,13 +10586,6 @@ const MenuItemUpdate = _i1.ObjectTypeDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'MenuItem'), isNonNull: false))
     ]);
-const MenuItemsSortField = _i1.EnumTypeDefinitionNode(
-    name: _i1.NameNode(value: 'MenuItemsSortField'),
-    directives: [],
-    values: [
-      _i1.EnumValueDefinitionNode(
-          name: _i1.NameNode(value: 'NAME'), directives: [])
-    ]);
 const MenuSortField = _i1.EnumTypeDefinitionNode(
     name: _i1.NameNode(value: 'MenuSortField'),
     directives: [],
@@ -10641,6 +10670,76 @@ const MetaClientStore = _i1.ObjectTypeDefinitionNode(
               type: _i1.NamedTypeNode(
                   name: _i1.NameNode(value: 'MetaItem'), isNonNull: false),
               isNonNull: true))
+    ]);
+const MetadataError = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'MetadataError'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'field'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'message'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'code'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'MetadataErrorCode'), isNonNull: true))
+    ]);
+const MetadataErrorCode = _i1.EnumTypeDefinitionNode(
+    name: _i1.NameNode(value: 'MetadataErrorCode'),
+    directives: [],
+    values: [
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'GRAPHQL_ERROR'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'INVALID'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'NOT_FOUND'), directives: [])
+    ]);
+const MetadataInput = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'MetadataInput'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'key'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'value'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true),
+          defaultValue: null)
+    ]);
+const MetadataItem = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'MetadataItem'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'key'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'value'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true))
     ]);
 const MetaInput = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'MetaInput'),
@@ -10732,76 +10831,6 @@ const MetaStore = _i1.ObjectTypeDefinitionNode(
                   name: _i1.NameNode(value: 'MetaClientStore'),
                   isNonNull: false),
               isNonNull: true))
-    ]);
-const MetadataError = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'MetadataError'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'field'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: false)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'message'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: false)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'code'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'MetadataErrorCode'), isNonNull: true))
-    ]);
-const MetadataErrorCode = _i1.EnumTypeDefinitionNode(
-    name: _i1.NameNode(value: 'MetadataErrorCode'),
-    directives: [],
-    values: [
-      _i1.EnumValueDefinitionNode(
-          name: _i1.NameNode(value: 'GRAPHQL_ERROR'), directives: []),
-      _i1.EnumValueDefinitionNode(
-          name: _i1.NameNode(value: 'INVALID'), directives: []),
-      _i1.EnumValueDefinitionNode(
-          name: _i1.NameNode(value: 'NOT_FOUND'), directives: [])
-    ]);
-const MetadataInput = _i1.InputObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'MetadataInput'),
-    directives: [],
-    fields: [
-      _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'key'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true),
-          defaultValue: null),
-      _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'value'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true),
-          defaultValue: null)
-    ]);
-const MetadataItem = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'MetadataItem'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'key'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'value'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true))
     ]);
 const Money = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'Money'),
@@ -18743,6 +18772,13 @@ const PaymentErrorCode = _i1.EnumTypeDefinitionNode(
           name: _i1.NameNode(value: 'PARTIAL_PAYMENT_NOT_ALLOWED'),
           directives: []),
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'SHIPPING_ADDRESS_NOT_SET'),
+          directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'INVALID_SHIPPING_METHOD'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'SHIPPING_METHOD_NOT_SET'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'PAYMENT_ERROR'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'REQUIRED'), directives: []),
@@ -18760,6 +18796,12 @@ const PaymentGateway = _i1.ObjectTypeDefinitionNode(
           args: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'ID'), isNonNull: true)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'config'),
           directives: [],
@@ -22041,7 +22083,7 @@ const ProductVariant = _i1.ObjectTypeDefinitionNode(
                       name: _i1.NameNode(value: 'reason'),
                       value: _i1.StringValueNode(
                           value:
-                              'Use the stock field instead. This field will be removed after 2020-07-31.',
+                              'Use the quantityAvailable field instead. This field will be removed after 2020-07-31.',
                           isBlock: false))
                 ])
           ],
@@ -22162,7 +22204,20 @@ const ProductVariant = _i1.ObjectTypeDefinitionNode(
           type: _i1.ListTypeNode(
               type: _i1.NamedTypeNode(
                   name: _i1.NameNode(value: 'Stock'), isNonNull: false),
-              isNonNull: false))
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'quantityAvailable'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'countryCode'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'CountryCode'), isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true))
     ]);
 const ProductVariantBulkCreate = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'ProductVariantBulkCreate'),
@@ -23429,7 +23484,13 @@ const Query = _i1.ObjectTypeDefinitionNode(
                 name: _i1.NameNode(value: 'id'),
                 directives: [],
                 type: _i1.NamedTypeNode(
-                    name: _i1.NameNode(value: 'ID'), isNonNull: true),
+                    name: _i1.NameNode(value: 'ID'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'slug'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: false),
                 defaultValue: null)
           ],
           type: _i1.NamedTypeNode(
@@ -23442,7 +23503,13 @@ const Query = _i1.ObjectTypeDefinitionNode(
                 name: _i1.NameNode(value: 'id'),
                 directives: [],
                 type: _i1.NamedTypeNode(
-                    name: _i1.NameNode(value: 'ID'), isNonNull: true),
+                    name: _i1.NameNode(value: 'ID'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'slug'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: false),
                 defaultValue: null)
           ],
           type: _i1.NamedTypeNode(
@@ -23501,7 +23568,13 @@ const Query = _i1.ObjectTypeDefinitionNode(
                 name: _i1.NameNode(value: 'id'),
                 directives: [],
                 type: _i1.NamedTypeNode(
-                    name: _i1.NameNode(value: 'ID'), isNonNull: true),
+                    name: _i1.NameNode(value: 'ID'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'slug'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: false),
                 defaultValue: null)
           ],
           type: _i1.NamedTypeNode(
@@ -27089,6 +27162,14 @@ const Shop = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'availablePaymentGateways'),
+          directives: [],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'PaymentGateway'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'geolocalization'),
           directives: [],
           args: [],
@@ -27117,8 +27198,7 @@ const Shop = _i1.ObjectTypeDefinitionNode(
           ],
           type: _i1.ListTypeNode(
               type: _i1.NamedTypeNode(
-                  name: _i1.NameNode(value: 'CountryDisplay'),
-                  isNonNull: false),
+                  name: _i1.NameNode(value: 'CountryDisplay'), isNonNull: true),
               isNonNull: true)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'currencies'),
@@ -28222,12 +28302,6 @@ const Stock = _i1.ObjectTypeDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'ID'), isNonNull: true)),
       _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'stockQuantity'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Int'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'quantityAllocated'),
           directives: [],
           args: [],
@@ -28363,6 +28437,54 @@ const StockInput = _i1.InputObjectTypeDefinitionNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false),
           defaultValue: null)
     ]);
+const TaxedMoney = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'TaxedMoney'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'currency'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'gross'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Money'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'net'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Money'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'tax'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Money'), isNonNull: true))
+    ]);
+const TaxedMoneyRange = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'TaxedMoneyRange'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'start'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'TaxedMoney'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'stop'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'TaxedMoney'), isNonNull: false))
+    ]);
 const TaxRateType = _i1.EnumTypeDefinitionNode(
     name: _i1.NameNode(value: 'TaxRateType'),
     directives: [],
@@ -28438,54 +28560,6 @@ const TaxType = _i1.ObjectTypeDefinitionNode(
           args: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false))
-    ]);
-const TaxedMoney = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'TaxedMoney'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'currency'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'gross'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Money'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'net'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Money'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'tax'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Money'), isNonNull: true))
-    ]);
-const TaxedMoneyRange = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'TaxedMoneyRange'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'start'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'TaxedMoney'), isNonNull: false)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'stop'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'TaxedMoney'), isNonNull: false))
     ]);
 const Transaction = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'Transaction'),
@@ -28780,8 +28854,6 @@ const TranslationInput = _i1.InputObjectTypeDefinitionNode(
               name: _i1.NameNode(value: 'JSONString'), isNonNull: false),
           defaultValue: null)
     ]);
-const UUID = _i1.ScalarTypeDefinitionNode(
-    name: _i1.NameNode(value: 'UUID'), directives: []);
 const UpdateMetadata = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'UpdateMetadata'),
     directives: [],
@@ -29579,32 +29651,8 @@ const UserUpdatePrivateMeta = _i1.ObjectTypeDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'User'), isNonNull: false))
     ]);
-const VAT = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: 'VAT'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'countryCode'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'standardRate'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'reducedRates'),
-          directives: [],
-          args: [],
-          type: _i1.ListTypeNode(
-              type: _i1.NamedTypeNode(
-                  name: _i1.NameNode(value: 'ReducedRate'), isNonNull: false),
-              isNonNull: true))
-    ]);
+const UUID = _i1.ScalarTypeDefinitionNode(
+    name: _i1.NameNode(value: 'UUID'), directives: []);
 const VariantImageAssign = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'VariantImageAssign'),
     directives: [],
@@ -29736,6 +29784,32 @@ const VariantPricingInfo = _i1.ObjectTypeDefinitionNode(
           args: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'TaxedMoney'), isNonNull: false))
+    ]);
+const VAT = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'VAT'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'countryCode'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'standardRate'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'reducedRates'),
+          directives: [],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'ReducedRate'), isNonNull: false),
+              isNonNull: true))
     ]);
 const VerifyToken = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'VerifyToken'),
@@ -31616,44 +31690,10 @@ const WeightUnitsEnum = _i1.EnumTypeDefinitionNode(
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'G'), directives: [])
     ]);
-const _Any = _i1.ScalarTypeDefinitionNode(
-    name: _i1.NameNode(value: '_Any'), directives: []);
-const _Entity = _i1.UnionTypeDefinitionNode(
-    name: _i1.NameNode(value: '_Entity'),
-    directives: [],
-    types: [
-      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Address'), isNonNull: false),
-      _i1.NamedTypeNode(name: _i1.NameNode(value: 'User'), isNonNull: false),
-      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Group'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'ServiceAccount'), isNonNull: false),
-      _i1.NamedTypeNode(name: _i1.NameNode(value: 'App'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'ProductVariant'), isNonNull: false),
-      _i1.NamedTypeNode(name: _i1.NameNode(value: 'Product'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'ProductType'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'Collection'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'Category'), isNonNull: false),
-      _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'ProductImage'), isNonNull: false)
-    ]);
-const _Service = _i1.ObjectTypeDefinitionNode(
-    name: _i1.NameNode(value: '_Service'),
-    directives: [],
-    interfaces: [],
-    fields: [
-      _i1.FieldDefinitionNode(
-          name: _i1.NameNode(value: 'sdl'),
-          directives: [],
-          args: [],
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: false))
-    ]);
 const document = _i1.DocumentNode(definitions: [
-  schema,
+  _Any,
+  _Entity,
+  _Service,
   AccountAddressCreate,
   AccountAddressDelete,
   AccountAddressUpdate,
@@ -31855,9 +31895,9 @@ const document = _i1.DocumentNode(definitions: [
   DraftOrderDelete,
   DraftOrderInput,
   DraftOrderLineDelete,
-  DraftOrderLineUpdate,
   DraftOrderLinesBulkDelete,
   DraftOrderLinesCreate,
+  DraftOrderLineUpdate,
   DraftOrderUpdate,
   Error,
   Fulfillment,
@@ -31918,23 +31958,23 @@ const document = _i1.DocumentNode(definitions: [
   MenuItemMove,
   MenuItemMoveInput,
   MenuItemSortingInput,
+  MenuItemsSortField,
   MenuItemTranslatableContent,
   MenuItemTranslate,
   MenuItemTranslation,
   MenuItemUpdate,
-  MenuItemsSortField,
   MenuSortField,
   MenuSortingInput,
   MenuUpdate,
   MetaClientStore,
-  MetaInput,
-  MetaItem,
-  MetaPath,
-  MetaStore,
   MetadataError,
   MetadataErrorCode,
   MetadataInput,
   MetadataItem,
+  MetaInput,
+  MetaItem,
+  MetaPath,
+  MetaStore,
   Money,
   MoneyRange,
   MoveProductInput,
@@ -32212,10 +32252,10 @@ const document = _i1.DocumentNode(definitions: [
   StockErrorCode,
   StockFilterInput,
   StockInput,
-  TaxRateType,
-  TaxType,
   TaxedMoney,
   TaxedMoneyRange,
+  TaxRateType,
+  TaxType,
   Transaction,
   TransactionError,
   TransactionKind,
@@ -32226,7 +32266,6 @@ const document = _i1.DocumentNode(definitions: [
   TranslationError,
   TranslationErrorCode,
   TranslationInput,
-  UUID,
   UpdateMetadata,
   UpdatePrivateMetadata,
   Upload,
@@ -32244,10 +32283,11 @@ const document = _i1.DocumentNode(definitions: [
   UserSortingInput,
   UserUpdateMeta,
   UserUpdatePrivateMeta,
-  VAT,
+  UUID,
   VariantImageAssign,
   VariantImageUnassign,
   VariantPricingInfo,
+  VAT,
   VerifyToken,
   Voucher,
   VoucherAddCatalogues,
@@ -32301,8 +32341,5 @@ const document = _i1.DocumentNode(definitions: [
   WebhookUpdateInput,
   Weight,
   WeightScalar,
-  WeightUnitsEnum,
-  _Any,
-  _Entity,
-  _Service
+  WeightUnitsEnum
 ]);

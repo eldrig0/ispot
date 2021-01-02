@@ -1,16 +1,21 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/data/failures/failure.dart';
-import 'package:ispot/app/data/model/user.dart';
-import 'package:ispot/app/data/repository/auth/auth_repository.dart';
-import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:ispot/app/misc/utils.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../data/failures/failure.dart';
+import '../../data/model/user.dart';
+import '../../data/repository/auth/auth_repository.dart';
+import '../../ui/widgets/ui_helper/ui_helper.dart';
 
 class AuthController extends GetxController {
   final isLogin = false.obs;
   final AuthRepository _repository;
   final formValid = false.obs;
+  final emailValid = false.obs;
+  final forgotPassword = false.obs;
 
   AuthController(this._repository);
 
@@ -31,14 +36,16 @@ class AuthController extends GetxController {
     super.onInit();
     form.value.valueChanges.listen((value) {
       formValid.value = form.value.valid;
+      emailValid.value = form.value.control('email').valid;
     });
   }
 
   registerUser() {
     _repository
         .registerUser(
-            email: form.value.control('email').value,
-            password: form.value.control('password').value)
+          email: _getFormControlValue('email'),
+          password: _getFormControlValue('password'),
+        )
         .take(1)
         .listen((result) {
       result.fold((failure) {
@@ -46,25 +53,99 @@ class AuthController extends GetxController {
             barrierDismissible: true,
             title: 'Error',
             middleText: failure.message,
-            cancel: UIHelper.buildDialogCancelButton());
+            cancel: UIHelper.buildDialogButton('OKAY'));
       }, (result) {
-        //save user
-        Get.toNamed('/');
+        Get.defaultDialog(
+            barrierDismissible: true,
+            onConfirm: () {
+              showLogInForm();
+            },
+            middleText:
+                'We sent you an account verification email, please check your email',
+            confirm: UIHelper.buildDialogButton('OKAY'));
       });
     });
   }
 
-  login() {}
+  login() {
+    _repository
+        .login(
+            email: _getFormControlValue('email'),
+            password: _getFormControlValue('password'))
+        .take(1)
+        .listen((result) {
+      result.fold((failure) {
+        Get.defaultDialog(
+            barrierDismissible: true,
+            title: 'Error',
+            middleText: failure.message,
+            cancel: UIHelper.buildDialogButton('OKAY'));
+      }, (token) {
+        final box = GetStorage();
+        box.write('token', token);
+        Get.offAndToNamed('/');
+      });
+    });
+  }
+
+  requestPasswordReset() {
+    _repository
+        .requestPasswordReset(email: _getFormControlValue('email'))
+        .take(1)
+        .listen((response) {
+      response.fold(onFailure, (result) {
+        Get.defaultDialog(
+          title: 'Hello!',
+          barrierDismissible: true,
+          onConfirm: () {
+            showLogInForm();
+          },
+          middleText:
+              'We sent you password reset link to your mail, Please click on the link and login again',
+          confirm: RaisedButton(
+            onPressed: () {
+              Get.back();
+            },
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                'OKAY',
+                style: TextStyle(color: Colors.white),
+              ),
+            ]),
+          ),
+        ).then((value) {
+          showAuthView();
+          showLogInForm();
+        });
+      });
+    });
+  }
 
   showSignUpForm() {
-    this.isLogin.value = false;
+    isLogin.value = false;
   }
 
   showLogInForm() {
-    this.isLogin.value = true;
+    isLogin.value = true;
   }
 
   getForm() {
     return form.value;
+  }
+
+  showForgetPasswordView() {
+    forgotPassword.value = true;
+  }
+
+  showAuthView() {
+    forgotPassword.value = false;
+  }
+
+  String _getFormControlValue(String key) {
+    return form.value.control(key).value;
   }
 }

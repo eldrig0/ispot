@@ -4,10 +4,22 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:gql_code_builder/src/serializers/default_scalar_serializer.dart'
-    as _i2;
-import 'package:ispot/graphql/serializers.gql.dart' as _i1;
+    as _i1;
+import 'package:ispot/graphql/serializers.gql.dart' as _i2;
 
 part 'schema.schema.gql.g.dart';
+
+abstract class G_Any implements Built<G_Any, G_AnyBuilder> {
+  G_Any._();
+
+  factory G_Any([String value]) =>
+      _$G_Any((b) => value != null ? (b..value = value) : b);
+
+  String get value;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<G_Any> get serializer => _i1.DefaultScalarSerializer<G_Any>(
+      (Object serialized) => G_Any(serialized));
+}
 
 class GAccountErrorCode extends EnumClass {
   const GAccountErrorCode._(String name) : super(name);
@@ -107,9 +119,9 @@ abstract class GAccountInput
   GAddressInput get defaultShippingAddress;
   static Serializer<GAccountInput> get serializer => _$gAccountInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAccountInput.serializer, this);
+      _i2.serializers.serializeWith(GAccountInput.serializer, this);
   static GAccountInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAccountInput.serializer, json);
+      _i2.serializers.deserializeWith(GAccountInput.serializer, json);
 }
 
 abstract class GAccountRegisterInput
@@ -127,9 +139,9 @@ abstract class GAccountRegisterInput
   static Serializer<GAccountRegisterInput> get serializer =>
       _$gAccountRegisterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAccountRegisterInput.serializer, this);
+      _i2.serializers.serializeWith(GAccountRegisterInput.serializer, this);
   static GAccountRegisterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAccountRegisterInput.serializer, json);
+      _i2.serializers.deserializeWith(GAccountRegisterInput.serializer, json);
 }
 
 abstract class GAddressInput
@@ -163,9 +175,9 @@ abstract class GAddressInput
   String get phone;
   static Serializer<GAddressInput> get serializer => _$gAddressInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAddressInput.serializer, this);
+      _i2.serializers.serializeWith(GAddressInput.serializer, this);
   static GAddressInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAddressInput.serializer, json);
+      _i2.serializers.deserializeWith(GAddressInput.serializer, json);
 }
 
 class GAddressTypeEnum extends EnumClass {
@@ -219,9 +231,9 @@ abstract class GAppFilterInput
   static Serializer<GAppFilterInput> get serializer =>
       _$gAppFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAppFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GAppFilterInput.serializer, this);
   static GAppFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAppFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GAppFilterInput.serializer, json);
 }
 
 abstract class GAppInput implements Built<GAppInput, GAppInputBuilder> {
@@ -237,9 +249,9 @@ abstract class GAppInput implements Built<GAppInput, GAppInputBuilder> {
   BuiltList<GPermissionEnum> get permissions;
   static Serializer<GAppInput> get serializer => _$gAppInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAppInput.serializer, this);
+      _i2.serializers.serializeWith(GAppInput.serializer, this);
   static GAppInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAppInput.serializer, json);
+      _i2.serializers.deserializeWith(GAppInput.serializer, json);
 }
 
 class GAppSortField extends EnumClass {
@@ -266,9 +278,9 @@ abstract class GAppSortingInput
   static Serializer<GAppSortingInput> get serializer =>
       _$gAppSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAppSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GAppSortingInput.serializer, this);
   static GAppSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAppSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GAppSortingInput.serializer, json);
 }
 
 abstract class GAppTokenInput
@@ -284,9 +296,9 @@ abstract class GAppTokenInput
   static Serializer<GAppTokenInput> get serializer =>
       _$gAppTokenInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAppTokenInput.serializer, this);
+      _i2.serializers.serializeWith(GAppTokenInput.serializer, this);
   static GAppTokenInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAppTokenInput.serializer, json);
+      _i2.serializers.deserializeWith(GAppTokenInput.serializer, json);
 }
 
 abstract class GAttributeAssignInput
@@ -302,9 +314,9 @@ abstract class GAttributeAssignInput
   static Serializer<GAttributeAssignInput> get serializer =>
       _$gAttributeAssignInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeAssignInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeAssignInput.serializer, this);
   static GAttributeAssignInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeAssignInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeAssignInput.serializer, json);
 }
 
 abstract class GAttributeCreateInput
@@ -339,9 +351,9 @@ abstract class GAttributeCreateInput
   static Serializer<GAttributeCreateInput> get serializer =>
       _$gAttributeCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeCreateInput.serializer, this);
   static GAttributeCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeCreateInput.serializer, json);
 }
 
 abstract class GAttributeFilterInput
@@ -375,9 +387,9 @@ abstract class GAttributeFilterInput
   static Serializer<GAttributeFilterInput> get serializer =>
       _$gAttributeFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeFilterInput.serializer, this);
   static GAttributeFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeFilterInput.serializer, json);
 }
 
 abstract class GAttributeInput
@@ -395,9 +407,9 @@ abstract class GAttributeInput
   static Serializer<GAttributeInput> get serializer =>
       _$gAttributeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeInput.serializer, this);
   static GAttributeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeInput.serializer, json);
 }
 
 class GAttributeInputTypeEnum extends EnumClass {
@@ -466,9 +478,9 @@ abstract class GAttributeSortingInput
   static Serializer<GAttributeSortingInput> get serializer =>
       _$gAttributeSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeSortingInput.serializer, this);
   static GAttributeSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeSortingInput.serializer, json);
 }
 
 class GAttributeTypeEnum extends EnumClass {
@@ -518,9 +530,9 @@ abstract class GAttributeUpdateInput
   static Serializer<GAttributeUpdateInput> get serializer =>
       _$gAttributeUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeUpdateInput.serializer, this);
   static GAttributeUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeUpdateInput.serializer, json);
 }
 
 abstract class GAttributeValueCreateInput
@@ -535,10 +547,10 @@ abstract class GAttributeValueCreateInput
   String get name;
   static Serializer<GAttributeValueCreateInput> get serializer =>
       _$gAttributeValueCreateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GAttributeValueCreateInput.serializer, this);
   static GAttributeValueCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GAttributeValueCreateInput.serializer, json);
 }
 
@@ -557,9 +569,9 @@ abstract class GAttributeValueInput
   static Serializer<GAttributeValueInput> get serializer =>
       _$gAttributeValueInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAttributeValueInput.serializer, this);
+      _i2.serializers.serializeWith(GAttributeValueInput.serializer, this);
   static GAttributeValueInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAttributeValueInput.serializer, json);
+      _i2.serializers.deserializeWith(GAttributeValueInput.serializer, json);
 }
 
 class GAttributeValueType extends EnumClass {
@@ -594,9 +606,9 @@ abstract class GAuthorizationKeyInput
   static Serializer<GAuthorizationKeyInput> get serializer =>
       _$gAuthorizationKeyInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GAuthorizationKeyInput.serializer, this);
+      _i2.serializers.serializeWith(GAuthorizationKeyInput.serializer, this);
   static GAuthorizationKeyInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GAuthorizationKeyInput.serializer, json);
+      _i2.serializers.deserializeWith(GAuthorizationKeyInput.serializer, json);
 }
 
 class GAuthorizationKeyType extends EnumClass {
@@ -631,9 +643,9 @@ abstract class GCatalogueInput
   static Serializer<GCatalogueInput> get serializer =>
       _$gCatalogueInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCatalogueInput.serializer, this);
+      _i2.serializers.serializeWith(GCatalogueInput.serializer, this);
   static GCatalogueInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCatalogueInput.serializer, json);
+      _i2.serializers.deserializeWith(GCatalogueInput.serializer, json);
 }
 
 abstract class GCategoryFilterInput
@@ -651,9 +663,9 @@ abstract class GCategoryFilterInput
   static Serializer<GCategoryFilterInput> get serializer =>
       _$gCategoryFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCategoryFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GCategoryFilterInput.serializer, this);
   static GCategoryFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCategoryFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GCategoryFilterInput.serializer, json);
 }
 
 abstract class GCategoryInput
@@ -680,9 +692,9 @@ abstract class GCategoryInput
   static Serializer<GCategoryInput> get serializer =>
       _$gCategoryInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCategoryInput.serializer, this);
+      _i2.serializers.serializeWith(GCategoryInput.serializer, this);
   static GCategoryInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCategoryInput.serializer, json);
+      _i2.serializers.deserializeWith(GCategoryInput.serializer, json);
 }
 
 class GCategorySortField extends EnumClass {
@@ -716,9 +728,9 @@ abstract class GCategorySortingInput
   static Serializer<GCategorySortingInput> get serializer =>
       _$gCategorySortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCategorySortingInput.serializer, this);
+      _i2.serializers.serializeWith(GCategorySortingInput.serializer, this);
   static GCategorySortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCategorySortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GCategorySortingInput.serializer, json);
 }
 
 abstract class GCheckoutCreateInput
@@ -740,9 +752,9 @@ abstract class GCheckoutCreateInput
   static Serializer<GCheckoutCreateInput> get serializer =>
       _$gCheckoutCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCheckoutCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GCheckoutCreateInput.serializer, this);
   static GCheckoutCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCheckoutCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GCheckoutCreateInput.serializer, json);
 }
 
 class GCheckoutErrorCode extends EnumClass {
@@ -816,9 +828,9 @@ abstract class GCheckoutLineInput
   static Serializer<GCheckoutLineInput> get serializer =>
       _$gCheckoutLineInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCheckoutLineInput.serializer, this);
+      _i2.serializers.serializeWith(GCheckoutLineInput.serializer, this);
   static GCheckoutLineInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCheckoutLineInput.serializer, json);
+      _i2.serializers.deserializeWith(GCheckoutLineInput.serializer, json);
 }
 
 abstract class GCollectionCreateInput
@@ -852,9 +864,9 @@ abstract class GCollectionCreateInput
   static Serializer<GCollectionCreateInput> get serializer =>
       _$gCollectionCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCollectionCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GCollectionCreateInput.serializer, this);
   static GCollectionCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCollectionCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GCollectionCreateInput.serializer, json);
 }
 
 abstract class GCollectionFilterInput
@@ -874,9 +886,9 @@ abstract class GCollectionFilterInput
   static Serializer<GCollectionFilterInput> get serializer =>
       _$gCollectionFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCollectionFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GCollectionFilterInput.serializer, this);
   static GCollectionFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCollectionFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GCollectionFilterInput.serializer, json);
 }
 
 abstract class GCollectionInput
@@ -907,9 +919,9 @@ abstract class GCollectionInput
   static Serializer<GCollectionInput> get serializer =>
       _$gCollectionInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCollectionInput.serializer, this);
+      _i2.serializers.serializeWith(GCollectionInput.serializer, this);
   static GCollectionInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCollectionInput.serializer, json);
+      _i2.serializers.deserializeWith(GCollectionInput.serializer, json);
 }
 
 class GCollectionPublished extends EnumClass {
@@ -959,9 +971,9 @@ abstract class GCollectionSortingInput
   static Serializer<GCollectionSortingInput> get serializer =>
       _$gCollectionSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCollectionSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GCollectionSortingInput.serializer, this);
   static GCollectionSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCollectionSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GCollectionSortingInput.serializer, json);
 }
 
 abstract class GConfigurationItemInput
@@ -978,9 +990,9 @@ abstract class GConfigurationItemInput
   static Serializer<GConfigurationItemInput> get serializer =>
       _$gConfigurationItemInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GConfigurationItemInput.serializer, this);
+      _i2.serializers.serializeWith(GConfigurationItemInput.serializer, this);
   static GConfigurationItemInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GConfigurationItemInput.serializer, json);
+      _i2.serializers.deserializeWith(GConfigurationItemInput.serializer, json);
 }
 
 class GConfigurationTypeFieldEnum extends EnumClass {
@@ -1584,9 +1596,9 @@ abstract class GCustomerFilterInput
   static Serializer<GCustomerFilterInput> get serializer =>
       _$gCustomerFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCustomerFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GCustomerFilterInput.serializer, this);
   static GCustomerFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCustomerFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GCustomerFilterInput.serializer, json);
 }
 
 abstract class GCustomerInput
@@ -1613,9 +1625,9 @@ abstract class GCustomerInput
   static Serializer<GCustomerInput> get serializer =>
       _$gCustomerInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCustomerInput.serializer, this);
+      _i2.serializers.serializeWith(GCustomerInput.serializer, this);
   static GCustomerInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCustomerInput.serializer, json);
+      _i2.serializers.deserializeWith(GCustomerInput.serializer, json);
 }
 
 abstract class GDate implements Built<GDate, GDateBuilder> {
@@ -1626,7 +1638,7 @@ abstract class GDate implements Built<GDate, GDateBuilder> {
 
   String get value;
   @BuiltValueSerializer(custom: true)
-  static Serializer<GDate> get serializer => _i2.DefaultScalarSerializer<GDate>(
+  static Serializer<GDate> get serializer => _i1.DefaultScalarSerializer<GDate>(
       (Object serialized) => GDate(serialized));
 }
 
@@ -1644,9 +1656,9 @@ abstract class GDateRangeInput
   static Serializer<GDateRangeInput> get serializer =>
       _$gDateRangeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GDateRangeInput.serializer, this);
+      _i2.serializers.serializeWith(GDateRangeInput.serializer, this);
   static GDateRangeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GDateRangeInput.serializer, json);
+      _i2.serializers.deserializeWith(GDateRangeInput.serializer, json);
 }
 
 abstract class GDateTime implements Built<GDateTime, GDateTimeBuilder> {
@@ -1658,7 +1670,7 @@ abstract class GDateTime implements Built<GDateTime, GDateTimeBuilder> {
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GDateTime> get serializer =>
-      _i2.DefaultScalarSerializer<GDateTime>(
+      _i1.DefaultScalarSerializer<GDateTime>(
           (Object serialized) => GDateTime(serialized));
 }
 
@@ -1676,9 +1688,9 @@ abstract class GDateTimeRangeInput
   static Serializer<GDateTimeRangeInput> get serializer =>
       _$gDateTimeRangeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GDateTimeRangeInput.serializer, this);
+      _i2.serializers.serializeWith(GDateTimeRangeInput.serializer, this);
   static GDateTimeRangeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GDateTimeRangeInput.serializer, json);
+      _i2.serializers.deserializeWith(GDateTimeRangeInput.serializer, json);
 }
 
 abstract class GDecimal implements Built<GDecimal, GDecimalBuilder> {
@@ -1690,7 +1702,7 @@ abstract class GDecimal implements Built<GDecimal, GDecimalBuilder> {
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GDecimal> get serializer =>
-      _i2.DefaultScalarSerializer<GDecimal>(
+      _i1.DefaultScalarSerializer<GDecimal>(
           (Object serialized) => GDecimal(serialized));
 }
 
@@ -1712,9 +1724,9 @@ abstract class GDigitalContentInput
   static Serializer<GDigitalContentInput> get serializer =>
       _$gDigitalContentInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GDigitalContentInput.serializer, this);
+      _i2.serializers.serializeWith(GDigitalContentInput.serializer, this);
   static GDigitalContentInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GDigitalContentInput.serializer, json);
+      _i2.serializers.deserializeWith(GDigitalContentInput.serializer, json);
 }
 
 abstract class GDigitalContentUploadInput
@@ -1736,10 +1748,10 @@ abstract class GDigitalContentUploadInput
   GUpload get contentFile;
   static Serializer<GDigitalContentUploadInput> get serializer =>
       _$gDigitalContentUploadInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GDigitalContentUploadInput.serializer, this);
   static GDigitalContentUploadInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GDigitalContentUploadInput.serializer, json);
 }
 
@@ -1756,10 +1768,10 @@ abstract class GDigitalContentUrlCreateInput
   String get content;
   static Serializer<GDigitalContentUrlCreateInput> get serializer =>
       _$gDigitalContentUrlCreateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GDigitalContentUrlCreateInput.serializer, this);
   static GDigitalContentUrlCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GDigitalContentUrlCreateInput.serializer, json);
 }
 
@@ -1849,9 +1861,9 @@ abstract class GDraftOrderCreateInput
   static Serializer<GDraftOrderCreateInput> get serializer =>
       _$gDraftOrderCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GDraftOrderCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GDraftOrderCreateInput.serializer, this);
   static GDraftOrderCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GDraftOrderCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GDraftOrderCreateInput.serializer, json);
 }
 
 abstract class GDraftOrderInput
@@ -1880,9 +1892,9 @@ abstract class GDraftOrderInput
   static Serializer<GDraftOrderInput> get serializer =>
       _$gDraftOrderInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GDraftOrderInput.serializer, this);
+      _i2.serializers.serializeWith(GDraftOrderInput.serializer, this);
   static GDraftOrderInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GDraftOrderInput.serializer, json);
+      _i2.serializers.deserializeWith(GDraftOrderInput.serializer, json);
 }
 
 abstract class GFulfillmentCancelInput
@@ -1897,9 +1909,9 @@ abstract class GFulfillmentCancelInput
   static Serializer<GFulfillmentCancelInput> get serializer =>
       _$gFulfillmentCancelInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GFulfillmentCancelInput.serializer, this);
+      _i2.serializers.serializeWith(GFulfillmentCancelInput.serializer, this);
   static GFulfillmentCancelInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GFulfillmentCancelInput.serializer, json);
+      _i2.serializers.deserializeWith(GFulfillmentCancelInput.serializer, json);
 }
 
 class GFulfillmentStatus extends EnumClass {
@@ -1932,10 +1944,10 @@ abstract class GFulfillmentUpdateTrackingInput
   bool get notifyCustomer;
   static Serializer<GFulfillmentUpdateTrackingInput> get serializer =>
       _$gFulfillmentUpdateTrackingInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GFulfillmentUpdateTrackingInput.serializer, this);
   static GFulfillmentUpdateTrackingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GFulfillmentUpdateTrackingInput.serializer, json);
 }
 
@@ -1949,7 +1961,7 @@ abstract class GGenericScalar
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GGenericScalar> get serializer =>
-      _i2.DefaultScalarSerializer<GGenericScalar>(
+      _i1.DefaultScalarSerializer<GGenericScalar>(
           (Object serialized) => GGenericScalar(serialized));
 }
 
@@ -1974,9 +1986,9 @@ abstract class GGiftCardCreateInput
   static Serializer<GGiftCardCreateInput> get serializer =>
       _$gGiftCardCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GGiftCardCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GGiftCardCreateInput.serializer, this);
   static GGiftCardCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GGiftCardCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GGiftCardCreateInput.serializer, json);
 }
 
 class GGiftCardErrorCode extends EnumClass {
@@ -2022,9 +2034,9 @@ abstract class GGiftCardUpdateInput
   static Serializer<GGiftCardUpdateInput> get serializer =>
       _$gGiftCardUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GGiftCardUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GGiftCardUpdateInput.serializer, this);
   static GGiftCardUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GGiftCardUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GGiftCardUpdateInput.serializer, json);
 }
 
 abstract class GIntRangeInput
@@ -2041,9 +2053,9 @@ abstract class GIntRangeInput
   static Serializer<GIntRangeInput> get serializer =>
       _$gIntRangeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GIntRangeInput.serializer, this);
+      _i2.serializers.serializeWith(GIntRangeInput.serializer, this);
   static GIntRangeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GIntRangeInput.serializer, json);
+      _i2.serializers.deserializeWith(GIntRangeInput.serializer, json);
 }
 
 abstract class GJSONString implements Built<GJSONString, GJSONStringBuilder> {
@@ -2055,7 +2067,7 @@ abstract class GJSONString implements Built<GJSONString, GJSONStringBuilder> {
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GJSONString> get serializer =>
-      _i2.DefaultScalarSerializer<GJSONString>(
+      _i1.DefaultScalarSerializer<GJSONString>(
           (Object serialized) => GJSONString(serialized));
 }
 
@@ -2089,6 +2101,8 @@ class GLanguageCodeEnum extends EnumClass {
   static const GLanguageCodeEnum ET = _$gLanguageCodeEnumET;
 
   static const GLanguageCodeEnum FA = _$gLanguageCodeEnumFA;
+
+  static const GLanguageCodeEnum FI = _$gLanguageCodeEnumFI;
 
   static const GLanguageCodeEnum FR = _$gLanguageCodeEnumFR;
 
@@ -2128,13 +2142,15 @@ class GLanguageCodeEnum extends EnumClass {
 
   static const GLanguageCodeEnum SK = _$gLanguageCodeEnumSK;
 
+  static const GLanguageCodeEnum SL = _$gLanguageCodeEnumSL;
+
   static const GLanguageCodeEnum SQ = _$gLanguageCodeEnumSQ;
 
   static const GLanguageCodeEnum SR = _$gLanguageCodeEnumSR;
 
-  static const GLanguageCodeEnum SW = _$gLanguageCodeEnumSW;
-
   static const GLanguageCodeEnum SV = _$gLanguageCodeEnumSV;
+
+  static const GLanguageCodeEnum SW = _$gLanguageCodeEnumSW;
 
   static const GLanguageCodeEnum TH = _$gLanguageCodeEnumTH;
 
@@ -2168,9 +2184,9 @@ abstract class GMenuCreateInput
   static Serializer<GMenuCreateInput> get serializer =>
       _$gMenuCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuCreateInput.serializer, this);
   static GMenuCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuCreateInput.serializer, json);
 }
 
 class GMenuErrorCode extends EnumClass {
@@ -2216,9 +2232,9 @@ abstract class GMenuFilterInput
   static Serializer<GMenuFilterInput> get serializer =>
       _$gMenuFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuFilterInput.serializer, this);
   static GMenuFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuFilterInput.serializer, json);
 }
 
 abstract class GMenuInput implements Built<GMenuInput, GMenuInputBuilder> {
@@ -2230,9 +2246,9 @@ abstract class GMenuInput implements Built<GMenuInput, GMenuInputBuilder> {
   String get name;
   static Serializer<GMenuInput> get serializer => _$gMenuInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuInput.serializer, this);
   static GMenuInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuInput.serializer, json);
 }
 
 abstract class GMenuItemCreateInput
@@ -2258,9 +2274,9 @@ abstract class GMenuItemCreateInput
   static Serializer<GMenuItemCreateInput> get serializer =>
       _$gMenuItemCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuItemCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuItemCreateInput.serializer, this);
   static GMenuItemCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuItemCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuItemCreateInput.serializer, json);
 }
 
 abstract class GMenuItemFilterInput
@@ -2276,9 +2292,9 @@ abstract class GMenuItemFilterInput
   static Serializer<GMenuItemFilterInput> get serializer =>
       _$gMenuItemFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuItemFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuItemFilterInput.serializer, this);
   static GMenuItemFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuItemFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuItemFilterInput.serializer, json);
 }
 
 abstract class GMenuItemInput
@@ -2301,9 +2317,9 @@ abstract class GMenuItemInput
   static Serializer<GMenuItemInput> get serializer =>
       _$gMenuItemInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuItemInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuItemInput.serializer, this);
   static GMenuItemInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuItemInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuItemInput.serializer, json);
 }
 
 abstract class GMenuItemMoveInput
@@ -2321,9 +2337,9 @@ abstract class GMenuItemMoveInput
   static Serializer<GMenuItemMoveInput> get serializer =>
       _$gMenuItemMoveInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuItemMoveInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuItemMoveInput.serializer, this);
   static GMenuItemMoveInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuItemMoveInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuItemMoveInput.serializer, json);
 }
 
 abstract class GMenuItemSortingInput
@@ -2339,9 +2355,9 @@ abstract class GMenuItemSortingInput
   static Serializer<GMenuItemSortingInput> get serializer =>
       _$gMenuItemSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuItemSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuItemSortingInput.serializer, this);
   static GMenuItemSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuItemSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GMenuItemSortingInput.serializer, json);
 }
 
 class GMenuItemsSortField extends EnumClass {
@@ -2382,40 +2398,9 @@ abstract class GMenuSortingInput
   static Serializer<GMenuSortingInput> get serializer =>
       _$gMenuSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMenuSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GMenuSortingInput.serializer, this);
   static GMenuSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMenuSortingInput.serializer, json);
-}
-
-abstract class GMetaInput implements Built<GMetaInput, GMetaInputBuilder> {
-  GMetaInput._();
-
-  factory GMetaInput([Function(GMetaInputBuilder b) updates]) = _$GMetaInput;
-
-  String get namespace;
-  String get clientName;
-  String get key;
-  String get value;
-  static Serializer<GMetaInput> get serializer => _$gMetaInputSerializer;
-  Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMetaInput.serializer, this);
-  static GMetaInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMetaInput.serializer, json);
-}
-
-abstract class GMetaPath implements Built<GMetaPath, GMetaPathBuilder> {
-  GMetaPath._();
-
-  factory GMetaPath([Function(GMetaPathBuilder b) updates]) = _$GMetaPath;
-
-  String get namespace;
-  String get clientName;
-  String get key;
-  static Serializer<GMetaPath> get serializer => _$gMetaPathSerializer;
-  Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMetaPath.serializer, this);
-  static GMetaPath fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMetaPath.serializer, json);
+      _i2.serializers.deserializeWith(GMenuSortingInput.serializer, json);
 }
 
 class GMetadataErrorCode extends EnumClass {
@@ -2447,9 +2432,40 @@ abstract class GMetadataInput
   static Serializer<GMetadataInput> get serializer =>
       _$gMetadataInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMetadataInput.serializer, this);
+      _i2.serializers.serializeWith(GMetadataInput.serializer, this);
   static GMetadataInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMetadataInput.serializer, json);
+      _i2.serializers.deserializeWith(GMetadataInput.serializer, json);
+}
+
+abstract class GMetaInput implements Built<GMetaInput, GMetaInputBuilder> {
+  GMetaInput._();
+
+  factory GMetaInput([Function(GMetaInputBuilder b) updates]) = _$GMetaInput;
+
+  String get namespace;
+  String get clientName;
+  String get key;
+  String get value;
+  static Serializer<GMetaInput> get serializer => _$gMetaInputSerializer;
+  Map<String, dynamic> toJson() =>
+      _i2.serializers.serializeWith(GMetaInput.serializer, this);
+  static GMetaInput fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(GMetaInput.serializer, json);
+}
+
+abstract class GMetaPath implements Built<GMetaPath, GMetaPathBuilder> {
+  GMetaPath._();
+
+  factory GMetaPath([Function(GMetaPathBuilder b) updates]) = _$GMetaPath;
+
+  String get namespace;
+  String get clientName;
+  String get key;
+  static Serializer<GMetaPath> get serializer => _$gMetaPathSerializer;
+  Map<String, dynamic> toJson() =>
+      _i2.serializers.serializeWith(GMetaPath.serializer, this);
+  static GMetaPath fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(GMetaPath.serializer, json);
 }
 
 abstract class GMoveProductInput
@@ -2465,9 +2481,9 @@ abstract class GMoveProductInput
   static Serializer<GMoveProductInput> get serializer =>
       _$gMoveProductInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GMoveProductInput.serializer, this);
+      _i2.serializers.serializeWith(GMoveProductInput.serializer, this);
   static GMoveProductInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GMoveProductInput.serializer, json);
+      _i2.serializers.deserializeWith(GMoveProductInput.serializer, json);
 }
 
 abstract class GNameTranslationInput
@@ -2483,9 +2499,9 @@ abstract class GNameTranslationInput
   static Serializer<GNameTranslationInput> get serializer =>
       _$gNameTranslationInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GNameTranslationInput.serializer, this);
+      _i2.serializers.serializeWith(GNameTranslationInput.serializer, this);
   static GNameTranslationInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GNameTranslationInput.serializer, json);
+      _i2.serializers.deserializeWith(GNameTranslationInput.serializer, json);
 }
 
 class GNavigationType extends EnumClass {
@@ -2528,9 +2544,9 @@ abstract class GOrderAddNoteInput
   static Serializer<GOrderAddNoteInput> get serializer =>
       _$gOrderAddNoteInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderAddNoteInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderAddNoteInput.serializer, this);
   static GOrderAddNoteInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderAddNoteInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderAddNoteInput.serializer, json);
 }
 
 class GOrderDirection extends EnumClass {
@@ -2563,9 +2579,9 @@ abstract class GOrderDraftFilterInput
   static Serializer<GOrderDraftFilterInput> get serializer =>
       _$gOrderDraftFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderDraftFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderDraftFilterInput.serializer, this);
   static GOrderDraftFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderDraftFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderDraftFilterInput.serializer, json);
 }
 
 class GOrderErrorCode extends EnumClass {
@@ -2749,9 +2765,9 @@ abstract class GOrderFilterInput
   static Serializer<GOrderFilterInput> get serializer =>
       _$gOrderFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderFilterInput.serializer, this);
   static GOrderFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderFilterInput.serializer, json);
 }
 
 abstract class GOrderFulfillInput
@@ -2767,9 +2783,9 @@ abstract class GOrderFulfillInput
   static Serializer<GOrderFulfillInput> get serializer =>
       _$gOrderFulfillInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderFulfillInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderFulfillInput.serializer, this);
   static GOrderFulfillInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderFulfillInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderFulfillInput.serializer, json);
 }
 
 abstract class GOrderFulfillLineInput
@@ -2786,9 +2802,9 @@ abstract class GOrderFulfillLineInput
   static Serializer<GOrderFulfillLineInput> get serializer =>
       _$gOrderFulfillLineInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderFulfillLineInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderFulfillLineInput.serializer, this);
   static GOrderFulfillLineInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderFulfillLineInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderFulfillLineInput.serializer, json);
 }
 
 abstract class GOrderFulfillStockInput
@@ -2806,9 +2822,9 @@ abstract class GOrderFulfillStockInput
   static Serializer<GOrderFulfillStockInput> get serializer =>
       _$gOrderFulfillStockInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderFulfillStockInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderFulfillStockInput.serializer, this);
   static GOrderFulfillStockInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderFulfillStockInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderFulfillStockInput.serializer, json);
 }
 
 abstract class GOrderLineCreateInput
@@ -2824,9 +2840,9 @@ abstract class GOrderLineCreateInput
   static Serializer<GOrderLineCreateInput> get serializer =>
       _$gOrderLineCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderLineCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderLineCreateInput.serializer, this);
   static GOrderLineCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderLineCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderLineCreateInput.serializer, json);
 }
 
 abstract class GOrderLineInput
@@ -2840,9 +2856,9 @@ abstract class GOrderLineInput
   static Serializer<GOrderLineInput> get serializer =>
       _$gOrderLineInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderLineInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderLineInput.serializer, this);
   static GOrderLineInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderLineInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderLineInput.serializer, json);
 }
 
 class GOrderSortField extends EnumClass {
@@ -2879,9 +2895,9 @@ abstract class GOrderSortingInput
   static Serializer<GOrderSortingInput> get serializer =>
       _$gOrderSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderSortingInput.serializer, this);
   static GOrderSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderSortingInput.serializer, json);
 }
 
 class GOrderStatus extends EnumClass {
@@ -2944,9 +2960,9 @@ abstract class GOrderUpdateInput
   static Serializer<GOrderUpdateInput> get serializer =>
       _$gOrderUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderUpdateInput.serializer, this);
   static GOrderUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GOrderUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GOrderUpdateInput.serializer, json);
 }
 
 abstract class GOrderUpdateShippingInput
@@ -2963,9 +2979,9 @@ abstract class GOrderUpdateShippingInput
   static Serializer<GOrderUpdateShippingInput> get serializer =>
       _$gOrderUpdateShippingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GOrderUpdateShippingInput.serializer, this);
+      _i2.serializers.serializeWith(GOrderUpdateShippingInput.serializer, this);
   static GOrderUpdateShippingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GOrderUpdateShippingInput.serializer, json);
 }
 
@@ -3000,9 +3016,9 @@ abstract class GPageFilterInput
   static Serializer<GPageFilterInput> get serializer =>
       _$gPageFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPageFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GPageFilterInput.serializer, this);
   static GPageFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPageFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GPageFilterInput.serializer, json);
 }
 
 abstract class GPageInput implements Built<GPageInput, GPageInputBuilder> {
@@ -3026,9 +3042,9 @@ abstract class GPageInput implements Built<GPageInput, GPageInputBuilder> {
   GSeoInput get seo;
   static Serializer<GPageInput> get serializer => _$gPageInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPageInput.serializer, this);
+      _i2.serializers.serializeWith(GPageInput.serializer, this);
   static GPageInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPageInput.serializer, json);
+      _i2.serializers.deserializeWith(GPageInput.serializer, json);
 }
 
 class GPageSortField extends EnumClass {
@@ -3063,9 +3079,9 @@ abstract class GPageSortingInput
   static Serializer<GPageSortingInput> get serializer =>
       _$gPageSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPageSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GPageSortingInput.serializer, this);
   static GPageSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPageSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GPageSortingInput.serializer, json);
 }
 
 abstract class GPageTranslationInput
@@ -3089,9 +3105,9 @@ abstract class GPageTranslationInput
   static Serializer<GPageTranslationInput> get serializer =>
       _$gPageTranslationInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPageTranslationInput.serializer, this);
+      _i2.serializers.serializeWith(GPageTranslationInput.serializer, this);
   static GPageTranslationInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPageTranslationInput.serializer, json);
+      _i2.serializers.deserializeWith(GPageTranslationInput.serializer, json);
 }
 
 class GPaymentChargeStatusEnum extends EnumClass {
@@ -3136,6 +3152,15 @@ class GPaymentErrorCode extends EnumClass {
   static const GPaymentErrorCode PARTIAL_PAYMENT_NOT_ALLOWED =
       _$gPaymentErrorCodePARTIAL_PAYMENT_NOT_ALLOWED;
 
+  static const GPaymentErrorCode SHIPPING_ADDRESS_NOT_SET =
+      _$gPaymentErrorCodeSHIPPING_ADDRESS_NOT_SET;
+
+  static const GPaymentErrorCode INVALID_SHIPPING_METHOD =
+      _$gPaymentErrorCodeINVALID_SHIPPING_METHOD;
+
+  static const GPaymentErrorCode SHIPPING_METHOD_NOT_SET =
+      _$gPaymentErrorCodeSHIPPING_METHOD_NOT_SET;
+
   static const GPaymentErrorCode PAYMENT_ERROR =
       _$gPaymentErrorCodePAYMENT_ERROR;
 
@@ -3165,9 +3190,9 @@ abstract class GPaymentInput
   GAddressInput get billingAddress;
   static Serializer<GPaymentInput> get serializer => _$gPaymentInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPaymentInput.serializer, this);
+      _i2.serializers.serializeWith(GPaymentInput.serializer, this);
   static GPaymentInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPaymentInput.serializer, json);
+      _i2.serializers.deserializeWith(GPaymentInput.serializer, json);
 }
 
 class GPermissionEnum extends EnumClass {
@@ -3234,10 +3259,10 @@ abstract class GPermissionGroupCreateInput
   String get name;
   static Serializer<GPermissionGroupCreateInput> get serializer =>
       _$gPermissionGroupCreateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GPermissionGroupCreateInput.serializer, this);
   static GPermissionGroupCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GPermissionGroupCreateInput.serializer, json);
 }
 
@@ -3289,10 +3314,10 @@ abstract class GPermissionGroupFilterInput
   String get search;
   static Serializer<GPermissionGroupFilterInput> get serializer =>
       _$gPermissionGroupFilterInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GPermissionGroupFilterInput.serializer, this);
   static GPermissionGroupFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GPermissionGroupFilterInput.serializer, json);
 }
 
@@ -3323,10 +3348,10 @@ abstract class GPermissionGroupSortingInput
   GPermissionGroupSortField get field;
   static Serializer<GPermissionGroupSortingInput> get serializer =>
       _$gPermissionGroupSortingInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GPermissionGroupSortingInput.serializer, this);
   static GPermissionGroupSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GPermissionGroupSortingInput.serializer, json);
 }
 
@@ -3347,10 +3372,10 @@ abstract class GPermissionGroupUpdateInput
   BuiltList<String> get removeUsers;
   static Serializer<GPermissionGroupUpdateInput> get serializer =>
       _$gPermissionGroupUpdateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GPermissionGroupUpdateInput.serializer, this);
   static GPermissionGroupUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GPermissionGroupUpdateInput.serializer, json);
 }
 
@@ -3391,9 +3416,9 @@ abstract class GPluginFilterInput
   static Serializer<GPluginFilterInput> get serializer =>
       _$gPluginFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPluginFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GPluginFilterInput.serializer, this);
   static GPluginFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPluginFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GPluginFilterInput.serializer, json);
 }
 
 class GPluginSortField extends EnumClass {
@@ -3422,9 +3447,9 @@ abstract class GPluginSortingInput
   static Serializer<GPluginSortingInput> get serializer =>
       _$gPluginSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPluginSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GPluginSortingInput.serializer, this);
   static GPluginSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPluginSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GPluginSortingInput.serializer, json);
 }
 
 abstract class GPluginUpdateInput
@@ -3441,9 +3466,9 @@ abstract class GPluginUpdateInput
   static Serializer<GPluginUpdateInput> get serializer =>
       _$gPluginUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPluginUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GPluginUpdateInput.serializer, this);
   static GPluginUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPluginUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GPluginUpdateInput.serializer, json);
 }
 
 abstract class GPriceRangeInput
@@ -3460,9 +3485,9 @@ abstract class GPriceRangeInput
   static Serializer<GPriceRangeInput> get serializer =>
       _$gPriceRangeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GPriceRangeInput.serializer, this);
+      _i2.serializers.serializeWith(GPriceRangeInput.serializer, this);
   static GPriceRangeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GPriceRangeInput.serializer, json);
+      _i2.serializers.deserializeWith(GPriceRangeInput.serializer, json);
 }
 
 abstract class GProductCreateInput
@@ -3509,9 +3534,9 @@ abstract class GProductCreateInput
   static Serializer<GProductCreateInput> get serializer =>
       _$gProductCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GProductCreateInput.serializer, this);
   static GProductCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductCreateInput.serializer, json);
 }
 
 class GProductErrorCode extends EnumClass {
@@ -3590,9 +3615,9 @@ abstract class GProductFilterInput
   static Serializer<GProductFilterInput> get serializer =>
       _$gProductFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GProductFilterInput.serializer, this);
   static GProductFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductFilterInput.serializer, json);
 }
 
 abstract class GProductImageCreateInput
@@ -3611,9 +3636,9 @@ abstract class GProductImageCreateInput
   static Serializer<GProductImageCreateInput> get serializer =>
       _$gProductImageCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductImageCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GProductImageCreateInput.serializer, this);
   static GProductImageCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductImageCreateInput.serializer, json);
 }
 
@@ -3631,9 +3656,9 @@ abstract class GProductImageUpdateInput
   static Serializer<GProductImageUpdateInput> get serializer =>
       _$gProductImageUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductImageUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GProductImageUpdateInput.serializer, this);
   static GProductImageUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductImageUpdateInput.serializer, json);
 }
 
@@ -3678,9 +3703,9 @@ abstract class GProductInput
   bool get trackInventory;
   static Serializer<GProductInput> get serializer => _$gProductInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductInput.serializer, this);
+      _i2.serializers.serializeWith(GProductInput.serializer, this);
   static GProductInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductInput.serializer, json);
 }
 
 abstract class GProductOrder
@@ -3697,9 +3722,9 @@ abstract class GProductOrder
   GProductOrderField get field;
   static Serializer<GProductOrder> get serializer => _$gProductOrderSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductOrder.serializer, this);
+      _i2.serializers.serializeWith(GProductOrder.serializer, this);
   static GProductOrder fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductOrder.serializer, json);
+      _i2.serializers.deserializeWith(GProductOrder.serializer, json);
 }
 
 class GProductOrderField extends EnumClass {
@@ -3740,9 +3765,9 @@ abstract class GProductStockFilterInput
   static Serializer<GProductStockFilterInput> get serializer =>
       _$gProductStockFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductStockFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GProductStockFilterInput.serializer, this);
   static GProductStockFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductStockFilterInput.serializer, json);
 }
 
@@ -3796,9 +3821,9 @@ abstract class GProductTypeFilterInput
   static Serializer<GProductTypeFilterInput> get serializer =>
       _$gProductTypeFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductTypeFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GProductTypeFilterInput.serializer, this);
   static GProductTypeFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductTypeFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductTypeFilterInput.serializer, json);
 }
 
 abstract class GProductTypeInput
@@ -3829,9 +3854,9 @@ abstract class GProductTypeInput
   static Serializer<GProductTypeInput> get serializer =>
       _$gProductTypeInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductTypeInput.serializer, this);
+      _i2.serializers.serializeWith(GProductTypeInput.serializer, this);
   static GProductTypeInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductTypeInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductTypeInput.serializer, json);
 }
 
 class GProductTypeSortField extends EnumClass {
@@ -3866,9 +3891,9 @@ abstract class GProductTypeSortingInput
   static Serializer<GProductTypeSortingInput> get serializer =>
       _$gProductTypeSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductTypeSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GProductTypeSortingInput.serializer, this);
   static GProductTypeSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductTypeSortingInput.serializer, json);
 }
 
@@ -3896,10 +3921,10 @@ abstract class GProductVariantBulkCreateInput
   BuiltList<GStockInput> get stocks;
   static Serializer<GProductVariantBulkCreateInput> get serializer =>
       _$gProductVariantBulkCreateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GProductVariantBulkCreateInput.serializer, this);
   static GProductVariantBulkCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductVariantBulkCreateInput.serializer, json);
 }
 
@@ -3928,10 +3953,10 @@ abstract class GProductVariantCreateInput
   BuiltList<GStockInput> get stocks;
   static Serializer<GProductVariantCreateInput> get serializer =>
       _$gProductVariantCreateInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GProductVariantCreateInput.serializer, this);
   static GProductVariantCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GProductVariantCreateInput.serializer, json);
 }
 
@@ -3958,9 +3983,9 @@ abstract class GProductVariantInput
   static Serializer<GProductVariantInput> get serializer =>
       _$gProductVariantInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GProductVariantInput.serializer, this);
+      _i2.serializers.serializeWith(GProductVariantInput.serializer, this);
   static GProductVariantInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GProductVariantInput.serializer, json);
+      _i2.serializers.deserializeWith(GProductVariantInput.serializer, json);
 }
 
 abstract class GReorderInput
@@ -3975,9 +4000,9 @@ abstract class GReorderInput
   int get sortOrder;
   static Serializer<GReorderInput> get serializer => _$gReorderInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GReorderInput.serializer, this);
+      _i2.serializers.serializeWith(GReorderInput.serializer, this);
   static GReorderInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GReorderInput.serializer, json);
+      _i2.serializers.deserializeWith(GReorderInput.serializer, json);
 }
 
 class GReportingPeriod extends EnumClass {
@@ -4012,9 +4037,9 @@ abstract class GSaleFilterInput
   static Serializer<GSaleFilterInput> get serializer =>
       _$gSaleFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GSaleFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GSaleFilterInput.serializer, this);
   static GSaleFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GSaleFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GSaleFilterInput.serializer, json);
 }
 
 abstract class GSaleInput implements Built<GSaleInput, GSaleInputBuilder> {
@@ -4040,9 +4065,9 @@ abstract class GSaleInput implements Built<GSaleInput, GSaleInputBuilder> {
   GDateTime get endDate;
   static Serializer<GSaleInput> get serializer => _$gSaleInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GSaleInput.serializer, this);
+      _i2.serializers.serializeWith(GSaleInput.serializer, this);
   static GSaleInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GSaleInput.serializer, json);
+      _i2.serializers.deserializeWith(GSaleInput.serializer, json);
 }
 
 class GSaleSortField extends EnumClass {
@@ -4076,9 +4101,9 @@ abstract class GSaleSortingInput
   static Serializer<GSaleSortingInput> get serializer =>
       _$gSaleSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GSaleSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GSaleSortingInput.serializer, this);
   static GSaleSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GSaleSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GSaleSortingInput.serializer, json);
 }
 
 class GSaleType extends EnumClass {
@@ -4104,9 +4129,9 @@ abstract class GSeoInput implements Built<GSeoInput, GSeoInputBuilder> {
   String get description;
   static Serializer<GSeoInput> get serializer => _$gSeoInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GSeoInput.serializer, this);
+      _i2.serializers.serializeWith(GSeoInput.serializer, this);
   static GSeoInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GSeoInput.serializer, json);
+      _i2.serializers.deserializeWith(GSeoInput.serializer, json);
 }
 
 abstract class GServiceAccountFilterInput
@@ -4124,10 +4149,10 @@ abstract class GServiceAccountFilterInput
   bool get isActive;
   static Serializer<GServiceAccountFilterInput> get serializer =>
       _$gServiceAccountFilterInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GServiceAccountFilterInput.serializer, this);
   static GServiceAccountFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GServiceAccountFilterInput.serializer, json);
 }
 
@@ -4148,9 +4173,9 @@ abstract class GServiceAccountInput
   static Serializer<GServiceAccountInput> get serializer =>
       _$gServiceAccountInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GServiceAccountInput.serializer, this);
+      _i2.serializers.serializeWith(GServiceAccountInput.serializer, this);
   static GServiceAccountInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GServiceAccountInput.serializer, json);
+      _i2.serializers.deserializeWith(GServiceAccountInput.serializer, json);
 }
 
 class GServiceAccountSortField extends EnumClass {
@@ -4182,10 +4207,10 @@ abstract class GServiceAccountSortingInput
   GServiceAccountSortField get field;
   static Serializer<GServiceAccountSortingInput> get serializer =>
       _$gServiceAccountSortingInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GServiceAccountSortingInput.serializer, this);
   static GServiceAccountSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GServiceAccountSortingInput.serializer, json);
 }
 
@@ -4204,9 +4229,9 @@ abstract class GServiceAccountTokenInput
   static Serializer<GServiceAccountTokenInput> get serializer =>
       _$gServiceAccountTokenInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GServiceAccountTokenInput.serializer, this);
+      _i2.serializers.serializeWith(GServiceAccountTokenInput.serializer, this);
   static GServiceAccountTokenInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GServiceAccountTokenInput.serializer, json);
 }
 
@@ -4281,9 +4306,9 @@ abstract class GShippingPriceInput
   static Serializer<GShippingPriceInput> get serializer =>
       _$gShippingPriceInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GShippingPriceInput.serializer, this);
+      _i2.serializers.serializeWith(GShippingPriceInput.serializer, this);
   static GShippingPriceInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GShippingPriceInput.serializer, json);
+      _i2.serializers.deserializeWith(GShippingPriceInput.serializer, json);
 }
 
 abstract class GShippingZoneCreateInput
@@ -4307,9 +4332,9 @@ abstract class GShippingZoneCreateInput
   static Serializer<GShippingZoneCreateInput> get serializer =>
       _$gShippingZoneCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GShippingZoneCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GShippingZoneCreateInput.serializer, this);
   static GShippingZoneCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GShippingZoneCreateInput.serializer, json);
 }
 
@@ -4336,9 +4361,9 @@ abstract class GShippingZoneUpdateInput
   static Serializer<GShippingZoneUpdateInput> get serializer =>
       _$gShippingZoneUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GShippingZoneUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GShippingZoneUpdateInput.serializer, this);
   static GShippingZoneUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GShippingZoneUpdateInput.serializer, json);
 }
 
@@ -4402,9 +4427,9 @@ abstract class GShopSettingsInput
   static Serializer<GShopSettingsInput> get serializer =>
       _$gShopSettingsInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GShopSettingsInput.serializer, this);
+      _i2.serializers.serializeWith(GShopSettingsInput.serializer, this);
   static GShopSettingsInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GShopSettingsInput.serializer, json);
+      _i2.serializers.deserializeWith(GShopSettingsInput.serializer, json);
 }
 
 abstract class GShopSettingsTranslationInput
@@ -4423,10 +4448,10 @@ abstract class GShopSettingsTranslationInput
   String get description;
   static Serializer<GShopSettingsTranslationInput> get serializer =>
       _$gShopSettingsTranslationInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GShopSettingsTranslationInput.serializer, this);
   static GShopSettingsTranslationInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GShopSettingsTranslationInput.serializer, json);
 }
 
@@ -4444,9 +4469,9 @@ abstract class GSiteDomainInput
   static Serializer<GSiteDomainInput> get serializer =>
       _$gSiteDomainInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GSiteDomainInput.serializer, this);
+      _i2.serializers.serializeWith(GSiteDomainInput.serializer, this);
   static GSiteDomainInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GSiteDomainInput.serializer, json);
+      _i2.serializers.deserializeWith(GSiteDomainInput.serializer, json);
 }
 
 abstract class GStaffCreateInput
@@ -4472,9 +4497,9 @@ abstract class GStaffCreateInput
   static Serializer<GStaffCreateInput> get serializer =>
       _$gStaffCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GStaffCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GStaffCreateInput.serializer, this);
   static GStaffCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GStaffCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GStaffCreateInput.serializer, json);
 }
 
 class GStaffMemberStatus extends EnumClass {
@@ -4509,10 +4534,10 @@ abstract class GStaffNotificationRecipientInput
   bool get active;
   static Serializer<GStaffNotificationRecipientInput> get serializer =>
       _$gStaffNotificationRecipientInputSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
+  Map<String, dynamic> toJson() => _i2.serializers
       .serializeWith(GStaffNotificationRecipientInput.serializer, this);
   static GStaffNotificationRecipientInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
+      _i2.serializers
           .deserializeWith(GStaffNotificationRecipientInput.serializer, json);
 }
 
@@ -4538,9 +4563,9 @@ abstract class GStaffUpdateInput
   static Serializer<GStaffUpdateInput> get serializer =>
       _$gStaffUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GStaffUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GStaffUpdateInput.serializer, this);
   static GStaffUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GStaffUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GStaffUpdateInput.serializer, json);
 }
 
 abstract class GStaffUserInput
@@ -4557,9 +4582,9 @@ abstract class GStaffUserInput
   static Serializer<GStaffUserInput> get serializer =>
       _$gStaffUserInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GStaffUserInput.serializer, this);
+      _i2.serializers.serializeWith(GStaffUserInput.serializer, this);
   static GStaffUserInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GStaffUserInput.serializer, json);
+      _i2.serializers.deserializeWith(GStaffUserInput.serializer, json);
 }
 
 class GStockAvailability extends EnumClass {
@@ -4612,9 +4637,9 @@ abstract class GStockFilterInput
   static Serializer<GStockFilterInput> get serializer =>
       _$gStockFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GStockFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GStockFilterInput.serializer, this);
   static GStockFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GStockFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GStockFilterInput.serializer, json);
 }
 
 abstract class GStockInput implements Built<GStockInput, GStockInputBuilder> {
@@ -4627,9 +4652,9 @@ abstract class GStockInput implements Built<GStockInput, GStockInputBuilder> {
   int get quantity;
   static Serializer<GStockInput> get serializer => _$gStockInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GStockInput.serializer, this);
+      _i2.serializers.serializeWith(GStockInput.serializer, this);
   static GStockInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GStockInput.serializer, json);
+      _i2.serializers.deserializeWith(GStockInput.serializer, json);
 }
 
 class GTaxRateType extends EnumClass {
@@ -4830,21 +4855,9 @@ abstract class GTranslationInput
   static Serializer<GTranslationInput> get serializer =>
       _$gTranslationInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GTranslationInput.serializer, this);
+      _i2.serializers.serializeWith(GTranslationInput.serializer, this);
   static GTranslationInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GTranslationInput.serializer, json);
-}
-
-abstract class GUUID implements Built<GUUID, GUUIDBuilder> {
-  GUUID._();
-
-  factory GUUID([String value]) =>
-      _$GUUID((b) => value != null ? (b..value = value) : b);
-
-  String get value;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GUUID> get serializer => _i2.DefaultScalarSerializer<GUUID>(
-      (Object serialized) => GUUID(serialized));
+      _i2.serializers.deserializeWith(GTranslationInput.serializer, json);
 }
 
 abstract class GUpload implements Built<GUpload, GUploadBuilder> {
@@ -4856,7 +4869,7 @@ abstract class GUpload implements Built<GUpload, GUploadBuilder> {
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GUpload> get serializer =>
-      _i2.DefaultScalarSerializer<GUpload>(
+      _i1.DefaultScalarSerializer<GUpload>(
           (Object serialized) => GUpload(serialized));
 }
 
@@ -4886,9 +4899,9 @@ abstract class GUserCreateInput
   static Serializer<GUserCreateInput> get serializer =>
       _$gUserCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GUserCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GUserCreateInput.serializer, this);
   static GUserCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GUserCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GUserCreateInput.serializer, json);
 }
 
 class GUserSortField extends EnumClass {
@@ -4920,9 +4933,21 @@ abstract class GUserSortingInput
   static Serializer<GUserSortingInput> get serializer =>
       _$gUserSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GUserSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GUserSortingInput.serializer, this);
   static GUserSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GUserSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GUserSortingInput.serializer, json);
+}
+
+abstract class GUUID implements Built<GUUID, GUUIDBuilder> {
+  GUUID._();
+
+  factory GUUID([String value]) =>
+      _$GUUID((b) => value != null ? (b..value = value) : b);
+
+  String get value;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GUUID> get serializer => _i1.DefaultScalarSerializer<GUUID>(
+      (Object serialized) => GUUID(serialized));
 }
 
 class GVoucherDiscountType extends EnumClass {
@@ -4963,9 +4988,9 @@ abstract class GVoucherFilterInput
   static Serializer<GVoucherFilterInput> get serializer =>
       _$gVoucherFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GVoucherFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GVoucherFilterInput.serializer, this);
   static GVoucherFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GVoucherFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GVoucherFilterInput.serializer, json);
 }
 
 abstract class GVoucherInput
@@ -5009,9 +5034,9 @@ abstract class GVoucherInput
   int get usageLimit;
   static Serializer<GVoucherInput> get serializer => _$gVoucherInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GVoucherInput.serializer, this);
+      _i2.serializers.serializeWith(GVoucherInput.serializer, this);
   static GVoucherInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GVoucherInput.serializer, json);
+      _i2.serializers.deserializeWith(GVoucherInput.serializer, json);
 }
 
 class GVoucherSortField extends EnumClass {
@@ -5052,9 +5077,9 @@ abstract class GVoucherSortingInput
   static Serializer<GVoucherSortingInput> get serializer =>
       _$gVoucherSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GVoucherSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GVoucherSortingInput.serializer, this);
   static GVoucherSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GVoucherSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GVoucherSortingInput.serializer, json);
 }
 
 class GVoucherTypeEnum extends EnumClass {
@@ -5098,9 +5123,9 @@ abstract class GWarehouseAddressInput
   static Serializer<GWarehouseAddressInput> get serializer =>
       _$gWarehouseAddressInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWarehouseAddressInput.serializer, this);
+      _i2.serializers.serializeWith(GWarehouseAddressInput.serializer, this);
   static GWarehouseAddressInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWarehouseAddressInput.serializer, json);
+      _i2.serializers.deserializeWith(GWarehouseAddressInput.serializer, json);
 }
 
 abstract class GWarehouseCreateInput
@@ -5124,9 +5149,9 @@ abstract class GWarehouseCreateInput
   static Serializer<GWarehouseCreateInput> get serializer =>
       _$gWarehouseCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWarehouseCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GWarehouseCreateInput.serializer, this);
   static GWarehouseCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWarehouseCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GWarehouseCreateInput.serializer, json);
 }
 
 class GWarehouseErrorCode extends EnumClass {
@@ -5169,9 +5194,9 @@ abstract class GWarehouseFilterInput
   static Serializer<GWarehouseFilterInput> get serializer =>
       _$gWarehouseFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWarehouseFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GWarehouseFilterInput.serializer, this);
   static GWarehouseFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWarehouseFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GWarehouseFilterInput.serializer, json);
 }
 
 class GWarehouseSortField extends EnumClass {
@@ -5200,9 +5225,9 @@ abstract class GWarehouseSortingInput
   static Serializer<GWarehouseSortingInput> get serializer =>
       _$gWarehouseSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWarehouseSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GWarehouseSortingInput.serializer, this);
   static GWarehouseSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWarehouseSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GWarehouseSortingInput.serializer, json);
 }
 
 abstract class GWarehouseUpdateInput
@@ -5226,9 +5251,9 @@ abstract class GWarehouseUpdateInput
   static Serializer<GWarehouseUpdateInput> get serializer =>
       _$gWarehouseUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWarehouseUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GWarehouseUpdateInput.serializer, this);
   static GWarehouseUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWarehouseUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GWarehouseUpdateInput.serializer, json);
 }
 
 abstract class GWebhookCreateInput
@@ -5255,9 +5280,9 @@ abstract class GWebhookCreateInput
   static Serializer<GWebhookCreateInput> get serializer =>
       _$gWebhookCreateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWebhookCreateInput.serializer, this);
+      _i2.serializers.serializeWith(GWebhookCreateInput.serializer, this);
   static GWebhookCreateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWebhookCreateInput.serializer, json);
+      _i2.serializers.deserializeWith(GWebhookCreateInput.serializer, json);
 }
 
 class GWebhookErrorCode extends EnumClass {
@@ -5336,9 +5361,9 @@ abstract class GWebhookFilterInput
   static Serializer<GWebhookFilterInput> get serializer =>
       _$gWebhookFilterInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWebhookFilterInput.serializer, this);
+      _i2.serializers.serializeWith(GWebhookFilterInput.serializer, this);
   static GWebhookFilterInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWebhookFilterInput.serializer, json);
+      _i2.serializers.deserializeWith(GWebhookFilterInput.serializer, json);
 }
 
 class GWebhookSampleEventTypeEnum extends EnumClass {
@@ -5411,9 +5436,9 @@ abstract class GWebhookSortingInput
   static Serializer<GWebhookSortingInput> get serializer =>
       _$gWebhookSortingInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWebhookSortingInput.serializer, this);
+      _i2.serializers.serializeWith(GWebhookSortingInput.serializer, this);
   static GWebhookSortingInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWebhookSortingInput.serializer, json);
+      _i2.serializers.deserializeWith(GWebhookSortingInput.serializer, json);
 }
 
 abstract class GWebhookUpdateInput
@@ -5440,9 +5465,9 @@ abstract class GWebhookUpdateInput
   static Serializer<GWebhookUpdateInput> get serializer =>
       _$gWebhookUpdateInputSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GWebhookUpdateInput.serializer, this);
+      _i2.serializers.serializeWith(GWebhookUpdateInput.serializer, this);
   static GWebhookUpdateInput fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GWebhookUpdateInput.serializer, json);
+      _i2.serializers.deserializeWith(GWebhookUpdateInput.serializer, json);
 }
 
 abstract class GWeightScalar
@@ -5455,7 +5480,7 @@ abstract class GWeightScalar
   String get value;
   @BuiltValueSerializer(custom: true)
   static Serializer<GWeightScalar> get serializer =>
-      _i2.DefaultScalarSerializer<GWeightScalar>(
+      _i1.DefaultScalarSerializer<GWeightScalar>(
           (Object serialized) => GWeightScalar(serialized));
 }
 
@@ -5475,16 +5500,4 @@ class GWeightUnitsEnum extends EnumClass {
   static BuiltSet<GWeightUnitsEnum> get values => _$gWeightUnitsEnumValues;
   static GWeightUnitsEnum valueOf(String name) =>
       _$gWeightUnitsEnumValueOf(name);
-}
-
-abstract class G_Any implements Built<G_Any, G_AnyBuilder> {
-  G_Any._();
-
-  factory G_Any([String value]) =>
-      _$G_Any((b) => value != null ? (b..value = value) : b);
-
-  String get value;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<G_Any> get serializer => _i2.DefaultScalarSerializer<G_Any>(
-      (Object serialized) => G_Any(serialized));
 }

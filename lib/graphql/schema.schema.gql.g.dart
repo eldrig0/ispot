@@ -1855,6 +1855,7 @@ const GLanguageCodeEnum _$gLanguageCodeEnumES_CO =
     const GLanguageCodeEnum._('ES_CO');
 const GLanguageCodeEnum _$gLanguageCodeEnumET = const GLanguageCodeEnum._('ET');
 const GLanguageCodeEnum _$gLanguageCodeEnumFA = const GLanguageCodeEnum._('FA');
+const GLanguageCodeEnum _$gLanguageCodeEnumFI = const GLanguageCodeEnum._('FI');
 const GLanguageCodeEnum _$gLanguageCodeEnumFR = const GLanguageCodeEnum._('FR');
 const GLanguageCodeEnum _$gLanguageCodeEnumHI = const GLanguageCodeEnum._('HI');
 const GLanguageCodeEnum _$gLanguageCodeEnumHU = const GLanguageCodeEnum._('HU');
@@ -1875,10 +1876,11 @@ const GLanguageCodeEnum _$gLanguageCodeEnumPT_BR =
 const GLanguageCodeEnum _$gLanguageCodeEnumRO = const GLanguageCodeEnum._('RO');
 const GLanguageCodeEnum _$gLanguageCodeEnumRU = const GLanguageCodeEnum._('RU');
 const GLanguageCodeEnum _$gLanguageCodeEnumSK = const GLanguageCodeEnum._('SK');
+const GLanguageCodeEnum _$gLanguageCodeEnumSL = const GLanguageCodeEnum._('SL');
 const GLanguageCodeEnum _$gLanguageCodeEnumSQ = const GLanguageCodeEnum._('SQ');
 const GLanguageCodeEnum _$gLanguageCodeEnumSR = const GLanguageCodeEnum._('SR');
-const GLanguageCodeEnum _$gLanguageCodeEnumSW = const GLanguageCodeEnum._('SW');
 const GLanguageCodeEnum _$gLanguageCodeEnumSV = const GLanguageCodeEnum._('SV');
+const GLanguageCodeEnum _$gLanguageCodeEnumSW = const GLanguageCodeEnum._('SW');
 const GLanguageCodeEnum _$gLanguageCodeEnumTH = const GLanguageCodeEnum._('TH');
 const GLanguageCodeEnum _$gLanguageCodeEnumTR = const GLanguageCodeEnum._('TR');
 const GLanguageCodeEnum _$gLanguageCodeEnumUK = const GLanguageCodeEnum._('UK');
@@ -1918,6 +1920,8 @@ GLanguageCodeEnum _$gLanguageCodeEnumValueOf(String name) {
       return _$gLanguageCodeEnumET;
     case 'FA':
       return _$gLanguageCodeEnumFA;
+    case 'FI':
+      return _$gLanguageCodeEnumFI;
     case 'FR':
       return _$gLanguageCodeEnumFR;
     case 'HI':
@@ -1956,14 +1960,16 @@ GLanguageCodeEnum _$gLanguageCodeEnumValueOf(String name) {
       return _$gLanguageCodeEnumRU;
     case 'SK':
       return _$gLanguageCodeEnumSK;
+    case 'SL':
+      return _$gLanguageCodeEnumSL;
     case 'SQ':
       return _$gLanguageCodeEnumSQ;
     case 'SR':
       return _$gLanguageCodeEnumSR;
-    case 'SW':
-      return _$gLanguageCodeEnumSW;
     case 'SV':
       return _$gLanguageCodeEnumSV;
+    case 'SW':
+      return _$gLanguageCodeEnumSW;
     case 'TH':
       return _$gLanguageCodeEnumTH;
     case 'TR':
@@ -1997,6 +2003,7 @@ final BuiltSet<GLanguageCodeEnum> _$gLanguageCodeEnumValues =
   _$gLanguageCodeEnumES_CO,
   _$gLanguageCodeEnumET,
   _$gLanguageCodeEnumFA,
+  _$gLanguageCodeEnumFI,
   _$gLanguageCodeEnumFR,
   _$gLanguageCodeEnumHI,
   _$gLanguageCodeEnumHU,
@@ -2016,10 +2023,11 @@ final BuiltSet<GLanguageCodeEnum> _$gLanguageCodeEnumValues =
   _$gLanguageCodeEnumRO,
   _$gLanguageCodeEnumRU,
   _$gLanguageCodeEnumSK,
+  _$gLanguageCodeEnumSL,
   _$gLanguageCodeEnumSQ,
   _$gLanguageCodeEnumSR,
-  _$gLanguageCodeEnumSW,
   _$gLanguageCodeEnumSV,
+  _$gLanguageCodeEnumSW,
   _$gLanguageCodeEnumTH,
   _$gLanguageCodeEnumTR,
   _$gLanguageCodeEnumUK,
@@ -2735,6 +2743,12 @@ const GPaymentErrorCode _$gPaymentErrorCodeNOT_FOUND =
     const GPaymentErrorCode._('NOT_FOUND');
 const GPaymentErrorCode _$gPaymentErrorCodePARTIAL_PAYMENT_NOT_ALLOWED =
     const GPaymentErrorCode._('PARTIAL_PAYMENT_NOT_ALLOWED');
+const GPaymentErrorCode _$gPaymentErrorCodeSHIPPING_ADDRESS_NOT_SET =
+    const GPaymentErrorCode._('SHIPPING_ADDRESS_NOT_SET');
+const GPaymentErrorCode _$gPaymentErrorCodeINVALID_SHIPPING_METHOD =
+    const GPaymentErrorCode._('INVALID_SHIPPING_METHOD');
+const GPaymentErrorCode _$gPaymentErrorCodeSHIPPING_METHOD_NOT_SET =
+    const GPaymentErrorCode._('SHIPPING_METHOD_NOT_SET');
 const GPaymentErrorCode _$gPaymentErrorCodePAYMENT_ERROR =
     const GPaymentErrorCode._('PAYMENT_ERROR');
 const GPaymentErrorCode _$gPaymentErrorCodeREQUIRED =
@@ -2754,6 +2768,12 @@ GPaymentErrorCode _$gPaymentErrorCodeValueOf(String name) {
       return _$gPaymentErrorCodeNOT_FOUND;
     case 'PARTIAL_PAYMENT_NOT_ALLOWED':
       return _$gPaymentErrorCodePARTIAL_PAYMENT_NOT_ALLOWED;
+    case 'SHIPPING_ADDRESS_NOT_SET':
+      return _$gPaymentErrorCodeSHIPPING_ADDRESS_NOT_SET;
+    case 'INVALID_SHIPPING_METHOD':
+      return _$gPaymentErrorCodeINVALID_SHIPPING_METHOD;
+    case 'SHIPPING_METHOD_NOT_SET':
+      return _$gPaymentErrorCodeSHIPPING_METHOD_NOT_SET;
     case 'PAYMENT_ERROR':
       return _$gPaymentErrorCodePAYMENT_ERROR;
     case 'REQUIRED':
@@ -2772,6 +2792,9 @@ final BuiltSet<GPaymentErrorCode> _$gPaymentErrorCodeValues =
   _$gPaymentErrorCodeINVALID,
   _$gPaymentErrorCodeNOT_FOUND,
   _$gPaymentErrorCodePARTIAL_PAYMENT_NOT_ALLOWED,
+  _$gPaymentErrorCodeSHIPPING_ADDRESS_NOT_SET,
+  _$gPaymentErrorCodeINVALID_SHIPPING_METHOD,
+  _$gPaymentErrorCodeSHIPPING_METHOD_NOT_SET,
   _$gPaymentErrorCodePAYMENT_ERROR,
   _$gPaymentErrorCodeREQUIRED,
   _$gPaymentErrorCodeUNIQUE,
@@ -4382,12 +4405,12 @@ Serializer<GMenuSortField> _$gMenuSortFieldSerializer =
     new _$GMenuSortFieldSerializer();
 Serializer<GMenuSortingInput> _$gMenuSortingInputSerializer =
     new _$GMenuSortingInputSerializer();
-Serializer<GMetaInput> _$gMetaInputSerializer = new _$GMetaInputSerializer();
-Serializer<GMetaPath> _$gMetaPathSerializer = new _$GMetaPathSerializer();
 Serializer<GMetadataErrorCode> _$gMetadataErrorCodeSerializer =
     new _$GMetadataErrorCodeSerializer();
 Serializer<GMetadataInput> _$gMetadataInputSerializer =
     new _$GMetadataInputSerializer();
+Serializer<GMetaInput> _$gMetaInputSerializer = new _$GMetaInputSerializer();
+Serializer<GMetaPath> _$gMetaPathSerializer = new _$GMetaPathSerializer();
 Serializer<GMoveProductInput> _$gMoveProductInputSerializer =
     new _$GMoveProductInputSerializer();
 Serializer<GNameTranslationInput> _$gNameTranslationInputSerializer =
@@ -8816,6 +8839,72 @@ class _$GMenuSortingInputSerializer
   }
 }
 
+class _$GMetadataErrorCodeSerializer
+    implements PrimitiveSerializer<GMetadataErrorCode> {
+  @override
+  final Iterable<Type> types = const <Type>[GMetadataErrorCode];
+  @override
+  final String wireName = 'GMetadataErrorCode';
+
+  @override
+  Object serialize(Serializers serializers, GMetadataErrorCode object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  GMetadataErrorCode deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      GMetadataErrorCode.valueOf(serialized as String);
+}
+
+class _$GMetadataInputSerializer
+    implements StructuredSerializer<GMetadataInput> {
+  @override
+  final Iterable<Type> types = const [GMetadataInput, _$GMetadataInput];
+  @override
+  final String wireName = 'GMetadataInput';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers, GMetadataInput object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'key',
+      serializers.serialize(object.key, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GMetadataInput deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GMetadataInputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'key':
+          result.key = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$GMetaInputSerializer implements StructuredSerializer<GMetaInput> {
   @override
   final Iterable<Type> types = const [GMetaInput, _$GMetaInput];
@@ -8920,72 +9009,6 @@ class _$GMetaPathSerializer implements StructuredSerializer<GMetaPath> {
           break;
         case 'key':
           result.key = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GMetadataErrorCodeSerializer
-    implements PrimitiveSerializer<GMetadataErrorCode> {
-  @override
-  final Iterable<Type> types = const <Type>[GMetadataErrorCode];
-  @override
-  final String wireName = 'GMetadataErrorCode';
-
-  @override
-  Object serialize(Serializers serializers, GMetadataErrorCode object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  GMetadataErrorCode deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      GMetadataErrorCode.valueOf(serialized as String);
-}
-
-class _$GMetadataInputSerializer
-    implements StructuredSerializer<GMetadataInput> {
-  @override
-  final Iterable<Type> types = const [GMetadataInput, _$GMetadataInput];
-  @override
-  final String wireName = 'GMetadataInput';
-
-  @override
-  Iterable<Object> serialize(Serializers serializers, GMetadataInput object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'key',
-      serializers.serialize(object.key, specifiedType: const FullType(String)),
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GMetadataInput deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new GMetadataInputBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'key':
-          result.key = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'value':
-          result.value = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -15762,6 +15785,82 @@ class _$GWeightUnitsEnumSerializer
       GWeightUnitsEnum.valueOf(serialized as String);
 }
 
+class _$G_Any extends G_Any {
+  @override
+  final String value;
+
+  factory _$G_Any([void Function(G_AnyBuilder) updates]) =>
+      (new G_AnyBuilder()..update(updates)).build();
+
+  _$G_Any._({this.value}) : super._() {
+    if (value == null) {
+      throw new BuiltValueNullFieldError('G_Any', 'value');
+    }
+  }
+
+  @override
+  G_Any rebuild(void Function(G_AnyBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  G_AnyBuilder toBuilder() => new G_AnyBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is G_Any && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, value.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('G_Any')..add('value', value))
+        .toString();
+  }
+}
+
+class G_AnyBuilder implements Builder<G_Any, G_AnyBuilder> {
+  _$G_Any _$v;
+
+  String _value;
+  String get value => _$this._value;
+  set value(String value) => _$this._value = value;
+
+  G_AnyBuilder();
+
+  G_AnyBuilder get _$this {
+    if (_$v != null) {
+      _value = _$v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(G_Any other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$G_Any;
+  }
+
+  @override
+  void update(void Function(G_AnyBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$G_Any build() {
+    final _$result = _$v ?? new _$G_Any._(value: value);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$GAccountInput extends GAccountInput {
   @override
   final String firstName;
@@ -22478,6 +22577,96 @@ class GMenuSortingInputBuilder
   }
 }
 
+class _$GMetadataInput extends GMetadataInput {
+  @override
+  final String key;
+  @override
+  final String value;
+
+  factory _$GMetadataInput([void Function(GMetadataInputBuilder) updates]) =>
+      (new GMetadataInputBuilder()..update(updates)).build();
+
+  _$GMetadataInput._({this.key, this.value}) : super._() {
+    if (key == null) {
+      throw new BuiltValueNullFieldError('GMetadataInput', 'key');
+    }
+    if (value == null) {
+      throw new BuiltValueNullFieldError('GMetadataInput', 'value');
+    }
+  }
+
+  @override
+  GMetadataInput rebuild(void Function(GMetadataInputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GMetadataInputBuilder toBuilder() =>
+      new GMetadataInputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GMetadataInput && key == other.key && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, key.hashCode), value.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GMetadataInput')
+          ..add('key', key)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class GMetadataInputBuilder
+    implements Builder<GMetadataInput, GMetadataInputBuilder> {
+  _$GMetadataInput _$v;
+
+  String _key;
+  String get key => _$this._key;
+  set key(String key) => _$this._key = key;
+
+  String _value;
+  String get value => _$this._value;
+  set value(String value) => _$this._value = value;
+
+  GMetadataInputBuilder();
+
+  GMetadataInputBuilder get _$this {
+    if (_$v != null) {
+      _key = _$v.key;
+      _value = _$v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GMetadataInput other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GMetadataInput;
+  }
+
+  @override
+  void update(void Function(GMetadataInputBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GMetadataInput build() {
+    final _$result = _$v ?? new _$GMetadataInput._(key: key, value: value);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$GMetaInput extends GMetaInput {
   @override
   final String namespace;
@@ -22700,96 +22889,6 @@ class GMetaPathBuilder implements Builder<GMetaPath, GMetaPathBuilder> {
     final _$result = _$v ??
         new _$GMetaPath._(
             namespace: namespace, clientName: clientName, key: key);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GMetadataInput extends GMetadataInput {
-  @override
-  final String key;
-  @override
-  final String value;
-
-  factory _$GMetadataInput([void Function(GMetadataInputBuilder) updates]) =>
-      (new GMetadataInputBuilder()..update(updates)).build();
-
-  _$GMetadataInput._({this.key, this.value}) : super._() {
-    if (key == null) {
-      throw new BuiltValueNullFieldError('GMetadataInput', 'key');
-    }
-    if (value == null) {
-      throw new BuiltValueNullFieldError('GMetadataInput', 'value');
-    }
-  }
-
-  @override
-  GMetadataInput rebuild(void Function(GMetadataInputBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GMetadataInputBuilder toBuilder() =>
-      new GMetadataInputBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GMetadataInput && key == other.key && value == other.value;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, key.hashCode), value.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('GMetadataInput')
-          ..add('key', key)
-          ..add('value', value))
-        .toString();
-  }
-}
-
-class GMetadataInputBuilder
-    implements Builder<GMetadataInput, GMetadataInputBuilder> {
-  _$GMetadataInput _$v;
-
-  String _key;
-  String get key => _$this._key;
-  set key(String key) => _$this._key = key;
-
-  String _value;
-  String get value => _$this._value;
-  set value(String value) => _$this._value = value;
-
-  GMetadataInputBuilder();
-
-  GMetadataInputBuilder get _$this {
-    if (_$v != null) {
-      _key = _$v.key;
-      _value = _$v.value;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GMetadataInput other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$GMetadataInput;
-  }
-
-  @override
-  void update(void Function(GMetadataInputBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GMetadataInput build() {
-    final _$result = _$v ?? new _$GMetadataInput._(key: key, value: value);
     replace(_$result);
     return _$result;
   }
@@ -30722,82 +30821,6 @@ class GTranslationInputBuilder
   }
 }
 
-class _$GUUID extends GUUID {
-  @override
-  final String value;
-
-  factory _$GUUID([void Function(GUUIDBuilder) updates]) =>
-      (new GUUIDBuilder()..update(updates)).build();
-
-  _$GUUID._({this.value}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('GUUID', 'value');
-    }
-  }
-
-  @override
-  GUUID rebuild(void Function(GUUIDBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GUUIDBuilder toBuilder() => new GUUIDBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GUUID && value == other.value;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(0, value.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('GUUID')..add('value', value))
-        .toString();
-  }
-}
-
-class GUUIDBuilder implements Builder<GUUID, GUUIDBuilder> {
-  _$GUUID _$v;
-
-  String _value;
-  String get value => _$this._value;
-  set value(String value) => _$this._value = value;
-
-  GUUIDBuilder();
-
-  GUUIDBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GUUID other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$GUUID;
-  }
-
-  @override
-  void update(void Function(GUUIDBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$GUUID build() {
-    final _$result = _$v ?? new _$GUUID._(value: value);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$GUpload extends GUpload {
   @override
   final String value;
@@ -31153,6 +31176,82 @@ class GUserSortingInputBuilder
   _$GUserSortingInput build() {
     final _$result =
         _$v ?? new _$GUserSortingInput._(direction: direction, field: field);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GUUID extends GUUID {
+  @override
+  final String value;
+
+  factory _$GUUID([void Function(GUUIDBuilder) updates]) =>
+      (new GUUIDBuilder()..update(updates)).build();
+
+  _$GUUID._({this.value}) : super._() {
+    if (value == null) {
+      throw new BuiltValueNullFieldError('GUUID', 'value');
+    }
+  }
+
+  @override
+  GUUID rebuild(void Function(GUUIDBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GUUIDBuilder toBuilder() => new GUUIDBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GUUID && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, value.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GUUID')..add('value', value))
+        .toString();
+  }
+}
+
+class GUUIDBuilder implements Builder<GUUID, GUUIDBuilder> {
+  _$GUUID _$v;
+
+  String _value;
+  String get value => _$this._value;
+  set value(String value) => _$this._value = value;
+
+  GUUIDBuilder();
+
+  GUUIDBuilder get _$this {
+    if (_$v != null) {
+      _value = _$v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GUUID other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GUUID;
+  }
+
+  @override
+  void update(void Function(GUUIDBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GUUID build() {
+    final _$result = _$v ?? new _$GUUID._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -33023,82 +33122,6 @@ class GWeightScalarBuilder
   @override
   _$GWeightScalar build() {
     final _$result = _$v ?? new _$GWeightScalar._(value: value);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$G_Any extends G_Any {
-  @override
-  final String value;
-
-  factory _$G_Any([void Function(G_AnyBuilder) updates]) =>
-      (new G_AnyBuilder()..update(updates)).build();
-
-  _$G_Any._({this.value}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('G_Any', 'value');
-    }
-  }
-
-  @override
-  G_Any rebuild(void Function(G_AnyBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  G_AnyBuilder toBuilder() => new G_AnyBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is G_Any && value == other.value;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc(0, value.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('G_Any')..add('value', value))
-        .toString();
-  }
-}
-
-class G_AnyBuilder implements Builder<G_Any, G_AnyBuilder> {
-  _$G_Any _$v;
-
-  String _value;
-  String get value => _$this._value;
-  set value(String value) => _$this._value = value;
-
-  G_AnyBuilder();
-
-  G_AnyBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(G_Any other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$G_Any;
-  }
-
-  @override
-  void update(void Function(G_AnyBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$G_Any build() {
-    final _$result = _$v ?? new _$G_Any._(value: value);
     replace(_$result);
     return _$result;
   }

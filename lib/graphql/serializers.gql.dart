@@ -15,6 +15,24 @@ import 'package:ispot/app/data/provider/attribute/graphql/attributes.req.gql.dar
     show GattributesReq;
 import 'package:ispot/app/data/provider/attribute/graphql/attributes.var.gql.dart'
     show GattributesVars;
+import 'package:ispot/app/data/provider/auth/graphql/forgot_password/forgotPassword.data.gql.dart'
+    show
+        GrequestPasswordResetData,
+        GrequestPasswordResetData_requestPasswordReset,
+        GrequestPasswordResetData_requestPasswordReset_accountErrors;
+import 'package:ispot/app/data/provider/auth/graphql/forgot_password/forgotPassword.req.gql.dart'
+    show GrequestPasswordResetReq;
+import 'package:ispot/app/data/provider/auth/graphql/forgot_password/forgotPassword.var.gql.dart'
+    show GrequestPasswordResetVars;
+import 'package:ispot/app/data/provider/auth/graphql/login/login.data.gql.dart'
+    show
+        GtokenCreateData,
+        GtokenCreateData_tokenCreate,
+        GtokenCreateData_tokenCreate_accountErrors;
+import 'package:ispot/app/data/provider/auth/graphql/login/login.req.gql.dart'
+    show GtokenCreateReq;
+import 'package:ispot/app/data/provider/auth/graphql/login/login.var.gql.dart'
+    show GtokenCreateVars;
 import 'package:ispot/app/data/provider/auth/graphql/register/create_account.data.gql.dart'
     show
         GregisterAccountData,
@@ -853,6 +871,16 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GregisterAccountData_accountRegister_accountErrors,
   GregisterAccountData_accountRegister_user,
   GregisterAccountReq,
-  GregisterAccountVars
+  GregisterAccountVars,
+  GrequestPasswordResetData,
+  GrequestPasswordResetData_requestPasswordReset,
+  GrequestPasswordResetData_requestPasswordReset_accountErrors,
+  GrequestPasswordResetReq,
+  GrequestPasswordResetVars,
+  GtokenCreateData,
+  GtokenCreateData_tokenCreate,
+  GtokenCreateData_tokenCreate_accountErrors,
+  GtokenCreateReq,
+  GtokenCreateVars
 ])
 final Serializers serializers = _serializersBuilder.build();

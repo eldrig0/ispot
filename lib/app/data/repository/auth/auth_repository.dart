@@ -9,8 +9,17 @@ class AuthRepository {
 
   AuthRepository(this._provider);
 
+  Stream<Either<Failure, String>> login(
+      {@required String email, @required String password}) {
+    return _provider.login(email: email, password: password);
+  }
+
   Stream<Either<Failure, User>> registerUser(
-      {@required email, @required password}) {
+      {@required String email, @required String password}) {
     return _provider.registerUser(email: email, password: password);
+  }
+
+  Stream<Either<Failure, bool>> requestPasswordReset({@required String email}) {
+    return _provider.requestPasswordReset(email: email);
   }
 }

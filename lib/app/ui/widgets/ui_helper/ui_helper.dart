@@ -117,14 +117,14 @@ class UIHelper {
   static double getDeviceWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;
 
-  static Widget buildDialogCancelButton() {
+  static Widget buildDialogButton(String buttonText) {
     return RaisedButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       onPressed: () {
         Get.back();
       },
       child: Text(
-        'CLOSE',
+        buttonText,
         style: TextStyle(
           color: Colors.white,
         ),

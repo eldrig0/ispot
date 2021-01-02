@@ -1,6 +1,7 @@
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ispot/app/controller/cart/cart_controller.dart';
 import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
@@ -9,6 +10,7 @@ import 'package:get/get.dart';
 
 void main() async {
   final client = await initClient();
+  await GetStorage.init();
   Get.put<Client>(client);
   Get.put<CartController>(CartController());
   runApp(Ispot());
