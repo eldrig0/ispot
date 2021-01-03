@@ -6,7 +6,7 @@ import 'package:ispot/app/data/model/product.dart';
 
 import 'attribute.dart';
 
-class CategoryModel {
+class HomeCategory {
   String categoryName;
   String categoryId;
   String categoryImageUrl;
@@ -15,7 +15,7 @@ class CategoryModel {
   List<Attribute> attributes;
   List<Product> products;
 
-  CategoryModel(
+  HomeCategory(
       {this.categoryName,
       this.categoryId,
       this.categoryImageUrl,
@@ -28,7 +28,7 @@ class CategoryModel {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is CategoryModel &&
+    return o is HomeCategory &&
         o.categoryName == categoryName &&
         o.categoryId == categoryId &&
         o.categoryImageUrl == categoryImageUrl &&
@@ -58,10 +58,10 @@ class CategoryModel {
     };
   }
 
-  factory CategoryModel.fromMap(Map<String, dynamic> map) {
+  factory HomeCategory.fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
 
-    return CategoryModel(
+    return HomeCategory(
       categoryName: map['categoryName'],
       categoryId: map['categoryId'],
       categoryImageUrl: map['categoryImageUrl'],
@@ -75,10 +75,10 @@ class CategoryModel {
 
   String toJson() => json.encode(toMap());
 
-  factory CategoryModel.fromJson(String source) =>
-      CategoryModel.fromMap(json.decode(source));
+  factory HomeCategory.fromJson(String source) =>
+      HomeCategory.fromMap(json.decode(source));
 
-  CategoryModel copyWith({
+  HomeCategory copyWith({
     String categoryName,
     String categoryId,
     String categoryImageUrl,
@@ -86,7 +86,7 @@ class CategoryModel {
     List<Attribute> attributes,
     List<Product> products,
   }) {
-    return CategoryModel(
+    return HomeCategory(
       categoryName: categoryName ?? this.categoryName,
       categoryId: categoryId ?? this.categoryId,
       categoryImageUrl: categoryImageUrl ?? this.categoryImageUrl,
@@ -98,63 +98,6 @@ class CategoryModel {
 
   @override
   String toString() {
-    return 'CategoryModel(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, totalProductCount: $totalProductCount, attributes: $attributes, products: $products)';
+    return 'HomeCategory(categoryName: $categoryName, categoryId: $categoryId, categoryImageUrl: $categoryImageUrl, totalProductCount: $totalProductCount, attributes: $attributes, products: $products)';
   }
-}
-
-class Categories {
-  PageInfo pageInfo;
-  List<CategoryModel> categories;
-  Categories({
-    this.pageInfo,
-    this.categories,
-  });
-
-  Categories copyWith({
-    PageInfo pageInfo,
-    List<CategoryModel> categories,
-  }) {
-    return Categories(
-      pageInfo: pageInfo ?? this.pageInfo,
-      categories: categories ?? this.categories,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'pageInfo': pageInfo?.toMap(),
-      'categories': categories?.map((x) => x?.toMap())?.toList(),
-    };
-  }
-
-  factory Categories.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
-    return Categories(
-      pageInfo: PageInfo.fromMap(map['pageInfo']),
-      categories: List<CategoryModel>.from(
-          map['categories']?.map((x) => CategoryModel.fromMap(x))),
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Categories.fromJson(String source) =>
-      Categories.fromMap(json.decode(source));
-
-  @override
-  String toString() =>
-      'Categories(pageInfo: $pageInfo, categories: $categories)';
-
-  @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is Categories &&
-        o.pageInfo == pageInfo &&
-        listEquals(o.categories, categories);
-  }
-
-  @override
-  int get hashCode => pageInfo.hashCode ^ categories.hashCode;
 }

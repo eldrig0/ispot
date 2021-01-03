@@ -1,7 +1,7 @@
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/repository/category/category_repository.dart';
 
@@ -11,7 +11,7 @@ class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;
   final gotData = false.obs;
   final pageSize = 10.obs;
-  final category = Rx<CategoryModel>();
+  final category = Rx<HomeCategory>();
   final showFilter = false.obs;
 
   var id;
@@ -37,7 +37,7 @@ class CategoryController extends GetxController {
             id: id,
             pageSize: pageSize.value,
             after: _showMore ? category?.value?.pageInfo?.endCursor : null,
-            attributes: selectedAttributes.value,
+            attributes: selectedAttributes,
             sortOption: selectedSortOption?.value)
         .take(1)
         .listen((response) {

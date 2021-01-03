@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/ui/widgets/ispot_image/ispot_image.dart';
 
 class CategoryCard extends StatelessWidget {
-  final CategoryModel category;
+  final HomeCategory category;
 
   CategoryCard(this.category);
   @override

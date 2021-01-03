@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/controller/user/user_controller.dart';
 
 import '../../../controller/cart/cart_controller.dart';
 import '../../../controller/categories/categories_controller.dart';
@@ -124,6 +125,8 @@ class _HomePageState extends State<HomePage> {
   Widget _buildAppBar() => UIHelper.buildSliverAppBar(
           leading: GestureDetector(
               onTap: () {
+                if (Get.find<UserController>().isSignedIn())
+                  Get.toNamed("/profile");
                 Get.toNamed('/auth');
               },
               child: UIHelper.buildUserIcon()),

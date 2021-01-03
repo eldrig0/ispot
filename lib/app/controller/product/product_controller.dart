@@ -199,7 +199,7 @@ class ProductController extends GetxController {
   }
 
   _initAttribute() {
-    if (product.value.variants.length > 1) {
+    if (product.value.variants.length > 0) {
       final variants =
           product.value.variants.where((element) => element.isAvailable);
 

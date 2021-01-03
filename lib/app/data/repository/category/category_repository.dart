@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/provider/category/category_provider.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/misc/sort_options.dart';
@@ -11,7 +11,7 @@ class CategoryRepository {
 
   CategoryRepository(this.provider);
 
-  Stream<Either<Failure, CategoryModel>> getCategory(
+  Stream<Either<Failure, HomeCategory>> getCategory(
       {@required String id,
       @required int pageSize,
       @required List<Attribute> attributes,

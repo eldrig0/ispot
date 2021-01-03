@@ -43,7 +43,20 @@ import 'package:ispot/app/data/provider/auth/graphql/register/create_account.req
     show GregisterAccountReq;
 import 'package:ispot/app/data/provider/auth/graphql/register/create_account.var.gql.dart'
     show GregisterAccountVars;
-import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.dart'
+import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.data.gql.dart'
+    show
+        GCategoriesData,
+        GCategoriesData_categories,
+        GCategoriesData_categories_edges,
+        GCategoriesData_categories_edges_node,
+        GCategoriesData_categories_edges_node_children,
+        GCategoriesData_categories_edges_node_children_edges,
+        GCategoriesData_categories_edges_node_children_edges_node;
+import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.req.gql.dart'
+    show GCategoriesReq;
+import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.var.gql.dart'
+    show GCategoriesVars;
+import 'package:ispot/app/data/provider/categories/graphql/home_category/categories.data.gql.dart'
     show
         GCategoryListData,
         GCategoryListData_categories,
@@ -51,9 +64,9 @@ import 'package:ispot/app/data/provider/categories/graphql/categories.data.gql.d
         GCategoryListData_categories_edges_node,
         GCategoryListData_categories_edges_node_backgroundImage,
         GCategoryListData_categories_pageInfo;
-import 'package:ispot/app/data/provider/categories/graphql/categories.req.gql.dart'
+import 'package:ispot/app/data/provider/categories/graphql/home_category/categories.req.gql.dart'
     show GCategoryListReq;
-import 'package:ispot/app/data/provider/categories/graphql/categories.var.gql.dart'
+import 'package:ispot/app/data/provider/categories/graphql/home_category/categories.var.gql.dart'
     show GCategoryListVars;
 import 'package:ispot/app/data/provider/category/graphql/category.data.gql.dart'
     show
@@ -500,6 +513,15 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GBasicProductFieldsReq,
   GBasicProductFieldsVars,
   GCatalogueInput,
+  GCategoriesData,
+  GCategoriesData_categories,
+  GCategoriesData_categories_edges,
+  GCategoriesData_categories_edges_node,
+  GCategoriesData_categories_edges_node_children,
+  GCategoriesData_categories_edges_node_children_edges,
+  GCategoriesData_categories_edges_node_children_edges_node,
+  GCategoriesReq,
+  GCategoriesVars,
   GCategoryData,
   GCategoryData_attributes,
   GCategoryData_attributes_edges,

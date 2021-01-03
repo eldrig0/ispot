@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';
 import 'package:ispot/app/data/model/product.dart';
@@ -25,7 +25,7 @@ class CategoryProvider {
     ..direction = GOrderDirection.ASC
     ..field = GProductOrderField.PRICE;
 
-  Stream<Either<Failure, CategoryModel>> getCategory(
+  Stream<Either<Failure, HomeCategory>> getCategory(
       {@required String id,
       @required int pageSize,
       @required List<Attribute> attributes,
@@ -51,7 +51,7 @@ class CategoryProvider {
       }
 
       return Right(
-        CategoryModel(
+        HomeCategory(
           categoryId: response.data.category.id,
           categoryName: response.data.category.name,
           pageInfo: PageInfo.fromMap(response.data.products.pageInfo.toJson()),

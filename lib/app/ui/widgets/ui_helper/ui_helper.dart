@@ -72,16 +72,12 @@ class UIHelper {
     );
   }
 
-  static Padding buildUserIcon() {
-    return Padding(
-      padding: EdgeInsets.only(left: 18, bottom: 9, top: 9),
-      child: ClipOval(
-        clipBehavior: Clip.antiAlias,
-        child: Image.network(
-          'https://bestprofilepix.com/wp-content/uploads/2014/03/sad-and-alone-boys-facebook-profile-pictures.jpg',
-          fit: BoxFit.cover,
-        ),
-      ),
+  static Widget buildUserIcon() {
+    return IconButton(
+      onPressed: () {
+        Get.toNamed('/auth');
+      },
+      icon: Icon(AntDesign.user),
     );
   }
 

@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:ispot/app/data/failures/failure.dart';
+import 'package:ispot/app/data/model/categories.dart';
 
-import '../../model/category.dart';
+import '../../model/home_category.dart';
 import '../../provider/categories/categories_provider.dart';
 import 'package:meta/meta.dart';
 

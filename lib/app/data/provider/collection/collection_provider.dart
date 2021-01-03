@@ -3,7 +3,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';

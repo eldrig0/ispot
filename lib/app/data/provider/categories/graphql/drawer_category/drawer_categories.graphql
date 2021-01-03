@@ -1,0 +1,19 @@
+query Categories {
+  categories(first: 100) {
+    totalCount
+    edges {
+      node {
+        id
+        name
+        children(first: 100) {
+          edges {
+            node {
+              name
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}
