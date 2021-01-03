@@ -6,83 +6,89 @@ part of 'drawer_categories.var.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GCategoriesVars> _$gCategoriesVarsSerializer =
-    new _$GCategoriesVarsSerializer();
+Serializer<GDrawerCategoriesVars> _$gDrawerCategoriesVarsSerializer =
+    new _$GDrawerCategoriesVarsSerializer();
 
-class _$GCategoriesVarsSerializer
-    implements StructuredSerializer<GCategoriesVars> {
+class _$GDrawerCategoriesVarsSerializer
+    implements StructuredSerializer<GDrawerCategoriesVars> {
   @override
-  final Iterable<Type> types = const [GCategoriesVars, _$GCategoriesVars];
+  final Iterable<Type> types = const [
+    GDrawerCategoriesVars,
+    _$GDrawerCategoriesVars
+  ];
   @override
-  final String wireName = 'GCategoriesVars';
+  final String wireName = 'GDrawerCategoriesVars';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GCategoriesVars object,
+  Iterable<Object> serialize(
+      Serializers serializers, GDrawerCategoriesVars object,
       {FullType specifiedType = FullType.unspecified}) {
     return <Object>[];
   }
 
   @override
-  GCategoriesVars deserialize(
+  GDrawerCategoriesVars deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    return new GCategoriesVarsBuilder().build();
+    return new GDrawerCategoriesVarsBuilder().build();
   }
 }
 
-class _$GCategoriesVars extends GCategoriesVars {
-  factory _$GCategoriesVars([void Function(GCategoriesVarsBuilder) updates]) =>
-      (new GCategoriesVarsBuilder()..update(updates)).build();
+class _$GDrawerCategoriesVars extends GDrawerCategoriesVars {
+  factory _$GDrawerCategoriesVars(
+          [void Function(GDrawerCategoriesVarsBuilder) updates]) =>
+      (new GDrawerCategoriesVarsBuilder()..update(updates)).build();
 
-  _$GCategoriesVars._() : super._();
+  _$GDrawerCategoriesVars._() : super._();
 
   @override
-  GCategoriesVars rebuild(void Function(GCategoriesVarsBuilder) updates) =>
+  GDrawerCategoriesVars rebuild(
+          void Function(GDrawerCategoriesVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GCategoriesVarsBuilder toBuilder() =>
-      new GCategoriesVarsBuilder()..replace(this);
+  GDrawerCategoriesVarsBuilder toBuilder() =>
+      new GDrawerCategoriesVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GCategoriesVars;
+    return other is GDrawerCategoriesVars;
   }
 
   @override
   int get hashCode {
-    return 997817131;
+    return 543904983;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper('GCategoriesVars').toString();
+    return newBuiltValueToStringHelper('GDrawerCategoriesVars').toString();
   }
 }
 
-class GCategoriesVarsBuilder
-    implements Builder<GCategoriesVars, GCategoriesVarsBuilder> {
-  _$GCategoriesVars _$v;
+class GDrawerCategoriesVarsBuilder
+    implements Builder<GDrawerCategoriesVars, GDrawerCategoriesVarsBuilder> {
+  _$GDrawerCategoriesVars _$v;
 
-  GCategoriesVarsBuilder();
+  GDrawerCategoriesVarsBuilder();
 
   @override
-  void replace(GCategoriesVars other) {
+  void replace(GDrawerCategoriesVars other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GCategoriesVars;
+    _$v = other as _$GDrawerCategoriesVars;
   }
 
   @override
-  void update(void Function(GCategoriesVarsBuilder) updates) {
+  void update(void Function(GDrawerCategoriesVarsBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GCategoriesVars build() {
-    final _$result = _$v ?? new _$GCategoriesVars._();
+  _$GDrawerCategoriesVars build() {
+    final _$result = _$v ?? new _$GDrawerCategoriesVars._();
     replace(_$result);
     return _$result;
   }

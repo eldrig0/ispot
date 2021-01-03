@@ -14,20 +14,22 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'drawer_categories.req.gql.g.dart';
 
-abstract class GCategoriesReq
+abstract class GDrawerCategoriesReq
     implements
-        Built<GCategoriesReq, GCategoriesReqBuilder>,
-        _i1.OperationRequest<_i2.GCategoriesData, _i3.GCategoriesVars> {
-  GCategoriesReq._();
+        Built<GDrawerCategoriesReq, GDrawerCategoriesReqBuilder>,
+        _i1.OperationRequest<_i2.GDrawerCategoriesData,
+            _i3.GDrawerCategoriesVars> {
+  GDrawerCategoriesReq._();
 
-  factory GCategoriesReq([Function(GCategoriesReqBuilder b) updates]) =
-      _$GCategoriesReq;
+  factory GDrawerCategoriesReq(
+          [Function(GDrawerCategoriesReqBuilder b) updates]) =
+      _$GDrawerCategoriesReq;
 
-  static void _initializeBuilder(GCategoriesReqBuilder b) => b
+  static void _initializeBuilder(GDrawerCategoriesReqBuilder b) => b
     ..operation =
-        _i4.Operation(document: _i5.document, operationName: 'Categories')
+        _i4.Operation(document: _i5.document, operationName: 'DrawerCategories')
     ..executeOnListen = true;
-  _i3.GCategoriesVars get vars;
+  _i3.GDrawerCategoriesVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
       _i4.Request(operation: operation, variables: vars.toJson());
@@ -35,10 +37,10 @@ abstract class GCategoriesReq
   String get requestId;
   @nullable
   @BuiltValueField(serialize: false)
-  _i2.GCategoriesData Function(_i2.GCategoriesData, _i2.GCategoriesData)
-      get updateResult;
+  _i2.GDrawerCategoriesData Function(
+      _i2.GDrawerCategoriesData, _i2.GDrawerCategoriesData) get updateResult;
   @nullable
-  _i2.GCategoriesData get optimisticResponse;
+  _i2.GDrawerCategoriesData get optimisticResponse;
   @nullable
   String get updateCacheHandlerKey;
   @nullable
@@ -48,12 +50,12 @@ abstract class GCategoriesReq
   @nullable
   bool get executeOnListen;
   @override
-  _i2.GCategoriesData parseData(Map<String, dynamic> json) =>
-      _i2.GCategoriesData.fromJson(json);
-  static Serializer<GCategoriesReq> get serializer =>
-      _$gCategoriesReqSerializer;
+  _i2.GDrawerCategoriesData parseData(Map<String, dynamic> json) =>
+      _i2.GDrawerCategoriesData.fromJson(json);
+  static Serializer<GDrawerCategoriesReq> get serializer =>
+      _$gDrawerCategoriesReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i6.serializers.serializeWith(GCategoriesReq.serializer, this);
-  static GCategoriesReq fromJson(Map<String, dynamic> json) =>
-      _i6.serializers.deserializeWith(GCategoriesReq.serializer, json);
+      _i6.serializers.serializeWith(GDrawerCategoriesReq.serializer, this);
+  static GDrawerCategoriesReq fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GDrawerCategoriesReq.serializer, json);
 }

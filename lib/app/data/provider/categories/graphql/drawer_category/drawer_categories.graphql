@@ -1,4 +1,4 @@
-query Categories {
+query DrawerCategories {
   categories(first: 100) {
     totalCount
     edges {

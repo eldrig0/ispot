@@ -45,17 +45,17 @@ import 'package:ispot/app/data/provider/auth/graphql/register/create_account.var
     show GregisterAccountVars;
 import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.data.gql.dart'
     show
-        GCategoriesData,
-        GCategoriesData_categories,
-        GCategoriesData_categories_edges,
-        GCategoriesData_categories_edges_node,
-        GCategoriesData_categories_edges_node_children,
-        GCategoriesData_categories_edges_node_children_edges,
-        GCategoriesData_categories_edges_node_children_edges_node;
+        GDrawerCategoriesData,
+        GDrawerCategoriesData_categories,
+        GDrawerCategoriesData_categories_edges,
+        GDrawerCategoriesData_categories_edges_node,
+        GDrawerCategoriesData_categories_edges_node_children,
+        GDrawerCategoriesData_categories_edges_node_children_edges,
+        GDrawerCategoriesData_categories_edges_node_children_edges_node;
 import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.req.gql.dart'
-    show GCategoriesReq;
+    show GDrawerCategoriesReq;
 import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.var.gql.dart'
-    show GCategoriesVars;
+    show GDrawerCategoriesVars;
 import 'package:ispot/app/data/provider/categories/graphql/home_category/categories.data.gql.dart'
     show
         GCategoryListData,
@@ -513,15 +513,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GBasicProductFieldsReq,
   GBasicProductFieldsVars,
   GCatalogueInput,
-  GCategoriesData,
-  GCategoriesData_categories,
-  GCategoriesData_categories_edges,
-  GCategoriesData_categories_edges_node,
-  GCategoriesData_categories_edges_node_children,
-  GCategoriesData_categories_edges_node_children_edges,
-  GCategoriesData_categories_edges_node_children_edges_node,
-  GCategoriesReq,
-  GCategoriesVars,
   GCategoryData,
   GCategoryData_attributes,
   GCategoryData_attributes_edges,
@@ -611,6 +602,15 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GDiscountValueTypeEnum,
   GDraftOrderCreateInput,
   GDraftOrderInput,
+  GDrawerCategoriesData,
+  GDrawerCategoriesData_categories,
+  GDrawerCategoriesData_categories_edges,
+  GDrawerCategoriesData_categories_edges_node,
+  GDrawerCategoriesData_categories_edges_node_children,
+  GDrawerCategoriesData_categories_edges_node_children_edges,
+  GDrawerCategoriesData_categories_edges_node_children_edges_node,
+  GDrawerCategoriesReq,
+  GDrawerCategoriesVars,
   GFeaturedProductsData,
   GFeaturedProductsData_shop,
   GFeaturedProductsData_shop_homepageCollection,

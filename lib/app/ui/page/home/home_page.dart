@@ -5,6 +5,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/user/user_controller.dart';
+import 'package:ispot/app/ui/page/home/widets/drawer/category_drawer.dart';
 
 import '../../../controller/cart/cart_controller.dart';
 import '../../../controller/categories/categories_controller.dart';
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     return Stack(
       children: [
         Scaffold(
+          drawer: buildCategoriesDrawer(),
           backgroundColor: ISpotTheme.canvasColor,
           floatingActionButton: FloatingActionButton(
               key: _fabButtonKey,
@@ -48,32 +50,43 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
               onPressed: () => _ripplePageTransition.navigateTo('/search')),
-          body: GetX<HomeController>(
-            builder: (_controller) {
-              return CustomScrollView(
-                slivers: [
-                  _buildAppBar(),
-                  _buildCollection(context),
-                  _buildTitle('FEATURED PRODUCTS'),
-                  if (_controller.homeProducts.isNotEmpty)
-                    SliverPadding(
-                        padding: const EdgeInsets.all(18),
-                        sliver: ProductGrid(products: _controller.homeProducts))
-                  else
-                    SliverToBoxAdapter(
-                      child: Center(
-                        child: Text('No products yet'),
-                      ),
-                    ),
-                  _buildTitle('SHOP BY CATEGORIES'),
-                  _buildCategories(context)
-                ],
-              );
-            },
-          ),
+          body: HomeWidget(),
         ),
         _ripplePageTransition,
       ],
+    );
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetX<HomeController>(
+      builder: (_controller) {
+        return CustomScrollView(
+          slivers: [
+            _buildAppBar(context),
+            _buildCollection(context),
+            _buildTitle('FEATURED PRODUCTS'),
+            if (_controller.homeProducts.isNotEmpty)
+              SliverPadding(
+                  padding: const EdgeInsets.all(18),
+                  sliver: ProductGrid(products: _controller.homeProducts))
+            else
+              SliverToBoxAdapter(
+                child: Center(
+                  child: Text('No products yet'),
+                ),
+              ),
+            _buildTitle('SHOP BY CATEGORIES'),
+            _buildCategories(context)
+          ],
+        );
+      },
     );
   }
 
@@ -122,7 +135,7 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget _buildAppBar() => UIHelper.buildSliverAppBar(
+  Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
           leading: GestureDetector(
               onTap: () {
                 if (Get.find<UserController>().isSignedIn())
@@ -131,7 +144,9 @@ class _HomePageState extends State<HomePage> {
               },
               child: UIHelper.buildUserIcon()),
           actions: [
-            UIHelper.buildCategoriesIcon(onPressed: () {}),
+            UIHelper.buildCategoriesIcon(onPressed: () {
+              Scaffold.of(context).openDrawer();
+            }),
             Padding(
                 padding: EdgeInsets.only(right: 18),
                 child: UIHelper.buildCartIcon())

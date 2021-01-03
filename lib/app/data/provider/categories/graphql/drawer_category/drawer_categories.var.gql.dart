@@ -6,17 +6,18 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i1;
 
 part 'drawer_categories.var.gql.g.dart';
 
-abstract class GCategoriesVars
-    implements Built<GCategoriesVars, GCategoriesVarsBuilder> {
-  GCategoriesVars._();
+abstract class GDrawerCategoriesVars
+    implements Built<GDrawerCategoriesVars, GDrawerCategoriesVarsBuilder> {
+  GDrawerCategoriesVars._();
 
-  factory GCategoriesVars([Function(GCategoriesVarsBuilder b) updates]) =
-      _$GCategoriesVars;
+  factory GDrawerCategoriesVars(
+          [Function(GDrawerCategoriesVarsBuilder b) updates]) =
+      _$GDrawerCategoriesVars;
 
-  static Serializer<GCategoriesVars> get serializer =>
-      _$gCategoriesVarsSerializer;
+  static Serializer<GDrawerCategoriesVars> get serializer =>
+      _$gDrawerCategoriesVarsSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GCategoriesVars.serializer, this);
-  static GCategoriesVars fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GCategoriesVars.serializer, json);
+      _i1.serializers.serializeWith(GDrawerCategoriesVars.serializer, this);
+  static GDrawerCategoriesVars fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GDrawerCategoriesVars.serializer, json);
 }

@@ -6,23 +6,27 @@ part of 'drawer_categories.req.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GCategoriesReq> _$gCategoriesReqSerializer =
-    new _$GCategoriesReqSerializer();
+Serializer<GDrawerCategoriesReq> _$gDrawerCategoriesReqSerializer =
+    new _$GDrawerCategoriesReqSerializer();
 
-class _$GCategoriesReqSerializer
-    implements StructuredSerializer<GCategoriesReq> {
+class _$GDrawerCategoriesReqSerializer
+    implements StructuredSerializer<GDrawerCategoriesReq> {
   @override
-  final Iterable<Type> types = const [GCategoriesReq, _$GCategoriesReq];
+  final Iterable<Type> types = const [
+    GDrawerCategoriesReq,
+    _$GDrawerCategoriesReq
+  ];
   @override
-  final String wireName = 'GCategoriesReq';
+  final String wireName = 'GDrawerCategoriesReq';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GCategoriesReq object,
+  Iterable<Object> serialize(
+      Serializers serializers, GDrawerCategoriesReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GCategoriesVars)),
+          specifiedType: const FullType(_i3.GDrawerCategoriesVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -37,7 +41,7 @@ class _$GCategoriesReqSerializer
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GCategoriesData)));
+            specifiedType: const FullType(_i2.GDrawerCategoriesData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -68,10 +72,10 @@ class _$GCategoriesReqSerializer
   }
 
   @override
-  GCategoriesReq deserialize(
+  GDrawerCategoriesReq deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GCategoriesReqBuilder();
+    final result = new GDrawerCategoriesReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -81,8 +85,8 @@ class _$GCategoriesReqSerializer
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GCategoriesVars))
-              as _i3.GCategoriesVars);
+                  specifiedType: const FullType(_i3.GDrawerCategoriesVars))
+              as _i3.GDrawerCategoriesVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -94,8 +98,8 @@ class _$GCategoriesReqSerializer
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GCategoriesData))
-              as _i2.GCategoriesData);
+                  specifiedType: const FullType(_i2.GDrawerCategoriesData))
+              as _i2.GDrawerCategoriesData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -124,18 +128,18 @@ class _$GCategoriesReqSerializer
   }
 }
 
-class _$GCategoriesReq extends GCategoriesReq {
+class _$GDrawerCategoriesReq extends GDrawerCategoriesReq {
   @override
-  final _i3.GCategoriesVars vars;
+  final _i3.GDrawerCategoriesVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GCategoriesData Function(_i2.GCategoriesData, _i2.GCategoriesData)
-      updateResult;
+  final _i2.GDrawerCategoriesData Function(
+      _i2.GDrawerCategoriesData, _i2.GDrawerCategoriesData) updateResult;
   @override
-  final _i2.GCategoriesData optimisticResponse;
+  final _i2.GDrawerCategoriesData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
@@ -145,10 +149,11 @@ class _$GCategoriesReq extends GCategoriesReq {
   @override
   final bool executeOnListen;
 
-  factory _$GCategoriesReq([void Function(GCategoriesReqBuilder) updates]) =>
-      (new GCategoriesReqBuilder()..update(updates)).build();
+  factory _$GDrawerCategoriesReq(
+          [void Function(GDrawerCategoriesReqBuilder) updates]) =>
+      (new GDrawerCategoriesReqBuilder()..update(updates)).build();
 
-  _$GCategoriesReq._(
+  _$GDrawerCategoriesReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -160,26 +165,27 @@ class _$GCategoriesReq extends GCategoriesReq {
       this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GCategoriesReq', 'vars');
+      throw new BuiltValueNullFieldError('GDrawerCategoriesReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GCategoriesReq', 'operation');
+      throw new BuiltValueNullFieldError('GDrawerCategoriesReq', 'operation');
     }
   }
 
   @override
-  GCategoriesReq rebuild(void Function(GCategoriesReqBuilder) updates) =>
+  GDrawerCategoriesReq rebuild(
+          void Function(GDrawerCategoriesReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GCategoriesReqBuilder toBuilder() =>
-      new GCategoriesReqBuilder()..replace(this);
+  GDrawerCategoriesReqBuilder toBuilder() =>
+      new GDrawerCategoriesReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GCategoriesReq &&
+    return other is GDrawerCategoriesReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -211,7 +217,7 @@ class _$GCategoriesReq extends GCategoriesReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GCategoriesReq')
+    return (newBuiltValueToStringHelper('GDrawerCategoriesReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -225,14 +231,14 @@ class _$GCategoriesReq extends GCategoriesReq {
   }
 }
 
-class GCategoriesReqBuilder
-    implements Builder<GCategoriesReq, GCategoriesReqBuilder> {
-  _$GCategoriesReq _$v;
+class GDrawerCategoriesReqBuilder
+    implements Builder<GDrawerCategoriesReq, GDrawerCategoriesReqBuilder> {
+  _$GDrawerCategoriesReq _$v;
 
-  _i3.GCategoriesVarsBuilder _vars;
-  _i3.GCategoriesVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GCategoriesVarsBuilder();
-  set vars(_i3.GCategoriesVarsBuilder vars) => _$this._vars = vars;
+  _i3.GDrawerCategoriesVarsBuilder _vars;
+  _i3.GDrawerCategoriesVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GDrawerCategoriesVarsBuilder();
+  set vars(_i3.GDrawerCategoriesVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -242,19 +248,21 @@ class GCategoriesReqBuilder
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GCategoriesData Function(_i2.GCategoriesData, _i2.GCategoriesData)
-      _updateResult;
-  _i2.GCategoriesData Function(_i2.GCategoriesData, _i2.GCategoriesData)
+  _i2.GDrawerCategoriesData Function(
+      _i2.GDrawerCategoriesData, _i2.GDrawerCategoriesData) _updateResult;
+  _i2.GDrawerCategoriesData Function(
+          _i2.GDrawerCategoriesData, _i2.GDrawerCategoriesData)
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GCategoriesData Function(_i2.GCategoriesData, _i2.GCategoriesData)
+          _i2.GDrawerCategoriesData Function(
+                  _i2.GDrawerCategoriesData, _i2.GDrawerCategoriesData)
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GCategoriesDataBuilder _optimisticResponse;
-  _i2.GCategoriesDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GCategoriesDataBuilder();
-  set optimisticResponse(_i2.GCategoriesDataBuilder optimisticResponse) =>
+  _i2.GDrawerCategoriesDataBuilder _optimisticResponse;
+  _i2.GDrawerCategoriesDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GDrawerCategoriesDataBuilder();
+  set optimisticResponse(_i2.GDrawerCategoriesDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -279,11 +287,11 @@ class GCategoriesReqBuilder
   set executeOnListen(bool executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GCategoriesReqBuilder() {
-    GCategoriesReq._initializeBuilder(this);
+  GDrawerCategoriesReqBuilder() {
+    GDrawerCategoriesReq._initializeBuilder(this);
   }
 
-  GCategoriesReqBuilder get _$this {
+  GDrawerCategoriesReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -300,24 +308,24 @@ class GCategoriesReqBuilder
   }
 
   @override
-  void replace(GCategoriesReq other) {
+  void replace(GDrawerCategoriesReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GCategoriesReq;
+    _$v = other as _$GDrawerCategoriesReq;
   }
 
   @override
-  void update(void Function(GCategoriesReqBuilder) updates) {
+  void update(void Function(GDrawerCategoriesReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GCategoriesReq build() {
-    _$GCategoriesReq _$result;
+  _$GDrawerCategoriesReq build() {
+    _$GDrawerCategoriesReq _$result;
     try {
       _$result = _$v ??
-          new _$GCategoriesReq._(
+          new _$GDrawerCategoriesReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -337,7 +345,7 @@ class GCategoriesReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GCategoriesReq', _$failedField, e.toString());
+            'GDrawerCategoriesReq', _$failedField, e.toString());
       }
       rethrow;
     }

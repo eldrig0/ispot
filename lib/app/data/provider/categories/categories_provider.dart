@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/model/categories.dart';
+import 'package:ispot/app/data/model/drawer_category.dart';
 import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/failures/failure.dart';
+import 'package:ispot/app/data/provider/categories/graphql/drawer_category/drawer_categories.req.gql.dart';
 import 'package:meta/meta.dart';
 
 import 'graphql/home_category/categories.req.gql.dart';
@@ -36,6 +38,35 @@ class CategoriesProvider {
               )
               .toList(),
         ));
+      },
+    );
+  }
+
+  Stream<Either<Failure, List<DrawerCategory>>> getDrawerCategories() {
+    final drawerCategoriesReq = GDrawerCategoriesReq();
+
+    return _client.request(drawerCategoriesReq).take(1).map(
+      (response) {
+        if (response.hasErrors) {
+          return Left(Failure('An error occured while fetching categories'));
+        }
+        return Right(
+          response.data.categories.edges.map(
+            (edge) {
+              return DrawerCategory(
+                  id: edge.node.id,
+                  name: edge.node.name,
+                  children: edge.node.children != null
+                      ? edge.node.children.edges
+                          .map((child) => DrawerCategory(
+                                name: child.node.name,
+                                id: child.node.id,
+                              ))
+                          .toList()
+                      : <HomeCategory>[]);
+            },
+          ).toList(),
+        );
       },
     );
   }
