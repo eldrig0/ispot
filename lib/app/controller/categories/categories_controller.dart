@@ -21,6 +21,7 @@ class CategoriesController extends GetxController {
   @override
   onInit() {
     super.onInit();
+    getDrawerCategories();
   }
 
   onClose() {

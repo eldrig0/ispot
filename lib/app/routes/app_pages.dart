@@ -26,7 +26,6 @@ class AppPages {
     GetPage(name: Routes.HOME, page: () => HomePage(), bindings: [
       HomeBinding(),
       CartBinding(),
-      CategoriesBinding(),
       CollectionsBinding(),
     ]),
     GetPage(

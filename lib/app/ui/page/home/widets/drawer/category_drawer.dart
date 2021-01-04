@@ -3,6 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/categories/categories_controller.dart';
 import 'package:ispot/app/data/model/drawer_category.dart';
+import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
 class CategoriesDrawer extends StatelessWidget {
   @override
@@ -42,10 +43,13 @@ class CategoriesDrawer extends StatelessWidget {
     return ListView(
       children: [
         isSubCategories
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: IconButton(
-                    icon: Icon(AntDesign.arrowleft), onPressed: onBack),
+            ? Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 18, top: 18),
+                  child: IconButton(
+                      icon: Icon(AntDesign.arrowleft), onPressed: onBack),
+                ),
               )
             : Container(),
         ...categories
@@ -53,13 +57,20 @@ class CategoriesDrawer extends StatelessWidget {
               (category) => Column(
                 children: [
                   ListTile(
+                    onTap: () {
+                      Get.toNamed('/category/${category.id}');
+                    },
                     title: Text(
                       category.name,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    trailing: category.children.isNotEmpty
+                    trailing: category.children != null &&
+                            category.children.isNotEmpty
                         ? IconButton(
-                            icon: Icon(AntDesign.arrowright),
+                            icon: Icon(
+                              AntDesign.arrowright,
+                              color: ISpotTheme.primaryColor,
+                            ),
                             onPressed: () {
                               onShowSubCategories(category.children);
                             })
