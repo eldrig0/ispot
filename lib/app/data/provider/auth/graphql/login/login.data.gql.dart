@@ -45,6 +45,8 @@ abstract class GtokenCreateData_tokenCreate
   String get G__typename;
   @nullable
   String get token;
+  @nullable
+  GtokenCreateData_tokenCreate_user get user;
   BuiltList<GtokenCreateData_tokenCreate_accountErrors> get accountErrors;
   static Serializer<GtokenCreateData_tokenCreate> get serializer =>
       _$gtokenCreateDataTokenCreateSerializer;
@@ -53,6 +55,31 @@ abstract class GtokenCreateData_tokenCreate
   static GtokenCreateData_tokenCreate fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GtokenCreateData_tokenCreate.serializer, json);
+}
+
+abstract class GtokenCreateData_tokenCreate_user
+    implements
+        Built<GtokenCreateData_tokenCreate_user,
+            GtokenCreateData_tokenCreate_userBuilder> {
+  GtokenCreateData_tokenCreate_user._();
+
+  factory GtokenCreateData_tokenCreate_user(
+          [Function(GtokenCreateData_tokenCreate_userBuilder b) updates]) =
+      _$GtokenCreateData_tokenCreate_user;
+
+  static void _initializeBuilder(GtokenCreateData_tokenCreate_userBuilder b) =>
+      b..G__typename = 'User';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String get id;
+  static Serializer<GtokenCreateData_tokenCreate_user> get serializer =>
+      _$gtokenCreateDataTokenCreateUserSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers
+      .serializeWith(GtokenCreateData_tokenCreate_user.serializer, this);
+  static GtokenCreateData_tokenCreate_user fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GtokenCreateData_tokenCreate_user.serializer, json);
 }
 
 abstract class GtokenCreateData_tokenCreate_accountErrors

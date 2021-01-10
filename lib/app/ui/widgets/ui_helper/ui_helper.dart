@@ -72,11 +72,9 @@ class UIHelper {
     );
   }
 
-  static Widget buildUserIcon() {
+  static Widget buildUserIcon({Function onPressed}) {
     return IconButton(
-      onPressed: () {
-        Get.toNamed('/auth');
-      },
+      onPressed: onPressed,
       icon: Icon(AntDesign.user),
     );
   }

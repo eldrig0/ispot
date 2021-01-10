@@ -7,17 +7,17 @@ import 'package:gql_http_link/gql_http_link.dart';
 import 'package:hive/hive.dart';
 
 Future<Client> initClient() async {
-  Hive.init(Directory.current.path);
-  Directory appDir = await getApplicationDocumentsDirectory();
-  final box = await Hive.openBox(appDir.path + '/cache');
+  // Hive.init(Directory.current.path);
+  // Directory appDir = await getApplicationDocumentsDirectory();
+  // final box = await Hive.openBox(appDir.path + '/cache');
 
-  final store = HiveStore(box);
+  // final store = HiveStore(box);
 
-  final cache = Cache(store: store);
+  // final cache = Cache(store: store);
 
   final link = HttpLink("https://ispot-bhutan-prod.herokuapp.com/graphql/");
 
-  final client = Client(link: link, cache: cache);
+  final client = Client(link: link);
 
   return client;
 }

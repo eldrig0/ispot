@@ -9,7 +9,7 @@ class AuthRepository {
 
   AuthRepository(this._provider);
 
-  Stream<Either<Failure, String>> login(
+  Stream<Either<Failure, Map<String, String>>> login(
       {@required String email, @required String password}) {
     return _provider.login(email: email, password: password);
   }

@@ -16,6 +16,7 @@ class AuthController extends GetxController {
   final formValid = false.obs;
   final emailValid = false.obs;
   final forgotPassword = false.obs;
+  final loggedOut = false.obs;
 
   AuthController(this._repository);
 
@@ -80,11 +81,19 @@ class AuthController extends GetxController {
             title: 'Error',
             middleText: failure.message,
             cancel: UIHelper.buildDialogButton('OKAY'));
-      }, (token) {
+      }, (result) {
         final box = GetStorage();
-        box.write('token', token);
+        box.write('token', result['token']);
+        box.write('userId', result['userId']);
         Get.offAndToNamed('/');
       });
+    });
+  }
+
+  logout() {
+    final box = GetStorage();
+    box.erase().then((value) {
+      loggedOut.value = true;
     });
   }
 

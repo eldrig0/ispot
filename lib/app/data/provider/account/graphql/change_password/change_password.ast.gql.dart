@@ -2,50 +2,64 @@
 
 import 'package:gql/ast.dart' as _i1;
 
-const tokenCreate = _i1.OperationDefinitionNode(
+const changePassword = _i1.OperationDefinitionNode(
     type: _i1.OperationType.mutation,
-    name: _i1.NameNode(value: 'tokenCreate'),
+    name: _i1.NameNode(value: 'changePassword'),
     variableDefinitions: [
       _i1.VariableDefinitionNode(
-          variable: _i1.VariableNode(name: _i1.NameNode(value: 'email')),
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'oldPassword')),
           type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true),
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
           defaultValue: _i1.DefaultValueNode(value: null),
           directives: []),
       _i1.VariableDefinitionNode(
-          variable: _i1.VariableNode(name: _i1.NameNode(value: 'password')),
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'newPassword')),
           type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'String'), isNonNull: true),
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
           defaultValue: _i1.DefaultValueNode(value: null),
           directives: [])
     ],
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
       _i1.FieldNode(
-          name: _i1.NameNode(value: 'tokenCreate'),
+          name: _i1.NameNode(value: 'passwordChange'),
           alias: null,
           arguments: [
             _i1.ArgumentNode(
-                name: _i1.NameNode(value: 'email'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'email'))),
+                name: _i1.NameNode(value: 'oldPassword'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'oldPassword'))),
             _i1.ArgumentNode(
-                name: _i1.NameNode(value: 'password'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'password')))
+                name: _i1.NameNode(value: 'newPassword'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'newPassword')))
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'token'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
             _i1.FieldNode(
                 name: _i1.NameNode(value: 'user'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'firstName'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'lastName'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'email'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
                   _i1.FieldNode(
                       name: _i1.NameNode(value: 'id'),
                       alias: null,
@@ -60,6 +74,12 @@ const tokenCreate = _i1.OperationDefinitionNode(
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
                   _i1.FieldNode(
+                      name: _i1.NameNode(value: 'code'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
                       name: _i1.NameNode(value: 'message'),
                       alias: null,
                       arguments: [],
@@ -70,14 +90,8 @@ const tokenCreate = _i1.OperationDefinitionNode(
                       alias: null,
                       arguments: [],
                       directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'code'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
                       selectionSet: null)
                 ]))
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [tokenCreate]);
+const document = _i1.DocumentNode(definitions: [changePassword]);

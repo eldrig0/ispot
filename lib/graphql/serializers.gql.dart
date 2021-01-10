@@ -3,6 +3,38 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
+import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.data.gql.dart'
+    show
+        GchangePasswordData,
+        GchangePasswordData_passwordChange,
+        GchangePasswordData_passwordChange_accountErrors,
+        GchangePasswordData_passwordChange_user;
+import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.req.gql.dart'
+    show GchangePasswordReq;
+import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.var.gql.dart'
+    show GchangePasswordVars;
+import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.data.gql.dart'
+    show
+        GupdateBasicDetailsData,
+        GupdateBasicDetailsData_accountUpdate,
+        GupdateBasicDetailsData_accountUpdate_accountErrors,
+        GupdateBasicDetailsData_accountUpdate_user;
+import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.req.gql.dart'
+    show GupdateBasicDetailsReq;
+import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.var.gql.dart'
+    show GupdateBasicDetailsVars;
+import 'package:ispot/app/data/provider/account/graphql/user/user.data.gql.dart'
+    show
+        GUserData,
+        GUserData_user,
+        GUserData_user_addresses,
+        GUserData_user_addresses_country,
+        GUserData_user_defaultShippingAddress,
+        GUserData_user_defaultShippingAddress_country;
+import 'package:ispot/app/data/provider/account/graphql/user/user.req.gql.dart'
+    show GUserReq;
+import 'package:ispot/app/data/provider/account/graphql/user/user.var.gql.dart'
+    show GUserVars;
 import 'package:ispot/app/data/provider/attribute/graphql/attributes.data.gql.dart'
     show
         GattributesData,
@@ -28,7 +60,8 @@ import 'package:ispot/app/data/provider/auth/graphql/login/login.data.gql.dart'
     show
         GtokenCreateData,
         GtokenCreateData_tokenCreate,
-        GtokenCreateData_tokenCreate_accountErrors;
+        GtokenCreateData_tokenCreate_accountErrors,
+        GtokenCreateData_tokenCreate_user;
 import 'package:ispot/app/data/provider/auth/graphql/login/login.req.gql.dart'
     show GtokenCreateReq;
 import 'package:ispot/app/data/provider/auth/graphql/login/login.var.gql.dart'
@@ -837,8 +870,16 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GUUID,
   GUpload,
   GUserCreateInput,
+  GUserData,
+  GUserData_user,
+  GUserData_user_addresses,
+  GUserData_user_addresses_country,
+  GUserData_user_defaultShippingAddress,
+  GUserData_user_defaultShippingAddress_country,
+  GUserReq,
   GUserSortField,
   GUserSortingInput,
+  GUserVars,
   GVariantListData,
   GVariantListData_productVariants,
   GVariantListData_productVariants_edges,
@@ -888,6 +929,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GattributesData_attributes_pageInfo,
   GattributesReq,
   GattributesVars,
+  GchangePasswordData,
+  GchangePasswordData_passwordChange,
+  GchangePasswordData_passwordChange_accountErrors,
+  GchangePasswordData_passwordChange_user,
+  GchangePasswordReq,
+  GchangePasswordVars,
   GregisterAccountData,
   GregisterAccountData_accountRegister,
   GregisterAccountData_accountRegister_accountErrors,
@@ -902,7 +949,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GtokenCreateData,
   GtokenCreateData_tokenCreate,
   GtokenCreateData_tokenCreate_accountErrors,
+  GtokenCreateData_tokenCreate_user,
   GtokenCreateReq,
-  GtokenCreateVars
+  GtokenCreateVars,
+  GupdateBasicDetailsData,
+  GupdateBasicDetailsData_accountUpdate,
+  GupdateBasicDetailsData_accountUpdate_accountErrors,
+  GupdateBasicDetailsData_accountUpdate_user,
+  GupdateBasicDetailsReq,
+  GupdateBasicDetailsVars
 ])
 final Serializers serializers = _serializersBuilder.build();

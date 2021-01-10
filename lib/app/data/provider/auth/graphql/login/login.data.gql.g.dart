@@ -11,6 +11,9 @@ Serializer<GtokenCreateData> _$gtokenCreateDataSerializer =
 Serializer<GtokenCreateData_tokenCreate>
     _$gtokenCreateDataTokenCreateSerializer =
     new _$GtokenCreateData_tokenCreateSerializer();
+Serializer<GtokenCreateData_tokenCreate_user>
+    _$gtokenCreateDataTokenCreateUserSerializer =
+    new _$GtokenCreateData_tokenCreate_userSerializer();
 Serializer<GtokenCreateData_tokenCreate_accountErrors>
     _$gtokenCreateDataTokenCreateAccountErrorsSerializer =
     new _$GtokenCreateData_tokenCreate_accountErrorsSerializer();
@@ -97,6 +100,12 @@ class _$GtokenCreateData_tokenCreateSerializer
         ..add(serializers.serialize(object.token,
             specifiedType: const FullType(String)));
     }
+    if (object.user != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(object.user,
+            specifiedType: const FullType(GtokenCreateData_tokenCreate_user)));
+    }
     return result;
   }
 
@@ -120,11 +129,69 @@ class _$GtokenCreateData_tokenCreateSerializer
           result.token = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GtokenCreateData_tokenCreate_user))
+              as GtokenCreateData_tokenCreate_user);
+          break;
         case 'accountErrors':
           result.accountErrors.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(GtokenCreateData_tokenCreate_accountErrors)
               ])) as BuiltList<Object>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GtokenCreateData_tokenCreate_userSerializer
+    implements StructuredSerializer<GtokenCreateData_tokenCreate_user> {
+  @override
+  final Iterable<Type> types = const [
+    GtokenCreateData_tokenCreate_user,
+    _$GtokenCreateData_tokenCreate_user
+  ];
+  @override
+  final String wireName = 'GtokenCreateData_tokenCreate_user';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, GtokenCreateData_tokenCreate_user object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GtokenCreateData_tokenCreate_user deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GtokenCreateData_tokenCreate_userBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -322,6 +389,8 @@ class _$GtokenCreateData_tokenCreate extends GtokenCreateData_tokenCreate {
   @override
   final String token;
   @override
+  final GtokenCreateData_tokenCreate_user user;
+  @override
   final BuiltList<GtokenCreateData_tokenCreate_accountErrors> accountErrors;
 
   factory _$GtokenCreateData_tokenCreate(
@@ -329,7 +398,7 @@ class _$GtokenCreateData_tokenCreate extends GtokenCreateData_tokenCreate {
       (new GtokenCreateData_tokenCreateBuilder()..update(updates)).build();
 
   _$GtokenCreateData_tokenCreate._(
-      {this.G__typename, this.token, this.accountErrors})
+      {this.G__typename, this.token, this.user, this.accountErrors})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
@@ -356,12 +425,14 @@ class _$GtokenCreateData_tokenCreate extends GtokenCreateData_tokenCreate {
     return other is GtokenCreateData_tokenCreate &&
         G__typename == other.G__typename &&
         token == other.token &&
+        user == other.user &&
         accountErrors == other.accountErrors;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, G__typename.hashCode), token.hashCode),
+    return $jf($jc(
+        $jc($jc($jc(0, G__typename.hashCode), token.hashCode), user.hashCode),
         accountErrors.hashCode));
   }
 
@@ -370,6 +441,7 @@ class _$GtokenCreateData_tokenCreate extends GtokenCreateData_tokenCreate {
     return (newBuiltValueToStringHelper('GtokenCreateData_tokenCreate')
           ..add('G__typename', G__typename)
           ..add('token', token)
+          ..add('user', user)
           ..add('accountErrors', accountErrors))
         .toString();
   }
@@ -389,6 +461,12 @@ class GtokenCreateData_tokenCreateBuilder
   String get token => _$this._token;
   set token(String token) => _$this._token = token;
 
+  GtokenCreateData_tokenCreate_userBuilder _user;
+  GtokenCreateData_tokenCreate_userBuilder get user =>
+      _$this._user ??= new GtokenCreateData_tokenCreate_userBuilder();
+  set user(GtokenCreateData_tokenCreate_userBuilder user) =>
+      _$this._user = user;
+
   ListBuilder<GtokenCreateData_tokenCreate_accountErrors> _accountErrors;
   ListBuilder<GtokenCreateData_tokenCreate_accountErrors> get accountErrors =>
       _$this._accountErrors ??=
@@ -406,6 +484,7 @@ class GtokenCreateData_tokenCreateBuilder
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _token = _$v.token;
+      _user = _$v.user?.toBuilder();
       _accountErrors = _$v.accountErrors?.toBuilder();
       _$v = null;
     }
@@ -433,10 +512,13 @@ class GtokenCreateData_tokenCreateBuilder
           new _$GtokenCreateData_tokenCreate._(
               G__typename: G__typename,
               token: token,
+              user: _user?.build(),
               accountErrors: accountErrors.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'user';
+        _user?.build();
         _$failedField = 'accountErrors';
         accountErrors.build();
       } catch (e) {
@@ -445,6 +527,110 @@ class GtokenCreateData_tokenCreateBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GtokenCreateData_tokenCreate_user
+    extends GtokenCreateData_tokenCreate_user {
+  @override
+  final String G__typename;
+  @override
+  final String id;
+
+  factory _$GtokenCreateData_tokenCreate_user(
+          [void Function(GtokenCreateData_tokenCreate_userBuilder) updates]) =>
+      (new GtokenCreateData_tokenCreate_userBuilder()..update(updates)).build();
+
+  _$GtokenCreateData_tokenCreate_user._({this.G__typename, this.id})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GtokenCreateData_tokenCreate_user', 'G__typename');
+    }
+    if (id == null) {
+      throw new BuiltValueNullFieldError(
+          'GtokenCreateData_tokenCreate_user', 'id');
+    }
+  }
+
+  @override
+  GtokenCreateData_tokenCreate_user rebuild(
+          void Function(GtokenCreateData_tokenCreate_userBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GtokenCreateData_tokenCreate_userBuilder toBuilder() =>
+      new GtokenCreateData_tokenCreate_userBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GtokenCreateData_tokenCreate_user &&
+        G__typename == other.G__typename &&
+        id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GtokenCreateData_tokenCreate_user')
+          ..add('G__typename', G__typename)
+          ..add('id', id))
+        .toString();
+  }
+}
+
+class GtokenCreateData_tokenCreate_userBuilder
+    implements
+        Builder<GtokenCreateData_tokenCreate_user,
+            GtokenCreateData_tokenCreate_userBuilder> {
+  _$GtokenCreateData_tokenCreate_user _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  String _id;
+  String get id => _$this._id;
+  set id(String id) => _$this._id = id;
+
+  GtokenCreateData_tokenCreate_userBuilder() {
+    GtokenCreateData_tokenCreate_user._initializeBuilder(this);
+  }
+
+  GtokenCreateData_tokenCreate_userBuilder get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _id = _$v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GtokenCreateData_tokenCreate_user other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GtokenCreateData_tokenCreate_user;
+  }
+
+  @override
+  void update(void Function(GtokenCreateData_tokenCreate_userBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GtokenCreateData_tokenCreate_user build() {
+    final _$result = _$v ??
+        new _$GtokenCreateData_tokenCreate_user._(
+            G__typename: G__typename, id: id);
     replace(_$result);
     return _$result;
   }

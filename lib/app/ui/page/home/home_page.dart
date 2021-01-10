@@ -4,10 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:ispot/app/controller/user/user_controller.dart';
-import 'package:ispot/app/ui/page/home/widets/drawer/category_drawer.dart';
 
-import '../../../controller/cart/cart_controller.dart';
 import '../../../controller/categories/categories_controller.dart';
 import '../../../controller/collections/collections_controller.dart';
 import '../../../controller/home/home_controller.dart';
@@ -16,6 +13,7 @@ import '../../widgets/category_card/category_card.dart';
 import '../../widgets/product_grid/product_grid.dart';
 import '../../widgets/ripple_transition/ripple_transition.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
+import 'widets/drawer/category_drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,9 +21,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _controller = Get.find<HomeController>();
-  final _cart = Get.find<CartController>();
-
   final GlobalKey _fabButtonKey = GlobalKey();
   RipplePageTransition _ripplePageTransition;
 
@@ -136,13 +131,9 @@ class HomeWidget extends StatelessWidget {
       );
 
   Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
-          leading: GestureDetector(
-              onTap: () {
-                if (Get.find<UserController>().isSignedIn())
-                  Get.toNamed("/profile");
-                Get.toNamed('/auth');
-              },
-              child: UIHelper.buildUserIcon()),
+          leading: UIHelper.buildUserIcon(onPressed: () {
+            Get.toNamed('/auth');
+          }),
           actions: [
             UIHelper.buildCategoriesIcon(onPressed: () {
               Scaffold.of(context).openDrawer();

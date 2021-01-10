@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/user.dart';
+import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/forgot_password/forgotPassword.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/login/login.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/register/create_account.req.gql.dart';
@@ -12,7 +13,8 @@ class AuthProvider {
 
   AuthProvider(this._client);
 
-  Stream<Either<Failure, String>> login({@required email, @required password}) {
+  Stream<Either<Failure, Map<String, String>>> login(
+      {@required email, @required password}) {
     final tokenCreateRequest = GtokenCreateReq((request) => request
       ..vars.email = email
       ..vars.password = password);
@@ -28,8 +30,10 @@ class AuthProvider {
         return Left(Failure(
             'An error occured while loging in, please try again later'));
       }
-
-      return Right(response.data.tokenCreate.token);
+      return Right({
+        "token": response.data.tokenCreate.token,
+        "userId": response.data.tokenCreate.user.id
+      });
     });
   }
 
