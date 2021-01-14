@@ -4,7 +4,9 @@ import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/model/user.dart';
 import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.req.gql.dart';
+import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.req.gql.dart';
 import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.req.gql.dart';
+import 'package:ispot/graphql/schema.schema.gql.dart';
 import 'package:meta/meta.dart';
 
 import 'graphql/change_password/change_password.req.gql.dart';
@@ -90,15 +92,7 @@ class AccountProvider {
   Stream<Either<Failure, Address>> createAddress({@required Address address}) {
     final request = GaddressCreateReq((request) => request
       ..vars.id = address.id
-      ..vars.firstName = address.firstName
-      ..vars.lastName = address.lastName
-      ..vars.city = address.city
-      ..vars.cityArea = address.city
-      ..vars.countryArea = address.countryArea
-      ..vars.phone = address.phone
-      ..vars.postalCode = address.postalCode
-      ..vars.streetAddress1 = address.streetAddress1
-      ..vars.streetAddress2 = address.streetAddress2);
+      ..vars.input = buildAddressInput(address));
 
     return _client.request(request).map((result) {
       if (result.hasErrors) {
@@ -125,5 +119,41 @@ class AccountProvider {
           isDefaultBillingAddress: addressResult.isDefaultBillingAddress,
           isDefaultShippingAddress: addressResult.isDefaultShippingAddress)));
     });
+  }
+
+  Stream<Either<Failure, List<Address>>> updateAddress(
+      {@required Address address}) {
+    final request = GaddressUpdateReq((request) => request
+      ..vars.id = address.id
+      ..vars.input = buildAddressInput(address));
+
+    return _client.request(request).map((result) {
+      if (result.hasErrors) {
+        final accountErrors = result.data.addressUpdate.accountErrors;
+
+        if (accountErrors != null || accountErrors.isNotEmpty) {
+          return Left(Failure(accountErrors.first.message));
+        }
+        return Left(Failure('An error occured while update your address'));
+      }
+      return Right(
+        result.data.addressUpdate.user.addresses.map(
+          (address) => Address.fromMap(address.toJson()),
+        ),
+      );
+    });
+  }
+
+  GAddressInputBuilder buildAddressInput(Address address) {
+    return GAddressInputBuilder()
+      ..city = address.city
+      ..companyName = address.companyName
+      ..countryArea = address.countryArea
+      ..firstName = address.firstName
+      ..lastName = address.lastName
+      ..phone = address.phone
+      ..postalCode = address.postalCode
+      ..streetAddress1 = address.streetAddress1
+      ..streetAddress2 = address.streetAddress2;
   }
 }

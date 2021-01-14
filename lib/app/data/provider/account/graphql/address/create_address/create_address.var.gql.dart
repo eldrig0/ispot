@@ -15,28 +15,7 @@ abstract class GaddressCreateVars
       _$GaddressCreateVars;
 
   String get id;
-  @nullable
-  String get firstName;
-  @nullable
-  String get lastName;
-  @nullable
-  String get companyName;
-  @nullable
-  String get streetAddress1;
-  @nullable
-  String get streetAddress2;
-  @nullable
-  String get city;
-  @nullable
-  String get cityArea;
-  @nullable
-  String get postalCode;
-  @nullable
-  _i1.GCountryCode get country;
-  @nullable
-  String get countryArea;
-  @nullable
-  String get phone;
+  _i1.GAddressInput get input;
   static Serializer<GaddressCreateVars> get serializer =>
       _$gaddressCreateVarsSerializer;
   Map<String, dynamic> toJson() =>

@@ -14,6 +14,18 @@ import 'package:ispot/app/data/provider/account/graphql/address/create_address/c
     show GaddressCreateReq;
 import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.var.gql.dart'
     show GaddressCreateVars;
+import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.data.gql.dart'
+    show
+        GaddressUpdateData,
+        GaddressUpdateData_addressUpdate,
+        GaddressUpdateData_addressUpdate_accountErrors,
+        GaddressUpdateData_addressUpdate_user,
+        GaddressUpdateData_addressUpdate_user_addresses,
+        GaddressUpdateData_addressUpdate_user_addresses_country;
+import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.req.gql.dart'
+    show GaddressUpdateReq;
+import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.var.gql.dart'
+    show GaddressUpdateVars;
 import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.data.gql.dart'
     show
         GchangePasswordData,
@@ -935,6 +947,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GaddressCreateData_addressCreate_address_country,
   GaddressCreateReq,
   GaddressCreateVars,
+  GaddressUpdateData,
+  GaddressUpdateData_addressUpdate,
+  GaddressUpdateData_addressUpdate_accountErrors,
+  GaddressUpdateData_addressUpdate_user,
+  GaddressUpdateData_addressUpdate_user_addresses,
+  GaddressUpdateData_addressUpdate_user_addresses_country,
+  GaddressUpdateReq,
+  GaddressUpdateVars,
   GattributesData,
   GattributesData_attributes,
   GattributesData_attributes_edges,

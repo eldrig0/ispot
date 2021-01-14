@@ -1,0 +1,30 @@
+mutation addressUpdate($id: ID!, $input: AddressInput!) {
+  addressUpdate(id: $id, input: $input) {
+    user {
+      addresses {
+        id
+        firstName
+        lastName
+        companyName
+        streetAddress1
+        streetAddress2
+        city
+        postalCode
+        country {
+          code
+          country
+        }
+        countryArea
+        phone
+        isDefaultBillingAddress
+        isDefaultShippingAddress
+      }
+    }
+
+    accountErrors {
+      field
+      message
+      code
+    }
+  }
+}

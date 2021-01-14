@@ -1,33 +1,5 @@
-mutation addressCreate(
-  $id: ID!
-  $firstName: String
-  $lastName: String
-  $companyName: String
-  $streetAddress1: String
-  $streetAddress2: String
-  $city: String
-  $cityArea: String
-  $postalCode: String
-  $country: CountryCode
-  $countryArea: String
-  $phone: String
-) {
-  addressCreate(
-    userId: $id
-    input: {
-      firstName: $firstName
-      lastName: $lastName
-      companyName: $companyName
-      streetAddress1: $streetAddress1
-      streetAddress2: $streetAddress2
-      city: $city
-      cityArea: $cityArea
-      postalCode: $postalCode
-      country: $country
-      countryArea: $countryArea
-      phone: $phone
-    }
-  ) {
+mutation addressCreate($id: ID!, $input: AddressInput!) {
+  addressCreate(userId: $id, input: $input) {
     address {
       id
       firstName

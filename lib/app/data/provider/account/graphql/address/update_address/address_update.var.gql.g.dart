@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_address.var.gql.dart';
+part of 'address_update.var.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GaddressCreateVars> _$gaddressCreateVarsSerializer =
-    new _$GaddressCreateVarsSerializer();
+Serializer<GaddressUpdateVars> _$gaddressUpdateVarsSerializer =
+    new _$GaddressUpdateVarsSerializer();
 
-class _$GaddressCreateVarsSerializer
-    implements StructuredSerializer<GaddressCreateVars> {
+class _$GaddressUpdateVarsSerializer
+    implements StructuredSerializer<GaddressUpdateVars> {
   @override
-  final Iterable<Type> types = const [GaddressCreateVars, _$GaddressCreateVars];
+  final Iterable<Type> types = const [GaddressUpdateVars, _$GaddressUpdateVars];
   @override
-  final String wireName = 'GaddressCreateVars';
+  final String wireName = 'GaddressUpdateVars';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GaddressCreateVars object,
+  Iterable<Object> serialize(Serializers serializers, GaddressUpdateVars object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'id',
@@ -31,10 +31,10 @@ class _$GaddressCreateVarsSerializer
   }
 
   @override
-  GaddressCreateVars deserialize(
+  GaddressUpdateVars deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateVarsBuilder();
+    final result = new GaddressUpdateVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -58,38 +58,38 @@ class _$GaddressCreateVarsSerializer
   }
 }
 
-class _$GaddressCreateVars extends GaddressCreateVars {
+class _$GaddressUpdateVars extends GaddressUpdateVars {
   @override
   final String id;
   @override
   final _i1.GAddressInput input;
 
-  factory _$GaddressCreateVars(
-          [void Function(GaddressCreateVarsBuilder) updates]) =>
-      (new GaddressCreateVarsBuilder()..update(updates)).build();
+  factory _$GaddressUpdateVars(
+          [void Function(GaddressUpdateVarsBuilder) updates]) =>
+      (new GaddressUpdateVarsBuilder()..update(updates)).build();
 
-  _$GaddressCreateVars._({this.id, this.input}) : super._() {
+  _$GaddressUpdateVars._({this.id, this.input}) : super._() {
     if (id == null) {
-      throw new BuiltValueNullFieldError('GaddressCreateVars', 'id');
+      throw new BuiltValueNullFieldError('GaddressUpdateVars', 'id');
     }
     if (input == null) {
-      throw new BuiltValueNullFieldError('GaddressCreateVars', 'input');
+      throw new BuiltValueNullFieldError('GaddressUpdateVars', 'input');
     }
   }
 
   @override
-  GaddressCreateVars rebuild(
-          void Function(GaddressCreateVarsBuilder) updates) =>
+  GaddressUpdateVars rebuild(
+          void Function(GaddressUpdateVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateVarsBuilder toBuilder() =>
-      new GaddressCreateVarsBuilder()..replace(this);
+  GaddressUpdateVarsBuilder toBuilder() =>
+      new GaddressUpdateVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateVars &&
+    return other is GaddressUpdateVars &&
         id == other.id &&
         input == other.input;
   }
@@ -101,16 +101,16 @@ class _$GaddressCreateVars extends GaddressCreateVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GaddressCreateVars')
+    return (newBuiltValueToStringHelper('GaddressUpdateVars')
           ..add('id', id)
           ..add('input', input))
         .toString();
   }
 }
 
-class GaddressCreateVarsBuilder
-    implements Builder<GaddressCreateVars, GaddressCreateVarsBuilder> {
-  _$GaddressCreateVars _$v;
+class GaddressUpdateVarsBuilder
+    implements Builder<GaddressUpdateVars, GaddressUpdateVarsBuilder> {
+  _$GaddressUpdateVars _$v;
 
   String _id;
   String get id => _$this._id;
@@ -121,9 +121,9 @@ class GaddressCreateVarsBuilder
       _$this._input ??= new _i1.GAddressInputBuilder();
   set input(_i1.GAddressInputBuilder input) => _$this._input = input;
 
-  GaddressCreateVarsBuilder();
+  GaddressUpdateVarsBuilder();
 
-  GaddressCreateVarsBuilder get _$this {
+  GaddressUpdateVarsBuilder get _$this {
     if (_$v != null) {
       _id = _$v.id;
       _input = _$v.input?.toBuilder();
@@ -133,24 +133,24 @@ class GaddressCreateVarsBuilder
   }
 
   @override
-  void replace(GaddressCreateVars other) {
+  void replace(GaddressUpdateVars other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateVars;
+    _$v = other as _$GaddressUpdateVars;
   }
 
   @override
-  void update(void Function(GaddressCreateVarsBuilder) updates) {
+  void update(void Function(GaddressUpdateVarsBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateVars build() {
-    _$GaddressCreateVars _$result;
+  _$GaddressUpdateVars build() {
+    _$GaddressUpdateVars _$result;
     try {
       _$result =
-          _$v ?? new _$GaddressCreateVars._(id: id, input: input.build());
+          _$v ?? new _$GaddressUpdateVars._(id: id, input: input.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -158,7 +158,7 @@ class GaddressCreateVarsBuilder
         input.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressCreateVars', _$failedField, e.toString());
+            'GaddressUpdateVars', _$failedField, e.toString());
       }
       rethrow;
     }
