@@ -22,4 +22,5 @@ query User($id: ID!) {
       isDefaultBillingAddress
       isDefaultShippingAddress
     }
+  }
 }

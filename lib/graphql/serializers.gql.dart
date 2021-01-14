@@ -3,6 +3,17 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
+import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.data.gql.dart'
+    show
+        GaddressCreateData,
+        GaddressCreateData_addressCreate,
+        GaddressCreateData_addressCreate_accountErrors,
+        GaddressCreateData_addressCreate_address,
+        GaddressCreateData_addressCreate_address_country;
+import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.req.gql.dart'
+    show GaddressCreateReq;
+import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.var.gql.dart'
+    show GaddressCreateVars;
 import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.data.gql.dart'
     show
         GchangePasswordData,
@@ -28,9 +39,7 @@ import 'package:ispot/app/data/provider/account/graphql/user/user.data.gql.dart'
         GUserData,
         GUserData_user,
         GUserData_user_addresses,
-        GUserData_user_addresses_country,
-        GUserData_user_defaultShippingAddress,
-        GUserData_user_defaultShippingAddress_country;
+        GUserData_user_addresses_country;
 import 'package:ispot/app/data/provider/account/graphql/user/user.req.gql.dart'
     show GUserReq;
 import 'package:ispot/app/data/provider/account/graphql/user/user.var.gql.dart'
@@ -874,8 +883,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GUserData_user,
   GUserData_user_addresses,
   GUserData_user_addresses_country,
-  GUserData_user_defaultShippingAddress,
-  GUserData_user_defaultShippingAddress_country,
   GUserReq,
   GUserSortField,
   GUserSortingInput,
@@ -921,6 +928,13 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWeightScalar,
   GWeightUnitsEnum,
   G_Any,
+  GaddressCreateData,
+  GaddressCreateData_addressCreate,
+  GaddressCreateData_addressCreate_accountErrors,
+  GaddressCreateData_addressCreate_address,
+  GaddressCreateData_addressCreate_address_country,
+  GaddressCreateReq,
+  GaddressCreateVars,
   GattributesData,
   GattributesData_attributes,
   GattributesData_attributes_edges,

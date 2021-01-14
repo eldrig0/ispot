@@ -1,0 +1,57 @@
+mutation addressCreate(
+  $id: ID!
+  $firstName: String
+  $lastName: String
+  $companyName: String
+  $streetAddress1: String
+  $streetAddress2: String
+  $city: String
+  $cityArea: String
+  $postalCode: String
+  $country: CountryCode
+  $countryArea: String
+  $phone: String
+) {
+  addressCreate(
+    userId: $id
+    input: {
+      firstName: $firstName
+      lastName: $lastName
+      companyName: $companyName
+      streetAddress1: $streetAddress1
+      streetAddress2: $streetAddress2
+      city: $city
+      cityArea: $cityArea
+      postalCode: $postalCode
+      country: $country
+      countryArea: $countryArea
+      phone: $phone
+    }
+  ) {
+    address {
+      id
+      firstName
+      lastName
+      companyName
+      streetAddress1
+      streetAddress2
+      city
+      cityArea
+      country {
+        country
+        code
+      }
+      countryArea
+      phone
+      isDefaultBillingAddress
+      isDefaultShippingAddress
+      postalCode
+    }
+
+    accountErrors {
+      field
+      message
+      code
+    }
+  }
+}

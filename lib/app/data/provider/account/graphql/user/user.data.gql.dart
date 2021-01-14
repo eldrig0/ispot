@@ -42,8 +42,6 @@ abstract class GUserData_user
   String get email;
   @nullable
   BuiltList<GUserData_user_addresses> get addresses;
-  @nullable
-  GUserData_user_defaultShippingAddress get defaultShippingAddress;
   static Serializer<GUserData_user> get serializer => _$gUserDataUserSerializer;
   Map<String, dynamic> toJson() =>
       _i1.serializers.serializeWith(GUserData_user.serializer, this);
@@ -112,72 +110,4 @@ abstract class GUserData_user_addresses_country
   static GUserData_user_addresses_country fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GUserData_user_addresses_country.serializer, json);
-}
-
-abstract class GUserData_user_defaultShippingAddress
-    implements
-        Built<GUserData_user_defaultShippingAddress,
-            GUserData_user_defaultShippingAddressBuilder> {
-  GUserData_user_defaultShippingAddress._();
-
-  factory GUserData_user_defaultShippingAddress(
-          [Function(GUserData_user_defaultShippingAddressBuilder b) updates]) =
-      _$GUserData_user_defaultShippingAddress;
-
-  static void _initializeBuilder(
-          GUserData_user_defaultShippingAddressBuilder b) =>
-      b..G__typename = 'Address';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  String get id;
-  String get firstName;
-  String get lastName;
-  String get companyName;
-  String get streetAddress1;
-  String get streetAddress2;
-  String get city;
-  String get postalCode;
-  GUserData_user_defaultShippingAddress_country get country;
-  String get countryArea;
-  @nullable
-  String get phone;
-  @nullable
-  bool get isDefaultBillingAddress;
-  @nullable
-  bool get isDefaultShippingAddress;
-  static Serializer<GUserData_user_defaultShippingAddress> get serializer =>
-      _$gUserDataUserDefaultShippingAddressSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
-      .serializeWith(GUserData_user_defaultShippingAddress.serializer, this);
-  static GUserData_user_defaultShippingAddress fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GUserData_user_defaultShippingAddress.serializer, json);
-}
-
-abstract class GUserData_user_defaultShippingAddress_country
-    implements
-        Built<GUserData_user_defaultShippingAddress_country,
-            GUserData_user_defaultShippingAddress_countryBuilder> {
-  GUserData_user_defaultShippingAddress_country._();
-
-  factory GUserData_user_defaultShippingAddress_country(
-      [Function(GUserData_user_defaultShippingAddress_countryBuilder b)
-          updates]) = _$GUserData_user_defaultShippingAddress_country;
-
-  static void _initializeBuilder(
-          GUserData_user_defaultShippingAddress_countryBuilder b) =>
-      b..G__typename = 'CountryDisplay';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  String get code;
-  String get country;
-  static Serializer<GUserData_user_defaultShippingAddress_country>
-      get serializer => _$gUserDataUserDefaultShippingAddressCountrySerializer;
-  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GUserData_user_defaultShippingAddress_country.serializer, this);
-  static GUserData_user_defaultShippingAddress_country fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GUserData_user_defaultShippingAddress_country.serializer, json);
 }

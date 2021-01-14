@@ -3,6 +3,7 @@ import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/model/user.dart';
+import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.req.gql.dart';
 import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.req.gql.dart';
 import 'package:meta/meta.dart';
 
@@ -83,6 +84,46 @@ class AccountProvider {
         lastName: response.data.passwordChange.user.lastName,
         id: response.data.passwordChange.user.id,
       ));
+    });
+  }
+
+  Stream<Either<Failure, Address>> createAddress({@required Address address}) {
+    final request = GaddressCreateReq((request) => request
+      ..vars.id = address.id
+      ..vars.firstName = address.firstName
+      ..vars.lastName = address.lastName
+      ..vars.city = address.city
+      ..vars.cityArea = address.city
+      ..vars.countryArea = address.countryArea
+      ..vars.phone = address.phone
+      ..vars.postalCode = address.postalCode
+      ..vars.streetAddress1 = address.streetAddress1
+      ..vars.streetAddress2 = address.streetAddress2);
+
+    return _client.request(request).map((result) {
+      if (result.hasErrors) {
+        final accountErros = result.data.addressCreate.accountErrors;
+        if (accountErros != null || accountErros.isNotEmpty) {
+          return Left(Failure(accountErros.first.message));
+        }
+        return Left(Failure('An error occured while add address'));
+      }
+
+      final addressResult = result.data.addressCreate.address;
+      return (Right(Address(
+          city: addressResult.city,
+          companyName: addressResult.companyName,
+          country: Country.fromMap(addressResult.country.toJson()),
+          countryArea: addressResult.countryArea,
+          firstName: addressResult.firstName,
+          lastName: addressResult.lastName,
+          id: addressResult.id,
+          phone: addressResult.phone,
+          postalCode: addressResult.postalCode,
+          streetAddress1: addressResult.streetAddress1,
+          streetAddress2: addressResult.streetAddress2,
+          isDefaultBillingAddress: addressResult.isDefaultBillingAddress,
+          isDefaultShippingAddress: addressResult.isDefaultShippingAddress)));
     });
   }
 }

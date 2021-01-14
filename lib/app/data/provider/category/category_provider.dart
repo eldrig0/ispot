@@ -57,7 +57,7 @@ class CategoryProvider {
           pageInfo: PageInfo.fromMap(response.data.products.pageInfo.toJson()),
           totalProductCount: response.data.products.totalCount,
           attributes: _mapAttribute(response),
-          categoryImageUrl: response.data.category.backgroundImage.url,
+          categoryImageUrl: response.data.category?.backgroundImage?.url,
           products: _mapProducts(response),
         ),
       );

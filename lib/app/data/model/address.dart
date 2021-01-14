@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:ispot/graphql/schema.schema.gql.dart';
+
 class Address {
   String id;
   String firstName;
@@ -11,8 +13,8 @@ class Address {
   String postalCode;
   String countryArea;
   String phone;
-  String isDefaultBillingAddress;
-  String isDefaultShippingAddress;
+  bool isDefaultBillingAddress;
+  bool isDefaultShippingAddress;
   Country country;
   Address({
     this.id,
@@ -41,8 +43,8 @@ class Address {
     String postalCode,
     String countryArea,
     String phone,
-    String isDefaultBillingAddress,
-    String isDefaultShippingAddress,
+    bool isDefaultBillingAddress,
+    bool isDefaultShippingAddress,
     Country country,
   }) {
     return Address(

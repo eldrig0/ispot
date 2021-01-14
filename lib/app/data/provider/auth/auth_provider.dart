@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/user.dart';
-import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/forgot_password/forgotPassword.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/login/login.req.gql.dart';
 import 'package:ispot/app/data/provider/auth/graphql/register/create_account.req.gql.dart';
