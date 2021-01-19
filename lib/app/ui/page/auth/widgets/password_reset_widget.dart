@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/auth/auth_controller.dart';
+import 'package:ispot/app/ui/widgets/ispot_logo_image/ispot_logo_image.dart';
 import 'package:ispot/app/ui/widgets/primary_button/primary_button.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -19,6 +20,9 @@ class PasswordResetWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              ISpotLogoImage(
+                padding: const EdgeInsets.only(bottom: 100),
+              ),
               Text(
                 'Enter your email to send reset password link',
               ),

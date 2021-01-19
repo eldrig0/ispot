@@ -132,7 +132,9 @@ class HomeWidget extends StatelessWidget {
 
   Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
           leading: UIHelper.buildUserIcon(onPressed: () {
-            Get.toNamed('/auth');
+            // Get.toNamed('/auth');
+            Get.toNamed('/account');
+            //TODO: Go to user account.
           }),
           actions: [
             UIHelper.buildCategoriesIcon(onPressed: () {

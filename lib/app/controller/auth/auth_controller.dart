@@ -110,7 +110,7 @@ class AuthController extends GetxController {
             showLogInForm();
           },
           middleText:
-              'We sent you password reset link to your mail, Please click on the link and login again',
+              'We sent you password reset link to your mail, Please click on the link we sent and login again',
           confirm: RaisedButton(
             onPressed: () {
               Get.back();

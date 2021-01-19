@@ -1,12 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/ui/page/auth/widgets/auth_widget.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../controller/auth/auth_controller.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/primary_button/primary_button.dart';
+import '../../widgets/ispot_logo_image/ispot_logo_image.dart';
+import 'widgets/auth_widget.dart';
 import 'widgets/password_reset_widget.dart';
 
 class AuthPage extends GetView<AuthController> {
@@ -24,6 +23,9 @@ class AuthPage extends GetView<AuthController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              ISpotLogoImage(
+                padding: const EdgeInsets.only(bottom: 18),
+              ),
               AuthWidget(),
               SizedBox(
                 height: 18,

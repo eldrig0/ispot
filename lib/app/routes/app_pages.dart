@@ -1,6 +1,8 @@
 import 'package:get/route_manager.dart';
+import 'package:ispot/app/binding/account_binding/account_binding.dart';
 import 'package:ispot/app/binding/auth/auth_binding.dart';
 import 'package:ispot/app/binding/collection/collection_binding.dart';
+import 'package:ispot/app/ui/page/account/account_page.dart';
 import 'package:ispot/app/ui/page/auth/auth_page.dart';
 import 'package:ispot/app/ui/page/collection/collection_page.dart';
 
@@ -61,6 +63,10 @@ class AppPages {
       name: Routes.AUTH,
       page: () => AuthPage(),
       binding: AuthBinding(),
-    )
+    ),
+    GetPage(
+        name: Routes.ACCOUNT,
+        page: () => AccountPage(),
+        binding: AccountBinding())
   ];
 }

@@ -21,10 +21,24 @@ void main() async {
   await GetStorage.init();
   Get.put<Client>(client);
   Get.put<CartController>(CartController());
-  Get.put<AccountController>(AccountController(
-      AccountRepository(AccountProvider(Get.find<Client>()))));
-  Get.put<CategoriesController>(CategoriesController(
-      CategoriesRepository(CategoriesProvider(Get.find<Client>()))));
+  Get.put<AccountController>(
+    AccountController(
+      AccountRepository(
+        AccountProvider(
+          Get.find<Client>(),
+        ),
+      ),
+    ),
+  );
+  Get.put<CategoriesController>(
+    CategoriesController(
+      CategoriesRepository(
+        CategoriesProvider(
+          Get.find<Client>(),
+        ),
+      ),
+    ),
+  );
 
   runApp(Ispot());
 }

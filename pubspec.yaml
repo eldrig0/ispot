@@ -46,6 +46,7 @@ flutter:
 
   assets:
     - assets/no-photo.png
+    - assets/brand-logo.png
 
 dependency_overrides:
   file_testing: ^2.0.3

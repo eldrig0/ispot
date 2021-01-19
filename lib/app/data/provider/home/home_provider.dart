@@ -3,13 +3,10 @@ import 'package:ferry/ferry.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:meta/meta.dart';
 
-import '../../model/collection.dart';
-import '../../model/page_info.dart';
 import '../../model/pricing.dart';
 import '../../model/product.dart';
 import '../../model/product_variant.dart';
 import 'graphql/home/products/featured_products.req.gql.dart';
-import 'package:rxdart/rxdart.dart';
 
 class HomeProvider {
   final Client client;
@@ -31,16 +28,17 @@ class HomeProvider {
                   productName: product.node.name,
                   pricing: () {
                     return Pricing(
-                        start: Price(
-                            amount: product
-                                .node.pricing.priceRange.start.net.amount,
-                            currency: product
-                                .node.pricing.priceRange.start.net.currency),
-                        stop: Price(
-                            amount:
-                                product.node.pricing.priceRange.stop.net.amount,
-                            currency: product
-                                .node.pricing.priceRange.stop.net.currency));
+                      start: Price(
+                          amount:
+                              product.node.pricing.priceRange.start.net.amount,
+                          currency: product
+                              .node.pricing.priceRange.start.net.currency),
+                      stop: Price(
+                          amount:
+                              product.node.pricing.priceRange.stop.net.amount,
+                          currency: product
+                              .node.pricing.priceRange.stop.net.currency),
+                    );
                   }(),
                   productThumbnail: product.node.thumbnail?.url),
             )

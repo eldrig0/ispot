@@ -15,27 +15,52 @@ import 'graphql/user/user.req.gql.dart';
 class AccountProvider {
   final Client _client;
 
+  User user = User(
+      firstName: 'Rinzin',
+      lastName: 'Wangchuk',
+      email: 'rinziii997@gmail.com',
+      addresses: [
+        Address(
+            city: 'Thimphu',
+            companyName: 'Mountains',
+            country: Country(code: '123', country: 'Bhutan'),
+            countryArea: 'Bhutan',
+            firstName: 'Rinzin',
+            lastName: 'Wangchuk',
+            id: '1234',
+            phone: '+975 17500559',
+            postalCode: '1234',
+            streetAddress1: 'Babesa, Thimphu',
+            isDefaultBillingAddress: true,
+            isDefaultShippingAddress: true,
+            streetAddress2: 'Khangkhu paro')
+      ]);
+
   AccountProvider(this._client);
 
   Stream<Either<Failure, User>> getUser({@required String id}) {
     final userRequest = GUserReq((request) => request..vars.id = id);
 
-    return _client.request(userRequest).map((result) {
-      if (result.hasErrors) {
-        return Left(Failure('An error occured while fetching data'));
-      }
-      return Right(
-        User(
-          id: result.data.user.id,
-          email: result.data.user.email,
-          firstName: result.data.user.firstName,
-          lastName: result.data.user.lastName,
-          addresses: result.data.user.addresses.map(
-            (address) => Address.fromMap(address.toJson()),
-          ),
-        ),
-      );
-    });
+    return Stream<Either<Failure, User>>.fromIterable([
+      Right(user),
+    ]);
+
+    // return _client.request(userRequest).map((result) {
+    //   if (result.hasErrors) {
+    //     return Left(Failure('An error occured while fetching data'));
+    //   }
+    //   return Right(
+    //     User(
+    //       id: result.data.user.id,
+    //       email: result.data.user.email,
+    //       firstName: result.data.user.firstName,
+    //       lastName: result.data.user.lastName,
+    //       addresses: result.data.user.addresses.map(
+    //         (address) => Address.fromMap(address.toJson()),
+    //       ),
+    //     ),
+    //   );
+    // });
   }
 
   Stream<Either<Failure, User>> updateDetails(
