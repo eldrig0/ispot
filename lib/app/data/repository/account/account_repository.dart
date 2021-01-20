@@ -12,4 +12,8 @@ class AccountRepository {
   Stream<Either<Failure, User>> getUser({@required id}) {
     return _provider.getUser(id: id);
   }
+
+  Stream<Either<Failure, User>> updateDetails(
+          {@required firstName, @required lastName}) =>
+      _provider.updateDetails(firstName: firstName, lastName: lastName);
 }

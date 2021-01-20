@@ -20,6 +20,8 @@ class AccountController extends GetxController {
 
   final user = Rx(User());
   final gotUser = false.obs;
+  final editName = false.obs;
+
   isSignedIn() {
     final box = GetStorage();
     final token = box.read('token');
@@ -52,5 +54,26 @@ class AccountController extends GetxController {
   _updateFormControl(User user) {
     _getFormControl('firstName').updateValue(user.firstName);
     _getFormControl('lastName').updateValue(user.lastName);
+  }
+
+  toogleEditName() {
+    editName.value = !editName.value;
+    print(editName.value);
+  }
+
+  updateDetails() {
+    _repository
+        .updateDetails(
+            firstName: _getFormControl('firstName').value,
+            lastName: _getFormControl('lastName').value)
+        .take(1)
+        .listen((response) {
+      response.fold((failure) {
+        Get.defaultDialog(title: 'Error', middleText: failure.message);
+      }, (result) {
+        user.value = result;
+        _updateFormControl(result);
+      });
+    });
   }
 }

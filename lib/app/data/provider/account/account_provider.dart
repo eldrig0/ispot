@@ -35,6 +35,26 @@ class AccountProvider {
             isDefaultShippingAddress: true,
             streetAddress2: 'Khangkhu paro')
       ]);
+  User user2 = User(
+      firstName: 'Kuenzang',
+      lastName: 'Choden',
+      email: 'rinziii997@gmail.com',
+      addresses: [
+        Address(
+            city: 'Thimphu',
+            companyName: 'Mountains',
+            country: Country(code: '123', country: 'Bhutan'),
+            countryArea: 'Bhutan',
+            firstName: 'Rinzin',
+            lastName: 'Wangchuk',
+            id: '1234',
+            phone: '+975 17500559',
+            postalCode: '1234',
+            streetAddress1: 'Babesa, Thimphu',
+            isDefaultBillingAddress: true,
+            isDefaultShippingAddress: true,
+            streetAddress2: 'Khangkhu paro')
+      ]);
 
   AccountProvider(this._client);
 
@@ -65,27 +85,31 @@ class AccountProvider {
 
   Stream<Either<Failure, User>> updateDetails(
       {@required firstName, @required lastName}) {
-    final request = GupdateBasicDetailsReq((request) => request
-      ..vars.firstName = firstName
-      ..vars.lastName = lastName);
+    return Stream<Either<Failure, User>>.fromIterable([
+      Right(user2),
+    ]);
 
-    return _client.request(request).map((response) {
-      if (response.hasErrors) {
-        final accountErrors = response.data?.accountUpdate?.accountErrors;
-        if (accountErrors != null || accountErrors.isNotEmpty) {
-          return Left(Failure(accountErrors.first.message));
-        }
+    // final request = GupdateBasicDetailsReq((request) => request
+    //   ..vars.firstName = firstName
+    //   ..vars.lastName = lastName);
 
-        return Left(Failure(
-            'An error occured while updating your details, please try again later'));
-      }
+    // return _client.request(request).map((response) {
+    //   if (response.hasErrors) {
+    //     final accountErrors = response.data?.accountUpdate?.accountErrors;
+    //     if (accountErrors != null && accountErrors.isNotEmpty) {
+    //       return Left(Failure(accountErrors.first.message));
+    //     }
 
-      return Right(User(
-          id: response.data.accountUpdate.user.id,
-          firstName: response.data.accountUpdate.user.firstName,
-          lastName: response.data.accountUpdate.user.lastName,
-          email: response.data.accountUpdate.user.email));
-    });
+    //     return Left(Failure(
+    //         'An error occured while updating your details, please try again later'));
+    //   }
+
+    //   return Right(User(
+    //       id: response.data.accountUpdate.user.id,
+    //       firstName: response.data.accountUpdate.user.firstName,
+    //       lastName: response.data.accountUpdate.user.lastName,
+    //       email: response.data.accountUpdate.user.email));
+    // });
   }
 
   Stream<Either<Failure, User>> changePassword(
