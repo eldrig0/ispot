@@ -69,7 +69,7 @@ class AddressList extends StatelessWidget {
                           IconButton(
                               icon: Icon(AntDesign.delete), onPressed: () {}),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),

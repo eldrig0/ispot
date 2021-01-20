@@ -6,3 +6,10 @@ Function validateProductQuantity(int maxCount) {
           ? null
           : {'maximumQuantity': true};
 }
+
+checkPassword(FormGroup group) {
+  String password = group.control('newPassword').value;
+  String confirmPasswod = group.control('confirmNewPassword').value;
+
+  return password == confirmPasswod ? null : {'passwordNotSame': true};
+}
