@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ispot/app/misc/utils.dart';
+import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../data/failures/failure.dart';
-import '../../data/model/user.dart';
-import '../../data/repository/auth/auth_repository.dart';
-import '../../ui/widgets/ui_helper/ui_helper.dart';
+import '../data/failures/failure.dart';
+import '../data/model/user.dart';
+import '../data/repository/auth/auth_repository.dart';
 
 class AuthController extends GetxController {
   final isLogin = false.obs;

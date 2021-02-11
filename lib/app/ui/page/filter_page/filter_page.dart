@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import '../../../controller/filter/filter_controller.dart';
 import '../../../data/model/attribute.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/ispot_chips/ispot_chip.dart';
+import '../../widgets/ispot_chip.dart';
 
 class FilterPage extends StatelessWidget {
   final _controller = Get.find<AttributeController>();

@@ -6,7 +6,7 @@ import '../../../controller/cart/cart_controller.dart';
 import '../../../controller/category/category_controller.dart';
 import '../../../misc/sort_options.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/product_grid/product_grid.dart';
+import '../../widgets/product_grid.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
 
 class CategoryPage extends GetWidget<CategoryController> {

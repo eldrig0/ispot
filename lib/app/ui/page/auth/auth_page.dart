@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/auth/auth_controller.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/ispot_logo_image/ispot_logo_image.dart';
+import '../../widgets/ispot_logo_image.dart';
 import 'widgets/auth_widget.dart';
 import 'widgets/password_reset_widget.dart';
 

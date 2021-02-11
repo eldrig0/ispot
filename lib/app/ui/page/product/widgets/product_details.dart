@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/ui/widgets/primary_button/primary_button.dart';
+import 'package:ispot/app/ui/widgets/primary_button.dart';
 import '../../../../controller/cart/cart_controller.dart';
 import '../../../../controller/product/product_controller.dart';
 import '../../../../routes/app_pages.dart';

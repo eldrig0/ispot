@@ -3,7 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/search/search_controller.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/app/ui/widgets/product_grid/product_grid.dart';
+import 'package:ispot/app/ui/widgets/product_grid.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 

@@ -5,7 +5,6 @@ import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/model/user.dart';
 import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.req.gql.dart';
 import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.req.gql.dart';
-import 'package:ispot/app/data/provider/account/graphql/update_basic_details/update_details.req.gql.dart';
 import 'package:ispot/graphql/schema.schema.gql.dart';
 import 'package:meta/meta.dart';
 

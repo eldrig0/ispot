@@ -67,6 +67,7 @@ class AppPages {
     GetPage(
         name: Routes.ACCOUNT,
         page: () => AccountPage(),
-        binding: AccountBinding())
+        binding: AccountBinding()),
+    GetPage(name: Routes.ADDRESS, page: () {}),
   ];
 }

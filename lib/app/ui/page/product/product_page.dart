@@ -3,8 +3,6 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:ispot/app/ui/page/product/widgets/product_details.dart';
-import 'package:shimmer/shimmer.dart';
-
 import '../../../controller/product/product_controller.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/ui_helper/ui_helper.dart';

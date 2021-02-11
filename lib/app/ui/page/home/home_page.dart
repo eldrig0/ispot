@@ -9,9 +9,9 @@ import '../../../controller/categories/categories_controller.dart';
 import '../../../controller/collections/collections_controller.dart';
 import '../../../controller/home/home_controller.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/category_card/category_card.dart';
-import '../../widgets/product_grid/product_grid.dart';
-import '../../widgets/ripple_transition/ripple_transition.dart';
+import '../../widgets/category_card.dart';
+import '../../widgets/product_grid.dart';
+import '../../widgets/ripple_transition.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
 import 'widets/drawer/category_drawer.dart';
 
@@ -131,11 +131,33 @@ class HomeWidget extends StatelessWidget {
       );
 
   Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
-          leading: UIHelper.buildUserIcon(onPressed: () {
-            // Get.toNamed('/auth');
-            Get.toNamed('/account');
-            //TODO: Go to user account.
-          }),
+          leading: PopupMenuButton<String>(
+              onSelected: (value) {
+                switch (value) {
+                  case 'profile':
+                    Get.toNamed('/account');
+                    break;
+                }
+              },
+              child: Icon(AntDesign.user),
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    value: 'profile',
+                    child: ListTile(
+                      leading: Icon(AntDesign.user),
+                      title: Text('My account'),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 'address',
+                    child: ListTile(
+                      leading: Icon(AntDesign.clouddownload),
+                      title: Text('My address'),
+                    ),
+                  )
+                ];
+              }),
           actions: [
             UIHelper.buildCategoriesIcon(onPressed: () {
               Scaffold.of(context).openDrawer();

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/controller/account/account_controller.dart';
-import 'package:ispot/app/data/model/address.dart';
-import 'package:ispot/app/ui/page/account/widgets/basic_details_widget.dart';
-import 'package:ispot/app/ui/page/account/widgets/password_reset_widget.dart';
-import 'package:ispot/app/ui/page/auth/widgets/password_reset_widget.dart';
-import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../../controller/account/account_controller.dart';
+import '../../theme/ispot_theme.dart';
+import 'widgets/basic_details_widget.dart';
+import 'widgets/password_reset_widget.dart';
 
 class AccountPage extends StatelessWidget {
   @override

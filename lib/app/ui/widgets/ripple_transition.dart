@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
-import 'package:ispot/app/ui/widgets/fade_in_router/fade_in_router.dart';
+import 'package:ispot/app/ui/widgets/fade_in_router.dart';
 
 class RipplePageTransition extends StatefulWidget {
   RipplePageTransition(
