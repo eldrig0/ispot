@@ -3,7 +3,7 @@ import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
-import 'package:ispot/app/data/repository/category/category_repository.dart';
+import 'package:ispot/app/data/repository/category_repository.dart';
 
 import '../misc/sort_options.dart';
 

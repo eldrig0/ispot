@@ -6,7 +6,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 import '../data/model/categories.dart';
 import '../data/model/collection.dart';
 import '../data/model/product.dart';
-import '../data/repository/home/home_repository.dart';
+import '../data/repository/home_repository.dart';
 
 const CATEGORIES = 'categories';
 const PRODUCTS = 'products';

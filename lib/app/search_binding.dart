@@ -2,7 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:ispot/app/data/provider/search/search_provider.dart';
-import 'package:ispot/app/data/repository/search/search_repository.dart';
+import 'package:ispot/app/data/repository/search_repository.dart';
 
 import 'controller/search_controller.dart';
 

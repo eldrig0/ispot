@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/data/model/collection.dart';
-import 'package:ispot/app/data/repository/collections/collections_repository.dart';
+import 'package:ispot/app/data/repository/collections_repository.dart';
 
 class CollectionsController extends GetxController {
   final CollectionsRepository _repository;

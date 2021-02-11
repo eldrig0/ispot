@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/repository/attributes/attributes_repository.dart';
+import 'package:ispot/app/data/repository/attributes_repository.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 import 'package:meta/meta.dart';
 

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/data/model/categories.dart';
 import 'package:ispot/app/data/model/drawer_category.dart';
-import 'package:ispot/app/data/repository/categories/categories_repository.dart';
+import 'package:ispot/app/data/repository/categories_repository.dart';
 import 'package:ispot/app/misc/utils.dart';
 
 class CategoriesController extends GetxController {

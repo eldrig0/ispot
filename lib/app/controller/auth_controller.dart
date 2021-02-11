@@ -8,7 +8,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 import '../data/failures/failure.dart';
 import '../data/model/user.dart';
-import '../data/repository/auth/auth_repository.dart';
+import '../data/repository/auth_repository.dart';
 
 class AuthController extends GetxController {
   final isLogin = false.obs;

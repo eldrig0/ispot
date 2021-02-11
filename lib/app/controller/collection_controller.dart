@@ -3,7 +3,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/data/model/page_info.dart';
-import 'package:ispot/app/data/repository/collection/collection_repository.dart';
+import 'package:ispot/app/data/repository/collection_repository.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 
 class CollectionController extends GetxController {

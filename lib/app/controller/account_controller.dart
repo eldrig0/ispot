@@ -3,7 +3,7 @@ import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ispot/app/data/model/user.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/data/repository/account/account_repository.dart';
+import 'package:ispot/app/data/repository/account_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AccountController extends GetxController {

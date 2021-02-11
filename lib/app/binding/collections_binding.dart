@@ -2,7 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:get/instance_manager.dart';
 import 'package:ispot/app/controller/collections_controller.dart';
 import 'package:ispot/app/data/provider/collections/collections_provider.dart';
-import 'package:ispot/app/data/repository/collections/collections_repository.dart';
+import 'package:ispot/app/data/repository/collections_repository.dart';
 
 class CollectionsBinding extends Bindings {
   @override

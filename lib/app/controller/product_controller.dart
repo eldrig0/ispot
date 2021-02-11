@@ -4,7 +4,7 @@ import 'package:get/state_manager.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
-import 'package:ispot/app/data/repository/product/product_repository.dart';
+import 'package:ispot/app/data/repository/product_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../misc/validators/custom_validators.dart';

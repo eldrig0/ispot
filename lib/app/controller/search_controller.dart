@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/data/repository/search/search_repository.dart';
+import 'package:ispot/app/data/repository/search_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class SearchController extends GetxController {
