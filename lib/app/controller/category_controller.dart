@@ -5,7 +5,7 @@ import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/repository/category/category_repository.dart';
 
-import '../../misc/sort_options.dart';
+import '../misc/sort_options.dart';
 
 class CategoryController extends GetxController {
   final CategoryRepository categoryRepository;

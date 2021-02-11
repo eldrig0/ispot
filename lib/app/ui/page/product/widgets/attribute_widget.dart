@@ -1,8 +1,8 @@
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/controller/filter/filter_controller.dart';
-import 'package:ispot/app/controller/product/product_controller.dart';
+import 'package:ispot/app/controller/filter_controller.dart';
+import 'package:ispot/app/controller/product_controller.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 
 class AttributeWidget extends StatelessWidget {

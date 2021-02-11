@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ispot/app/controller/auth/auth_controller.dart';
+import 'package:ispot/app/controller/auth_controller.dart';
 import 'package:ispot/app/ui/widgets/ispot_logo_image.dart';
 import 'package:ispot/app/ui/widgets/primary_button.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';

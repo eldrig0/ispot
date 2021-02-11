@@ -4,7 +4,7 @@ import 'package:get/instance_manager.dart';
 import 'package:ispot/app/data/provider/search/search_provider.dart';
 import 'package:ispot/app/data/repository/search/search_repository.dart';
 
-import '../../controller/search/search_controller.dart';
+import 'controller/search_controller.dart';
 
 class SearchBinding implements Bindings {
   @override

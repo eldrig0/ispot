@@ -7,7 +7,7 @@ import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/repository/product/product_repository.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../misc/validators/custom_validators.dart';
+import '../misc/validators/custom_validators.dart';
 
 class ProductController extends GetxController {
   final ProductRepository _productRepository;

@@ -5,9 +5,9 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../controller/categories/categories_controller.dart';
-import '../../../controller/collections/collections_controller.dart';
-import '../../../controller/home/home_controller.dart';
+import '../../../controller/categories_controller.dart';
+import '../../../controller/collections_controller.dart';
+import '../../../controller/home_controller.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/category_card.dart';
 import '../../widgets/product_grid.dart';

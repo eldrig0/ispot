@@ -3,7 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import '../../../controller/account/account_controller.dart';
+import '../../../controller/account_controller.dart';
 import '../../theme/ispot_theme.dart';
 import 'widgets/basic_details_widget.dart';
 import 'widgets/password_reset_widget.dart';

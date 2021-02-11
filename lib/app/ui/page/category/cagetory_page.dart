@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
-import '../../../controller/cart/cart_controller.dart';
-import '../../../controller/category/category_controller.dart';
+import '../../../controller/cart_controller.dart';
+import '../../../controller/category_controller.dart';
 import '../../../misc/sort_options.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/product_grid.dart';

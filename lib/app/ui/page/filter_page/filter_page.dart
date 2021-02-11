@@ -3,7 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../controller/filter/filter_controller.dart';
+import '../../../controller/filter_controller.dart';
 import '../../../data/model/attribute.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/ispot_chip.dart';

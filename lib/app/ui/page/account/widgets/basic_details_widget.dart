@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ispot/app/controller/account/account_controller.dart';
+import 'package:ispot/app/controller/account_controller.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class BasicDetailsForm extends StatelessWidget {
