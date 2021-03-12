@@ -9,3 +9,7 @@ onFailure(Failure failure) {
       middleText: failure.message,
       cancel: UIHelper.buildDialogButton('OKAY'));
 }
+
+getNotNullString(String string) {
+  return string ?? '';
+}

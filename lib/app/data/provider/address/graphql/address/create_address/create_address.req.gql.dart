@@ -4,11 +4,11 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.ast.gql.dart'
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.ast.gql.dart'
     as _i5;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.data.gql.dart'
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.data.gql.dart'
     as _i2;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.var.gql.dart'
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.var.gql.dart'
     as _i3;
 import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 

@@ -14,18 +14,18 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'user.req.gql.g.dart';
 
-abstract class GUserReq
+abstract class GMeReq
     implements
-        Built<GUserReq, GUserReqBuilder>,
-        _i1.OperationRequest<_i2.GUserData, _i3.GUserVars> {
-  GUserReq._();
+        Built<GMeReq, GMeReqBuilder>,
+        _i1.OperationRequest<_i2.GMeData, _i3.GMeVars> {
+  GMeReq._();
 
-  factory GUserReq([Function(GUserReqBuilder b) updates]) = _$GUserReq;
+  factory GMeReq([Function(GMeReqBuilder b) updates]) = _$GMeReq;
 
-  static void _initializeBuilder(GUserReqBuilder b) => b
-    ..operation = _i4.Operation(document: _i5.document, operationName: 'User')
+  static void _initializeBuilder(GMeReqBuilder b) => b
+    ..operation = _i4.Operation(document: _i5.document, operationName: 'Me')
     ..executeOnListen = true;
-  _i3.GUserVars get vars;
+  _i3.GMeVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
       _i4.Request(operation: operation, variables: vars.toJson());
@@ -33,9 +33,9 @@ abstract class GUserReq
   String get requestId;
   @nullable
   @BuiltValueField(serialize: false)
-  _i2.GUserData Function(_i2.GUserData, _i2.GUserData) get updateResult;
+  _i2.GMeData Function(_i2.GMeData, _i2.GMeData) get updateResult;
   @nullable
-  _i2.GUserData get optimisticResponse;
+  _i2.GMeData get optimisticResponse;
   @nullable
   String get updateCacheHandlerKey;
   @nullable
@@ -45,11 +45,11 @@ abstract class GUserReq
   @nullable
   bool get executeOnListen;
   @override
-  _i2.GUserData parseData(Map<String, dynamic> json) =>
-      _i2.GUserData.fromJson(json);
-  static Serializer<GUserReq> get serializer => _$gUserReqSerializer;
+  _i2.GMeData parseData(Map<String, dynamic> json) =>
+      _i2.GMeData.fromJson(json);
+  static Serializer<GMeReq> get serializer => _$gMeReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i6.serializers.serializeWith(GUserReq.serializer, this);
-  static GUserReq fromJson(Map<String, dynamic> json) =>
-      _i6.serializers.deserializeWith(GUserReq.serializer, json);
+      _i6.serializers.serializeWith(GMeReq.serializer, this);
+  static GMeReq fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GMeReq.serializer, json);
 }

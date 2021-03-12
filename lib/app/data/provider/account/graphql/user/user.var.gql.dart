@@ -6,15 +6,14 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i1;
 
 part 'user.var.gql.g.dart';
 
-abstract class GUserVars implements Built<GUserVars, GUserVarsBuilder> {
-  GUserVars._();
+abstract class GMeVars implements Built<GMeVars, GMeVarsBuilder> {
+  GMeVars._();
 
-  factory GUserVars([Function(GUserVarsBuilder b) updates]) = _$GUserVars;
+  factory GMeVars([Function(GMeVarsBuilder b) updates]) = _$GMeVars;
 
-  String get id;
-  static Serializer<GUserVars> get serializer => _$gUserVarsSerializer;
+  static Serializer<GMeVars> get serializer => _$gMeVarsSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GUserVars.serializer, this);
-  static GUserVars fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GUserVars.serializer, json);
+      _i1.serializers.serializeWith(GMeVars.serializer, this);
+  static GMeVars fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GMeVars.serializer, json);
 }

@@ -5,7 +5,8 @@
             "name": "ispot (Flutter)",
             "program": "lib/main.dart",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
         },
         {
             "type": "chrome",

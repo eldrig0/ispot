@@ -6,21 +6,21 @@ part of 'user.req.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GUserReq> _$gUserReqSerializer = new _$GUserReqSerializer();
+Serializer<GMeReq> _$gMeReqSerializer = new _$GMeReqSerializer();
 
-class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
+class _$GMeReqSerializer implements StructuredSerializer<GMeReq> {
   @override
-  final Iterable<Type> types = const [GUserReq, _$GUserReq];
+  final Iterable<Type> types = const [GMeReq, _$GMeReq];
   @override
-  final String wireName = 'GUserReq';
+  final String wireName = 'GMeReq';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GUserReq object,
+  Iterable<Object> serialize(Serializers serializers, GMeReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GUserVars)),
+          specifiedType: const FullType(_i3.GMeVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -35,7 +35,7 @@ class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GUserData)));
+            specifiedType: const FullType(_i2.GMeData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -66,9 +66,9 @@ class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
   }
 
   @override
-  GUserReq deserialize(Serializers serializers, Iterable<Object> serialized,
+  GMeReq deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserReqBuilder();
+    final result = new GMeReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -78,7 +78,7 @@ class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i3.GUserVars)) as _i3.GUserVars);
+              specifiedType: const FullType(_i3.GMeVars)) as _i3.GMeVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -90,7 +90,7 @@ class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GUserData)) as _i2.GUserData);
+              specifiedType: const FullType(_i2.GMeData)) as _i2.GMeData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -119,17 +119,17 @@ class _$GUserReqSerializer implements StructuredSerializer<GUserReq> {
   }
 }
 
-class _$GUserReq extends GUserReq {
+class _$GMeReq extends GMeReq {
   @override
-  final _i3.GUserVars vars;
+  final _i3.GMeVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GUserData Function(_i2.GUserData, _i2.GUserData) updateResult;
+  final _i2.GMeData Function(_i2.GMeData, _i2.GMeData) updateResult;
   @override
-  final _i2.GUserData optimisticResponse;
+  final _i2.GMeData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
@@ -139,10 +139,10 @@ class _$GUserReq extends GUserReq {
   @override
   final bool executeOnListen;
 
-  factory _$GUserReq([void Function(GUserReqBuilder) updates]) =>
-      (new GUserReqBuilder()..update(updates)).build();
+  factory _$GMeReq([void Function(GMeReqBuilder) updates]) =>
+      (new GMeReqBuilder()..update(updates)).build();
 
-  _$GUserReq._(
+  _$GMeReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -154,25 +154,25 @@ class _$GUserReq extends GUserReq {
       this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GUserReq', 'vars');
+      throw new BuiltValueNullFieldError('GMeReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GUserReq', 'operation');
+      throw new BuiltValueNullFieldError('GMeReq', 'operation');
     }
   }
 
   @override
-  GUserReq rebuild(void Function(GUserReqBuilder) updates) =>
+  GMeReq rebuild(void Function(GMeReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserReqBuilder toBuilder() => new GUserReqBuilder()..replace(this);
+  GMeReqBuilder toBuilder() => new GMeReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GUserReq &&
+    return other is GMeReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -204,7 +204,7 @@ class _$GUserReq extends GUserReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserReq')
+    return (newBuiltValueToStringHelper('GMeReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -218,12 +218,12 @@ class _$GUserReq extends GUserReq {
   }
 }
 
-class GUserReqBuilder implements Builder<GUserReq, GUserReqBuilder> {
-  _$GUserReq _$v;
+class GMeReqBuilder implements Builder<GMeReq, GMeReqBuilder> {
+  _$GMeReq _$v;
 
-  _i3.GUserVarsBuilder _vars;
-  _i3.GUserVarsBuilder get vars => _$this._vars ??= new _i3.GUserVarsBuilder();
-  set vars(_i3.GUserVarsBuilder vars) => _$this._vars = vars;
+  _i3.GMeVarsBuilder _vars;
+  _i3.GMeVarsBuilder get vars => _$this._vars ??= new _i3.GMeVarsBuilder();
+  set vars(_i3.GMeVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -233,17 +233,17 @@ class GUserReqBuilder implements Builder<GUserReq, GUserReqBuilder> {
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GUserData Function(_i2.GUserData, _i2.GUserData) _updateResult;
-  _i2.GUserData Function(_i2.GUserData, _i2.GUserData) get updateResult =>
+  _i2.GMeData Function(_i2.GMeData, _i2.GMeData) _updateResult;
+  _i2.GMeData Function(_i2.GMeData, _i2.GMeData) get updateResult =>
       _$this._updateResult;
   set updateResult(
-          _i2.GUserData Function(_i2.GUserData, _i2.GUserData) updateResult) =>
+          _i2.GMeData Function(_i2.GMeData, _i2.GMeData) updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GUserDataBuilder _optimisticResponse;
-  _i2.GUserDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GUserDataBuilder();
-  set optimisticResponse(_i2.GUserDataBuilder optimisticResponse) =>
+  _i2.GMeDataBuilder _optimisticResponse;
+  _i2.GMeDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GMeDataBuilder();
+  set optimisticResponse(_i2.GMeDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -268,11 +268,11 @@ class GUserReqBuilder implements Builder<GUserReq, GUserReqBuilder> {
   set executeOnListen(bool executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GUserReqBuilder() {
-    GUserReq._initializeBuilder(this);
+  GMeReqBuilder() {
+    GMeReq._initializeBuilder(this);
   }
 
-  GUserReqBuilder get _$this {
+  GMeReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -289,24 +289,24 @@ class GUserReqBuilder implements Builder<GUserReq, GUserReqBuilder> {
   }
 
   @override
-  void replace(GUserReq other) {
+  void replace(GMeReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserReq;
+    _$v = other as _$GMeReq;
   }
 
   @override
-  void update(void Function(GUserReqBuilder) updates) {
+  void update(void Function(GMeReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserReq build() {
-    _$GUserReq _$result;
+  _$GMeReq build() {
+    _$GMeReq _$result;
     try {
       _$result = _$v ??
-          new _$GUserReq._(
+          new _$GMeReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -326,7 +326,7 @@ class GUserReqBuilder implements Builder<GUserReq, GUserReqBuilder> {
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GUserReq', _$failedField, e.toString());
+            'GMeReq', _$failedField, e.toString());
       }
       rethrow;
     }

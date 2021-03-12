@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:ispot/app/data/model/product.dart';
 
 import 'attribute.dart';
 
@@ -15,6 +16,7 @@ class ProductVariant {
   List<String> images;
   Price price;
   List<Attribute> attributes;
+
   ProductVariant({
     this.id,
     this.name,

@@ -7,8 +7,9 @@ import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
 class UIHelper {
   static AppBar buildIspotAppBar(
-      {IconButton leading, List<Widget> actions = const []}) {
+      {IconButton leading, List<Widget> actions = const [], String title}) {
     return AppBar(
+      title: title == null ? Container() : Text(title),
       elevation: 0,
       leading: leading,
       backgroundColor: ISpotTheme.canvasColor,

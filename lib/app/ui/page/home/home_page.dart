@@ -4,6 +4,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/controller/account_controller.dart';
+import 'package:ispot/app/routes/app_pages.dart';
 
 import '../../../controller/categories_controller.dart';
 import '../../../controller/collections_controller.dart';
@@ -38,13 +40,14 @@ class _HomePageState extends State<HomePage> {
           drawer: buildCategoriesDrawer(),
           backgroundColor: ISpotTheme.canvasColor,
           floatingActionButton: FloatingActionButton(
-              key: _fabButtonKey,
-              backgroundColor: ISpotTheme.primaryColor,
-              child: Icon(
-                AntDesign.search1,
-                color: Colors.white,
-              ),
-              onPressed: () => _ripplePageTransition.navigateTo('/search')),
+            key: _fabButtonKey,
+            backgroundColor: ISpotTheme.primaryColor,
+            child: Icon(
+              AntDesign.search1,
+              color: Colors.white,
+            ),
+            onPressed: () => _ripplePageTransition.navigateTo('/search'),
+          ),
           body: HomeWidget(),
         ),
         _ripplePageTransition,
@@ -131,33 +134,48 @@ class HomeWidget extends StatelessWidget {
       );
 
   Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
-          leading: PopupMenuButton<String>(
-              onSelected: (value) {
-                switch (value) {
-                  case 'profile':
-                    Get.toNamed('/account');
-                    break;
-                }
-              },
-              child: Icon(AntDesign.user),
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    value: 'profile',
-                    child: ListTile(
-                      leading: Icon(AntDesign.user),
-                      title: Text('My account'),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    value: 'address',
-                    child: ListTile(
-                      leading: Icon(AntDesign.clouddownload),
-                      title: Text('My address'),
-                    ),
-                  )
-                ];
-              }),
+          leading: Get.find<AccountController>().isSignedIn()
+              ? PopupMenuButton<String>(
+                  onSelected: (value) {
+                    switch (value) {
+                      case 'account':
+                        Get.toNamed('/account');
+                        break;
+                      case 'address':
+                        Get.toNamed('/address');
+                    }
+                  },
+                  child: Icon(AntDesign.user),
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                        value: 'account',
+                        child: ListTile(
+                          leading: Icon(AntDesign.user),
+                          title: Text('My account'),
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'auth',
+                        child: ListTile(
+                          leading: Icon(AntDesign.user),
+                          title: Text('My auth'),
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'address',
+                        child: ListTile(
+                          leading: Icon(AntDesign.clouddownload),
+                          title: Text('My address'),
+                        ),
+                      )
+                    ];
+                  })
+              : IconButton(
+                  icon: Icon(AntDesign.user),
+                  onPressed: () {
+                    Get.toNamed(Routes.AUTH);
+                  }),
           actions: [
             UIHelper.buildCategoriesIcon(onPressed: () {
               Scaffold.of(context).openDrawer();

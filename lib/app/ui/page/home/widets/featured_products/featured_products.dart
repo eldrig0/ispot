@@ -22,7 +22,7 @@ class FeaturedProductGrid extends StatelessWidget {
       crossAxisCount: 4,
       itemBuilder: (context, index) => ProductCard(
         onClick: () {
-          Get.toNamed('product/${products[index].productId}');
+          Get.toNamed('/product/${products[index].productId}');
         },
         product: products[index],
       ),

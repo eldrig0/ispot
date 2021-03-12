@@ -1,14 +1,15 @@
 import 'package:get/route_manager.dart';
 import 'package:ispot/app/binding/account_binding.dart';
+import 'package:ispot/app/binding/address_binding.dart';
 import 'package:ispot/app/binding/auth_binding.dart';
 import 'package:ispot/app/binding/collection_binding.dart';
 import 'package:ispot/app/ui/page/account/account_page.dart';
+import 'package:ispot/app/ui/page/address/address_page.dart';
 import 'package:ispot/app/ui/page/auth/auth_page.dart';
 import 'package:ispot/app/ui/page/collection/collection_page.dart';
 
 import '../binding/attribute_binding.dart';
 import '../binding/cart_binding.dart';
-import '../binding/categories_binding.dart';
 import '../binding/category_binding.dart';
 import '../binding/collections_binding.dart';
 import '../binding/home_binding.dart';
@@ -68,6 +69,9 @@ class AppPages {
         name: Routes.ACCOUNT,
         page: () => AccountPage(),
         binding: AccountBinding()),
-    GetPage(name: Routes.ADDRESS, page: () {}),
+    GetPage(
+        name: Routes.ADDRESS,
+        binding: AddressBinding(),
+        page: () => AddressPage()),
   ];
 }

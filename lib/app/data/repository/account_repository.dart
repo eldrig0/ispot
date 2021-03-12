@@ -9,8 +9,8 @@ class AccountRepository {
 
   AccountRepository(this._provider);
 
-  Stream<Either<Failure, User>> getUser({@required id}) {
-    return _provider.getUser(id: id);
+  Stream<Either<Failure, User>> getUser() {
+    return _provider.getUser();
   }
 
   Stream<Either<Failure, User>> updateDetails(

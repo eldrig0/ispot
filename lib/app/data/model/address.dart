@@ -11,11 +11,11 @@ class Address {
   String streetAddress2;
   String city;
   String postalCode;
-  String countryArea;
+  String country;
   String phone;
   bool isDefaultBillingAddress;
   bool isDefaultShippingAddress;
-  Country country;
+
   Address({
     this.id,
     this.firstName,
@@ -25,11 +25,10 @@ class Address {
     this.streetAddress2,
     this.city,
     this.postalCode,
-    this.countryArea,
+    this.country,
     this.phone,
     this.isDefaultBillingAddress,
     this.isDefaultShippingAddress,
-    this.country,
   });
 
   Address copyWith({
@@ -41,11 +40,10 @@ class Address {
     String streetAddress2,
     String city,
     String postalCode,
-    String countryArea,
+    String country,
     String phone,
     bool isDefaultBillingAddress,
     bool isDefaultShippingAddress,
-    Country country,
   }) {
     return Address(
       id: id ?? this.id,
@@ -56,13 +54,12 @@ class Address {
       streetAddress2: streetAddress2 ?? this.streetAddress2,
       city: city ?? this.city,
       postalCode: postalCode ?? this.postalCode,
-      countryArea: countryArea ?? this.countryArea,
+      country: country ?? this.country,
       phone: phone ?? this.phone,
       isDefaultBillingAddress:
           isDefaultBillingAddress ?? this.isDefaultBillingAddress,
       isDefaultShippingAddress:
           isDefaultShippingAddress ?? this.isDefaultShippingAddress,
-      country: country ?? this.country,
     );
   }
 
@@ -76,11 +73,10 @@ class Address {
       'streetAddress2': streetAddress2,
       'city': city,
       'postalCode': postalCode,
-      'countryArea': countryArea,
+      'country': country,
       'phone': phone,
       'isDefaultBillingAddress': isDefaultBillingAddress,
       'isDefaultShippingAddress': isDefaultShippingAddress,
-      'country': country?.toMap(),
     };
   }
 
@@ -96,11 +92,10 @@ class Address {
       streetAddress2: map['streetAddress2'],
       city: map['city'],
       postalCode: map['postalCode'],
-      countryArea: map['countryArea'],
+      country: map['country'],
       phone: map['phone'],
       isDefaultBillingAddress: map['isDefaultBillingAddress'],
       isDefaultShippingAddress: map['isDefaultShippingAddress'],
-      country: Country.fromMap(map['country']),
     );
   }
 
@@ -111,7 +106,7 @@ class Address {
 
   @override
   String toString() {
-    return 'Address(id: $id, firstName: $firstName, lastName: $lastName, companyName: $companyName, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, postalCode: $postalCode, countryArea: $countryArea, phone: $phone, isDefaultBillingAddress: $isDefaultBillingAddress, isDefaultShippingAddress: $isDefaultShippingAddress, country: $country)';
+    return 'Address(id: $id, firstName: $firstName, lastName: $lastName, companyName: $companyName, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, postalCode: $postalCode, country: $country, phone: $phone, isDefaultBillingAddress: $isDefaultBillingAddress, isDefaultShippingAddress: $isDefaultShippingAddress)';
   }
 
   @override
@@ -127,11 +122,10 @@ class Address {
         o.streetAddress2 == streetAddress2 &&
         o.city == city &&
         o.postalCode == postalCode &&
-        o.countryArea == countryArea &&
+        o.country == country &&
         o.phone == phone &&
         o.isDefaultBillingAddress == isDefaultBillingAddress &&
-        o.isDefaultShippingAddress == isDefaultShippingAddress &&
-        o.country == country;
+        o.isDefaultShippingAddress == isDefaultShippingAddress;
   }
 
   @override
@@ -144,63 +138,9 @@ class Address {
         streetAddress2.hashCode ^
         city.hashCode ^
         postalCode.hashCode ^
-        countryArea.hashCode ^
+        country.hashCode ^
         phone.hashCode ^
         isDefaultBillingAddress.hashCode ^
-        isDefaultShippingAddress.hashCode ^
-        country.hashCode;
+        isDefaultShippingAddress.hashCode;
   }
-}
-
-class Country {
-  String code;
-  String country;
-  Country({
-    this.code,
-    this.country,
-  });
-
-  Country copyWith({
-    String code,
-    String country,
-  }) {
-    return Country(
-      code: code ?? this.code,
-      country: country ?? this.country,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'code': code,
-      'country': country,
-    };
-  }
-
-  factory Country.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
-    return Country(
-      code: map['code'],
-      country: map['country'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Country.fromJson(String source) =>
-      Country.fromMap(json.decode(source));
-
-  @override
-  String toString() => 'Country(code: $code, country: $country)';
-
-  @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is Country && o.code == code && o.country == country;
-  }
-
-  @override
-  int get hashCode => code.hashCode ^ country.hashCode;
 }

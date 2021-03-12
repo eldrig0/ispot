@@ -6,117 +6,78 @@ part of 'user.var.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GUserVars> _$gUserVarsSerializer = new _$GUserVarsSerializer();
+Serializer<GMeVars> _$gMeVarsSerializer = new _$GMeVarsSerializer();
 
-class _$GUserVarsSerializer implements StructuredSerializer<GUserVars> {
+class _$GMeVarsSerializer implements StructuredSerializer<GMeVars> {
   @override
-  final Iterable<Type> types = const [GUserVars, _$GUserVars];
+  final Iterable<Type> types = const [GMeVars, _$GMeVars];
   @override
-  final String wireName = 'GUserVars';
+  final String wireName = 'GMeVars';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GUserVars object,
+  Iterable<Object> serialize(Serializers serializers, GMeVars object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
-    ];
-
-    return result;
+    return <Object>[];
   }
 
   @override
-  GUserVars deserialize(Serializers serializers, Iterable<Object> serialized,
+  GMeVars deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserVarsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
+    return new GMeVarsBuilder().build();
   }
 }
 
-class _$GUserVars extends GUserVars {
-  @override
-  final String id;
+class _$GMeVars extends GMeVars {
+  factory _$GMeVars([void Function(GMeVarsBuilder) updates]) =>
+      (new GMeVarsBuilder()..update(updates)).build();
 
-  factory _$GUserVars([void Function(GUserVarsBuilder) updates]) =>
-      (new GUserVarsBuilder()..update(updates)).build();
-
-  _$GUserVars._({this.id}) : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('GUserVars', 'id');
-    }
-  }
+  _$GMeVars._() : super._();
 
   @override
-  GUserVars rebuild(void Function(GUserVarsBuilder) updates) =>
+  GMeVars rebuild(void Function(GMeVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserVarsBuilder toBuilder() => new GUserVarsBuilder()..replace(this);
+  GMeVarsBuilder toBuilder() => new GMeVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserVars && id == other.id;
+    return other is GMeVars;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, id.hashCode));
+    return 95737369;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserVars')..add('id', id)).toString();
+    return newBuiltValueToStringHelper('GMeVars').toString();
   }
 }
 
-class GUserVarsBuilder implements Builder<GUserVars, GUserVarsBuilder> {
-  _$GUserVars _$v;
+class GMeVarsBuilder implements Builder<GMeVars, GMeVarsBuilder> {
+  _$GMeVars _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
-
-  GUserVarsBuilder();
-
-  GUserVarsBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _$v = null;
-    }
-    return this;
-  }
+  GMeVarsBuilder();
 
   @override
-  void replace(GUserVars other) {
+  void replace(GMeVars other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserVars;
+    _$v = other as _$GMeVars;
   }
 
   @override
-  void update(void Function(GUserVarsBuilder) updates) {
+  void update(void Function(GMeVarsBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserVars build() {
-    final _$result = _$v ?? new _$GUserVars._(id: id);
+  _$GMeVars build() {
+    final _$result = _$v ?? new _$GMeVars._();
     replace(_$result);
     return _$result;
   }

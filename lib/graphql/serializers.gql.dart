@@ -3,29 +3,6 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.data.gql.dart'
-    show
-        GaddressCreateData,
-        GaddressCreateData_addressCreate,
-        GaddressCreateData_addressCreate_accountErrors,
-        GaddressCreateData_addressCreate_address,
-        GaddressCreateData_addressCreate_address_country;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.req.gql.dart'
-    show GaddressCreateReq;
-import 'package:ispot/app/data/provider/account/graphql/address/create_address/create_address.var.gql.dart'
-    show GaddressCreateVars;
-import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.data.gql.dart'
-    show
-        GaddressUpdateData,
-        GaddressUpdateData_addressUpdate,
-        GaddressUpdateData_addressUpdate_accountErrors,
-        GaddressUpdateData_addressUpdate_user,
-        GaddressUpdateData_addressUpdate_user_addresses,
-        GaddressUpdateData_addressUpdate_user_addresses_country;
-import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.req.gql.dart'
-    show GaddressUpdateReq;
-import 'package:ispot/app/data/provider/account/graphql/address/update_address/address_update.var.gql.dart'
-    show GaddressUpdateVars;
 import 'package:ispot/app/data/provider/account/graphql/change_password/change_password.data.gql.dart'
     show
         GchangePasswordData,
@@ -48,14 +25,47 @@ import 'package:ispot/app/data/provider/account/graphql/update_basic_details/upd
     show GupdateBasicDetailsVars;
 import 'package:ispot/app/data/provider/account/graphql/user/user.data.gql.dart'
     show
-        GUserData,
-        GUserData_user,
-        GUserData_user_addresses,
-        GUserData_user_addresses_country;
+        GMeData,
+        GMeData_me,
+        GMeData_me_addresses,
+        GMeData_me_addresses_country;
 import 'package:ispot/app/data/provider/account/graphql/user/user.req.gql.dart'
-    show GUserReq;
+    show GMeReq;
 import 'package:ispot/app/data/provider/account/graphql/user/user.var.gql.dart'
-    show GUserVars;
+    show GMeVars;
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.data.gql.dart'
+    show
+        GaddressCreateData,
+        GaddressCreateData_addressCreate,
+        GaddressCreateData_addressCreate_accountErrors,
+        GaddressCreateData_addressCreate_address,
+        GaddressCreateData_addressCreate_address_country;
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.req.gql.dart'
+    show GaddressCreateReq;
+import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.var.gql.dart'
+    show GaddressCreateVars;
+import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.data.gql.dart'
+    show
+        GgetAddressesData,
+        GgetAddressesData_me,
+        GgetAddressesData_me_addresses,
+        GgetAddressesData_me_addresses_country;
+import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.req.gql.dart'
+    show GgetAddressesReq;
+import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.var.gql.dart'
+    show GgetAddressesVars;
+import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.data.gql.dart'
+    show
+        GaddressUpdateData,
+        GaddressUpdateData_addressUpdate,
+        GaddressUpdateData_addressUpdate_accountErrors,
+        GaddressUpdateData_addressUpdate_user,
+        GaddressUpdateData_addressUpdate_user_addresses,
+        GaddressUpdateData_addressUpdate_user_addresses_country;
+import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.req.gql.dart'
+    show GaddressUpdateReq;
+import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.var.gql.dart'
+    show GaddressUpdateVars;
 import 'package:ispot/app/data/provider/attribute/graphql/attributes.data.gql.dart'
     show
         GattributesData,
@@ -204,6 +214,22 @@ import 'package:ispot/app/data/provider/home/graphql/home/products/featured_prod
     show GFeaturedProductsReq;
 import 'package:ispot/app/data/provider/home/graphql/home/products/featured_products.var.gql.dart'
     show GFeaturedProductsVars;
+import 'package:ispot/app/data/provider/orders/graphql/orders.data.gql.dart'
+    show
+        GOrdersData,
+        GOrdersData_me,
+        GOrdersData_me_orders,
+        GOrdersData_me_orders_edges,
+        GOrdersData_me_orders_edges_node,
+        GOrdersData_me_orders_edges_node_lines,
+        GOrdersData_me_orders_edges_node_total,
+        GOrdersData_me_orders_edges_node_total_gross,
+        GOrdersData_me_orders_edges_node_total_net,
+        GOrdersData_me_orders_pageInfo;
+import 'package:ispot/app/data/provider/orders/graphql/orders.req.gql.dart'
+    show GOrdersReq;
+import 'package:ispot/app/data/provider/orders/graphql/orders.var.gql.dart'
+    show GOrdersVars;
 import 'package:ispot/app/data/provider/product/graphql/product.data.gql.dart'
     show
         GBasicProductFieldsData,
@@ -692,6 +718,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GIntRangeInput,
   GJSONString,
   GLanguageCodeEnum,
+  GMeData,
+  GMeData_me,
+  GMeData_me_addresses,
+  GMeData_me_addresses_country,
+  GMeReq,
+  GMeVars,
   GMenuCreateInput,
   GMenuErrorCode,
   GMenuFilterInput,
@@ -730,6 +762,18 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GOrderStatusFilter,
   GOrderUpdateInput,
   GOrderUpdateShippingInput,
+  GOrdersData,
+  GOrdersData_me,
+  GOrdersData_me_orders,
+  GOrdersData_me_orders_edges,
+  GOrdersData_me_orders_edges_node,
+  GOrdersData_me_orders_edges_node_lines,
+  GOrdersData_me_orders_edges_node_total,
+  GOrdersData_me_orders_edges_node_total_gross,
+  GOrdersData_me_orders_edges_node_total_net,
+  GOrdersData_me_orders_pageInfo,
+  GOrdersReq,
+  GOrdersVars,
   GPageErrorCode,
   GPageFilterInput,
   GPageInput,
@@ -891,14 +935,8 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GUUID,
   GUpload,
   GUserCreateInput,
-  GUserData,
-  GUserData_user,
-  GUserData_user_addresses,
-  GUserData_user_addresses_country,
-  GUserReq,
   GUserSortField,
   GUserSortingInput,
-  GUserVars,
   GVariantListData,
   GVariantListData_productVariants,
   GVariantListData_productVariants_edges,
@@ -969,6 +1007,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GchangePasswordData_passwordChange_user,
   GchangePasswordReq,
   GchangePasswordVars,
+  GgetAddressesData,
+  GgetAddressesData_me,
+  GgetAddressesData_me_addresses,
+  GgetAddressesData_me_addresses_country,
+  GgetAddressesReq,
+  GgetAddressesVars,
   GregisterAccountData,
   GregisterAccountData_accountRegister,
   GregisterAccountData_accountRegister_accountErrors,

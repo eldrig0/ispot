@@ -6,42 +6,40 @@ part of 'user.data.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GUserData> _$gUserDataSerializer = new _$GUserDataSerializer();
-Serializer<GUserData_user> _$gUserDataUserSerializer =
-    new _$GUserData_userSerializer();
-Serializer<GUserData_user_addresses> _$gUserDataUserAddressesSerializer =
-    new _$GUserData_user_addressesSerializer();
-Serializer<GUserData_user_addresses_country>
-    _$gUserDataUserAddressesCountrySerializer =
-    new _$GUserData_user_addresses_countrySerializer();
+Serializer<GMeData> _$gMeDataSerializer = new _$GMeDataSerializer();
+Serializer<GMeData_me> _$gMeDataMeSerializer = new _$GMeData_meSerializer();
+Serializer<GMeData_me_addresses> _$gMeDataMeAddressesSerializer =
+    new _$GMeData_me_addressesSerializer();
+Serializer<GMeData_me_addresses_country> _$gMeDataMeAddressesCountrySerializer =
+    new _$GMeData_me_addresses_countrySerializer();
 
-class _$GUserDataSerializer implements StructuredSerializer<GUserData> {
+class _$GMeDataSerializer implements StructuredSerializer<GMeData> {
   @override
-  final Iterable<Type> types = const [GUserData, _$GUserData];
+  final Iterable<Type> types = const [GMeData, _$GMeData];
   @override
-  final String wireName = 'GUserData';
+  final String wireName = 'GMeData';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GUserData object,
+  Iterable<Object> serialize(Serializers serializers, GMeData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
     ];
-    if (object.user != null) {
+    if (object.me != null) {
       result
-        ..add('user')
-        ..add(serializers.serialize(object.user,
-            specifiedType: const FullType(GUserData_user)));
+        ..add('me')
+        ..add(serializers.serialize(object.me,
+            specifiedType: const FullType(GMeData_me)));
     }
     return result;
   }
 
   @override
-  GUserData deserialize(Serializers serializers, Iterable<Object> serialized,
+  GMeData deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserDataBuilder();
+    final result = new GMeDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -53,9 +51,9 @@ class _$GUserDataSerializer implements StructuredSerializer<GUserData> {
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'user':
-          result.user.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GUserData_user)) as GUserData_user);
+        case 'me':
+          result.me.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GMeData_me)) as GMeData_me);
           break;
       }
     }
@@ -64,15 +62,14 @@ class _$GUserDataSerializer implements StructuredSerializer<GUserData> {
   }
 }
 
-class _$GUserData_userSerializer
-    implements StructuredSerializer<GUserData_user> {
+class _$GMeData_meSerializer implements StructuredSerializer<GMeData_me> {
   @override
-  final Iterable<Type> types = const [GUserData_user, _$GUserData_user];
+  final Iterable<Type> types = const [GMeData_me, _$GMeData_me];
   @override
-  final String wireName = 'GUserData_user';
+  final String wireName = 'GMeData_me';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GUserData_user object,
+  Iterable<Object> serialize(Serializers serializers, GMeData_me object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -95,16 +92,15 @@ class _$GUserData_userSerializer
         ..add('addresses')
         ..add(serializers.serialize(object.addresses,
             specifiedType: const FullType(
-                BuiltList, const [const FullType(GUserData_user_addresses)])));
+                BuiltList, const [const FullType(GMeData_me_addresses)])));
     }
     return result;
   }
 
   @override
-  GUserData_user deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  GMeData_me deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserData_userBuilder();
+    final result = new GMeData_meBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -134,9 +130,9 @@ class _$GUserData_userSerializer
           break;
         case 'addresses':
           result.addresses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(GUserData_user_addresses)
-              ])) as BuiltList<Object>);
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GMeData_me_addresses)]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -145,19 +141,19 @@ class _$GUserData_userSerializer
   }
 }
 
-class _$GUserData_user_addressesSerializer
-    implements StructuredSerializer<GUserData_user_addresses> {
+class _$GMeData_me_addressesSerializer
+    implements StructuredSerializer<GMeData_me_addresses> {
   @override
   final Iterable<Type> types = const [
-    GUserData_user_addresses,
-    _$GUserData_user_addresses
+    GMeData_me_addresses,
+    _$GMeData_me_addresses
   ];
   @override
-  final String wireName = 'GUserData_user_addresses';
+  final String wireName = 'GMeData_me_addresses';
 
   @override
   Iterable<Object> serialize(
-      Serializers serializers, GUserData_user_addresses object,
+      Serializers serializers, GMeData_me_addresses object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -187,7 +183,7 @@ class _$GUserData_user_addressesSerializer
           specifiedType: const FullType(String)),
       'country',
       serializers.serialize(object.country,
-          specifiedType: const FullType(GUserData_user_addresses_country)),
+          specifiedType: const FullType(GMeData_me_addresses_country)),
       'countryArea',
       serializers.serialize(object.countryArea,
           specifiedType: const FullType(String)),
@@ -214,10 +210,10 @@ class _$GUserData_user_addressesSerializer
   }
 
   @override
-  GUserData_user_addresses deserialize(
+  GMeData_me_addresses deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserData_user_addressesBuilder();
+    final result = new GMeData_me_addressesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -263,9 +259,8 @@ class _$GUserData_user_addressesSerializer
           break;
         case 'country':
           result.country.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GUserData_user_addresses_country))
-              as GUserData_user_addresses_country);
+                  specifiedType: const FullType(GMeData_me_addresses_country))
+              as GMeData_me_addresses_country);
           break;
         case 'countryArea':
           result.countryArea = serializers.deserialize(value,
@@ -290,19 +285,19 @@ class _$GUserData_user_addressesSerializer
   }
 }
 
-class _$GUserData_user_addresses_countrySerializer
-    implements StructuredSerializer<GUserData_user_addresses_country> {
+class _$GMeData_me_addresses_countrySerializer
+    implements StructuredSerializer<GMeData_me_addresses_country> {
   @override
   final Iterable<Type> types = const [
-    GUserData_user_addresses_country,
-    _$GUserData_user_addresses_country
+    GMeData_me_addresses_country,
+    _$GMeData_me_addresses_country
   ];
   @override
-  final String wireName = 'GUserData_user_addresses_country';
+  final String wireName = 'GMeData_me_addresses_country';
 
   @override
   Iterable<Object> serialize(
-      Serializers serializers, GUserData_user_addresses_country object,
+      Serializers serializers, GMeData_me_addresses_country object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -319,10 +314,10 @@ class _$GUserData_user_addresses_countrySerializer
   }
 
   @override
-  GUserData_user_addresses_country deserialize(
+  GMeData_me_addresses_country deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserData_user_addresses_countryBuilder();
+    final result = new GMeData_me_addresses_countryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -349,102 +344,101 @@ class _$GUserData_user_addresses_countrySerializer
   }
 }
 
-class _$GUserData extends GUserData {
+class _$GMeData extends GMeData {
   @override
   final String G__typename;
   @override
-  final GUserData_user user;
+  final GMeData_me me;
 
-  factory _$GUserData([void Function(GUserDataBuilder) updates]) =>
-      (new GUserDataBuilder()..update(updates)).build();
+  factory _$GMeData([void Function(GMeDataBuilder) updates]) =>
+      (new GMeDataBuilder()..update(updates)).build();
 
-  _$GUserData._({this.G__typename, this.user}) : super._() {
+  _$GMeData._({this.G__typename, this.me}) : super._() {
     if (G__typename == null) {
-      throw new BuiltValueNullFieldError('GUserData', 'G__typename');
+      throw new BuiltValueNullFieldError('GMeData', 'G__typename');
     }
   }
 
   @override
-  GUserData rebuild(void Function(GUserDataBuilder) updates) =>
+  GMeData rebuild(void Function(GMeDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserDataBuilder toBuilder() => new GUserDataBuilder()..replace(this);
+  GMeDataBuilder toBuilder() => new GMeDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserData &&
+    return other is GMeData &&
         G__typename == other.G__typename &&
-        user == other.user;
+        me == other.me;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), user.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), me.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserData')
+    return (newBuiltValueToStringHelper('GMeData')
           ..add('G__typename', G__typename)
-          ..add('user', user))
+          ..add('me', me))
         .toString();
   }
 }
 
-class GUserDataBuilder implements Builder<GUserData, GUserDataBuilder> {
-  _$GUserData _$v;
+class GMeDataBuilder implements Builder<GMeData, GMeDataBuilder> {
+  _$GMeData _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GUserData_userBuilder _user;
-  GUserData_userBuilder get user =>
-      _$this._user ??= new GUserData_userBuilder();
-  set user(GUserData_userBuilder user) => _$this._user = user;
+  GMeData_meBuilder _me;
+  GMeData_meBuilder get me => _$this._me ??= new GMeData_meBuilder();
+  set me(GMeData_meBuilder me) => _$this._me = me;
 
-  GUserDataBuilder() {
-    GUserData._initializeBuilder(this);
+  GMeDataBuilder() {
+    GMeData._initializeBuilder(this);
   }
 
-  GUserDataBuilder get _$this {
+  GMeDataBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
-      _user = _$v.user?.toBuilder();
+      _me = _$v.me?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GUserData other) {
+  void replace(GMeData other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserData;
+    _$v = other as _$GMeData;
   }
 
   @override
-  void update(void Function(GUserDataBuilder) updates) {
+  void update(void Function(GMeDataBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserData build() {
-    _$GUserData _$result;
+  _$GMeData build() {
+    _$GMeData _$result;
     try {
-      _$result = _$v ??
-          new _$GUserData._(G__typename: G__typename, user: _user?.build());
+      _$result =
+          _$v ?? new _$GMeData._(G__typename: G__typename, me: _me?.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'user';
-        _user?.build();
+        _$failedField = 'me';
+        _me?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GUserData', _$failedField, e.toString());
+            'GMeData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -453,7 +447,7 @@ class GUserDataBuilder implements Builder<GUserData, GUserDataBuilder> {
   }
 }
 
-class _$GUserData_user extends GUserData_user {
+class _$GMeData_me extends GMeData_me {
   @override
   final String G__typename;
   @override
@@ -465,12 +459,12 @@ class _$GUserData_user extends GUserData_user {
   @override
   final String email;
   @override
-  final BuiltList<GUserData_user_addresses> addresses;
+  final BuiltList<GMeData_me_addresses> addresses;
 
-  factory _$GUserData_user([void Function(GUserData_userBuilder) updates]) =>
-      (new GUserData_userBuilder()..update(updates)).build();
+  factory _$GMeData_me([void Function(GMeData_meBuilder) updates]) =>
+      (new GMeData_meBuilder()..update(updates)).build();
 
-  _$GUserData_user._(
+  _$GMeData_me._(
       {this.G__typename,
       this.id,
       this.firstName,
@@ -479,34 +473,33 @@ class _$GUserData_user extends GUserData_user {
       this.addresses})
       : super._() {
     if (G__typename == null) {
-      throw new BuiltValueNullFieldError('GUserData_user', 'G__typename');
+      throw new BuiltValueNullFieldError('GMeData_me', 'G__typename');
     }
     if (id == null) {
-      throw new BuiltValueNullFieldError('GUserData_user', 'id');
+      throw new BuiltValueNullFieldError('GMeData_me', 'id');
     }
     if (firstName == null) {
-      throw new BuiltValueNullFieldError('GUserData_user', 'firstName');
+      throw new BuiltValueNullFieldError('GMeData_me', 'firstName');
     }
     if (lastName == null) {
-      throw new BuiltValueNullFieldError('GUserData_user', 'lastName');
+      throw new BuiltValueNullFieldError('GMeData_me', 'lastName');
     }
     if (email == null) {
-      throw new BuiltValueNullFieldError('GUserData_user', 'email');
+      throw new BuiltValueNullFieldError('GMeData_me', 'email');
     }
   }
 
   @override
-  GUserData_user rebuild(void Function(GUserData_userBuilder) updates) =>
+  GMeData_me rebuild(void Function(GMeData_meBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserData_userBuilder toBuilder() =>
-      new GUserData_userBuilder()..replace(this);
+  GMeData_meBuilder toBuilder() => new GMeData_meBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserData_user &&
+    return other is GMeData_me &&
         G__typename == other.G__typename &&
         id == other.id &&
         firstName == other.firstName &&
@@ -529,7 +522,7 @@ class _$GUserData_user extends GUserData_user {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserData_user')
+    return (newBuiltValueToStringHelper('GMeData_me')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('firstName', firstName)
@@ -540,9 +533,8 @@ class _$GUserData_user extends GUserData_user {
   }
 }
 
-class GUserData_userBuilder
-    implements Builder<GUserData_user, GUserData_userBuilder> {
-  _$GUserData_user _$v;
+class GMeData_meBuilder implements Builder<GMeData_me, GMeData_meBuilder> {
+  _$GMeData_me _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -564,17 +556,17 @@ class GUserData_userBuilder
   String get email => _$this._email;
   set email(String email) => _$this._email = email;
 
-  ListBuilder<GUserData_user_addresses> _addresses;
-  ListBuilder<GUserData_user_addresses> get addresses =>
-      _$this._addresses ??= new ListBuilder<GUserData_user_addresses>();
-  set addresses(ListBuilder<GUserData_user_addresses> addresses) =>
+  ListBuilder<GMeData_me_addresses> _addresses;
+  ListBuilder<GMeData_me_addresses> get addresses =>
+      _$this._addresses ??= new ListBuilder<GMeData_me_addresses>();
+  set addresses(ListBuilder<GMeData_me_addresses> addresses) =>
       _$this._addresses = addresses;
 
-  GUserData_userBuilder() {
-    GUserData_user._initializeBuilder(this);
+  GMeData_meBuilder() {
+    GMeData_me._initializeBuilder(this);
   }
 
-  GUserData_userBuilder get _$this {
+  GMeData_meBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _id = _$v.id;
@@ -588,24 +580,24 @@ class GUserData_userBuilder
   }
 
   @override
-  void replace(GUserData_user other) {
+  void replace(GMeData_me other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserData_user;
+    _$v = other as _$GMeData_me;
   }
 
   @override
-  void update(void Function(GUserData_userBuilder) updates) {
+  void update(void Function(GMeData_meBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserData_user build() {
-    _$GUserData_user _$result;
+  _$GMeData_me build() {
+    _$GMeData_me _$result;
     try {
       _$result = _$v ??
-          new _$GUserData_user._(
+          new _$GMeData_me._(
               G__typename: G__typename,
               id: id,
               firstName: firstName,
@@ -619,7 +611,7 @@ class GUserData_userBuilder
         _addresses?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GUserData_user', _$failedField, e.toString());
+            'GMeData_me', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -628,7 +620,7 @@ class GUserData_userBuilder
   }
 }
 
-class _$GUserData_user_addresses extends GUserData_user_addresses {
+class _$GMeData_me_addresses extends GMeData_me_addresses {
   @override
   final String G__typename;
   @override
@@ -648,7 +640,7 @@ class _$GUserData_user_addresses extends GUserData_user_addresses {
   @override
   final String postalCode;
   @override
-  final GUserData_user_addresses_country country;
+  final GMeData_me_addresses_country country;
   @override
   final String countryArea;
   @override
@@ -658,11 +650,11 @@ class _$GUserData_user_addresses extends GUserData_user_addresses {
   @override
   final bool isDefaultShippingAddress;
 
-  factory _$GUserData_user_addresses(
-          [void Function(GUserData_user_addressesBuilder) updates]) =>
-      (new GUserData_user_addressesBuilder()..update(updates)).build();
+  factory _$GMeData_me_addresses(
+          [void Function(GMeData_me_addressesBuilder) updates]) =>
+      (new GMeData_me_addressesBuilder()..update(updates)).build();
 
-  _$GUserData_user_addresses._(
+  _$GMeData_me_addresses._(
       {this.G__typename,
       this.id,
       this.firstName,
@@ -679,61 +671,55 @@ class _$GUserData_user_addresses extends GUserData_user_addresses {
       this.isDefaultShippingAddress})
       : super._() {
     if (G__typename == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'G__typename');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'G__typename');
     }
     if (id == null) {
-      throw new BuiltValueNullFieldError('GUserData_user_addresses', 'id');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'id');
     }
     if (firstName == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'firstName');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'firstName');
     }
     if (lastName == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'lastName');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'lastName');
     }
     if (companyName == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'companyName');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'companyName');
     }
     if (streetAddress1 == null) {
       throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'streetAddress1');
+          'GMeData_me_addresses', 'streetAddress1');
     }
     if (streetAddress2 == null) {
       throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'streetAddress2');
+          'GMeData_me_addresses', 'streetAddress2');
     }
     if (city == null) {
-      throw new BuiltValueNullFieldError('GUserData_user_addresses', 'city');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'city');
     }
     if (postalCode == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'postalCode');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'postalCode');
     }
     if (country == null) {
-      throw new BuiltValueNullFieldError('GUserData_user_addresses', 'country');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'country');
     }
     if (countryArea == null) {
-      throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses', 'countryArea');
+      throw new BuiltValueNullFieldError('GMeData_me_addresses', 'countryArea');
     }
   }
 
   @override
-  GUserData_user_addresses rebuild(
-          void Function(GUserData_user_addressesBuilder) updates) =>
+  GMeData_me_addresses rebuild(
+          void Function(GMeData_me_addressesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserData_user_addressesBuilder toBuilder() =>
-      new GUserData_user_addressesBuilder()..replace(this);
+  GMeData_me_addressesBuilder toBuilder() =>
+      new GMeData_me_addressesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserData_user_addresses &&
+    return other is GMeData_me_addresses &&
         G__typename == other.G__typename &&
         id == other.id &&
         firstName == other.firstName &&
@@ -786,7 +772,7 @@ class _$GUserData_user_addresses extends GUserData_user_addresses {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserData_user_addresses')
+    return (newBuiltValueToStringHelper('GMeData_me_addresses')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('firstName', firstName)
@@ -805,10 +791,9 @@ class _$GUserData_user_addresses extends GUserData_user_addresses {
   }
 }
 
-class GUserData_user_addressesBuilder
-    implements
-        Builder<GUserData_user_addresses, GUserData_user_addressesBuilder> {
-  _$GUserData_user_addresses _$v;
+class GMeData_me_addressesBuilder
+    implements Builder<GMeData_me_addresses, GMeData_me_addressesBuilder> {
+  _$GMeData_me_addresses _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -848,10 +833,10 @@ class GUserData_user_addressesBuilder
   String get postalCode => _$this._postalCode;
   set postalCode(String postalCode) => _$this._postalCode = postalCode;
 
-  GUserData_user_addresses_countryBuilder _country;
-  GUserData_user_addresses_countryBuilder get country =>
-      _$this._country ??= new GUserData_user_addresses_countryBuilder();
-  set country(GUserData_user_addresses_countryBuilder country) =>
+  GMeData_me_addresses_countryBuilder _country;
+  GMeData_me_addresses_countryBuilder get country =>
+      _$this._country ??= new GMeData_me_addresses_countryBuilder();
+  set country(GMeData_me_addresses_countryBuilder country) =>
       _$this._country = country;
 
   String _countryArea;
@@ -872,11 +857,11 @@ class GUserData_user_addressesBuilder
   set isDefaultShippingAddress(bool isDefaultShippingAddress) =>
       _$this._isDefaultShippingAddress = isDefaultShippingAddress;
 
-  GUserData_user_addressesBuilder() {
-    GUserData_user_addresses._initializeBuilder(this);
+  GMeData_me_addressesBuilder() {
+    GMeData_me_addresses._initializeBuilder(this);
   }
 
-  GUserData_user_addressesBuilder get _$this {
+  GMeData_me_addressesBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _id = _$v.id;
@@ -898,24 +883,24 @@ class GUserData_user_addressesBuilder
   }
 
   @override
-  void replace(GUserData_user_addresses other) {
+  void replace(GMeData_me_addresses other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserData_user_addresses;
+    _$v = other as _$GMeData_me_addresses;
   }
 
   @override
-  void update(void Function(GUserData_user_addressesBuilder) updates) {
+  void update(void Function(GMeData_me_addressesBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserData_user_addresses build() {
-    _$GUserData_user_addresses _$result;
+  _$GMeData_me_addresses build() {
+    _$GMeData_me_addresses _$result;
     try {
       _$result = _$v ??
-          new _$GUserData_user_addresses._(
+          new _$GMeData_me_addresses._(
               G__typename: G__typename,
               id: id,
               firstName: firstName,
@@ -937,7 +922,7 @@ class GUserData_user_addressesBuilder
         country.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GUserData_user_addresses', _$failedField, e.toString());
+            'GMeData_me_addresses', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -946,8 +931,7 @@ class GUserData_user_addressesBuilder
   }
 }
 
-class _$GUserData_user_addresses_country
-    extends GUserData_user_addresses_country {
+class _$GMeData_me_addresses_country extends GMeData_me_addresses_country {
   @override
   final String G__typename;
   @override
@@ -955,40 +939,39 @@ class _$GUserData_user_addresses_country
   @override
   final String country;
 
-  factory _$GUserData_user_addresses_country(
-          [void Function(GUserData_user_addresses_countryBuilder) updates]) =>
-      (new GUserData_user_addresses_countryBuilder()..update(updates)).build();
+  factory _$GMeData_me_addresses_country(
+          [void Function(GMeData_me_addresses_countryBuilder) updates]) =>
+      (new GMeData_me_addresses_countryBuilder()..update(updates)).build();
 
-  _$GUserData_user_addresses_country._(
-      {this.G__typename, this.code, this.country})
+  _$GMeData_me_addresses_country._({this.G__typename, this.code, this.country})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses_country', 'G__typename');
+          'GMeData_me_addresses_country', 'G__typename');
     }
     if (code == null) {
       throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses_country', 'code');
+          'GMeData_me_addresses_country', 'code');
     }
     if (country == null) {
       throw new BuiltValueNullFieldError(
-          'GUserData_user_addresses_country', 'country');
+          'GMeData_me_addresses_country', 'country');
     }
   }
 
   @override
-  GUserData_user_addresses_country rebuild(
-          void Function(GUserData_user_addresses_countryBuilder) updates) =>
+  GMeData_me_addresses_country rebuild(
+          void Function(GMeData_me_addresses_countryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserData_user_addresses_countryBuilder toBuilder() =>
-      new GUserData_user_addresses_countryBuilder()..replace(this);
+  GMeData_me_addresses_countryBuilder toBuilder() =>
+      new GMeData_me_addresses_countryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserData_user_addresses_country &&
+    return other is GMeData_me_addresses_country &&
         G__typename == other.G__typename &&
         code == other.code &&
         country == other.country;
@@ -1002,7 +985,7 @@ class _$GUserData_user_addresses_country
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GUserData_user_addresses_country')
+    return (newBuiltValueToStringHelper('GMeData_me_addresses_country')
           ..add('G__typename', G__typename)
           ..add('code', code)
           ..add('country', country))
@@ -1010,11 +993,11 @@ class _$GUserData_user_addresses_country
   }
 }
 
-class GUserData_user_addresses_countryBuilder
+class GMeData_me_addresses_countryBuilder
     implements
-        Builder<GUserData_user_addresses_country,
-            GUserData_user_addresses_countryBuilder> {
-  _$GUserData_user_addresses_country _$v;
+        Builder<GMeData_me_addresses_country,
+            GMeData_me_addresses_countryBuilder> {
+  _$GMeData_me_addresses_country _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1028,11 +1011,11 @@ class GUserData_user_addresses_countryBuilder
   String get country => _$this._country;
   set country(String country) => _$this._country = country;
 
-  GUserData_user_addresses_countryBuilder() {
-    GUserData_user_addresses_country._initializeBuilder(this);
+  GMeData_me_addresses_countryBuilder() {
+    GMeData_me_addresses_country._initializeBuilder(this);
   }
 
-  GUserData_user_addresses_countryBuilder get _$this {
+  GMeData_me_addresses_countryBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _code = _$v.code;
@@ -1043,22 +1026,22 @@ class GUserData_user_addresses_countryBuilder
   }
 
   @override
-  void replace(GUserData_user_addresses_country other) {
+  void replace(GMeData_me_addresses_country other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GUserData_user_addresses_country;
+    _$v = other as _$GMeData_me_addresses_country;
   }
 
   @override
-  void update(void Function(GUserData_user_addresses_countryBuilder) updates) {
+  void update(void Function(GMeData_me_addresses_countryBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GUserData_user_addresses_country build() {
+  _$GMeData_me_addresses_country build() {
     final _$result = _$v ??
-        new _$GUserData_user_addresses_country._(
+        new _$GMeData_me_addresses_country._(
             G__typename: G__typename, code: code, country: country);
     replace(_$result);
     return _$result;

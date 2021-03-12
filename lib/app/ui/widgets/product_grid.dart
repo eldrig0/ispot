@@ -52,7 +52,7 @@ class _ProductGridState extends State<ProductGrid>
         opacity: _animation,
         child: ProductCard(
           onClick: () {
-            Get.toNamed('product/${widget.products[index].productId}');
+            Get.toNamed('/product/${widget.products[index].productId}');
           },
           product: widget.products[index],
         ),

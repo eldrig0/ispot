@@ -1,0 +1,35 @@
+query Orders($perPage: Int!, $after: String) {
+  me {
+    id
+    orders(first: $perPage, after: $after) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          number
+          statusDisplay
+          created
+          total {
+            gross {
+              amount
+              currency
+            }
+            net {
+              amount
+              currency
+            }
+          }
+          lines {
+            id
+            productName
+            variantName
+            quantity
+          }
+        }
+      }
+    }
+  }
+}

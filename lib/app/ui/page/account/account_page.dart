@@ -25,7 +25,9 @@ class AccountPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Container(
-          child: GetX<AccountController>(builder: (_controller) {
+          child: GetX<AccountController>(initState: (_) {
+            Get.find<AccountController>().getUser();
+          }, builder: (_controller) {
             if (_controller.gotUser.value) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,

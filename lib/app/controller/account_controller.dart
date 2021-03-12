@@ -1,9 +1,11 @@
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/model/user.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/repository/account_repository.dart';
+import 'package:ispot/app/misc/form_builder.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AccountController extends GetxController {
@@ -13,29 +15,15 @@ class AccountController extends GetxController {
   FormGroup passwordResetFormGroup;
 
   AccountController(this._repository) {
-    personalDetailsFormGroup = FormGroup({
-      "firstName": FormControl<String>(value: ''),
-      "lastName": FormControl<String>(value: ''),
-    });
-    passwordResetFormGroup = FormGroup({
-      "oldPassword":
-          FormControl<String>(value: '', validators: [Validators.required]),
-      "newPassword":
-          FormControl<String>(value: '', validators: [Validators.required]),
-      "confirmNewPassword": FormControl<String>(
-        value: '',
-        validators: [Validators.required],
-      ),
-    }, validators: [
-      Validators.mustMatch('newPassword', 'confirmNewPassword')
-    ]);
+    personalDetailsFormGroup = buildPasswordForm();
+    passwordResetFormGroup = buildPasswordResetForm();
   }
 
   final user = Rx(User());
   final gotUser = false.obs;
   final editName = false.obs;
 
-  isSignedIn() {
+  bool isSignedIn() {
     final box = GetStorage();
     final token = box.read('token');
     return token != null;
@@ -48,13 +36,10 @@ class AccountController extends GetxController {
   }
 
   getUser() {
-    final box = GetStorage();
-    final userId = box.read('userId');
-    return _repository.getUser(id: '1234').take(1).listen((response) {
-      response.fold((failure) {
-        Get.snackbar('Error', failure.message);
-      }, (result) {
+    return _repository.getUser().take(1).listen((response) {
+      response.fold((failure) {}, (result) {
         gotUser.value = true;
+
         user.value = result;
         _updateFormControl(result);
       });
@@ -70,6 +55,10 @@ class AccountController extends GetxController {
   _updateFormControl(User user) {
     _getFormControl('firstName').updateValue(user.firstName);
     _getFormControl('lastName').updateValue(user.lastName);
+  }
+
+  List<Address> getAddresses() {
+    return user.value.addresses;
   }
 
   toogleEditName() {
@@ -96,8 +85,9 @@ class AccountController extends GetxController {
   changePassword() {
     _repository
         .resetPassword(
-            oldPassword: _getPasswordFormControl('oldPassword').value,
-            newPassword: _getPasswordFormControl('newPassword').value)
+          oldPassword: _getPasswordFormControl('oldPassword').value,
+          newPassword: _getPasswordFormControl('newPassword').value,
+        )
         .take(1)
         .listen((response) {
       response.fold((failure) {

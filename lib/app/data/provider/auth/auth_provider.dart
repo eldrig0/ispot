@@ -20,15 +20,16 @@ class AuthProvider {
 
     return _client.request(tokenCreateRequest).map((response) {
       if (response.hasErrors ||
-          response.data.tokenCreate?.accountErrors != null) {
+          response.data?.tokenCreate?.accountErrors?.length > 0) {
         final accountErrors = response.data?.tokenCreate?.accountErrors;
-        if (accountErrors != null) {
+        if (accountErrors != null && accountErrors.length > 0) {
           return Left(Failure(accountErrors.first.message));
         }
 
         return Left(Failure(
             'An error occured while loging in, please try again later'));
       }
+
       return Right({
         "token": response.data.tokenCreate.token,
         "userId": response.data.tokenCreate.user.id
