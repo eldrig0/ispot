@@ -104,10 +104,10 @@ class ProductDetail extends StatelessWidget {
       builder: (_controller) {
         return _controller.isInitialized.value
             ? ReactiveTextField(
-                validationMessages: {
-                  'maximumQuantity':
-                      'Maximum quantity you can order is ${_controller.selectedVariant.value.stockQuantity}'
-                },
+                // validationMessages: {
+                //   'maximumQuantity':
+                //       'Maximum quantity you can order is ${_controller.selectedVariant.value.stockQuantity}'
+                // },
                 formControl: Get.find<ProductController>().quantityControl,
                 keyboardType: TextInputType.number,
                 readOnly: _controller.selectedVariant.value.isAvailable

@@ -42,7 +42,7 @@ class PasswordResetForm extends StatelessWidget {
               height: 18,
             ),
             ReactiveTextField(
-              validationMessages: {'mustMatch': 'Password does not match'},
+              // validationMessages: {'mustMatch': 'Password does not match'},
               formControlName: 'confirmNewPassword',
               obscureText: true,
               decoration: InputDecoration(
