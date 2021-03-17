@@ -6,23 +6,27 @@ part of 'create_address.req.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GaddressCreateReq> _$gaddressCreateReqSerializer =
-    new _$GaddressCreateReqSerializer();
+Serializer<GaccountAddressCreateReq> _$gaccountAddressCreateReqSerializer =
+    new _$GaccountAddressCreateReqSerializer();
 
-class _$GaddressCreateReqSerializer
-    implements StructuredSerializer<GaddressCreateReq> {
+class _$GaccountAddressCreateReqSerializer
+    implements StructuredSerializer<GaccountAddressCreateReq> {
   @override
-  final Iterable<Type> types = const [GaddressCreateReq, _$GaddressCreateReq];
+  final Iterable<Type> types = const [
+    GaccountAddressCreateReq,
+    _$GaccountAddressCreateReq
+  ];
   @override
-  final String wireName = 'GaddressCreateReq';
+  final String wireName = 'GaccountAddressCreateReq';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GaddressCreateReq object,
+  Iterable<Object> serialize(
+      Serializers serializers, GaccountAddressCreateReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GaddressCreateVars)),
+          specifiedType: const FullType(_i3.GaccountAddressCreateVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -37,7 +41,7 @@ class _$GaddressCreateReqSerializer
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(object.optimisticResponse,
-            specifiedType: const FullType(_i2.GaddressCreateData)));
+            specifiedType: const FullType(_i2.GaccountAddressCreateData)));
     }
     if (object.updateCacheHandlerKey != null) {
       result
@@ -68,10 +72,10 @@ class _$GaddressCreateReqSerializer
   }
 
   @override
-  GaddressCreateReq deserialize(
+  GaccountAddressCreateReq deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateReqBuilder();
+    final result = new GaccountAddressCreateReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -81,8 +85,8 @@ class _$GaddressCreateReqSerializer
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GaddressCreateVars))
-              as _i3.GaddressCreateVars);
+                  specifiedType: const FullType(_i3.GaccountAddressCreateVars))
+              as _i3.GaccountAddressCreateVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -94,8 +98,8 @@ class _$GaddressCreateReqSerializer
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GaddressCreateData))
-              as _i2.GaddressCreateData);
+                  specifiedType: const FullType(_i2.GaccountAddressCreateData))
+              as _i2.GaccountAddressCreateData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -124,18 +128,19 @@ class _$GaddressCreateReqSerializer
   }
 }
 
-class _$GaddressCreateReq extends GaddressCreateReq {
+class _$GaccountAddressCreateReq extends GaccountAddressCreateReq {
   @override
-  final _i3.GaddressCreateVars vars;
+  final _i3.GaccountAddressCreateVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String requestId;
   @override
-  final _i2.GaddressCreateData Function(
-      _i2.GaddressCreateData, _i2.GaddressCreateData) updateResult;
+  final _i2.GaccountAddressCreateData Function(
+          _i2.GaccountAddressCreateData, _i2.GaccountAddressCreateData)
+      updateResult;
   @override
-  final _i2.GaddressCreateData optimisticResponse;
+  final _i2.GaccountAddressCreateData optimisticResponse;
   @override
   final String updateCacheHandlerKey;
   @override
@@ -145,11 +150,11 @@ class _$GaddressCreateReq extends GaddressCreateReq {
   @override
   final bool executeOnListen;
 
-  factory _$GaddressCreateReq(
-          [void Function(GaddressCreateReqBuilder) updates]) =>
-      (new GaddressCreateReqBuilder()..update(updates)).build();
+  factory _$GaccountAddressCreateReq(
+          [void Function(GaccountAddressCreateReqBuilder) updates]) =>
+      (new GaccountAddressCreateReqBuilder()..update(updates)).build();
 
-  _$GaddressCreateReq._(
+  _$GaccountAddressCreateReq._(
       {this.vars,
       this.operation,
       this.requestId,
@@ -161,26 +166,28 @@ class _$GaddressCreateReq extends GaddressCreateReq {
       this.executeOnListen})
       : super._() {
     if (vars == null) {
-      throw new BuiltValueNullFieldError('GaddressCreateReq', 'vars');
+      throw new BuiltValueNullFieldError('GaccountAddressCreateReq', 'vars');
     }
     if (operation == null) {
-      throw new BuiltValueNullFieldError('GaddressCreateReq', 'operation');
+      throw new BuiltValueNullFieldError(
+          'GaccountAddressCreateReq', 'operation');
     }
   }
 
   @override
-  GaddressCreateReq rebuild(void Function(GaddressCreateReqBuilder) updates) =>
+  GaccountAddressCreateReq rebuild(
+          void Function(GaccountAddressCreateReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateReqBuilder toBuilder() =>
-      new GaddressCreateReqBuilder()..replace(this);
+  GaccountAddressCreateReqBuilder toBuilder() =>
+      new GaccountAddressCreateReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GaddressCreateReq &&
+    return other is GaccountAddressCreateReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -212,7 +219,7 @@ class _$GaddressCreateReq extends GaddressCreateReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GaddressCreateReq')
+    return (newBuiltValueToStringHelper('GaccountAddressCreateReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -226,14 +233,15 @@ class _$GaddressCreateReq extends GaddressCreateReq {
   }
 }
 
-class GaddressCreateReqBuilder
-    implements Builder<GaddressCreateReq, GaddressCreateReqBuilder> {
-  _$GaddressCreateReq _$v;
+class GaccountAddressCreateReqBuilder
+    implements
+        Builder<GaccountAddressCreateReq, GaccountAddressCreateReqBuilder> {
+  _$GaccountAddressCreateReq _$v;
 
-  _i3.GaddressCreateVarsBuilder _vars;
-  _i3.GaddressCreateVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GaddressCreateVarsBuilder();
-  set vars(_i3.GaddressCreateVarsBuilder vars) => _$this._vars = vars;
+  _i3.GaccountAddressCreateVarsBuilder _vars;
+  _i3.GaccountAddressCreateVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GaccountAddressCreateVarsBuilder();
+  set vars(_i3.GaccountAddressCreateVarsBuilder vars) => _$this._vars = vars;
 
   _i4.Operation _operation;
   _i4.Operation get operation => _$this._operation;
@@ -243,21 +251,23 @@ class GaddressCreateReqBuilder
   String get requestId => _$this._requestId;
   set requestId(String requestId) => _$this._requestId = requestId;
 
-  _i2.GaddressCreateData Function(
-      _i2.GaddressCreateData, _i2.GaddressCreateData) _updateResult;
-  _i2.GaddressCreateData Function(
-          _i2.GaddressCreateData, _i2.GaddressCreateData)
+  _i2.GaccountAddressCreateData Function(
+          _i2.GaccountAddressCreateData, _i2.GaccountAddressCreateData)
+      _updateResult;
+  _i2.GaccountAddressCreateData Function(
+          _i2.GaccountAddressCreateData, _i2.GaccountAddressCreateData)
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GaddressCreateData Function(
-                  _i2.GaddressCreateData, _i2.GaddressCreateData)
+          _i2.GaccountAddressCreateData Function(
+                  _i2.GaccountAddressCreateData, _i2.GaccountAddressCreateData)
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GaddressCreateDataBuilder _optimisticResponse;
-  _i2.GaddressCreateDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GaddressCreateDataBuilder();
-  set optimisticResponse(_i2.GaddressCreateDataBuilder optimisticResponse) =>
+  _i2.GaccountAddressCreateDataBuilder _optimisticResponse;
+  _i2.GaccountAddressCreateDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GaccountAddressCreateDataBuilder();
+  set optimisticResponse(
+          _i2.GaccountAddressCreateDataBuilder optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String _updateCacheHandlerKey;
@@ -282,11 +292,11 @@ class GaddressCreateReqBuilder
   set executeOnListen(bool executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GaddressCreateReqBuilder() {
-    GaddressCreateReq._initializeBuilder(this);
+  GaccountAddressCreateReqBuilder() {
+    GaccountAddressCreateReq._initializeBuilder(this);
   }
 
-  GaddressCreateReqBuilder get _$this {
+  GaccountAddressCreateReqBuilder get _$this {
     if (_$v != null) {
       _vars = _$v.vars?.toBuilder();
       _operation = _$v.operation;
@@ -303,24 +313,24 @@ class GaddressCreateReqBuilder
   }
 
   @override
-  void replace(GaddressCreateReq other) {
+  void replace(GaccountAddressCreateReq other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateReq;
+    _$v = other as _$GaccountAddressCreateReq;
   }
 
   @override
-  void update(void Function(GaddressCreateReqBuilder) updates) {
+  void update(void Function(GaccountAddressCreateReqBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateReq build() {
-    _$GaddressCreateReq _$result;
+  _$GaccountAddressCreateReq build() {
+    _$GaccountAddressCreateReq _$result;
     try {
       _$result = _$v ??
-          new _$GaddressCreateReq._(
+          new _$GaccountAddressCreateReq._(
               vars: vars.build(),
               operation: operation,
               requestId: requestId,
@@ -340,7 +350,7 @@ class GaddressCreateReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressCreateReq', _$failedField, e.toString());
+            'GaccountAddressCreateReq', _$failedField, e.toString());
       }
       rethrow;
     }

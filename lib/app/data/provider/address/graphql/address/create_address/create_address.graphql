@@ -1,6 +1,7 @@
-mutation addressCreate($id: ID!, $input: AddressInput!) {
-  addressCreate(userId: $id, input: $input) {
-    address {
+mutation accountAddressCreate($input: AddressInput!) {
+  accountAddressCreate(input: $input) {
+    user {
+      addresses {
       id
       firstName
       lastName
@@ -18,6 +19,7 @@ mutation addressCreate($id: ID!, $input: AddressInput!) {
       isDefaultBillingAddress
       isDefaultShippingAddress
       postalCode
+      }
     }
 
     accountErrors {

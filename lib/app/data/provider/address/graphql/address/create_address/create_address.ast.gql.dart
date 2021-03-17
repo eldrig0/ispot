@@ -2,16 +2,10 @@
 
 import 'package:gql/ast.dart' as _i1;
 
-const addressCreate = _i1.OperationDefinitionNode(
+const accountAddressCreate = _i1.OperationDefinitionNode(
     type: _i1.OperationType.mutation,
-    name: _i1.NameNode(value: 'addressCreate'),
+    name: _i1.NameNode(value: 'accountAddressCreate'),
     variableDefinitions: [
-      _i1.VariableDefinitionNode(
-          variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'ID'), isNonNull: true),
-          defaultValue: _i1.DefaultValueNode(value: null),
-          directives: []),
       _i1.VariableDefinitionNode(
           variable: _i1.VariableNode(name: _i1.NameNode(value: 'input')),
           type: _i1.NamedTypeNode(
@@ -22,12 +16,9 @@ const addressCreate = _i1.OperationDefinitionNode(
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
       _i1.FieldNode(
-          name: _i1.NameNode(value: 'addressCreate'),
+          name: _i1.NameNode(value: 'accountAddressCreate'),
           alias: null,
           arguments: [
-            _i1.ArgumentNode(
-                name: _i1.NameNode(value: 'userId'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'id'))),
             _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'input'),
                 value: _i1.VariableNode(name: _i1.NameNode(value: 'input')))
@@ -35,108 +26,117 @@ const addressCreate = _i1.OperationDefinitionNode(
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'address'),
+                name: _i1.NameNode(value: 'user'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'id'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'firstName'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'lastName'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'companyName'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'streetAddress1'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'streetAddress2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'city'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'cityArea'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'country'),
+                      name: _i1.NameNode(value: 'addresses'),
                       alias: null,
                       arguments: [],
                       directives: [],
                       selectionSet: _i1.SelectionSetNode(selections: [
                         _i1.FieldNode(
-                            name: _i1.NameNode(value: 'country'),
+                            name: _i1.NameNode(value: 'id'),
                             alias: null,
                             arguments: [],
                             directives: [],
                             selectionSet: null),
                         _i1.FieldNode(
-                            name: _i1.NameNode(value: 'code'),
+                            name: _i1.NameNode(value: 'firstName'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'lastName'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'companyName'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'streetAddress1'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'streetAddress2'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'city'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'cityArea'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'country'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: _i1.SelectionSetNode(selections: [
+                              _i1.FieldNode(
+                                  name: _i1.NameNode(value: 'country'),
+                                  alias: null,
+                                  arguments: [],
+                                  directives: [],
+                                  selectionSet: null),
+                              _i1.FieldNode(
+                                  name: _i1.NameNode(value: 'code'),
+                                  alias: null,
+                                  arguments: [],
+                                  directives: [],
+                                  selectionSet: null)
+                            ])),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'countryArea'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'phone'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name:
+                                _i1.NameNode(value: 'isDefaultBillingAddress'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name:
+                                _i1.NameNode(value: 'isDefaultShippingAddress'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null),
+                        _i1.FieldNode(
+                            name: _i1.NameNode(value: 'postalCode'),
                             alias: null,
                             arguments: [],
                             directives: [],
                             selectionSet: null)
-                      ])),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'countryArea'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'phone'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'isDefaultBillingAddress'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'isDefaultShippingAddress'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'postalCode'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
+                      ]))
                 ])),
             _i1.FieldNode(
                 name: _i1.NameNode(value: 'accountErrors'),
@@ -165,4 +165,4 @@ const addressCreate = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [addressCreate]);
+const document = _i1.DocumentNode(definitions: [accountAddressCreate]);

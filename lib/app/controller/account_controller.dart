@@ -39,7 +39,6 @@ class AccountController extends GetxController {
     return _repository.getUser().take(1).listen((response) {
       response.fold((failure) {}, (result) {
         gotUser.value = true;
-
         user.value = result;
         _updateFormControl(result);
       });

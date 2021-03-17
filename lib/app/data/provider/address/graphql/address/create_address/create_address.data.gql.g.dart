@@ -6,50 +6,59 @@ part of 'create_address.data.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GaddressCreateData> _$gaddressCreateDataSerializer =
-    new _$GaddressCreateDataSerializer();
-Serializer<GaddressCreateData_addressCreate>
-    _$gaddressCreateDataAddressCreateSerializer =
-    new _$GaddressCreateData_addressCreateSerializer();
-Serializer<GaddressCreateData_addressCreate_address>
-    _$gaddressCreateDataAddressCreateAddressSerializer =
-    new _$GaddressCreateData_addressCreate_addressSerializer();
-Serializer<GaddressCreateData_addressCreate_address_country>
-    _$gaddressCreateDataAddressCreateAddressCountrySerializer =
-    new _$GaddressCreateData_addressCreate_address_countrySerializer();
-Serializer<GaddressCreateData_addressCreate_accountErrors>
-    _$gaddressCreateDataAddressCreateAccountErrorsSerializer =
-    new _$GaddressCreateData_addressCreate_accountErrorsSerializer();
+Serializer<GaccountAddressCreateData> _$gaccountAddressCreateDataSerializer =
+    new _$GaccountAddressCreateDataSerializer();
+Serializer<GaccountAddressCreateData_accountAddressCreate>
+    _$gaccountAddressCreateDataAccountAddressCreateSerializer =
+    new _$GaccountAddressCreateData_accountAddressCreateSerializer();
+Serializer<GaccountAddressCreateData_accountAddressCreate_user>
+    _$gaccountAddressCreateDataAccountAddressCreateUserSerializer =
+    new _$GaccountAddressCreateData_accountAddressCreate_userSerializer();
+Serializer<GaccountAddressCreateData_accountAddressCreate_user_addresses>
+    _$gaccountAddressCreateDataAccountAddressCreateUserAddressesSerializer =
+    new _$GaccountAddressCreateData_accountAddressCreate_user_addressesSerializer();
+Serializer<
+        GaccountAddressCreateData_accountAddressCreate_user_addresses_country>
+    _$gaccountAddressCreateDataAccountAddressCreateUserAddressesCountrySerializer =
+    new _$GaccountAddressCreateData_accountAddressCreate_user_addresses_countrySerializer();
+Serializer<GaccountAddressCreateData_accountAddressCreate_accountErrors>
+    _$gaccountAddressCreateDataAccountAddressCreateAccountErrorsSerializer =
+    new _$GaccountAddressCreateData_accountAddressCreate_accountErrorsSerializer();
 
-class _$GaddressCreateDataSerializer
-    implements StructuredSerializer<GaddressCreateData> {
+class _$GaccountAddressCreateDataSerializer
+    implements StructuredSerializer<GaccountAddressCreateData> {
   @override
-  final Iterable<Type> types = const [GaddressCreateData, _$GaddressCreateData];
+  final Iterable<Type> types = const [
+    GaccountAddressCreateData,
+    _$GaccountAddressCreateData
+  ];
   @override
-  final String wireName = 'GaddressCreateData';
+  final String wireName = 'GaccountAddressCreateData';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GaddressCreateData object,
+  Iterable<Object> serialize(
+      Serializers serializers, GaccountAddressCreateData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
     ];
-    if (object.addressCreate != null) {
+    if (object.accountAddressCreate != null) {
       result
-        ..add('addressCreate')
-        ..add(serializers.serialize(object.addressCreate,
-            specifiedType: const FullType(GaddressCreateData_addressCreate)));
+        ..add('accountAddressCreate')
+        ..add(serializers.serialize(object.accountAddressCreate,
+            specifiedType: const FullType(
+                GaccountAddressCreateData_accountAddressCreate)));
     }
     return result;
   }
 
   @override
-  GaddressCreateData deserialize(
+  GaccountAddressCreateData deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateDataBuilder();
+    final result = new GaccountAddressCreateDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -61,11 +70,11 @@ class _$GaddressCreateDataSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'addressCreate':
-          result.addressCreate.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GaddressCreateData_addressCreate))
-              as GaddressCreateData_addressCreate);
+        case 'accountAddressCreate':
+          result.accountAddressCreate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GaccountAddressCreateData_accountAddressCreate))
+              as GaccountAddressCreateData_accountAddressCreate);
           break;
       }
     }
@@ -74,19 +83,20 @@ class _$GaddressCreateDataSerializer
   }
 }
 
-class _$GaddressCreateData_addressCreateSerializer
-    implements StructuredSerializer<GaddressCreateData_addressCreate> {
+class _$GaccountAddressCreateData_accountAddressCreateSerializer
+    implements
+        StructuredSerializer<GaccountAddressCreateData_accountAddressCreate> {
   @override
   final Iterable<Type> types = const [
-    GaddressCreateData_addressCreate,
-    _$GaddressCreateData_addressCreate
+    GaccountAddressCreateData_accountAddressCreate,
+    _$GaccountAddressCreateData_accountAddressCreate
   ];
   @override
-  final String wireName = 'GaddressCreateData_addressCreate';
+  final String wireName = 'GaccountAddressCreateData_accountAddressCreate';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, GaddressCreateData_addressCreate object,
+  Iterable<Object> serialize(Serializers serializers,
+      GaccountAddressCreateData_accountAddressCreate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -95,24 +105,25 @@ class _$GaddressCreateData_addressCreateSerializer
       'accountErrors',
       serializers.serialize(object.accountErrors,
           specifiedType: const FullType(BuiltList, const [
-            const FullType(GaddressCreateData_addressCreate_accountErrors)
+            const FullType(
+                GaccountAddressCreateData_accountAddressCreate_accountErrors)
           ])),
     ];
-    if (object.address != null) {
+    if (object.user != null) {
       result
-        ..add('address')
-        ..add(serializers.serialize(object.address,
-            specifiedType:
-                const FullType(GaddressCreateData_addressCreate_address)));
+        ..add('user')
+        ..add(serializers.serialize(object.user,
+            specifiedType: const FullType(
+                GaccountAddressCreateData_accountAddressCreate_user)));
     }
     return result;
   }
 
   @override
-  GaddressCreateData_addressCreate deserialize(
+  GaccountAddressCreateData_accountAddressCreate deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateData_addressCreateBuilder();
+    final result = new GaccountAddressCreateData_accountAddressCreateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -124,16 +135,17 @@ class _$GaddressCreateData_addressCreateSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'address':
-          result.address.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GaddressCreateData_addressCreate_address))
-              as GaddressCreateData_addressCreate_address);
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GaccountAddressCreateData_accountAddressCreate_user))
+              as GaccountAddressCreateData_accountAddressCreate_user);
           break;
         case 'accountErrors':
           result.accountErrors.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
-                const FullType(GaddressCreateData_addressCreate_accountErrors)
+                const FullType(
+                    GaccountAddressCreateData_accountAddressCreate_accountErrors)
               ])) as BuiltList<Object>);
           break;
       }
@@ -143,19 +155,86 @@ class _$GaddressCreateData_addressCreateSerializer
   }
 }
 
-class _$GaddressCreateData_addressCreate_addressSerializer
-    implements StructuredSerializer<GaddressCreateData_addressCreate_address> {
+class _$GaccountAddressCreateData_accountAddressCreate_userSerializer
+    implements
+        StructuredSerializer<
+            GaccountAddressCreateData_accountAddressCreate_user> {
   @override
   final Iterable<Type> types = const [
-    GaddressCreateData_addressCreate_address,
-    _$GaddressCreateData_addressCreate_address
+    GaccountAddressCreateData_accountAddressCreate_user,
+    _$GaccountAddressCreateData_accountAddressCreate_user
   ];
   @override
-  final String wireName = 'GaddressCreateData_addressCreate_address';
+  final String wireName = 'GaccountAddressCreateData_accountAddressCreate_user';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, GaddressCreateData_addressCreate_address object,
+  Iterable<Object> serialize(Serializers serializers,
+      GaccountAddressCreateData_accountAddressCreate_user object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    if (object.addresses != null) {
+      result
+        ..add('addresses')
+        ..add(serializers.serialize(object.addresses,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  GaccountAddressCreateData_accountAddressCreate_user_addresses)
+            ])));
+    }
+    return result;
+  }
+
+  @override
+  GaccountAddressCreateData_accountAddressCreate_user deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GaccountAddressCreateData_accountAddressCreate_userBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'addresses':
+          result.addresses.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    GaccountAddressCreateData_accountAddressCreate_user_addresses)
+              ])) as BuiltList<Object>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GaccountAddressCreateData_accountAddressCreate_user_addressesSerializer
+    implements
+        StructuredSerializer<
+            GaccountAddressCreateData_accountAddressCreate_user_addresses> {
+  @override
+  final Iterable<Type> types = const [
+    GaccountAddressCreateData_accountAddressCreate_user_addresses,
+    _$GaccountAddressCreateData_accountAddressCreate_user_addresses
+  ];
+  @override
+  final String wireName =
+      'GaccountAddressCreateData_accountAddressCreate_user_addresses';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers,
+      GaccountAddressCreateData_accountAddressCreate_user_addresses object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -185,8 +264,8 @@ class _$GaddressCreateData_addressCreate_addressSerializer
           specifiedType: const FullType(String)),
       'country',
       serializers.serialize(object.country,
-          specifiedType:
-              const FullType(GaddressCreateData_addressCreate_address_country)),
+          specifiedType: const FullType(
+              GaccountAddressCreateData_accountAddressCreate_user_addresses_country)),
       'countryArea',
       serializers.serialize(object.countryArea,
           specifiedType: const FullType(String)),
@@ -216,10 +295,11 @@ class _$GaddressCreateData_addressCreate_addressSerializer
   }
 
   @override
-  GaddressCreateData_addressCreate_address deserialize(
+  GaccountAddressCreateData_accountAddressCreate_user_addresses deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateData_addressCreate_addressBuilder();
+    final result =
+        new GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -266,8 +346,8 @@ class _$GaddressCreateData_addressCreate_addressSerializer
         case 'country':
           result.country.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      GaddressCreateData_addressCreate_address_country))
-              as GaddressCreateData_addressCreate_address_country);
+                      GaccountAddressCreateData_accountAddressCreate_user_addresses_country))
+              as GaccountAddressCreateData_accountAddressCreate_user_addresses_country);
           break;
         case 'countryArea':
           result.countryArea = serializers.deserialize(value,
@@ -296,20 +376,24 @@ class _$GaddressCreateData_addressCreate_addressSerializer
   }
 }
 
-class _$GaddressCreateData_addressCreate_address_countrySerializer
+class _$GaccountAddressCreateData_accountAddressCreate_user_addresses_countrySerializer
     implements
-        StructuredSerializer<GaddressCreateData_addressCreate_address_country> {
+        StructuredSerializer<
+            GaccountAddressCreateData_accountAddressCreate_user_addresses_country> {
   @override
   final Iterable<Type> types = const [
-    GaddressCreateData_addressCreate_address_country,
-    _$GaddressCreateData_addressCreate_address_country
+    GaccountAddressCreateData_accountAddressCreate_user_addresses_country,
+    _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country
   ];
   @override
-  final String wireName = 'GaddressCreateData_addressCreate_address_country';
+  final String wireName =
+      'GaccountAddressCreateData_accountAddressCreate_user_addresses_country';
 
   @override
-  Iterable<Object> serialize(Serializers serializers,
-      GaddressCreateData_addressCreate_address_country object,
+  Iterable<Object> serialize(
+      Serializers serializers,
+      GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+          object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -326,11 +410,11 @@ class _$GaddressCreateData_addressCreate_address_countrySerializer
   }
 
   @override
-  GaddressCreateData_addressCreate_address_country deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+      deserialize(Serializers serializers, Iterable<Object> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GaddressCreateData_addressCreate_address_countryBuilder();
+        new GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -357,20 +441,22 @@ class _$GaddressCreateData_addressCreate_address_countrySerializer
   }
 }
 
-class _$GaddressCreateData_addressCreate_accountErrorsSerializer
+class _$GaccountAddressCreateData_accountAddressCreate_accountErrorsSerializer
     implements
-        StructuredSerializer<GaddressCreateData_addressCreate_accountErrors> {
+        StructuredSerializer<
+            GaccountAddressCreateData_accountAddressCreate_accountErrors> {
   @override
   final Iterable<Type> types = const [
-    GaddressCreateData_addressCreate_accountErrors,
-    _$GaddressCreateData_addressCreate_accountErrors
+    GaccountAddressCreateData_accountAddressCreate_accountErrors,
+    _$GaccountAddressCreateData_accountAddressCreate_accountErrors
   ];
   @override
-  final String wireName = 'GaddressCreateData_addressCreate_accountErrors';
+  final String wireName =
+      'GaccountAddressCreateData_accountAddressCreate_accountErrors';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GaddressCreateData_addressCreate_accountErrors object,
+      GaccountAddressCreateData_accountAddressCreate_accountErrors object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -396,10 +482,11 @@ class _$GaddressCreateData_addressCreate_accountErrorsSerializer
   }
 
   @override
-  GaddressCreateData_addressCreate_accountErrors deserialize(
+  GaccountAddressCreateData_accountAddressCreate_accountErrors deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressCreateData_addressCreate_accountErrorsBuilder();
+    final result =
+        new GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -431,108 +518,116 @@ class _$GaddressCreateData_addressCreate_accountErrorsSerializer
   }
 }
 
-class _$GaddressCreateData extends GaddressCreateData {
+class _$GaccountAddressCreateData extends GaccountAddressCreateData {
   @override
   final String G__typename;
   @override
-  final GaddressCreateData_addressCreate addressCreate;
+  final GaccountAddressCreateData_accountAddressCreate accountAddressCreate;
 
-  factory _$GaddressCreateData(
-          [void Function(GaddressCreateDataBuilder) updates]) =>
-      (new GaddressCreateDataBuilder()..update(updates)).build();
+  factory _$GaccountAddressCreateData(
+          [void Function(GaccountAddressCreateDataBuilder) updates]) =>
+      (new GaccountAddressCreateDataBuilder()..update(updates)).build();
 
-  _$GaddressCreateData._({this.G__typename, this.addressCreate}) : super._() {
+  _$GaccountAddressCreateData._({this.G__typename, this.accountAddressCreate})
+      : super._() {
     if (G__typename == null) {
-      throw new BuiltValueNullFieldError('GaddressCreateData', 'G__typename');
+      throw new BuiltValueNullFieldError(
+          'GaccountAddressCreateData', 'G__typename');
     }
   }
 
   @override
-  GaddressCreateData rebuild(
-          void Function(GaddressCreateDataBuilder) updates) =>
+  GaccountAddressCreateData rebuild(
+          void Function(GaccountAddressCreateDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateDataBuilder toBuilder() =>
-      new GaddressCreateDataBuilder()..replace(this);
+  GaccountAddressCreateDataBuilder toBuilder() =>
+      new GaccountAddressCreateDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateData &&
+    return other is GaccountAddressCreateData &&
         G__typename == other.G__typename &&
-        addressCreate == other.addressCreate;
+        accountAddressCreate == other.accountAddressCreate;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, G__typename.hashCode), addressCreate.hashCode));
+    return $jf(
+        $jc($jc(0, G__typename.hashCode), accountAddressCreate.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GaddressCreateData')
+    return (newBuiltValueToStringHelper('GaccountAddressCreateData')
           ..add('G__typename', G__typename)
-          ..add('addressCreate', addressCreate))
+          ..add('accountAddressCreate', accountAddressCreate))
         .toString();
   }
 }
 
-class GaddressCreateDataBuilder
-    implements Builder<GaddressCreateData, GaddressCreateDataBuilder> {
-  _$GaddressCreateData _$v;
+class GaccountAddressCreateDataBuilder
+    implements
+        Builder<GaccountAddressCreateData, GaccountAddressCreateDataBuilder> {
+  _$GaccountAddressCreateData _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GaddressCreateData_addressCreateBuilder _addressCreate;
-  GaddressCreateData_addressCreateBuilder get addressCreate =>
-      _$this._addressCreate ??= new GaddressCreateData_addressCreateBuilder();
-  set addressCreate(GaddressCreateData_addressCreateBuilder addressCreate) =>
-      _$this._addressCreate = addressCreate;
+  GaccountAddressCreateData_accountAddressCreateBuilder _accountAddressCreate;
+  GaccountAddressCreateData_accountAddressCreateBuilder
+      get accountAddressCreate => _$this._accountAddressCreate ??=
+          new GaccountAddressCreateData_accountAddressCreateBuilder();
+  set accountAddressCreate(
+          GaccountAddressCreateData_accountAddressCreateBuilder
+              accountAddressCreate) =>
+      _$this._accountAddressCreate = accountAddressCreate;
 
-  GaddressCreateDataBuilder() {
-    GaddressCreateData._initializeBuilder(this);
+  GaccountAddressCreateDataBuilder() {
+    GaccountAddressCreateData._initializeBuilder(this);
   }
 
-  GaddressCreateDataBuilder get _$this {
+  GaccountAddressCreateDataBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
-      _addressCreate = _$v.addressCreate?.toBuilder();
+      _accountAddressCreate = _$v.accountAddressCreate?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GaddressCreateData other) {
+  void replace(GaccountAddressCreateData other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateData;
+    _$v = other as _$GaccountAddressCreateData;
   }
 
   @override
-  void update(void Function(GaddressCreateDataBuilder) updates) {
+  void update(void Function(GaccountAddressCreateDataBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateData build() {
-    _$GaddressCreateData _$result;
+  _$GaccountAddressCreateData build() {
+    _$GaccountAddressCreateData _$result;
     try {
       _$result = _$v ??
-          new _$GaddressCreateData._(
-              G__typename: G__typename, addressCreate: _addressCreate?.build());
+          new _$GaccountAddressCreateData._(
+              G__typename: G__typename,
+              accountAddressCreate: _accountAddressCreate?.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'addressCreate';
-        _addressCreate?.build();
+        _$failedField = 'accountAddressCreate';
+        _accountAddressCreate?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressCreateData', _$failedField, e.toString());
+            'GaccountAddressCreateData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -541,99 +636,109 @@ class GaddressCreateDataBuilder
   }
 }
 
-class _$GaddressCreateData_addressCreate
-    extends GaddressCreateData_addressCreate {
+class _$GaccountAddressCreateData_accountAddressCreate
+    extends GaccountAddressCreateData_accountAddressCreate {
   @override
   final String G__typename;
   @override
-  final GaddressCreateData_addressCreate_address address;
+  final GaccountAddressCreateData_accountAddressCreate_user user;
   @override
-  final BuiltList<GaddressCreateData_addressCreate_accountErrors> accountErrors;
+  final BuiltList<GaccountAddressCreateData_accountAddressCreate_accountErrors>
+      accountErrors;
 
-  factory _$GaddressCreateData_addressCreate(
-          [void Function(GaddressCreateData_addressCreateBuilder) updates]) =>
-      (new GaddressCreateData_addressCreateBuilder()..update(updates)).build();
+  factory _$GaccountAddressCreateData_accountAddressCreate(
+          [void Function(GaccountAddressCreateData_accountAddressCreateBuilder)
+              updates]) =>
+      (new GaccountAddressCreateData_accountAddressCreateBuilder()
+            ..update(updates))
+          .build();
 
-  _$GaddressCreateData_addressCreate._(
-      {this.G__typename, this.address, this.accountErrors})
+  _$GaccountAddressCreateData_accountAddressCreate._(
+      {this.G__typename, this.user, this.accountErrors})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate', 'G__typename');
+          'GaccountAddressCreateData_accountAddressCreate', 'G__typename');
     }
     if (accountErrors == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate', 'accountErrors');
+          'GaccountAddressCreateData_accountAddressCreate', 'accountErrors');
     }
   }
 
   @override
-  GaddressCreateData_addressCreate rebuild(
-          void Function(GaddressCreateData_addressCreateBuilder) updates) =>
+  GaccountAddressCreateData_accountAddressCreate rebuild(
+          void Function(GaccountAddressCreateData_accountAddressCreateBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateData_addressCreateBuilder toBuilder() =>
-      new GaddressCreateData_addressCreateBuilder()..replace(this);
+  GaccountAddressCreateData_accountAddressCreateBuilder toBuilder() =>
+      new GaccountAddressCreateData_accountAddressCreateBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateData_addressCreate &&
+    return other is GaccountAddressCreateData_accountAddressCreate &&
         G__typename == other.G__typename &&
-        address == other.address &&
+        user == other.user &&
         accountErrors == other.accountErrors;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, G__typename.hashCode), address.hashCode),
+    return $jf($jc($jc($jc(0, G__typename.hashCode), user.hashCode),
         accountErrors.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GaddressCreateData_addressCreate')
+    return (newBuiltValueToStringHelper(
+            'GaccountAddressCreateData_accountAddressCreate')
           ..add('G__typename', G__typename)
-          ..add('address', address)
+          ..add('user', user)
           ..add('accountErrors', accountErrors))
         .toString();
   }
 }
 
-class GaddressCreateData_addressCreateBuilder
+class GaccountAddressCreateData_accountAddressCreateBuilder
     implements
-        Builder<GaddressCreateData_addressCreate,
-            GaddressCreateData_addressCreateBuilder> {
-  _$GaddressCreateData_addressCreate _$v;
+        Builder<GaccountAddressCreateData_accountAddressCreate,
+            GaccountAddressCreateData_accountAddressCreateBuilder> {
+  _$GaccountAddressCreateData_accountAddressCreate _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GaddressCreateData_addressCreate_addressBuilder _address;
-  GaddressCreateData_addressCreate_addressBuilder get address =>
-      _$this._address ??= new GaddressCreateData_addressCreate_addressBuilder();
-  set address(GaddressCreateData_addressCreate_addressBuilder address) =>
-      _$this._address = address;
+  GaccountAddressCreateData_accountAddressCreate_userBuilder _user;
+  GaccountAddressCreateData_accountAddressCreate_userBuilder get user =>
+      _$this._user ??=
+          new GaccountAddressCreateData_accountAddressCreate_userBuilder();
+  set user(GaccountAddressCreateData_accountAddressCreate_userBuilder user) =>
+      _$this._user = user;
 
-  ListBuilder<GaddressCreateData_addressCreate_accountErrors> _accountErrors;
-  ListBuilder<GaddressCreateData_addressCreate_accountErrors>
-      get accountErrors => _$this._accountErrors ??=
-          new ListBuilder<GaddressCreateData_addressCreate_accountErrors>();
+  ListBuilder<GaccountAddressCreateData_accountAddressCreate_accountErrors>
+      _accountErrors;
+  ListBuilder<GaccountAddressCreateData_accountAddressCreate_accountErrors>
+      get accountErrors => _$this._accountErrors ??= new ListBuilder<
+          GaccountAddressCreateData_accountAddressCreate_accountErrors>();
   set accountErrors(
-          ListBuilder<GaddressCreateData_addressCreate_accountErrors>
+          ListBuilder<
+                  GaccountAddressCreateData_accountAddressCreate_accountErrors>
               accountErrors) =>
       _$this._accountErrors = accountErrors;
 
-  GaddressCreateData_addressCreateBuilder() {
-    GaddressCreateData_addressCreate._initializeBuilder(this);
+  GaccountAddressCreateData_accountAddressCreateBuilder() {
+    GaccountAddressCreateData_accountAddressCreate._initializeBuilder(this);
   }
 
-  GaddressCreateData_addressCreateBuilder get _$this {
+  GaccountAddressCreateData_accountAddressCreateBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
-      _address = _$v.address?.toBuilder();
+      _user = _$v.user?.toBuilder();
       _accountErrors = _$v.accountErrors?.toBuilder();
       _$v = null;
     }
@@ -641,37 +746,41 @@ class GaddressCreateData_addressCreateBuilder
   }
 
   @override
-  void replace(GaddressCreateData_addressCreate other) {
+  void replace(GaccountAddressCreateData_accountAddressCreate other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateData_addressCreate;
+    _$v = other as _$GaccountAddressCreateData_accountAddressCreate;
   }
 
   @override
-  void update(void Function(GaddressCreateData_addressCreateBuilder) updates) {
+  void update(
+      void Function(GaccountAddressCreateData_accountAddressCreateBuilder)
+          updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateData_addressCreate build() {
-    _$GaddressCreateData_addressCreate _$result;
+  _$GaccountAddressCreateData_accountAddressCreate build() {
+    _$GaccountAddressCreateData_accountAddressCreate _$result;
     try {
       _$result = _$v ??
-          new _$GaddressCreateData_addressCreate._(
+          new _$GaccountAddressCreateData_accountAddressCreate._(
               G__typename: G__typename,
-              address: _address?.build(),
+              user: _user?.build(),
               accountErrors: accountErrors.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'address';
-        _address?.build();
+        _$failedField = 'user';
+        _user?.build();
         _$failedField = 'accountErrors';
         accountErrors.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressCreateData_addressCreate', _$failedField, e.toString());
+            'GaccountAddressCreateData_accountAddressCreate',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -680,8 +789,143 @@ class GaddressCreateData_addressCreateBuilder
   }
 }
 
-class _$GaddressCreateData_addressCreate_address
-    extends GaddressCreateData_addressCreate_address {
+class _$GaccountAddressCreateData_accountAddressCreate_user
+    extends GaccountAddressCreateData_accountAddressCreate_user {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<GaccountAddressCreateData_accountAddressCreate_user_addresses>
+      addresses;
+
+  factory _$GaccountAddressCreateData_accountAddressCreate_user(
+          [void Function(
+                  GaccountAddressCreateData_accountAddressCreate_userBuilder)
+              updates]) =>
+      (new GaccountAddressCreateData_accountAddressCreate_userBuilder()
+            ..update(updates))
+          .build();
+
+  _$GaccountAddressCreateData_accountAddressCreate_user._(
+      {this.G__typename, this.addresses})
+      : super._() {
+    if (G__typename == null) {
+      throw new BuiltValueNullFieldError(
+          'GaccountAddressCreateData_accountAddressCreate_user', 'G__typename');
+    }
+  }
+
+  @override
+  GaccountAddressCreateData_accountAddressCreate_user rebuild(
+          void Function(
+                  GaccountAddressCreateData_accountAddressCreate_userBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GaccountAddressCreateData_accountAddressCreate_userBuilder toBuilder() =>
+      new GaccountAddressCreateData_accountAddressCreate_userBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GaccountAddressCreateData_accountAddressCreate_user &&
+        G__typename == other.G__typename &&
+        addresses == other.addresses;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), addresses.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            'GaccountAddressCreateData_accountAddressCreate_user')
+          ..add('G__typename', G__typename)
+          ..add('addresses', addresses))
+        .toString();
+  }
+}
+
+class GaccountAddressCreateData_accountAddressCreate_userBuilder
+    implements
+        Builder<GaccountAddressCreateData_accountAddressCreate_user,
+            GaccountAddressCreateData_accountAddressCreate_userBuilder> {
+  _$GaccountAddressCreateData_accountAddressCreate_user _$v;
+
+  String _G__typename;
+  String get G__typename => _$this._G__typename;
+  set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<GaccountAddressCreateData_accountAddressCreate_user_addresses>
+      _addresses;
+  ListBuilder<GaccountAddressCreateData_accountAddressCreate_user_addresses>
+      get addresses => _$this._addresses ??= new ListBuilder<
+          GaccountAddressCreateData_accountAddressCreate_user_addresses>();
+  set addresses(
+          ListBuilder<
+                  GaccountAddressCreateData_accountAddressCreate_user_addresses>
+              addresses) =>
+      _$this._addresses = addresses;
+
+  GaccountAddressCreateData_accountAddressCreate_userBuilder() {
+    GaccountAddressCreateData_accountAddressCreate_user._initializeBuilder(
+        this);
+  }
+
+  GaccountAddressCreateData_accountAddressCreate_userBuilder get _$this {
+    if (_$v != null) {
+      _G__typename = _$v.G__typename;
+      _addresses = _$v.addresses?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GaccountAddressCreateData_accountAddressCreate_user other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$GaccountAddressCreateData_accountAddressCreate_user;
+  }
+
+  @override
+  void update(
+      void Function(GaccountAddressCreateData_accountAddressCreate_userBuilder)
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GaccountAddressCreateData_accountAddressCreate_user build() {
+    _$GaccountAddressCreateData_accountAddressCreate_user _$result;
+    try {
+      _$result = _$v ??
+          new _$GaccountAddressCreateData_accountAddressCreate_user._(
+              G__typename: G__typename, addresses: _addresses?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'addresses';
+        _addresses?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GaccountAddressCreateData_accountAddressCreate_user',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GaccountAddressCreateData_accountAddressCreate_user_addresses
+    extends GaccountAddressCreateData_accountAddressCreate_user_addresses {
   @override
   final String G__typename;
   @override
@@ -701,7 +945,8 @@ class _$GaddressCreateData_addressCreate_address
   @override
   final String cityArea;
   @override
-  final GaddressCreateData_addressCreate_address_country country;
+  final GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+      country;
   @override
   final String countryArea;
   @override
@@ -713,13 +958,15 @@ class _$GaddressCreateData_addressCreate_address
   @override
   final String postalCode;
 
-  factory _$GaddressCreateData_addressCreate_address(
-          [void Function(GaddressCreateData_addressCreate_addressBuilder)
+  factory _$GaccountAddressCreateData_accountAddressCreate_user_addresses(
+          [void Function(
+                  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder)
               updates]) =>
-      (new GaddressCreateData_addressCreate_addressBuilder()..update(updates))
+      (new GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder()
+            ..update(updates))
           .build();
 
-  _$GaddressCreateData_addressCreate_address._(
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses._(
       {this.G__typename,
       this.id,
       this.firstName,
@@ -738,68 +985,84 @@ class _$GaddressCreateData_addressCreate_address
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'G__typename');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'G__typename');
     }
     if (id == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'id');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'id');
     }
     if (firstName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'firstName');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'firstName');
     }
     if (lastName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'lastName');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'lastName');
     }
     if (companyName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'companyName');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'companyName');
     }
     if (streetAddress1 == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'streetAddress1');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'streetAddress1');
     }
     if (streetAddress2 == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'streetAddress2');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'streetAddress2');
     }
     if (city == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'city');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'city');
     }
     if (cityArea == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'cityArea');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'cityArea');
     }
     if (country == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'country');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'country');
     }
     if (countryArea == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'countryArea');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'countryArea');
     }
     if (postalCode == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address', 'postalCode');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses',
+          'postalCode');
     }
   }
 
   @override
-  GaddressCreateData_addressCreate_address rebuild(
-          void Function(GaddressCreateData_addressCreate_addressBuilder)
+  GaccountAddressCreateData_accountAddressCreate_user_addresses rebuild(
+          void Function(
+                  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateData_addressCreate_addressBuilder toBuilder() =>
-      new GaddressCreateData_addressCreate_addressBuilder()..replace(this);
+  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder
+      toBuilder() =>
+          new GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateData_addressCreate_address &&
+    return other
+            is GaccountAddressCreateData_accountAddressCreate_user_addresses &&
         G__typename == other.G__typename &&
         id == other.id &&
         firstName == other.firstName &&
@@ -856,7 +1119,7 @@ class _$GaddressCreateData_addressCreate_address
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressCreateData_addressCreate_address')
+            'GaccountAddressCreateData_accountAddressCreate_user_addresses')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('firstName', firstName)
@@ -876,11 +1139,11 @@ class _$GaddressCreateData_addressCreate_address
   }
 }
 
-class GaddressCreateData_addressCreate_addressBuilder
+class GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder
     implements
-        Builder<GaddressCreateData_addressCreate_address,
-            GaddressCreateData_addressCreate_addressBuilder> {
-  _$GaddressCreateData_addressCreate_address _$v;
+        Builder<GaccountAddressCreateData_accountAddressCreate_user_addresses,
+            GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder> {
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -920,12 +1183,14 @@ class GaddressCreateData_addressCreate_addressBuilder
   String get cityArea => _$this._cityArea;
   set cityArea(String cityArea) => _$this._cityArea = cityArea;
 
-  GaddressCreateData_addressCreate_address_countryBuilder _country;
-  GaddressCreateData_addressCreate_address_countryBuilder get country =>
-      _$this._country ??=
-          new GaddressCreateData_addressCreate_address_countryBuilder();
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+      _country;
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+      get country => _$this._country ??=
+          new GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder();
   set country(
-          GaddressCreateData_addressCreate_address_countryBuilder country) =>
+          GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+              country) =>
       _$this._country = country;
 
   String _countryArea;
@@ -950,11 +1215,13 @@ class GaddressCreateData_addressCreate_addressBuilder
   String get postalCode => _$this._postalCode;
   set postalCode(String postalCode) => _$this._postalCode = postalCode;
 
-  GaddressCreateData_addressCreate_addressBuilder() {
-    GaddressCreateData_addressCreate_address._initializeBuilder(this);
+  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder() {
+    GaccountAddressCreateData_accountAddressCreate_user_addresses
+        ._initializeBuilder(this);
   }
 
-  GaddressCreateData_addressCreate_addressBuilder get _$this {
+  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder
+      get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _id = _$v.id;
@@ -977,25 +1244,29 @@ class GaddressCreateData_addressCreate_addressBuilder
   }
 
   @override
-  void replace(GaddressCreateData_addressCreate_address other) {
+  void replace(
+      GaccountAddressCreateData_accountAddressCreate_user_addresses other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateData_addressCreate_address;
+    _$v = other
+        as _$GaccountAddressCreateData_accountAddressCreate_user_addresses;
   }
 
   @override
   void update(
-      void Function(GaddressCreateData_addressCreate_addressBuilder) updates) {
+      void Function(
+              GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder)
+          updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateData_addressCreate_address build() {
-    _$GaddressCreateData_addressCreate_address _$result;
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses build() {
+    _$GaccountAddressCreateData_accountAddressCreate_user_addresses _$result;
     try {
       _$result = _$v ??
-          new _$GaddressCreateData_addressCreate_address._(
+          new _$GaccountAddressCreateData_accountAddressCreate_user_addresses._(
               G__typename: G__typename,
               id: id,
               firstName: firstName,
@@ -1018,7 +1289,7 @@ class GaddressCreateData_addressCreate_addressBuilder
         country.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressCreateData_addressCreate_address',
+            'GaccountAddressCreateData_accountAddressCreate_user_addresses',
             _$failedField,
             e.toString());
       }
@@ -1029,8 +1300,8 @@ class GaddressCreateData_addressCreate_addressBuilder
   }
 }
 
-class _$GaddressCreateData_addressCreate_address_country
-    extends GaddressCreateData_addressCreate_address_country {
+class _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+    extends GaccountAddressCreateData_accountAddressCreate_user_addresses_country {
   @override
   final String G__typename;
   @override
@@ -1038,46 +1309,52 @@ class _$GaddressCreateData_addressCreate_address_country
   @override
   final String code;
 
-  factory _$GaddressCreateData_addressCreate_address_country(
+  factory _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country(
           [void Function(
-                  GaddressCreateData_addressCreate_address_countryBuilder)
+                  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder)
               updates]) =>
-      (new GaddressCreateData_addressCreate_address_countryBuilder()
+      (new GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressCreateData_addressCreate_address_country._(
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country._(
       {this.G__typename, this.country, this.code})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address_country', 'G__typename');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses_country',
+          'G__typename');
     }
     if (country == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address_country', 'country');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses_country',
+          'country');
     }
     if (code == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_address_country', 'code');
+          'GaccountAddressCreateData_accountAddressCreate_user_addresses_country',
+          'code');
     }
   }
 
   @override
-  GaddressCreateData_addressCreate_address_country rebuild(
-          void Function(GaddressCreateData_addressCreate_address_countryBuilder)
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_country rebuild(
+          void Function(
+                  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateData_addressCreate_address_countryBuilder toBuilder() =>
-      new GaddressCreateData_addressCreate_address_countryBuilder()
-        ..replace(this);
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+      toBuilder() =>
+          new GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateData_addressCreate_address_country &&
+    return other
+            is GaccountAddressCreateData_accountAddressCreate_user_addresses_country &&
         G__typename == other.G__typename &&
         country == other.country &&
         code == other.code;
@@ -1092,7 +1369,7 @@ class _$GaddressCreateData_addressCreate_address_country
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressCreateData_addressCreate_address_country')
+            'GaccountAddressCreateData_accountAddressCreate_user_addresses_country')
           ..add('G__typename', G__typename)
           ..add('country', country)
           ..add('code', code))
@@ -1100,11 +1377,12 @@ class _$GaddressCreateData_addressCreate_address_country
   }
 }
 
-class GaddressCreateData_addressCreate_address_countryBuilder
+class GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
     implements
-        Builder<GaddressCreateData_addressCreate_address_country,
-            GaddressCreateData_addressCreate_address_countryBuilder> {
-  _$GaddressCreateData_addressCreate_address_country _$v;
+        Builder<
+            GaccountAddressCreateData_accountAddressCreate_user_addresses_country,
+            GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder> {
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1118,11 +1396,13 @@ class GaddressCreateData_addressCreate_address_countryBuilder
   String get code => _$this._code;
   set code(String code) => _$this._code = code;
 
-  GaddressCreateData_addressCreate_address_countryBuilder() {
-    GaddressCreateData_addressCreate_address_country._initializeBuilder(this);
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder() {
+    GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+        ._initializeBuilder(this);
   }
 
-  GaddressCreateData_addressCreate_address_countryBuilder get _$this {
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+      get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _country = _$v.country;
@@ -1133,32 +1413,37 @@ class GaddressCreateData_addressCreate_address_countryBuilder
   }
 
   @override
-  void replace(GaddressCreateData_addressCreate_address_country other) {
+  void replace(
+      GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+          other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateData_addressCreate_address_country;
+    _$v = other
+        as _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country;
   }
 
   @override
   void update(
-      void Function(GaddressCreateData_addressCreate_address_countryBuilder)
+      void Function(
+              GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateData_addressCreate_address_country build() {
+  _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+      build() {
     final _$result = _$v ??
-        new _$GaddressCreateData_addressCreate_address_country._(
-            G__typename: G__typename, country: country, code: code);
+        new _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+            ._(G__typename: G__typename, country: country, code: code);
     replace(_$result);
     return _$result;
   }
 }
 
-class _$GaddressCreateData_addressCreate_accountErrors
-    extends GaddressCreateData_addressCreate_accountErrors {
+class _$GaccountAddressCreateData_accountAddressCreate_accountErrors
+    extends GaccountAddressCreateData_accountAddressCreate_accountErrors {
   @override
   final String G__typename;
   @override
@@ -1168,41 +1453,47 @@ class _$GaddressCreateData_addressCreate_accountErrors
   @override
   final _i2.GAccountErrorCode code;
 
-  factory _$GaddressCreateData_addressCreate_accountErrors(
-          [void Function(GaddressCreateData_addressCreate_accountErrorsBuilder)
+  factory _$GaccountAddressCreateData_accountAddressCreate_accountErrors(
+          [void Function(
+                  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder)
               updates]) =>
-      (new GaddressCreateData_addressCreate_accountErrorsBuilder()
+      (new GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressCreateData_addressCreate_accountErrors._(
+  _$GaccountAddressCreateData_accountAddressCreate_accountErrors._(
       {this.G__typename, this.field, this.message, this.code})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_accountErrors', 'G__typename');
+          'GaccountAddressCreateData_accountAddressCreate_accountErrors',
+          'G__typename');
     }
     if (code == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressCreateData_addressCreate_accountErrors', 'code');
+          'GaccountAddressCreateData_accountAddressCreate_accountErrors',
+          'code');
     }
   }
 
   @override
-  GaddressCreateData_addressCreate_accountErrors rebuild(
-          void Function(GaddressCreateData_addressCreate_accountErrorsBuilder)
+  GaccountAddressCreateData_accountAddressCreate_accountErrors rebuild(
+          void Function(
+                  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressCreateData_addressCreate_accountErrorsBuilder toBuilder() =>
-      new GaddressCreateData_addressCreate_accountErrorsBuilder()
-        ..replace(this);
+  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder
+      toBuilder() =>
+          new GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressCreateData_addressCreate_accountErrors &&
+    return other
+            is GaccountAddressCreateData_accountAddressCreate_accountErrors &&
         G__typename == other.G__typename &&
         field == other.field &&
         message == other.message &&
@@ -1220,7 +1511,7 @@ class _$GaddressCreateData_addressCreate_accountErrors
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressCreateData_addressCreate_accountErrors')
+            'GaccountAddressCreateData_accountAddressCreate_accountErrors')
           ..add('G__typename', G__typename)
           ..add('field', field)
           ..add('message', message)
@@ -1229,11 +1520,11 @@ class _$GaddressCreateData_addressCreate_accountErrors
   }
 }
 
-class GaddressCreateData_addressCreate_accountErrorsBuilder
+class GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder
     implements
-        Builder<GaddressCreateData_addressCreate_accountErrors,
-            GaddressCreateData_addressCreate_accountErrorsBuilder> {
-  _$GaddressCreateData_addressCreate_accountErrors _$v;
+        Builder<GaccountAddressCreateData_accountAddressCreate_accountErrors,
+            GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder> {
+  _$GaccountAddressCreateData_accountAddressCreate_accountErrors _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1251,11 +1542,13 @@ class GaddressCreateData_addressCreate_accountErrorsBuilder
   _i2.GAccountErrorCode get code => _$this._code;
   set code(_i2.GAccountErrorCode code) => _$this._code = code;
 
-  GaddressCreateData_addressCreate_accountErrorsBuilder() {
-    GaddressCreateData_addressCreate_accountErrors._initializeBuilder(this);
+  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder() {
+    GaccountAddressCreateData_accountAddressCreate_accountErrors
+        ._initializeBuilder(this);
   }
 
-  GaddressCreateData_addressCreate_accountErrorsBuilder get _$this {
+  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder
+      get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _field = _$v.field;
@@ -1267,24 +1560,27 @@ class GaddressCreateData_addressCreate_accountErrorsBuilder
   }
 
   @override
-  void replace(GaddressCreateData_addressCreate_accountErrors other) {
+  void replace(
+      GaccountAddressCreateData_accountAddressCreate_accountErrors other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressCreateData_addressCreate_accountErrors;
+    _$v =
+        other as _$GaccountAddressCreateData_accountAddressCreate_accountErrors;
   }
 
   @override
   void update(
-      void Function(GaddressCreateData_addressCreate_accountErrorsBuilder)
+      void Function(
+              GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressCreateData_addressCreate_accountErrors build() {
+  _$GaccountAddressCreateData_accountAddressCreate_accountErrors build() {
     final _$result = _$v ??
-        new _$GaddressCreateData_addressCreate_accountErrors._(
+        new _$GaccountAddressCreateData_accountAddressCreate_accountErrors._(
             G__typename: G__typename,
             field: field,
             message: message,

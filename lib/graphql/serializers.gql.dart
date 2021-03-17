@@ -35,15 +35,16 @@ import 'package:ispot/app/data/provider/account/graphql/user/user.var.gql.dart'
     show GMeVars;
 import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.data.gql.dart'
     show
-        GaddressCreateData,
-        GaddressCreateData_addressCreate,
-        GaddressCreateData_addressCreate_accountErrors,
-        GaddressCreateData_addressCreate_address,
-        GaddressCreateData_addressCreate_address_country;
+        GaccountAddressCreateData,
+        GaccountAddressCreateData_accountAddressCreate,
+        GaccountAddressCreateData_accountAddressCreate_accountErrors,
+        GaccountAddressCreateData_accountAddressCreate_user,
+        GaccountAddressCreateData_accountAddressCreate_user_addresses,
+        GaccountAddressCreateData_accountAddressCreate_user_addresses_country;
 import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.req.gql.dart'
-    show GaddressCreateReq;
+    show GaccountAddressCreateReq;
 import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.var.gql.dart'
-    show GaddressCreateVars;
+    show GaccountAddressCreateVars;
 import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.data.gql.dart'
     show
         GgetAddressesData,
@@ -978,13 +979,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GWeightScalar,
   GWeightUnitsEnum,
   G_Any,
-  GaddressCreateData,
-  GaddressCreateData_addressCreate,
-  GaddressCreateData_addressCreate_accountErrors,
-  GaddressCreateData_addressCreate_address,
-  GaddressCreateData_addressCreate_address_country,
-  GaddressCreateReq,
-  GaddressCreateVars,
+  GaccountAddressCreateData,
+  GaccountAddressCreateData_accountAddressCreate,
+  GaccountAddressCreateData_accountAddressCreate_accountErrors,
+  GaccountAddressCreateData_accountAddressCreate_user,
+  GaccountAddressCreateData_accountAddressCreate_user_addresses,
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_country,
+  GaccountAddressCreateReq,
+  GaccountAddressCreateVars,
   GaddressUpdateData,
   GaddressUpdateData_addressUpdate,
   GaddressUpdateData_addressUpdate_accountErrors,

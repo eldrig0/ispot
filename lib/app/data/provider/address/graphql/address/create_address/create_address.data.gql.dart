@@ -8,65 +8,105 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i1;
 
 part 'create_address.data.gql.g.dart';
 
-abstract class GaddressCreateData
-    implements Built<GaddressCreateData, GaddressCreateDataBuilder> {
-  GaddressCreateData._();
+abstract class GaccountAddressCreateData
+    implements
+        Built<GaccountAddressCreateData, GaccountAddressCreateDataBuilder> {
+  GaccountAddressCreateData._();
 
-  factory GaddressCreateData([Function(GaddressCreateDataBuilder b) updates]) =
-      _$GaddressCreateData;
+  factory GaccountAddressCreateData(
+          [Function(GaccountAddressCreateDataBuilder b) updates]) =
+      _$GaccountAddressCreateData;
 
-  static void _initializeBuilder(GaddressCreateDataBuilder b) =>
+  static void _initializeBuilder(GaccountAddressCreateDataBuilder b) =>
       b..G__typename = 'Mutation';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GaddressCreateData_addressCreate get addressCreate;
-  static Serializer<GaddressCreateData> get serializer =>
-      _$gaddressCreateDataSerializer;
+  GaccountAddressCreateData_accountAddressCreate get accountAddressCreate;
+  static Serializer<GaccountAddressCreateData> get serializer =>
+      _$gaccountAddressCreateDataSerializer;
   Map<String, dynamic> toJson() =>
-      _i1.serializers.serializeWith(GaddressCreateData.serializer, this);
-  static GaddressCreateData fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GaddressCreateData.serializer, json);
+      _i1.serializers.serializeWith(GaccountAddressCreateData.serializer, this);
+  static GaccountAddressCreateData fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GaccountAddressCreateData.serializer, json);
 }
 
-abstract class GaddressCreateData_addressCreate
+abstract class GaccountAddressCreateData_accountAddressCreate
     implements
-        Built<GaddressCreateData_addressCreate,
-            GaddressCreateData_addressCreateBuilder> {
-  GaddressCreateData_addressCreate._();
+        Built<GaccountAddressCreateData_accountAddressCreate,
+            GaccountAddressCreateData_accountAddressCreateBuilder> {
+  GaccountAddressCreateData_accountAddressCreate._();
 
-  factory GaddressCreateData_addressCreate(
-          [Function(GaddressCreateData_addressCreateBuilder b) updates]) =
-      _$GaddressCreateData_addressCreate;
+  factory GaccountAddressCreateData_accountAddressCreate(
+      [Function(GaccountAddressCreateData_accountAddressCreateBuilder b)
+          updates]) = _$GaccountAddressCreateData_accountAddressCreate;
 
-  static void _initializeBuilder(GaddressCreateData_addressCreateBuilder b) =>
-      b..G__typename = 'AddressCreate';
+  static void _initializeBuilder(
+          GaccountAddressCreateData_accountAddressCreateBuilder b) =>
+      b..G__typename = 'AccountAddressCreate';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GaddressCreateData_addressCreate_address get address;
-  BuiltList<GaddressCreateData_addressCreate_accountErrors> get accountErrors;
-  static Serializer<GaddressCreateData_addressCreate> get serializer =>
-      _$gaddressCreateDataAddressCreateSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
-      .serializeWith(GaddressCreateData_addressCreate.serializer, this);
-  static GaddressCreateData_addressCreate fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
-          .deserializeWith(GaddressCreateData_addressCreate.serializer, json);
+  GaccountAddressCreateData_accountAddressCreate_user get user;
+  BuiltList<GaccountAddressCreateData_accountAddressCreate_accountErrors>
+      get accountErrors;
+  static Serializer<GaccountAddressCreateData_accountAddressCreate>
+      get serializer =>
+          _$gaccountAddressCreateDataAccountAddressCreateSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GaccountAddressCreateData_accountAddressCreate.serializer, this);
+  static GaccountAddressCreateData_accountAddressCreate fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GaccountAddressCreateData_accountAddressCreate.serializer, json);
 }
 
-abstract class GaddressCreateData_addressCreate_address
+abstract class GaccountAddressCreateData_accountAddressCreate_user
     implements
-        Built<GaddressCreateData_addressCreate_address,
-            GaddressCreateData_addressCreate_addressBuilder> {
-  GaddressCreateData_addressCreate_address._();
+        Built<GaccountAddressCreateData_accountAddressCreate_user,
+            GaccountAddressCreateData_accountAddressCreate_userBuilder> {
+  GaccountAddressCreateData_accountAddressCreate_user._();
 
-  factory GaddressCreateData_addressCreate_address(
-      [Function(GaddressCreateData_addressCreate_addressBuilder b)
-          updates]) = _$GaddressCreateData_addressCreate_address;
+  factory GaccountAddressCreateData_accountAddressCreate_user(
+      [Function(GaccountAddressCreateData_accountAddressCreate_userBuilder b)
+          updates]) = _$GaccountAddressCreateData_accountAddressCreate_user;
 
   static void _initializeBuilder(
-          GaddressCreateData_addressCreate_addressBuilder b) =>
+          GaccountAddressCreateData_accountAddressCreate_userBuilder b) =>
+      b..G__typename = 'User';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  BuiltList<GaccountAddressCreateData_accountAddressCreate_user_addresses>
+      get addresses;
+  static Serializer<GaccountAddressCreateData_accountAddressCreate_user>
+      get serializer =>
+          _$gaccountAddressCreateDataAccountAddressCreateUserSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GaccountAddressCreateData_accountAddressCreate_user.serializer, this);
+  static GaccountAddressCreateData_accountAddressCreate_user fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GaccountAddressCreateData_accountAddressCreate_user.serializer, json);
+}
+
+abstract class GaccountAddressCreateData_accountAddressCreate_user_addresses
+    implements
+        Built<GaccountAddressCreateData_accountAddressCreate_user_addresses,
+            GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder> {
+  GaccountAddressCreateData_accountAddressCreate_user_addresses._();
+
+  factory GaccountAddressCreateData_accountAddressCreate_user_addresses(
+          [Function(
+                  GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder
+                      b)
+              updates]) =
+      _$GaccountAddressCreateData_accountAddressCreate_user_addresses;
+
+  static void _initializeBuilder(
+          GaccountAddressCreateData_accountAddressCreate_user_addressesBuilder
+              b) =>
       b..G__typename = 'Address';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
@@ -78,7 +118,8 @@ abstract class GaddressCreateData_addressCreate_address
   String get streetAddress2;
   String get city;
   String get cityArea;
-  GaddressCreateData_addressCreate_address_country get country;
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+      get country;
   String get countryArea;
   @nullable
   String get phone;
@@ -87,56 +128,74 @@ abstract class GaddressCreateData_addressCreate_address
   @nullable
   bool get isDefaultShippingAddress;
   String get postalCode;
-  static Serializer<GaddressCreateData_addressCreate_address> get serializer =>
-      _$gaddressCreateDataAddressCreateAddressSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
-      .serializeWith(GaddressCreateData_addressCreate_address.serializer, this);
-  static GaddressCreateData_addressCreate_address fromJson(
+  static Serializer<
+          GaccountAddressCreateData_accountAddressCreate_user_addresses>
+      get serializer =>
+          _$gaccountAddressCreateDataAccountAddressCreateUserAddressesSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GaccountAddressCreateData_accountAddressCreate_user_addresses.serializer,
+      this);
+  static GaccountAddressCreateData_accountAddressCreate_user_addresses fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-          GaddressCreateData_addressCreate_address.serializer, json);
+          GaccountAddressCreateData_accountAddressCreate_user_addresses
+              .serializer,
+          json);
 }
 
-abstract class GaddressCreateData_addressCreate_address_country
+abstract class GaccountAddressCreateData_accountAddressCreate_user_addresses_country
     implements
-        Built<GaddressCreateData_addressCreate_address_country,
-            GaddressCreateData_addressCreate_address_countryBuilder> {
-  GaddressCreateData_addressCreate_address_country._();
+        Built<
+            GaccountAddressCreateData_accountAddressCreate_user_addresses_country,
+            GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder> {
+  GaccountAddressCreateData_accountAddressCreate_user_addresses_country._();
 
-  factory GaddressCreateData_addressCreate_address_country(
-      [Function(GaddressCreateData_addressCreate_address_countryBuilder b)
-          updates]) = _$GaddressCreateData_addressCreate_address_country;
+  factory GaccountAddressCreateData_accountAddressCreate_user_addresses_country(
+          [Function(
+                  GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+                      b)
+              updates]) =
+      _$GaccountAddressCreateData_accountAddressCreate_user_addresses_country;
 
   static void _initializeBuilder(
-          GaddressCreateData_addressCreate_address_countryBuilder b) =>
+          GaccountAddressCreateData_accountAddressCreate_user_addresses_countryBuilder
+              b) =>
       b..G__typename = 'CountryDisplay';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get country;
   String get code;
-  static Serializer<GaddressCreateData_addressCreate_address_country>
+  static Serializer<
+          GaccountAddressCreateData_accountAddressCreate_user_addresses_country>
       get serializer =>
-          _$gaddressCreateDataAddressCreateAddressCountrySerializer;
+          _$gaccountAddressCreateDataAccountAddressCreateUserAddressesCountrySerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GaddressCreateData_addressCreate_address_country.serializer, this);
-  static GaddressCreateData_addressCreate_address_country fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GaddressCreateData_addressCreate_address_country.serializer, json);
+      GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+          .serializer,
+      this);
+  static GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GaccountAddressCreateData_accountAddressCreate_user_addresses_country
+              .serializer,
+          json);
 }
 
-abstract class GaddressCreateData_addressCreate_accountErrors
+abstract class GaccountAddressCreateData_accountAddressCreate_accountErrors
     implements
-        Built<GaddressCreateData_addressCreate_accountErrors,
-            GaddressCreateData_addressCreate_accountErrorsBuilder> {
-  GaddressCreateData_addressCreate_accountErrors._();
+        Built<GaccountAddressCreateData_accountAddressCreate_accountErrors,
+            GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder> {
+  GaccountAddressCreateData_accountAddressCreate_accountErrors._();
 
-  factory GaddressCreateData_addressCreate_accountErrors(
-      [Function(GaddressCreateData_addressCreate_accountErrorsBuilder b)
-          updates]) = _$GaddressCreateData_addressCreate_accountErrors;
+  factory GaccountAddressCreateData_accountAddressCreate_accountErrors(
+          [Function(
+                  GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder
+                      b)
+              updates]) =
+      _$GaccountAddressCreateData_accountAddressCreate_accountErrors;
 
   static void _initializeBuilder(
-          GaddressCreateData_addressCreate_accountErrorsBuilder b) =>
+          GaccountAddressCreateData_accountAddressCreate_accountErrorsBuilder
+              b) =>
       b..G__typename = 'AccountError';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
@@ -145,13 +204,17 @@ abstract class GaddressCreateData_addressCreate_accountErrors
   @nullable
   String get message;
   _i2.GAccountErrorCode get code;
-  static Serializer<GaddressCreateData_addressCreate_accountErrors>
+  static Serializer<
+          GaccountAddressCreateData_accountAddressCreate_accountErrors>
       get serializer =>
-          _$gaddressCreateDataAddressCreateAccountErrorsSerializer;
+          _$gaccountAddressCreateDataAccountAddressCreateAccountErrorsSerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GaddressCreateData_addressCreate_accountErrors.serializer, this);
-  static GaddressCreateData_addressCreate_accountErrors fromJson(
+      GaccountAddressCreateData_accountAddressCreate_accountErrors.serializer,
+      this);
+  static GaccountAddressCreateData_accountAddressCreate_accountErrors fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-          GaddressCreateData_addressCreate_accountErrors.serializer, json);
+          GaccountAddressCreateData_accountAddressCreate_accountErrors
+              .serializer,
+          json);
 }

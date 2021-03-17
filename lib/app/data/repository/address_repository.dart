@@ -8,7 +8,7 @@ class AddressRepository {
 
   AddressRepository(this._provider);
 
-  Stream<Either<Failure, Address>> createAddress(Address address) {
+  Stream<Either<Failure, List<Address>>> createAddress({Address address}) {
     return _provider.createAddress(address: address);
   }
 

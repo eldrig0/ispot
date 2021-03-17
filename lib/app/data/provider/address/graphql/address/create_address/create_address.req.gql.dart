@@ -14,20 +14,22 @@ import 'package:ispot/graphql/serializers.gql.dart' as _i6;
 
 part 'create_address.req.gql.g.dart';
 
-abstract class GaddressCreateReq
+abstract class GaccountAddressCreateReq
     implements
-        Built<GaddressCreateReq, GaddressCreateReqBuilder>,
-        _i1.OperationRequest<_i2.GaddressCreateData, _i3.GaddressCreateVars> {
-  GaddressCreateReq._();
+        Built<GaccountAddressCreateReq, GaccountAddressCreateReqBuilder>,
+        _i1.OperationRequest<_i2.GaccountAddressCreateData,
+            _i3.GaccountAddressCreateVars> {
+  GaccountAddressCreateReq._();
 
-  factory GaddressCreateReq([Function(GaddressCreateReqBuilder b) updates]) =
-      _$GaddressCreateReq;
+  factory GaccountAddressCreateReq(
+          [Function(GaccountAddressCreateReqBuilder b) updates]) =
+      _$GaccountAddressCreateReq;
 
-  static void _initializeBuilder(GaddressCreateReqBuilder b) => b
-    ..operation =
-        _i4.Operation(document: _i5.document, operationName: 'addressCreate')
+  static void _initializeBuilder(GaccountAddressCreateReqBuilder b) => b
+    ..operation = _i4.Operation(
+        document: _i5.document, operationName: 'accountAddressCreate')
     ..executeOnListen = true;
-  _i3.GaddressCreateVars get vars;
+  _i3.GaccountAddressCreateVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
       _i4.Request(operation: operation, variables: vars.toJson());
@@ -35,10 +37,11 @@ abstract class GaddressCreateReq
   String get requestId;
   @nullable
   @BuiltValueField(serialize: false)
-  _i2.GaddressCreateData Function(
-      _i2.GaddressCreateData, _i2.GaddressCreateData) get updateResult;
+  _i2.GaccountAddressCreateData Function(
+          _i2.GaccountAddressCreateData, _i2.GaccountAddressCreateData)
+      get updateResult;
   @nullable
-  _i2.GaddressCreateData get optimisticResponse;
+  _i2.GaccountAddressCreateData get optimisticResponse;
   @nullable
   String get updateCacheHandlerKey;
   @nullable
@@ -48,12 +51,13 @@ abstract class GaddressCreateReq
   @nullable
   bool get executeOnListen;
   @override
-  _i2.GaddressCreateData parseData(Map<String, dynamic> json) =>
-      _i2.GaddressCreateData.fromJson(json);
-  static Serializer<GaddressCreateReq> get serializer =>
-      _$gaddressCreateReqSerializer;
+  _i2.GaccountAddressCreateData parseData(Map<String, dynamic> json) =>
+      _i2.GaccountAddressCreateData.fromJson(json);
+  static Serializer<GaccountAddressCreateReq> get serializer =>
+      _$gaccountAddressCreateReqSerializer;
   Map<String, dynamic> toJson() =>
-      _i6.serializers.serializeWith(GaddressCreateReq.serializer, this);
-  static GaddressCreateReq fromJson(Map<String, dynamic> json) =>
-      _i6.serializers.deserializeWith(GaddressCreateReq.serializer, json);
+      _i6.serializers.serializeWith(GaccountAddressCreateReq.serializer, this);
+  static GaccountAddressCreateReq fromJson(Map<String, dynamic> json) =>
+      _i6.serializers
+          .deserializeWith(GaccountAddressCreateReq.serializer, json);
 }
