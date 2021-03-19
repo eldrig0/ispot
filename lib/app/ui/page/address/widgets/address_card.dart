@@ -55,7 +55,11 @@ class AddressCard extends StatelessWidget {
                     onPressed: () {
                       Get.find<AddressController>().editAddress(address);
                     }),
-                IconButton(icon: Icon(AntDesign.delete), onPressed: () {}),
+                IconButton(
+                    icon: Icon(AntDesign.delete),
+                    onPressed: () {
+                      Get.find<AddressController>().deleteAddress(address.id);
+                    }),
               ],
             ),
           ],

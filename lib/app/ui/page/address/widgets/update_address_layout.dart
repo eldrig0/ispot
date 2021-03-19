@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/address_controller.dart';
+import 'package:ispot/app/misc/constants/countries.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -63,8 +64,8 @@ class UpdateAddressLayout extends StatelessWidget {
                     buildFormField(label: 'City', formControlName: 'city'),
                     buildFormField(
                         label: 'Postal code', formControlName: 'postalCode'),
-                    buildFormField(
-                        label: 'Country', formControlName: 'country'),
+                    buildDropDown(
+                        label: 'Country', formControlName: 'countryArea'),
                   ],
                 ),
               )),
@@ -106,6 +107,26 @@ class UpdateAddressLayout extends StatelessWidget {
         decoration: InputDecoration(labelText: label),
         formControlName: formControlName,
         validationMessages: (control) => {'required': 'This field is required'},
+      ),
+    );
+  }
+
+  Padding buildDropDown(
+      {@required String label, @required String formControlName}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: ReactiveDropdownField(
+        decoration: InputDecoration(labelText: label),
+        formControlName: formControlName,
+        validationMessages: (control) => {'required': 'This field is required'},
+        items: countries
+            .map(
+              (country) => DropdownMenuItem(
+                value: country,
+                child: Text(country),
+              ),
+            )
+            .toList(),
       ),
     );
   }

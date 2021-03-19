@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/repository/address_repository.dart';
@@ -19,11 +18,11 @@ class AddressController extends GetxController {
     2: 'billingAddresses'
   };
 
-  Rx<FormGroup> addressFormGroup;
+  Rx<FormGroup> addressFormGroup = Rx(buildAddressForm());
 
   final AddressRepository _repository;
 
-  AddressController(this._repository);
+  AddressController(this._repository) {}
 
   initAddresses(List<Address> addresses) {
     updateUIState(AddressUIState.list);
@@ -33,6 +32,17 @@ class AddressController extends GetxController {
   editAddress(Address address) {
     addressFormGroup = Rx(buildAddressForm(address: address));
     updateUIState(AddressUIState.edit);
+  }
+
+  getAddress() {
+    _repository.getAddress().listen((response) {
+      response.fold((error) {
+        Get.defaultDialog(title: 'Error', middleText: error.message);
+      }, (result) {
+        addresses.value = result;
+        updateUIState(AddressUIState.list);
+      });
+    });
   }
 
   updateUIState(AddressUIState state) {
@@ -45,8 +55,9 @@ class AddressController extends GetxController {
   }
 
   createAddress() {
-    var addressValue = addressFormGroup.value.value;
-    final address = Address.fromMap(addressValue);
+    Map<String, dynamic> addressMap = getAddressMap();
+
+    final address = Address.fromMap(addressMap);
 
     _repository.createAddress(address: address).take(1).listen((response) {
       response.fold((error) {
@@ -58,9 +69,35 @@ class AddressController extends GetxController {
     });
   }
 
+  deleteAddress(String addressId) {
+    _repository.deleteAddress(addressId).take(1).listen((response) {
+      response.fold((error) {
+        Get.defaultDialog(title: 'Error', middleText: error.message);
+      }, (result) {
+        addresses.value = result;
+        updateUIState(AddressUIState.list);
+      });
+    });
+  }
+
+  Map<String, dynamic> getAddressMap() {
+    var addressFormValue = addressFormGroup.value.value;
+    // final address = Address.fromMap(addressValue);
+
+    var keys = addressFormValue.keys;
+
+    Map<String, dynamic> addressMap = {};
+
+    keys.forEach((element) {
+      addressMap = {...addressMap, ...addressFormValue[element]};
+    });
+    return addressMap;
+  }
+
   updateAddress() {
-    var addressValue = addressFormGroup.value.value;
-    var address = Address.fromMap(addressValue);
+    Map<String, dynamic> addressMap = getAddressMap();
+
+    var address = Address.fromMap(addressMap);
 
     _repository.updateAddress(address).take(1).listen((response) {
       response.fold((error) {

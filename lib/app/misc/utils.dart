@@ -4,10 +4,11 @@ import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 
 onFailure(Failure failure) {
   Get.defaultDialog(
-      barrierDismissible: true,
-      title: 'Error',
-      middleText: failure.message,
-      cancel: UIHelper.buildDialogButton('OKAY'));
+    barrierDismissible: true,
+    title: 'Error',
+    middleText: failure.message,
+    cancel: UIHelper.buildDialogButton('OKAY'),
+  );
 }
 
 getNotNullString(String string) {

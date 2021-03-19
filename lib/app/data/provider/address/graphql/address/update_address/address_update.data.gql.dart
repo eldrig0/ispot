@@ -20,7 +20,7 @@ abstract class GaddressUpdateData
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GaddressUpdateData_addressUpdate get addressUpdate;
+  GaddressUpdateData_accountAddressUpdate get accountAddressUpdate;
   static Serializer<GaddressUpdateData> get serializer =>
       _$gaddressUpdateDataSerializer;
   Map<String, dynamic> toJson() =>
@@ -29,71 +29,75 @@ abstract class GaddressUpdateData
       _i1.serializers.deserializeWith(GaddressUpdateData.serializer, json);
 }
 
-abstract class GaddressUpdateData_addressUpdate
+abstract class GaddressUpdateData_accountAddressUpdate
     implements
-        Built<GaddressUpdateData_addressUpdate,
-            GaddressUpdateData_addressUpdateBuilder> {
-  GaddressUpdateData_addressUpdate._();
+        Built<GaddressUpdateData_accountAddressUpdate,
+            GaddressUpdateData_accountAddressUpdateBuilder> {
+  GaddressUpdateData_accountAddressUpdate._();
 
-  factory GaddressUpdateData_addressUpdate(
-          [Function(GaddressUpdateData_addressUpdateBuilder b) updates]) =
-      _$GaddressUpdateData_addressUpdate;
+  factory GaddressUpdateData_accountAddressUpdate(
+      [Function(GaddressUpdateData_accountAddressUpdateBuilder b)
+          updates]) = _$GaddressUpdateData_accountAddressUpdate;
 
-  static void _initializeBuilder(GaddressUpdateData_addressUpdateBuilder b) =>
-      b..G__typename = 'AddressUpdate';
+  static void _initializeBuilder(
+          GaddressUpdateData_accountAddressUpdateBuilder b) =>
+      b..G__typename = 'AccountAddressUpdate';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  GaddressUpdateData_addressUpdate_user get user;
-  BuiltList<GaddressUpdateData_addressUpdate_accountErrors> get accountErrors;
-  static Serializer<GaddressUpdateData_addressUpdate> get serializer =>
-      _$gaddressUpdateDataAddressUpdateSerializer;
+  GaddressUpdateData_accountAddressUpdate_user get user;
+  BuiltList<GaddressUpdateData_accountAddressUpdate_accountErrors>
+      get accountErrors;
+  static Serializer<GaddressUpdateData_accountAddressUpdate> get serializer =>
+      _$gaddressUpdateDataAccountAddressUpdateSerializer;
   Map<String, dynamic> toJson() => _i1.serializers
-      .serializeWith(GaddressUpdateData_addressUpdate.serializer, this);
-  static GaddressUpdateData_addressUpdate fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
-          .deserializeWith(GaddressUpdateData_addressUpdate.serializer, json);
+      .serializeWith(GaddressUpdateData_accountAddressUpdate.serializer, this);
+  static GaddressUpdateData_accountAddressUpdate fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GaddressUpdateData_accountAddressUpdate.serializer, json);
 }
 
-abstract class GaddressUpdateData_addressUpdate_user
+abstract class GaddressUpdateData_accountAddressUpdate_user
     implements
-        Built<GaddressUpdateData_addressUpdate_user,
-            GaddressUpdateData_addressUpdate_userBuilder> {
-  GaddressUpdateData_addressUpdate_user._();
+        Built<GaddressUpdateData_accountAddressUpdate_user,
+            GaddressUpdateData_accountAddressUpdate_userBuilder> {
+  GaddressUpdateData_accountAddressUpdate_user._();
 
-  factory GaddressUpdateData_addressUpdate_user(
-          [Function(GaddressUpdateData_addressUpdate_userBuilder b) updates]) =
-      _$GaddressUpdateData_addressUpdate_user;
+  factory GaddressUpdateData_accountAddressUpdate_user(
+      [Function(GaddressUpdateData_accountAddressUpdate_userBuilder b)
+          updates]) = _$GaddressUpdateData_accountAddressUpdate_user;
 
   static void _initializeBuilder(
-          GaddressUpdateData_addressUpdate_userBuilder b) =>
+          GaddressUpdateData_accountAddressUpdate_userBuilder b) =>
       b..G__typename = 'User';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @nullable
-  BuiltList<GaddressUpdateData_addressUpdate_user_addresses> get addresses;
-  static Serializer<GaddressUpdateData_addressUpdate_user> get serializer =>
-      _$gaddressUpdateDataAddressUpdateUserSerializer;
-  Map<String, dynamic> toJson() => _i1.serializers
-      .serializeWith(GaddressUpdateData_addressUpdate_user.serializer, this);
-  static GaddressUpdateData_addressUpdate_user fromJson(
+  BuiltList<GaddressUpdateData_accountAddressUpdate_user_addresses>
+      get addresses;
+  static Serializer<GaddressUpdateData_accountAddressUpdate_user>
+      get serializer => _$gaddressUpdateDataAccountAddressUpdateUserSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GaddressUpdateData_accountAddressUpdate_user.serializer, this);
+  static GaddressUpdateData_accountAddressUpdate_user fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-          GaddressUpdateData_addressUpdate_user.serializer, json);
+          GaddressUpdateData_accountAddressUpdate_user.serializer, json);
 }
 
-abstract class GaddressUpdateData_addressUpdate_user_addresses
+abstract class GaddressUpdateData_accountAddressUpdate_user_addresses
     implements
-        Built<GaddressUpdateData_addressUpdate_user_addresses,
-            GaddressUpdateData_addressUpdate_user_addressesBuilder> {
-  GaddressUpdateData_addressUpdate_user_addresses._();
+        Built<GaddressUpdateData_accountAddressUpdate_user_addresses,
+            GaddressUpdateData_accountAddressUpdate_user_addressesBuilder> {
+  GaddressUpdateData_accountAddressUpdate_user_addresses._();
 
-  factory GaddressUpdateData_addressUpdate_user_addresses(
-      [Function(GaddressUpdateData_addressUpdate_user_addressesBuilder b)
-          updates]) = _$GaddressUpdateData_addressUpdate_user_addresses;
+  factory GaddressUpdateData_accountAddressUpdate_user_addresses(
+      [Function(GaddressUpdateData_accountAddressUpdate_user_addressesBuilder b)
+          updates]) = _$GaddressUpdateData_accountAddressUpdate_user_addresses;
 
   static void _initializeBuilder(
-          GaddressUpdateData_addressUpdate_user_addressesBuilder b) =>
+          GaddressUpdateData_accountAddressUpdate_user_addressesBuilder b) =>
       b..G__typename = 'Address';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
@@ -105,7 +109,7 @@ abstract class GaddressUpdateData_addressUpdate_user_addresses
   String get streetAddress2;
   String get city;
   String get postalCode;
-  GaddressUpdateData_addressUpdate_user_addresses_country get country;
+  GaddressUpdateData_accountAddressUpdate_user_addresses_country get country;
   String get countryArea;
   @nullable
   String get phone;
@@ -113,59 +117,65 @@ abstract class GaddressUpdateData_addressUpdate_user_addresses
   bool get isDefaultBillingAddress;
   @nullable
   bool get isDefaultShippingAddress;
-  static Serializer<GaddressUpdateData_addressUpdate_user_addresses>
+  static Serializer<GaddressUpdateData_accountAddressUpdate_user_addresses>
       get serializer =>
-          _$gaddressUpdateDataAddressUpdateUserAddressesSerializer;
+          _$gaddressUpdateDataAccountAddressUpdateUserAddressesSerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GaddressUpdateData_addressUpdate_user_addresses.serializer, this);
-  static GaddressUpdateData_addressUpdate_user_addresses fromJson(
+      GaddressUpdateData_accountAddressUpdate_user_addresses.serializer, this);
+  static GaddressUpdateData_accountAddressUpdate_user_addresses fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-          GaddressUpdateData_addressUpdate_user_addresses.serializer, json);
+          GaddressUpdateData_accountAddressUpdate_user_addresses.serializer,
+          json);
 }
 
-abstract class GaddressUpdateData_addressUpdate_user_addresses_country
+abstract class GaddressUpdateData_accountAddressUpdate_user_addresses_country
     implements
-        Built<GaddressUpdateData_addressUpdate_user_addresses_country,
-            GaddressUpdateData_addressUpdate_user_addresses_countryBuilder> {
-  GaddressUpdateData_addressUpdate_user_addresses_country._();
+        Built<GaddressUpdateData_accountAddressUpdate_user_addresses_country,
+            GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder> {
+  GaddressUpdateData_accountAddressUpdate_user_addresses_country._();
 
-  factory GaddressUpdateData_addressUpdate_user_addresses_country(
-      [Function(
-              GaddressUpdateData_addressUpdate_user_addresses_countryBuilder b)
-          updates]) = _$GaddressUpdateData_addressUpdate_user_addresses_country;
+  factory GaddressUpdateData_accountAddressUpdate_user_addresses_country(
+          [Function(
+                  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+                      b)
+              updates]) =
+      _$GaddressUpdateData_accountAddressUpdate_user_addresses_country;
 
   static void _initializeBuilder(
-          GaddressUpdateData_addressUpdate_user_addresses_countryBuilder b) =>
+          GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+              b) =>
       b..G__typename = 'CountryDisplay';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get code;
   String get country;
-  static Serializer<GaddressUpdateData_addressUpdate_user_addresses_country>
+  static Serializer<
+          GaddressUpdateData_accountAddressUpdate_user_addresses_country>
       get serializer =>
-          _$gaddressUpdateDataAddressUpdateUserAddressesCountrySerializer;
+          _$gaddressUpdateDataAccountAddressUpdateUserAddressesCountrySerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GaddressUpdateData_addressUpdate_user_addresses_country.serializer, this);
-  static GaddressUpdateData_addressUpdate_user_addresses_country fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GaddressUpdateData_addressUpdate_user_addresses_country.serializer,
+      GaddressUpdateData_accountAddressUpdate_user_addresses_country.serializer,
+      this);
+  static GaddressUpdateData_accountAddressUpdate_user_addresses_country
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GaddressUpdateData_accountAddressUpdate_user_addresses_country
+              .serializer,
           json);
 }
 
-abstract class GaddressUpdateData_addressUpdate_accountErrors
+abstract class GaddressUpdateData_accountAddressUpdate_accountErrors
     implements
-        Built<GaddressUpdateData_addressUpdate_accountErrors,
-            GaddressUpdateData_addressUpdate_accountErrorsBuilder> {
-  GaddressUpdateData_addressUpdate_accountErrors._();
+        Built<GaddressUpdateData_accountAddressUpdate_accountErrors,
+            GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder> {
+  GaddressUpdateData_accountAddressUpdate_accountErrors._();
 
-  factory GaddressUpdateData_addressUpdate_accountErrors(
-      [Function(GaddressUpdateData_addressUpdate_accountErrorsBuilder b)
-          updates]) = _$GaddressUpdateData_addressUpdate_accountErrors;
+  factory GaddressUpdateData_accountAddressUpdate_accountErrors(
+      [Function(GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder b)
+          updates]) = _$GaddressUpdateData_accountAddressUpdate_accountErrors;
 
   static void _initializeBuilder(
-          GaddressUpdateData_addressUpdate_accountErrorsBuilder b) =>
+          GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder b) =>
       b..G__typename = 'AccountError';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
@@ -174,13 +184,14 @@ abstract class GaddressUpdateData_addressUpdate_accountErrors
   @nullable
   String get message;
   _i2.GAccountErrorCode get code;
-  static Serializer<GaddressUpdateData_addressUpdate_accountErrors>
+  static Serializer<GaddressUpdateData_accountAddressUpdate_accountErrors>
       get serializer =>
-          _$gaddressUpdateDataAddressUpdateAccountErrorsSerializer;
+          _$gaddressUpdateDataAccountAddressUpdateAccountErrorsSerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GaddressUpdateData_addressUpdate_accountErrors.serializer, this);
-  static GaddressUpdateData_addressUpdate_accountErrors fromJson(
+      GaddressUpdateData_accountAddressUpdate_accountErrors.serializer, this);
+  static GaddressUpdateData_accountAddressUpdate_accountErrors fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-          GaddressUpdateData_addressUpdate_accountErrors.serializer, json);
+          GaddressUpdateData_accountAddressUpdate_accountErrors.serializer,
+          json);
 }

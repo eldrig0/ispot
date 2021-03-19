@@ -8,11 +8,19 @@ class AddressRepository {
 
   AddressRepository(this._provider);
 
+  Stream<Either<Failure, List<Address>>> getAddress() {
+    return _provider.getAddress();
+  }
+
   Stream<Either<Failure, List<Address>>> createAddress({Address address}) {
     return _provider.createAddress(address: address);
   }
 
   Stream<Either<Failure, List<Address>>> updateAddress(Address address) {
     return _provider.updateAddress(address: address);
+  }
+
+  Stream<Either<Failure, List<Address>>> deleteAddress(String addressId) {
+    return _provider.deleteAddress(addressId);
   }
 }

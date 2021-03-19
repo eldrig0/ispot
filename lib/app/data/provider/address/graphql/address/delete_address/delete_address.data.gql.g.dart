@@ -1,59 +1,59 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'address_update.data.gql.dart';
+part of 'delete_address.data.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GaddressUpdateData> _$gaddressUpdateDataSerializer =
-    new _$GaddressUpdateDataSerializer();
-Serializer<GaddressUpdateData_accountAddressUpdate>
-    _$gaddressUpdateDataAccountAddressUpdateSerializer =
-    new _$GaddressUpdateData_accountAddressUpdateSerializer();
-Serializer<GaddressUpdateData_accountAddressUpdate_user>
-    _$gaddressUpdateDataAccountAddressUpdateUserSerializer =
-    new _$GaddressUpdateData_accountAddressUpdate_userSerializer();
-Serializer<GaddressUpdateData_accountAddressUpdate_user_addresses>
-    _$gaddressUpdateDataAccountAddressUpdateUserAddressesSerializer =
-    new _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer();
-Serializer<GaddressUpdateData_accountAddressUpdate_user_addresses_country>
-    _$gaddressUpdateDataAccountAddressUpdateUserAddressesCountrySerializer =
-    new _$GaddressUpdateData_accountAddressUpdate_user_addresses_countrySerializer();
-Serializer<GaddressUpdateData_accountAddressUpdate_accountErrors>
-    _$gaddressUpdateDataAccountAddressUpdateAccountErrorsSerializer =
-    new _$GaddressUpdateData_accountAddressUpdate_accountErrorsSerializer();
+Serializer<GaddressDeleteData> _$gaddressDeleteDataSerializer =
+    new _$GaddressDeleteDataSerializer();
+Serializer<GaddressDeleteData_accountAddressDelete>
+    _$gaddressDeleteDataAccountAddressDeleteSerializer =
+    new _$GaddressDeleteData_accountAddressDeleteSerializer();
+Serializer<GaddressDeleteData_accountAddressDelete_user>
+    _$gaddressDeleteDataAccountAddressDeleteUserSerializer =
+    new _$GaddressDeleteData_accountAddressDelete_userSerializer();
+Serializer<GaddressDeleteData_accountAddressDelete_user_addresses>
+    _$gaddressDeleteDataAccountAddressDeleteUserAddressesSerializer =
+    new _$GaddressDeleteData_accountAddressDelete_user_addressesSerializer();
+Serializer<GaddressDeleteData_accountAddressDelete_user_addresses_country>
+    _$gaddressDeleteDataAccountAddressDeleteUserAddressesCountrySerializer =
+    new _$GaddressDeleteData_accountAddressDelete_user_addresses_countrySerializer();
+Serializer<GaddressDeleteData_accountAddressDelete_accountErrors>
+    _$gaddressDeleteDataAccountAddressDeleteAccountErrorsSerializer =
+    new _$GaddressDeleteData_accountAddressDelete_accountErrorsSerializer();
 
-class _$GaddressUpdateDataSerializer
-    implements StructuredSerializer<GaddressUpdateData> {
+class _$GaddressDeleteDataSerializer
+    implements StructuredSerializer<GaddressDeleteData> {
   @override
-  final Iterable<Type> types = const [GaddressUpdateData, _$GaddressUpdateData];
+  final Iterable<Type> types = const [GaddressDeleteData, _$GaddressDeleteData];
   @override
-  final String wireName = 'GaddressUpdateData';
+  final String wireName = 'GaddressDeleteData';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, GaddressUpdateData object,
+  Iterable<Object> serialize(Serializers serializers, GaddressDeleteData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
     ];
-    if (object.accountAddressUpdate != null) {
+    if (object.accountAddressDelete != null) {
       result
-        ..add('accountAddressUpdate')
-        ..add(serializers.serialize(object.accountAddressUpdate,
+        ..add('accountAddressDelete')
+        ..add(serializers.serialize(object.accountAddressDelete,
             specifiedType:
-                const FullType(GaddressUpdateData_accountAddressUpdate)));
+                const FullType(GaddressDeleteData_accountAddressDelete)));
     }
     return result;
   }
 
   @override
-  GaddressUpdateData deserialize(
+  GaddressDeleteData deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressUpdateDataBuilder();
+    final result = new GaddressDeleteDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -65,11 +65,11 @@ class _$GaddressUpdateDataSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'accountAddressUpdate':
-          result.accountAddressUpdate.replace(serializers.deserialize(value,
+        case 'accountAddressDelete':
+          result.accountAddressDelete.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(GaddressUpdateData_accountAddressUpdate))
-              as GaddressUpdateData_accountAddressUpdate);
+                      const FullType(GaddressDeleteData_accountAddressDelete))
+              as GaddressDeleteData_accountAddressDelete);
           break;
       }
     }
@@ -78,19 +78,19 @@ class _$GaddressUpdateDataSerializer
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdateSerializer
-    implements StructuredSerializer<GaddressUpdateData_accountAddressUpdate> {
+class _$GaddressDeleteData_accountAddressDeleteSerializer
+    implements StructuredSerializer<GaddressDeleteData_accountAddressDelete> {
   @override
   final Iterable<Type> types = const [
-    GaddressUpdateData_accountAddressUpdate,
-    _$GaddressUpdateData_accountAddressUpdate
+    GaddressDeleteData_accountAddressDelete,
+    _$GaddressDeleteData_accountAddressDelete
   ];
   @override
-  final String wireName = 'GaddressUpdateData_accountAddressUpdate';
+  final String wireName = 'GaddressDeleteData_accountAddressDelete';
 
   @override
   Iterable<Object> serialize(
-      Serializers serializers, GaddressUpdateData_accountAddressUpdate object,
+      Serializers serializers, GaddressDeleteData_accountAddressDelete object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -100,7 +100,7 @@ class _$GaddressUpdateData_accountAddressUpdateSerializer
       serializers.serialize(object.accountErrors,
           specifiedType: const FullType(BuiltList, const [
             const FullType(
-                GaddressUpdateData_accountAddressUpdate_accountErrors)
+                GaddressDeleteData_accountAddressDelete_accountErrors)
           ])),
     ];
     if (object.user != null) {
@@ -108,16 +108,16 @@ class _$GaddressUpdateData_accountAddressUpdateSerializer
         ..add('user')
         ..add(serializers.serialize(object.user,
             specifiedType:
-                const FullType(GaddressUpdateData_accountAddressUpdate_user)));
+                const FullType(GaddressDeleteData_accountAddressDelete_user)));
     }
     return result;
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate deserialize(
+  GaddressDeleteData_accountAddressDelete deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressUpdateData_accountAddressUpdateBuilder();
+    final result = new GaddressDeleteData_accountAddressDeleteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -132,14 +132,14 @@ class _$GaddressUpdateData_accountAddressUpdateSerializer
         case 'user':
           result.user.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      GaddressUpdateData_accountAddressUpdate_user))
-              as GaddressUpdateData_accountAddressUpdate_user);
+                      GaddressDeleteData_accountAddressDelete_user))
+              as GaddressDeleteData_accountAddressDelete_user);
           break;
         case 'accountErrors':
           result.accountErrors.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(
-                    GaddressUpdateData_accountAddressUpdate_accountErrors)
+                    GaddressDeleteData_accountAddressDelete_accountErrors)
               ])) as BuiltList<Object>);
           break;
       }
@@ -149,20 +149,20 @@ class _$GaddressUpdateData_accountAddressUpdateSerializer
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_userSerializer
+class _$GaddressDeleteData_accountAddressDelete_userSerializer
     implements
-        StructuredSerializer<GaddressUpdateData_accountAddressUpdate_user> {
+        StructuredSerializer<GaddressDeleteData_accountAddressDelete_user> {
   @override
   final Iterable<Type> types = const [
-    GaddressUpdateData_accountAddressUpdate_user,
-    _$GaddressUpdateData_accountAddressUpdate_user
+    GaddressDeleteData_accountAddressDelete_user,
+    _$GaddressDeleteData_accountAddressDelete_user
   ];
   @override
-  final String wireName = 'GaddressUpdateData_accountAddressUpdate_user';
+  final String wireName = 'GaddressDeleteData_accountAddressDelete_user';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GaddressUpdateData_accountAddressUpdate_user object,
+      GaddressDeleteData_accountAddressDelete_user object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -175,17 +175,17 @@ class _$GaddressUpdateData_accountAddressUpdate_userSerializer
         ..add(serializers.serialize(object.addresses,
             specifiedType: const FullType(BuiltList, const [
               const FullType(
-                  GaddressUpdateData_accountAddressUpdate_user_addresses)
+                  GaddressDeleteData_accountAddressDelete_user_addresses)
             ])));
     }
     return result;
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user deserialize(
+  GaddressDeleteData_accountAddressDelete_user deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GaddressUpdateData_accountAddressUpdate_userBuilder();
+    final result = new GaddressDeleteData_accountAddressDelete_userBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -201,7 +201,7 @@ class _$GaddressUpdateData_accountAddressUpdate_userSerializer
           result.addresses.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(
-                    GaddressUpdateData_accountAddressUpdate_user_addresses)
+                    GaddressDeleteData_accountAddressDelete_user_addresses)
               ])) as BuiltList<Object>);
           break;
       }
@@ -211,22 +211,22 @@ class _$GaddressUpdateData_accountAddressUpdate_userSerializer
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer
+class _$GaddressDeleteData_accountAddressDelete_user_addressesSerializer
     implements
         StructuredSerializer<
-            GaddressUpdateData_accountAddressUpdate_user_addresses> {
+            GaddressDeleteData_accountAddressDelete_user_addresses> {
   @override
   final Iterable<Type> types = const [
-    GaddressUpdateData_accountAddressUpdate_user_addresses,
-    _$GaddressUpdateData_accountAddressUpdate_user_addresses
+    GaddressDeleteData_accountAddressDelete_user_addresses,
+    _$GaddressDeleteData_accountAddressDelete_user_addresses
   ];
   @override
   final String wireName =
-      'GaddressUpdateData_accountAddressUpdate_user_addresses';
+      'GaddressDeleteData_accountAddressDelete_user_addresses';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GaddressUpdateData_accountAddressUpdate_user_addresses object,
+      GaddressDeleteData_accountAddressDelete_user_addresses object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -257,7 +257,7 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer
       'country',
       serializers.serialize(object.country,
           specifiedType: const FullType(
-              GaddressUpdateData_accountAddressUpdate_user_addresses_country)),
+              GaddressDeleteData_accountAddressDelete_user_addresses_country)),
       'countryArea',
       serializers.serialize(object.countryArea,
           specifiedType: const FullType(String)),
@@ -284,11 +284,11 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addresses deserialize(
+  GaddressDeleteData_accountAddressDelete_user_addresses deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GaddressUpdateData_accountAddressUpdate_user_addressesBuilder();
+        new GaddressDeleteData_accountAddressDelete_user_addressesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -335,8 +335,8 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer
         case 'country':
           result.country.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      GaddressUpdateData_accountAddressUpdate_user_addresses_country))
-              as GaddressUpdateData_accountAddressUpdate_user_addresses_country);
+                      GaddressDeleteData_accountAddressDelete_user_addresses_country))
+              as GaddressDeleteData_accountAddressDelete_user_addresses_country);
           break;
         case 'countryArea':
           result.countryArea = serializers.deserialize(value,
@@ -361,22 +361,22 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addressesSerializer
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_user_addresses_countrySerializer
+class _$GaddressDeleteData_accountAddressDelete_user_addresses_countrySerializer
     implements
         StructuredSerializer<
-            GaddressUpdateData_accountAddressUpdate_user_addresses_country> {
+            GaddressDeleteData_accountAddressDelete_user_addresses_country> {
   @override
   final Iterable<Type> types = const [
-    GaddressUpdateData_accountAddressUpdate_user_addresses_country,
-    _$GaddressUpdateData_accountAddressUpdate_user_addresses_country
+    GaddressDeleteData_accountAddressDelete_user_addresses_country,
+    _$GaddressDeleteData_accountAddressDelete_user_addresses_country
   ];
   @override
   final String wireName =
-      'GaddressUpdateData_accountAddressUpdate_user_addresses_country';
+      'GaddressDeleteData_accountAddressDelete_user_addresses_country';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GaddressUpdateData_accountAddressUpdate_user_addresses_country object,
+      GaddressDeleteData_accountAddressDelete_user_addresses_country object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -393,11 +393,11 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses_countrySerializer
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addresses_country deserialize(
+  GaddressDeleteData_accountAddressDelete_user_addresses_country deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder();
+        new GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -424,22 +424,22 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses_countrySerializer
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_accountErrorsSerializer
+class _$GaddressDeleteData_accountAddressDelete_accountErrorsSerializer
     implements
         StructuredSerializer<
-            GaddressUpdateData_accountAddressUpdate_accountErrors> {
+            GaddressDeleteData_accountAddressDelete_accountErrors> {
   @override
   final Iterable<Type> types = const [
-    GaddressUpdateData_accountAddressUpdate_accountErrors,
-    _$GaddressUpdateData_accountAddressUpdate_accountErrors
+    GaddressDeleteData_accountAddressDelete_accountErrors,
+    _$GaddressDeleteData_accountAddressDelete_accountErrors
   ];
   @override
   final String wireName =
-      'GaddressUpdateData_accountAddressUpdate_accountErrors';
+      'GaddressDeleteData_accountAddressDelete_accountErrors';
 
   @override
   Iterable<Object> serialize(Serializers serializers,
-      GaddressUpdateData_accountAddressUpdate_accountErrors object,
+      GaddressDeleteData_accountAddressDelete_accountErrors object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       '__typename',
@@ -465,11 +465,11 @@ class _$GaddressUpdateData_accountAddressUpdate_accountErrorsSerializer
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_accountErrors deserialize(
+  GaddressDeleteData_accountAddressDelete_accountErrors deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder();
+        new GaddressDeleteData_accountAddressDelete_accountErrorsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -501,114 +501,114 @@ class _$GaddressUpdateData_accountAddressUpdate_accountErrorsSerializer
   }
 }
 
-class _$GaddressUpdateData extends GaddressUpdateData {
+class _$GaddressDeleteData extends GaddressDeleteData {
   @override
   final String G__typename;
   @override
-  final GaddressUpdateData_accountAddressUpdate accountAddressUpdate;
+  final GaddressDeleteData_accountAddressDelete accountAddressDelete;
 
-  factory _$GaddressUpdateData(
-          [void Function(GaddressUpdateDataBuilder) updates]) =>
-      (new GaddressUpdateDataBuilder()..update(updates)).build();
+  factory _$GaddressDeleteData(
+          [void Function(GaddressDeleteDataBuilder) updates]) =>
+      (new GaddressDeleteDataBuilder()..update(updates)).build();
 
-  _$GaddressUpdateData._({this.G__typename, this.accountAddressUpdate})
+  _$GaddressDeleteData._({this.G__typename, this.accountAddressDelete})
       : super._() {
     if (G__typename == null) {
-      throw new BuiltValueNullFieldError('GaddressUpdateData', 'G__typename');
+      throw new BuiltValueNullFieldError('GaddressDeleteData', 'G__typename');
     }
   }
 
   @override
-  GaddressUpdateData rebuild(
-          void Function(GaddressUpdateDataBuilder) updates) =>
+  GaddressDeleteData rebuild(
+          void Function(GaddressDeleteDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateDataBuilder toBuilder() =>
-      new GaddressUpdateDataBuilder()..replace(this);
+  GaddressDeleteDataBuilder toBuilder() =>
+      new GaddressDeleteDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressUpdateData &&
+    return other is GaddressDeleteData &&
         G__typename == other.G__typename &&
-        accountAddressUpdate == other.accountAddressUpdate;
+        accountAddressDelete == other.accountAddressDelete;
   }
 
   @override
   int get hashCode {
     return $jf(
-        $jc($jc(0, G__typename.hashCode), accountAddressUpdate.hashCode));
+        $jc($jc(0, G__typename.hashCode), accountAddressDelete.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GaddressUpdateData')
+    return (newBuiltValueToStringHelper('GaddressDeleteData')
           ..add('G__typename', G__typename)
-          ..add('accountAddressUpdate', accountAddressUpdate))
+          ..add('accountAddressDelete', accountAddressDelete))
         .toString();
   }
 }
 
-class GaddressUpdateDataBuilder
-    implements Builder<GaddressUpdateData, GaddressUpdateDataBuilder> {
-  _$GaddressUpdateData _$v;
+class GaddressDeleteDataBuilder
+    implements Builder<GaddressDeleteData, GaddressDeleteDataBuilder> {
+  _$GaddressDeleteData _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GaddressUpdateData_accountAddressUpdateBuilder _accountAddressUpdate;
-  GaddressUpdateData_accountAddressUpdateBuilder get accountAddressUpdate =>
-      _$this._accountAddressUpdate ??=
-          new GaddressUpdateData_accountAddressUpdateBuilder();
-  set accountAddressUpdate(
-          GaddressUpdateData_accountAddressUpdateBuilder
-              accountAddressUpdate) =>
-      _$this._accountAddressUpdate = accountAddressUpdate;
+  GaddressDeleteData_accountAddressDeleteBuilder _accountAddressDelete;
+  GaddressDeleteData_accountAddressDeleteBuilder get accountAddressDelete =>
+      _$this._accountAddressDelete ??=
+          new GaddressDeleteData_accountAddressDeleteBuilder();
+  set accountAddressDelete(
+          GaddressDeleteData_accountAddressDeleteBuilder
+              accountAddressDelete) =>
+      _$this._accountAddressDelete = accountAddressDelete;
 
-  GaddressUpdateDataBuilder() {
-    GaddressUpdateData._initializeBuilder(this);
+  GaddressDeleteDataBuilder() {
+    GaddressDeleteData._initializeBuilder(this);
   }
 
-  GaddressUpdateDataBuilder get _$this {
+  GaddressDeleteDataBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
-      _accountAddressUpdate = _$v.accountAddressUpdate?.toBuilder();
+      _accountAddressDelete = _$v.accountAddressDelete?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GaddressUpdateData other) {
+  void replace(GaddressDeleteData other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressUpdateData;
+    _$v = other as _$GaddressDeleteData;
   }
 
   @override
-  void update(void Function(GaddressUpdateDataBuilder) updates) {
+  void update(void Function(GaddressDeleteDataBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData build() {
-    _$GaddressUpdateData _$result;
+  _$GaddressDeleteData build() {
+    _$GaddressDeleteData _$result;
     try {
       _$result = _$v ??
-          new _$GaddressUpdateData._(
+          new _$GaddressDeleteData._(
               G__typename: G__typename,
-              accountAddressUpdate: _accountAddressUpdate?.build());
+              accountAddressDelete: _accountAddressDelete?.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'accountAddressUpdate';
-        _accountAddressUpdate?.build();
+        _$failedField = 'accountAddressDelete';
+        _accountAddressDelete?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressUpdateData', _$failedField, e.toString());
+            'GaddressDeleteData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -617,49 +617,49 @@ class GaddressUpdateDataBuilder
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate
-    extends GaddressUpdateData_accountAddressUpdate {
+class _$GaddressDeleteData_accountAddressDelete
+    extends GaddressDeleteData_accountAddressDelete {
   @override
   final String G__typename;
   @override
-  final GaddressUpdateData_accountAddressUpdate_user user;
+  final GaddressDeleteData_accountAddressDelete_user user;
   @override
-  final BuiltList<GaddressUpdateData_accountAddressUpdate_accountErrors>
+  final BuiltList<GaddressDeleteData_accountAddressDelete_accountErrors>
       accountErrors;
 
-  factory _$GaddressUpdateData_accountAddressUpdate(
-          [void Function(GaddressUpdateData_accountAddressUpdateBuilder)
+  factory _$GaddressDeleteData_accountAddressDelete(
+          [void Function(GaddressDeleteData_accountAddressDeleteBuilder)
               updates]) =>
-      (new GaddressUpdateData_accountAddressUpdateBuilder()..update(updates))
+      (new GaddressDeleteData_accountAddressDeleteBuilder()..update(updates))
           .build();
 
-  _$GaddressUpdateData_accountAddressUpdate._(
+  _$GaddressDeleteData_accountAddressDelete._(
       {this.G__typename, this.user, this.accountErrors})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate', 'G__typename');
+          'GaddressDeleteData_accountAddressDelete', 'G__typename');
     }
     if (accountErrors == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate', 'accountErrors');
+          'GaddressDeleteData_accountAddressDelete', 'accountErrors');
     }
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate rebuild(
-          void Function(GaddressUpdateData_accountAddressUpdateBuilder)
+  GaddressDeleteData_accountAddressDelete rebuild(
+          void Function(GaddressDeleteData_accountAddressDeleteBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateData_accountAddressUpdateBuilder toBuilder() =>
-      new GaddressUpdateData_accountAddressUpdateBuilder()..replace(this);
+  GaddressDeleteData_accountAddressDeleteBuilder toBuilder() =>
+      new GaddressDeleteData_accountAddressDeleteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressUpdateData_accountAddressUpdate &&
+    return other is GaddressDeleteData_accountAddressDelete &&
         G__typename == other.G__typename &&
         user == other.user &&
         accountErrors == other.accountErrors;
@@ -674,7 +674,7 @@ class _$GaddressUpdateData_accountAddressUpdate
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressUpdateData_accountAddressUpdate')
+            'GaddressDeleteData_accountAddressDelete')
           ..add('G__typename', G__typename)
           ..add('user', user)
           ..add('accountErrors', accountErrors))
@@ -682,38 +682,38 @@ class _$GaddressUpdateData_accountAddressUpdate
   }
 }
 
-class GaddressUpdateData_accountAddressUpdateBuilder
+class GaddressDeleteData_accountAddressDeleteBuilder
     implements
-        Builder<GaddressUpdateData_accountAddressUpdate,
-            GaddressUpdateData_accountAddressUpdateBuilder> {
-  _$GaddressUpdateData_accountAddressUpdate _$v;
+        Builder<GaddressDeleteData_accountAddressDelete,
+            GaddressDeleteData_accountAddressDeleteBuilder> {
+  _$GaddressDeleteData_accountAddressDelete _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  GaddressUpdateData_accountAddressUpdate_userBuilder _user;
-  GaddressUpdateData_accountAddressUpdate_userBuilder get user =>
+  GaddressDeleteData_accountAddressDelete_userBuilder _user;
+  GaddressDeleteData_accountAddressDelete_userBuilder get user =>
       _$this._user ??=
-          new GaddressUpdateData_accountAddressUpdate_userBuilder();
-  set user(GaddressUpdateData_accountAddressUpdate_userBuilder user) =>
+          new GaddressDeleteData_accountAddressDelete_userBuilder();
+  set user(GaddressDeleteData_accountAddressDelete_userBuilder user) =>
       _$this._user = user;
 
-  ListBuilder<GaddressUpdateData_accountAddressUpdate_accountErrors>
+  ListBuilder<GaddressDeleteData_accountAddressDelete_accountErrors>
       _accountErrors;
-  ListBuilder<GaddressUpdateData_accountAddressUpdate_accountErrors>
+  ListBuilder<GaddressDeleteData_accountAddressDelete_accountErrors>
       get accountErrors => _$this._accountErrors ??= new ListBuilder<
-          GaddressUpdateData_accountAddressUpdate_accountErrors>();
+          GaddressDeleteData_accountAddressDelete_accountErrors>();
   set accountErrors(
-          ListBuilder<GaddressUpdateData_accountAddressUpdate_accountErrors>
+          ListBuilder<GaddressDeleteData_accountAddressDelete_accountErrors>
               accountErrors) =>
       _$this._accountErrors = accountErrors;
 
-  GaddressUpdateData_accountAddressUpdateBuilder() {
-    GaddressUpdateData_accountAddressUpdate._initializeBuilder(this);
+  GaddressDeleteData_accountAddressDeleteBuilder() {
+    GaddressDeleteData_accountAddressDelete._initializeBuilder(this);
   }
 
-  GaddressUpdateData_accountAddressUpdateBuilder get _$this {
+  GaddressDeleteData_accountAddressDeleteBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _user = _$v.user?.toBuilder();
@@ -724,25 +724,25 @@ class GaddressUpdateData_accountAddressUpdateBuilder
   }
 
   @override
-  void replace(GaddressUpdateData_accountAddressUpdate other) {
+  void replace(GaddressDeleteData_accountAddressDelete other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressUpdateData_accountAddressUpdate;
+    _$v = other as _$GaddressDeleteData_accountAddressDelete;
   }
 
   @override
   void update(
-      void Function(GaddressUpdateData_accountAddressUpdateBuilder) updates) {
+      void Function(GaddressDeleteData_accountAddressDeleteBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData_accountAddressUpdate build() {
-    _$GaddressUpdateData_accountAddressUpdate _$result;
+  _$GaddressDeleteData_accountAddressDelete build() {
+    _$GaddressDeleteData_accountAddressDelete _$result;
     try {
       _$result = _$v ??
-          new _$GaddressUpdateData_accountAddressUpdate._(
+          new _$GaddressDeleteData_accountAddressDelete._(
               G__typename: G__typename,
               user: _user?.build(),
               accountErrors: accountErrors.build());
@@ -755,7 +755,7 @@ class GaddressUpdateData_accountAddressUpdateBuilder
         accountErrors.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressUpdateData_accountAddressUpdate',
+            'GaddressDeleteData_accountAddressDelete',
             _$failedField,
             e.toString());
       }
@@ -766,44 +766,44 @@ class GaddressUpdateData_accountAddressUpdateBuilder
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_user
-    extends GaddressUpdateData_accountAddressUpdate_user {
+class _$GaddressDeleteData_accountAddressDelete_user
+    extends GaddressDeleteData_accountAddressDelete_user {
   @override
   final String G__typename;
   @override
-  final BuiltList<GaddressUpdateData_accountAddressUpdate_user_addresses>
+  final BuiltList<GaddressDeleteData_accountAddressDelete_user_addresses>
       addresses;
 
-  factory _$GaddressUpdateData_accountAddressUpdate_user(
-          [void Function(GaddressUpdateData_accountAddressUpdate_userBuilder)
+  factory _$GaddressDeleteData_accountAddressDelete_user(
+          [void Function(GaddressDeleteData_accountAddressDelete_userBuilder)
               updates]) =>
-      (new GaddressUpdateData_accountAddressUpdate_userBuilder()
+      (new GaddressDeleteData_accountAddressDelete_userBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressUpdateData_accountAddressUpdate_user._(
+  _$GaddressDeleteData_accountAddressDelete_user._(
       {this.G__typename, this.addresses})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user', 'G__typename');
+          'GaddressDeleteData_accountAddressDelete_user', 'G__typename');
     }
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user rebuild(
-          void Function(GaddressUpdateData_accountAddressUpdate_userBuilder)
+  GaddressDeleteData_accountAddressDelete_user rebuild(
+          void Function(GaddressDeleteData_accountAddressDelete_userBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateData_accountAddressUpdate_userBuilder toBuilder() =>
-      new GaddressUpdateData_accountAddressUpdate_userBuilder()..replace(this);
+  GaddressDeleteData_accountAddressDelete_userBuilder toBuilder() =>
+      new GaddressDeleteData_accountAddressDelete_userBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressUpdateData_accountAddressUpdate_user &&
+    return other is GaddressDeleteData_accountAddressDelete_user &&
         G__typename == other.G__typename &&
         addresses == other.addresses;
   }
@@ -816,38 +816,38 @@ class _$GaddressUpdateData_accountAddressUpdate_user
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressUpdateData_accountAddressUpdate_user')
+            'GaddressDeleteData_accountAddressDelete_user')
           ..add('G__typename', G__typename)
           ..add('addresses', addresses))
         .toString();
   }
 }
 
-class GaddressUpdateData_accountAddressUpdate_userBuilder
+class GaddressDeleteData_accountAddressDelete_userBuilder
     implements
-        Builder<GaddressUpdateData_accountAddressUpdate_user,
-            GaddressUpdateData_accountAddressUpdate_userBuilder> {
-  _$GaddressUpdateData_accountAddressUpdate_user _$v;
+        Builder<GaddressDeleteData_accountAddressDelete_user,
+            GaddressDeleteData_accountAddressDelete_userBuilder> {
+  _$GaddressDeleteData_accountAddressDelete_user _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
 
-  ListBuilder<GaddressUpdateData_accountAddressUpdate_user_addresses>
+  ListBuilder<GaddressDeleteData_accountAddressDelete_user_addresses>
       _addresses;
-  ListBuilder<GaddressUpdateData_accountAddressUpdate_user_addresses>
+  ListBuilder<GaddressDeleteData_accountAddressDelete_user_addresses>
       get addresses => _$this._addresses ??= new ListBuilder<
-          GaddressUpdateData_accountAddressUpdate_user_addresses>();
+          GaddressDeleteData_accountAddressDelete_user_addresses>();
   set addresses(
-          ListBuilder<GaddressUpdateData_accountAddressUpdate_user_addresses>
+          ListBuilder<GaddressDeleteData_accountAddressDelete_user_addresses>
               addresses) =>
       _$this._addresses = addresses;
 
-  GaddressUpdateData_accountAddressUpdate_userBuilder() {
-    GaddressUpdateData_accountAddressUpdate_user._initializeBuilder(this);
+  GaddressDeleteData_accountAddressDelete_userBuilder() {
+    GaddressDeleteData_accountAddressDelete_user._initializeBuilder(this);
   }
 
-  GaddressUpdateData_accountAddressUpdate_userBuilder get _$this {
+  GaddressDeleteData_accountAddressDelete_userBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _addresses = _$v.addresses?.toBuilder();
@@ -857,26 +857,26 @@ class GaddressUpdateData_accountAddressUpdate_userBuilder
   }
 
   @override
-  void replace(GaddressUpdateData_accountAddressUpdate_user other) {
+  void replace(GaddressDeleteData_accountAddressDelete_user other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressUpdateData_accountAddressUpdate_user;
+    _$v = other as _$GaddressDeleteData_accountAddressDelete_user;
   }
 
   @override
   void update(
-      void Function(GaddressUpdateData_accountAddressUpdate_userBuilder)
+      void Function(GaddressDeleteData_accountAddressDelete_userBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData_accountAddressUpdate_user build() {
-    _$GaddressUpdateData_accountAddressUpdate_user _$result;
+  _$GaddressDeleteData_accountAddressDelete_user build() {
+    _$GaddressDeleteData_accountAddressDelete_user _$result;
     try {
       _$result = _$v ??
-          new _$GaddressUpdateData_accountAddressUpdate_user._(
+          new _$GaddressDeleteData_accountAddressDelete_user._(
               G__typename: G__typename, addresses: _addresses?.build());
     } catch (_) {
       String _$failedField;
@@ -885,7 +885,7 @@ class GaddressUpdateData_accountAddressUpdate_userBuilder
         _addresses?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressUpdateData_accountAddressUpdate_user',
+            'GaddressDeleteData_accountAddressDelete_user',
             _$failedField,
             e.toString());
       }
@@ -896,8 +896,8 @@ class GaddressUpdateData_accountAddressUpdate_userBuilder
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_user_addresses
-    extends GaddressUpdateData_accountAddressUpdate_user_addresses {
+class _$GaddressDeleteData_accountAddressDelete_user_addresses
+    extends GaddressDeleteData_accountAddressDelete_user_addresses {
   @override
   final String G__typename;
   @override
@@ -917,7 +917,7 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses
   @override
   final String postalCode;
   @override
-  final GaddressUpdateData_accountAddressUpdate_user_addresses_country country;
+  final GaddressDeleteData_accountAddressDelete_user_addresses_country country;
   @override
   final String countryArea;
   @override
@@ -927,15 +927,15 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses
   @override
   final bool isDefaultShippingAddress;
 
-  factory _$GaddressUpdateData_accountAddressUpdate_user_addresses(
+  factory _$GaddressDeleteData_accountAddressDelete_user_addresses(
           [void Function(
-                  GaddressUpdateData_accountAddressUpdate_user_addressesBuilder)
+                  GaddressDeleteData_accountAddressDelete_user_addressesBuilder)
               updates]) =>
-      (new GaddressUpdateData_accountAddressUpdate_user_addressesBuilder()
+      (new GaddressDeleteData_accountAddressDelete_user_addressesBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses._(
+  _$GaddressDeleteData_accountAddressDelete_user_addresses._(
       {this.G__typename,
       this.id,
       this.firstName,
@@ -953,73 +953,73 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'G__typename');
     }
     if (id == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses', 'id');
+          'GaddressDeleteData_accountAddressDelete_user_addresses', 'id');
     }
     if (firstName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'firstName');
     }
     if (lastName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses', 'lastName');
+          'GaddressDeleteData_accountAddressDelete_user_addresses', 'lastName');
     }
     if (companyName == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'companyName');
     }
     if (streetAddress1 == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'streetAddress1');
     }
     if (streetAddress2 == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'streetAddress2');
     }
     if (city == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses', 'city');
+          'GaddressDeleteData_accountAddressDelete_user_addresses', 'city');
     }
     if (postalCode == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'postalCode');
     }
     if (country == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses', 'country');
+          'GaddressDeleteData_accountAddressDelete_user_addresses', 'country');
     }
     if (countryArea == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses',
+          'GaddressDeleteData_accountAddressDelete_user_addresses',
           'countryArea');
     }
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addresses rebuild(
+  GaddressDeleteData_accountAddressDelete_user_addresses rebuild(
           void Function(
-                  GaddressUpdateData_accountAddressUpdate_user_addressesBuilder)
+                  GaddressDeleteData_accountAddressDelete_user_addressesBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addressesBuilder toBuilder() =>
-      new GaddressUpdateData_accountAddressUpdate_user_addressesBuilder()
+  GaddressDeleteData_accountAddressDelete_user_addressesBuilder toBuilder() =>
+      new GaddressDeleteData_accountAddressDelete_user_addressesBuilder()
         ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressUpdateData_accountAddressUpdate_user_addresses &&
+    return other is GaddressDeleteData_accountAddressDelete_user_addresses &&
         G__typename == other.G__typename &&
         id == other.id &&
         firstName == other.firstName &&
@@ -1073,7 +1073,7 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressUpdateData_accountAddressUpdate_user_addresses')
+            'GaddressDeleteData_accountAddressDelete_user_addresses')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('firstName', firstName)
@@ -1092,11 +1092,11 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses
   }
 }
 
-class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
+class GaddressDeleteData_accountAddressDelete_user_addressesBuilder
     implements
-        Builder<GaddressUpdateData_accountAddressUpdate_user_addresses,
-            GaddressUpdateData_accountAddressUpdate_user_addressesBuilder> {
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses _$v;
+        Builder<GaddressDeleteData_accountAddressDelete_user_addresses,
+            GaddressDeleteData_accountAddressDelete_user_addressesBuilder> {
+  _$GaddressDeleteData_accountAddressDelete_user_addresses _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1136,13 +1136,13 @@ class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
   String get postalCode => _$this._postalCode;
   set postalCode(String postalCode) => _$this._postalCode = postalCode;
 
-  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
       _country;
-  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
       get country => _$this._country ??=
-          new GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder();
+          new GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder();
   set country(
-          GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+          GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
               country) =>
       _$this._country = country;
 
@@ -1164,12 +1164,12 @@ class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
   set isDefaultShippingAddress(bool isDefaultShippingAddress) =>
       _$this._isDefaultShippingAddress = isDefaultShippingAddress;
 
-  GaddressUpdateData_accountAddressUpdate_user_addressesBuilder() {
-    GaddressUpdateData_accountAddressUpdate_user_addresses._initializeBuilder(
+  GaddressDeleteData_accountAddressDelete_user_addressesBuilder() {
+    GaddressDeleteData_accountAddressDelete_user_addresses._initializeBuilder(
         this);
   }
 
-  GaddressUpdateData_accountAddressUpdate_user_addressesBuilder get _$this {
+  GaddressDeleteData_accountAddressDelete_user_addressesBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _id = _$v.id;
@@ -1191,27 +1191,27 @@ class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
   }
 
   @override
-  void replace(GaddressUpdateData_accountAddressUpdate_user_addresses other) {
+  void replace(GaddressDeleteData_accountAddressDelete_user_addresses other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressUpdateData_accountAddressUpdate_user_addresses;
+    _$v = other as _$GaddressDeleteData_accountAddressDelete_user_addresses;
   }
 
   @override
   void update(
       void Function(
-              GaddressUpdateData_accountAddressUpdate_user_addressesBuilder)
+              GaddressDeleteData_accountAddressDelete_user_addressesBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses build() {
-    _$GaddressUpdateData_accountAddressUpdate_user_addresses _$result;
+  _$GaddressDeleteData_accountAddressDelete_user_addresses build() {
+    _$GaddressDeleteData_accountAddressDelete_user_addresses _$result;
     try {
       _$result = _$v ??
-          new _$GaddressUpdateData_accountAddressUpdate_user_addresses._(
+          new _$GaddressDeleteData_accountAddressDelete_user_addresses._(
               G__typename: G__typename,
               id: id,
               firstName: firstName,
@@ -1233,7 +1233,7 @@ class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
         country.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GaddressUpdateData_accountAddressUpdate_user_addresses',
+            'GaddressDeleteData_accountAddressDelete_user_addresses',
             _$failedField,
             e.toString());
       }
@@ -1244,8 +1244,8 @@ class GaddressUpdateData_accountAddressUpdate_user_addressesBuilder
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_user_addresses_country
-    extends GaddressUpdateData_accountAddressUpdate_user_addresses_country {
+class _$GaddressDeleteData_accountAddressDelete_user_addresses_country
+    extends GaddressDeleteData_accountAddressDelete_user_addresses_country {
   @override
   final String G__typename;
   @override
@@ -1253,52 +1253,52 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses_country
   @override
   final String country;
 
-  factory _$GaddressUpdateData_accountAddressUpdate_user_addresses_country(
+  factory _$GaddressDeleteData_accountAddressDelete_user_addresses_country(
           [void Function(
-                  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder)
+                  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder)
               updates]) =>
-      (new GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder()
+      (new GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses_country._(
+  _$GaddressDeleteData_accountAddressDelete_user_addresses_country._(
       {this.G__typename, this.code, this.country})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses_country',
+          'GaddressDeleteData_accountAddressDelete_user_addresses_country',
           'G__typename');
     }
     if (code == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses_country',
+          'GaddressDeleteData_accountAddressDelete_user_addresses_country',
           'code');
     }
     if (country == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_user_addresses_country',
+          'GaddressDeleteData_accountAddressDelete_user_addresses_country',
           'country');
     }
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addresses_country rebuild(
+  GaddressDeleteData_accountAddressDelete_user_addresses_country rebuild(
           void Function(
-                  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder)
+                  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
       toBuilder() =>
-          new GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder()
+          new GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder()
             ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other
-            is GaddressUpdateData_accountAddressUpdate_user_addresses_country &&
+            is GaddressDeleteData_accountAddressDelete_user_addresses_country &&
         G__typename == other.G__typename &&
         code == other.code &&
         country == other.country;
@@ -1313,7 +1313,7 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses_country
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressUpdateData_accountAddressUpdate_user_addresses_country')
+            'GaddressDeleteData_accountAddressDelete_user_addresses_country')
           ..add('G__typename', G__typename)
           ..add('code', code)
           ..add('country', country))
@@ -1321,11 +1321,11 @@ class _$GaddressUpdateData_accountAddressUpdate_user_addresses_country
   }
 }
 
-class GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+class GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
     implements
-        Builder<GaddressUpdateData_accountAddressUpdate_user_addresses_country,
-            GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder> {
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses_country _$v;
+        Builder<GaddressDeleteData_accountAddressDelete_user_addresses_country,
+            GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder> {
+  _$GaddressDeleteData_accountAddressDelete_user_addresses_country _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1339,12 +1339,12 @@ class GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
   String get country => _$this._country;
   set country(String country) => _$this._country = country;
 
-  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder() {
-    GaddressUpdateData_accountAddressUpdate_user_addresses_country
+  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder() {
+    GaddressDeleteData_accountAddressDelete_user_addresses_country
         ._initializeBuilder(this);
   }
 
-  GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
+  GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder
       get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
@@ -1357,34 +1357,34 @@ class GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder
 
   @override
   void replace(
-      GaddressUpdateData_accountAddressUpdate_user_addresses_country other) {
+      GaddressDeleteData_accountAddressDelete_user_addresses_country other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
     _$v = other
-        as _$GaddressUpdateData_accountAddressUpdate_user_addresses_country;
+        as _$GaddressDeleteData_accountAddressDelete_user_addresses_country;
   }
 
   @override
   void update(
       void Function(
-              GaddressUpdateData_accountAddressUpdate_user_addresses_countryBuilder)
+              GaddressDeleteData_accountAddressDelete_user_addresses_countryBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData_accountAddressUpdate_user_addresses_country build() {
+  _$GaddressDeleteData_accountAddressDelete_user_addresses_country build() {
     final _$result = _$v ??
-        new _$GaddressUpdateData_accountAddressUpdate_user_addresses_country._(
+        new _$GaddressDeleteData_accountAddressDelete_user_addresses_country._(
             G__typename: G__typename, code: code, country: country);
     replace(_$result);
     return _$result;
   }
 }
 
-class _$GaddressUpdateData_accountAddressUpdate_accountErrors
-    extends GaddressUpdateData_accountAddressUpdate_accountErrors {
+class _$GaddressDeleteData_accountAddressDelete_accountErrors
+    extends GaddressDeleteData_accountAddressDelete_accountErrors {
   @override
   final String G__typename;
   @override
@@ -1394,44 +1394,44 @@ class _$GaddressUpdateData_accountAddressUpdate_accountErrors
   @override
   final _i2.GAccountErrorCode code;
 
-  factory _$GaddressUpdateData_accountAddressUpdate_accountErrors(
+  factory _$GaddressDeleteData_accountAddressDelete_accountErrors(
           [void Function(
-                  GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder)
+                  GaddressDeleteData_accountAddressDelete_accountErrorsBuilder)
               updates]) =>
-      (new GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder()
+      (new GaddressDeleteData_accountAddressDelete_accountErrorsBuilder()
             ..update(updates))
           .build();
 
-  _$GaddressUpdateData_accountAddressUpdate_accountErrors._(
+  _$GaddressDeleteData_accountAddressDelete_accountErrors._(
       {this.G__typename, this.field, this.message, this.code})
       : super._() {
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_accountErrors',
+          'GaddressDeleteData_accountAddressDelete_accountErrors',
           'G__typename');
     }
     if (code == null) {
       throw new BuiltValueNullFieldError(
-          'GaddressUpdateData_accountAddressUpdate_accountErrors', 'code');
+          'GaddressDeleteData_accountAddressDelete_accountErrors', 'code');
     }
   }
 
   @override
-  GaddressUpdateData_accountAddressUpdate_accountErrors rebuild(
+  GaddressDeleteData_accountAddressDelete_accountErrors rebuild(
           void Function(
-                  GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder)
+                  GaddressDeleteData_accountAddressDelete_accountErrorsBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder toBuilder() =>
-      new GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder()
+  GaddressDeleteData_accountAddressDelete_accountErrorsBuilder toBuilder() =>
+      new GaddressDeleteData_accountAddressDelete_accountErrorsBuilder()
         ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GaddressUpdateData_accountAddressUpdate_accountErrors &&
+    return other is GaddressDeleteData_accountAddressDelete_accountErrors &&
         G__typename == other.G__typename &&
         field == other.field &&
         message == other.message &&
@@ -1449,7 +1449,7 @@ class _$GaddressUpdateData_accountAddressUpdate_accountErrors
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            'GaddressUpdateData_accountAddressUpdate_accountErrors')
+            'GaddressDeleteData_accountAddressDelete_accountErrors')
           ..add('G__typename', G__typename)
           ..add('field', field)
           ..add('message', message)
@@ -1458,11 +1458,11 @@ class _$GaddressUpdateData_accountAddressUpdate_accountErrors
   }
 }
 
-class GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder
+class GaddressDeleteData_accountAddressDelete_accountErrorsBuilder
     implements
-        Builder<GaddressUpdateData_accountAddressUpdate_accountErrors,
-            GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder> {
-  _$GaddressUpdateData_accountAddressUpdate_accountErrors _$v;
+        Builder<GaddressDeleteData_accountAddressDelete_accountErrors,
+            GaddressDeleteData_accountAddressDelete_accountErrorsBuilder> {
+  _$GaddressDeleteData_accountAddressDelete_accountErrors _$v;
 
   String _G__typename;
   String get G__typename => _$this._G__typename;
@@ -1480,12 +1480,12 @@ class GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder
   _i2.GAccountErrorCode get code => _$this._code;
   set code(_i2.GAccountErrorCode code) => _$this._code = code;
 
-  GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder() {
-    GaddressUpdateData_accountAddressUpdate_accountErrors._initializeBuilder(
+  GaddressDeleteData_accountAddressDelete_accountErrorsBuilder() {
+    GaddressDeleteData_accountAddressDelete_accountErrors._initializeBuilder(
         this);
   }
 
-  GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder get _$this {
+  GaddressDeleteData_accountAddressDelete_accountErrorsBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
       _field = _$v.field;
@@ -1497,25 +1497,25 @@ class GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder
   }
 
   @override
-  void replace(GaddressUpdateData_accountAddressUpdate_accountErrors other) {
+  void replace(GaddressDeleteData_accountAddressDelete_accountErrors other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$GaddressUpdateData_accountAddressUpdate_accountErrors;
+    _$v = other as _$GaddressDeleteData_accountAddressDelete_accountErrors;
   }
 
   @override
   void update(
       void Function(
-              GaddressUpdateData_accountAddressUpdate_accountErrorsBuilder)
+              GaddressDeleteData_accountAddressDelete_accountErrorsBuilder)
           updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GaddressUpdateData_accountAddressUpdate_accountErrors build() {
+  _$GaddressDeleteData_accountAddressDelete_accountErrors build() {
     final _$result = _$v ??
-        new _$GaddressUpdateData_accountAddressUpdate_accountErrors._(
+        new _$GaddressDeleteData_accountAddressDelete_accountErrors._(
             G__typename: G__typename,
             field: field,
             message: message,

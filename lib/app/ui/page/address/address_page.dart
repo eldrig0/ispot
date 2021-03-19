@@ -10,21 +10,38 @@ import 'package:ispot/app/ui/page/address/widgets/update_address_layout.dart';
 import 'package:ispot/app/ui/page/address/widgets/no_address.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
+import 'package:ispot/main.dart';
 
 class AddressPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var addresses = Get.find<AccountController>().user.value.addresses;
-
     return Scaffold(
       backgroundColor: ISpotTheme.canvasColor,
-      appBar: UIHelper.buildIspotAppBar(),
+      floatingActionButton: Obx(
+        () => Get.find<AddressController>().addressUIState.value ==
+                AddressUIState.list
+            ? FloatingActionButton.extended(
+                backgroundColor: ISpotTheme.primaryColor,
+                label: Text(
+                  'Add Address',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  Get.find<AddressController>()
+                      .updateUIState(AddressUIState.add);
+                })
+            : Container(),
+      ),
+      appBar: UIHelper.buildIspotAppBar(
+        title: Text(
+          'Addresses',
+          style: TextStyle(color: ISpotTheme.textColor),
+        ),
+      ),
       body: Container(
         child: GetX<AddressController>(
-          initState: (_) =>
-              Get.find<AddressController>().initAddresses(addresses),
+          initState: (_) => Get.find<AddressController>().getAddress(),
           builder: (_controller) {
-            print(_controller.addressUIState.value);
             switch (_controller.addressUIState.value) {
               case AddressUIState.add:
                 return UpdateAddressLayout(
@@ -51,10 +68,12 @@ class AddressPage extends StatelessWidget {
                     locationForm: _controller.getFormGroup('location'));
 
               case AddressUIState.list:
-                return addresses != null && addresses.length > 0
+                return _controller.addresses.value != null &&
+                        _controller.addresses.value.length > 0
                     ? Padding(
                         padding: const EdgeInsets.all(18),
-                        child: AddressList(addresses: addresses),
+                        child:
+                            AddressList(addresses: _controller.addresses.value),
                       )
                     : NoAddressWidget(
                         onPressed: () {

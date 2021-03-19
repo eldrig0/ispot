@@ -1,5 +1,5 @@
-mutation addressUpdate($id: ID!, $input: AddressInput!) {
-  accountAddressUpdate(id: $id, input: $input) {
+mutation addressDelete($id: ID!) {
+  accountAddressDelete(id: $id) {
     user {
       addresses {
         id

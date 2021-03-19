@@ -45,6 +45,18 @@ import 'package:ispot/app/data/provider/address/graphql/address/create_address/c
     show GaccountAddressCreateReq;
 import 'package:ispot/app/data/provider/address/graphql/address/create_address/create_address.var.gql.dart'
     show GaccountAddressCreateVars;
+import 'package:ispot/app/data/provider/address/graphql/address/delete_address/delete_address.data.gql.dart'
+    show
+        GaddressDeleteData,
+        GaddressDeleteData_accountAddressDelete,
+        GaddressDeleteData_accountAddressDelete_accountErrors,
+        GaddressDeleteData_accountAddressDelete_user,
+        GaddressDeleteData_accountAddressDelete_user_addresses,
+        GaddressDeleteData_accountAddressDelete_user_addresses_country;
+import 'package:ispot/app/data/provider/address/graphql/address/delete_address/delete_address.req.gql.dart'
+    show GaddressDeleteReq;
+import 'package:ispot/app/data/provider/address/graphql/address/delete_address/delete_address.var.gql.dart'
+    show GaddressDeleteVars;
 import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.data.gql.dart'
     show
         GgetAddressesData,
@@ -58,11 +70,11 @@ import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/ge
 import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.data.gql.dart'
     show
         GaddressUpdateData,
-        GaddressUpdateData_addressUpdate,
-        GaddressUpdateData_addressUpdate_accountErrors,
-        GaddressUpdateData_addressUpdate_user,
-        GaddressUpdateData_addressUpdate_user_addresses,
-        GaddressUpdateData_addressUpdate_user_addresses_country;
+        GaddressUpdateData_accountAddressUpdate,
+        GaddressUpdateData_accountAddressUpdate_accountErrors,
+        GaddressUpdateData_accountAddressUpdate_user,
+        GaddressUpdateData_accountAddressUpdate_user_addresses,
+        GaddressUpdateData_accountAddressUpdate_user_addresses_country;
 import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.req.gql.dart'
     show GaddressUpdateReq;
 import 'package:ispot/app/data/provider/address/graphql/address/update_address/address_update.var.gql.dart'
@@ -987,12 +999,20 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GaccountAddressCreateData_accountAddressCreate_user_addresses_country,
   GaccountAddressCreateReq,
   GaccountAddressCreateVars,
+  GaddressDeleteData,
+  GaddressDeleteData_accountAddressDelete,
+  GaddressDeleteData_accountAddressDelete_accountErrors,
+  GaddressDeleteData_accountAddressDelete_user,
+  GaddressDeleteData_accountAddressDelete_user_addresses,
+  GaddressDeleteData_accountAddressDelete_user_addresses_country,
+  GaddressDeleteReq,
+  GaddressDeleteVars,
   GaddressUpdateData,
-  GaddressUpdateData_addressUpdate,
-  GaddressUpdateData_addressUpdate_accountErrors,
-  GaddressUpdateData_addressUpdate_user,
-  GaddressUpdateData_addressUpdate_user_addresses,
-  GaddressUpdateData_addressUpdate_user_addresses_country,
+  GaddressUpdateData_accountAddressUpdate,
+  GaddressUpdateData_accountAddressUpdate_accountErrors,
+  GaddressUpdateData_accountAddressUpdate_user,
+  GaddressUpdateData_accountAddressUpdate_user_addresses,
+  GaddressUpdateData_accountAddressUpdate_user_addresses_country,
   GaddressUpdateReq,
   GaddressUpdateVars,
   GattributesData,

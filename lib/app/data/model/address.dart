@@ -92,7 +92,7 @@ class Address {
       streetAddress2: map['streetAddress2'],
       city: map['city'],
       postalCode: map['postalCode'],
-      country: map['country'],
+      country: map['countryArea'],
       phone: map['phone'],
       isDefaultBillingAddress: map['isDefaultBillingAddress'],
       isDefaultShippingAddress: map['isDefaultShippingAddress'],

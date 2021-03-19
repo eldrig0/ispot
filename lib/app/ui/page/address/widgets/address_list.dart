@@ -10,15 +10,17 @@ class AddressList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      if (addresses.isEmpty) Center(child: Text('No address')),
-      ...addresses
-          .map(
-            (address) => AddressCard(
-              address: address,
-            ),
-          )
-          .toList(),
+    return ListView(children: [
+      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        if (addresses.isEmpty) Center(child: Text('No address')),
+        ...addresses
+            .map(
+              (address) => AddressCard(
+                address: address,
+              ),
+            )
+            .toList(),
+      ])
     ]);
   }
 }

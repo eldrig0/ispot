@@ -1,4 +1,5 @@
 import 'package:ispot/app/data/model/address.dart';
+import 'package:ispot/app/misc/constants/countries.dart';
 import 'package:ispot/app/misc/utils.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -27,8 +28,8 @@ FormGroup buildAddressForm({Address address}) {
           validators: [Validators.required]),
       "postalCode":
           FormControl<String>(value: getNotNullString(address?.postalCode)),
-      "country": FormControl<String>(
-          value: getNotNullString(address?.country),
+      "countryArea": FormControl<String>(
+          value: address?.country ?? countries[0],
           validators: [Validators.required]),
     }),
     "defaultAddresses": FormGroup({
