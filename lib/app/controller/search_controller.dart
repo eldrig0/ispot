@@ -51,6 +51,11 @@ class SearchController extends GetxController {
     super.onClose();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   void showMore() {
     this
         ._repository

@@ -156,13 +156,6 @@ class HomeWidget extends StatelessWidget {
                         ),
                       ),
                       PopupMenuItem(
-                        value: 'auth',
-                        child: ListTile(
-                          leading: Icon(AntDesign.user),
-                          title: Text('My auth'),
-                        ),
-                      ),
-                      PopupMenuItem(
                         value: 'address',
                         child: ListTile(
                           leading: Icon(AntDesign.clouddownload),

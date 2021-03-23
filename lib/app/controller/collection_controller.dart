@@ -85,4 +85,10 @@ class CollectionController extends GetxController {
   PageInfo get pageInfo {
     return collection.value.pageInfo;
   }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 }

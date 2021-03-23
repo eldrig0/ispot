@@ -508,6 +508,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GchangePasswordData_passwordChange_user.serializer)
       ..add(GchangePasswordReq.serializer)
       ..add(GchangePasswordVars.serializer)
+      ..add(GcreateCheckoutData.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkoutErrors.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways_config.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout_availableShippingMethods.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout_totalPrice.serializer)
+      ..add(GcreateCheckoutData_checkoutCreate_checkout_totalPrice_gross.serializer)
+      ..add(GcreateCheckoutReq.serializer)
+      ..add(GcreateCheckoutVars.serializer)
       ..add(GgetAddressesData.serializer)
       ..add(GgetAddressesData_me.serializer)
       ..add(GgetAddressesData_me_addresses.serializer)
@@ -612,6 +623,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GattributesData_attributes_edges)]), () => new ListBuilder<GattributesData_attributes_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GattributesData_attributes_edges_node_values)]), () => new ListBuilder<GattributesData_attributes_edges_node_values>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GchangePasswordData_passwordChange_accountErrors)]), () => new ListBuilder<GchangePasswordData_passwordChange_accountErrors>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GcreateCheckoutData_checkoutCreate_checkoutErrors)]), () => new ListBuilder<GcreateCheckoutData_checkoutCreate_checkoutErrors>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways_config)
+          ]),
+          () => new ListBuilder<GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways_config>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GcreateCheckoutData_checkoutCreate_checkout_availableShippingMethods)
+          ]),
+          () => new ListBuilder<GcreateCheckoutData_checkoutCreate_checkout_availableShippingMethods>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways)
+          ]),
+          () => new ListBuilder<GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GgetAddressesData_me_addresses)]), () => new ListBuilder<GgetAddressesData_me_addresses>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GregisterAccountData_accountRegister_accountErrors)]), () => new ListBuilder<GregisterAccountData_accountRegister_accountErrors>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GrequestPasswordResetData_requestPasswordReset_accountErrors)]), () => new ListBuilder<GrequestPasswordResetData_requestPasswordReset_accountErrors>())

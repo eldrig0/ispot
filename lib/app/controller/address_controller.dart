@@ -141,4 +141,9 @@ class AddressController extends GetxController {
         ? createAddress()
         : updateAddress();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

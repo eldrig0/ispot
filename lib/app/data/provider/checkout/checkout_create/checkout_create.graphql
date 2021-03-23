@@ -1,0 +1,31 @@
+mutation createCheckout($checkoutInput: CheckoutCreateInput!) {
+  checkoutCreate(input: $checkoutInput) {
+    checkoutErrors {
+      field
+      message
+    }
+    created
+    checkout {
+      id
+      totalPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+      isShippingRequired
+      availableShippingMethods {
+        id
+        name
+      }
+      availablePaymentGateways {
+        id
+        name
+        config {
+          field
+          value
+        }
+      }
+    }
+  }
+}

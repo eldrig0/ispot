@@ -173,6 +173,21 @@ import 'package:ispot/app/data/provider/category/graphql/category.req.gql.dart'
     show GCategoryReq;
 import 'package:ispot/app/data/provider/category/graphql/category.var.gql.dart'
     show GCategoryVars;
+import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.data.gql.dart'
+    show
+        GcreateCheckoutData,
+        GcreateCheckoutData_checkoutCreate,
+        GcreateCheckoutData_checkoutCreate_checkout,
+        GcreateCheckoutData_checkoutCreate_checkoutErrors,
+        GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways,
+        GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways_config,
+        GcreateCheckoutData_checkoutCreate_checkout_availableShippingMethods,
+        GcreateCheckoutData_checkoutCreate_checkout_totalPrice,
+        GcreateCheckoutData_checkoutCreate_checkout_totalPrice_gross;
+import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.req.gql.dart'
+    show GcreateCheckoutReq;
+import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.var.gql.dart'
+    show GcreateCheckoutVars;
 import 'package:ispot/app/data/provider/collection/graphql/collection.data.gql.dart'
     show
         GCollectionData,
@@ -1029,6 +1044,17 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GchangePasswordData_passwordChange_user,
   GchangePasswordReq,
   GchangePasswordVars,
+  GcreateCheckoutData,
+  GcreateCheckoutData_checkoutCreate,
+  GcreateCheckoutData_checkoutCreate_checkout,
+  GcreateCheckoutData_checkoutCreate_checkoutErrors,
+  GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways,
+  GcreateCheckoutData_checkoutCreate_checkout_availablePaymentGateways_config,
+  GcreateCheckoutData_checkoutCreate_checkout_availableShippingMethods,
+  GcreateCheckoutData_checkoutCreate_checkout_totalPrice,
+  GcreateCheckoutData_checkoutCreate_checkout_totalPrice_gross,
+  GcreateCheckoutReq,
+  GcreateCheckoutVars,
   GgetAddressesData,
   GgetAddressesData_me,
   GgetAddressesData_me_addresses,

@@ -157,4 +157,9 @@ class AuthController extends GetxController {
   String _getFormControlValue(String key) {
     return form.value.control(key).value;
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

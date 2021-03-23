@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/widgets/primary_button.dart';
 
 import '../../../controller/cart_controller.dart';
@@ -36,6 +37,9 @@ class CartsPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
               child: CartItemWidget(
+                  onRemove: (cartItem) {
+                    _controller.removeFromCart(cartItem.product);
+                  },
                   index: _controller.cartItems.indexOf(element),
                   cartItem: element),
             );
@@ -62,7 +66,11 @@ class CartsPage extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(left: 18, right: 18, bottom: 30, top: 18),
         child: PrimaryButton(
-          onPressed: () {},
+          onPressed: () {
+            final cartItems = Get.find<CartController>().cartItems.value;
+
+            Get.toNamed(Routes.CHECKOUT, arguments: cartItems);
+          },
           child: Text(
             'CHECKOUT',
             style: TextStyle(color: Colors.white),
@@ -76,8 +84,13 @@ class CartsPage extends StatelessWidget {
 class CartItemWidget extends StatelessWidget {
   final int index;
   final CartItem cartItem;
+  final Function(CartItem cartItem) onRemove;
 
-  const CartItemWidget({Key key, @required this.index, @required this.cartItem})
+  const CartItemWidget(
+      {Key key,
+      @required this.index,
+      @required this.cartItem,
+      @required this.onRemove})
       : super(key: key);
 
   @override
@@ -86,6 +99,7 @@ class CartItemWidget extends StatelessWidget {
       builder: (_controller) => Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               decoration: BoxDecoration(
@@ -100,15 +114,15 @@ class CartItemWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     cartItem.product.productName,
                     overflow: TextOverflow.visible,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 14,
+                      fontSize: 25,
                     ),
                   ),
                   SizedBox(
@@ -118,27 +132,19 @@ class CartItemWidget extends StatelessWidget {
                     cartItem.product.price.amount *
                         _controller.cartItems[index].count,
                     cartItem.product.price.currency,
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 16),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                          icon: Icon(AntDesign.minuscircle),
-                          onPressed: () {
-                            _controller.decreaseProductCount(cartItem);
-                          }),
-                      Text(
-                        _controller.cartItems[index].count.toString(),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  IconButton(
+                      icon: Icon(
+                        AntDesign.delete,
+                        color: Colors.red,
                       ),
-                      IconButton(
-                        icon: Icon(AntDesign.pluscircle),
-                        onPressed: () {
-                          _controller.incrementProductCount(cartItem);
-                        },
-                      )
-                    ],
-                  ),
+                      onPressed: () {
+                        onRemove(cartItem);
+                      })
                 ],
               ),
             ),

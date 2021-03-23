@@ -11,4 +11,5 @@ abstract class Routes {
   static const AUTH = '/auth';
   static const ACCOUNT = '/account';
   static const ADDRESS = '/address';
+  static const CHECKOUT = '/checkout';
 }
