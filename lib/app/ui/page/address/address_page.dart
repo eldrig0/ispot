@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:ispot/app/controller/account_controller.dart';
 import 'package:ispot/app/controller/address_controller.dart';
-import 'package:ispot/app/routes/app_pages.dart';
 
 import 'package:ispot/app/ui/page/address/widgets/address_list.dart';
 import 'package:ispot/app/ui/page/address/widgets/update_address_layout.dart';
 import 'package:ispot/app/ui/page/address/widgets/no_address.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
-import 'package:ispot/main.dart';
 
 class AddressPage extends StatelessWidget {
   @override
@@ -40,7 +37,6 @@ class AddressPage extends StatelessWidget {
       ),
       body: Container(
         child: GetX<AddressController>(
-          initState: (_) => Get.find<AddressController>().getAddress(),
           builder: (_controller) {
             switch (_controller.addressUIState.value) {
               case AddressUIState.add:
@@ -57,23 +53,25 @@ class AddressPage extends StatelessWidget {
                 );
               case AddressUIState.edit:
                 return UpdateAddressLayout(
-                    onStepCancel: _controller.onStepCancel,
-                    currentStep: _controller.currentStep.value,
-                    onStepContinue: _controller.onStepContinue,
-                    onStepTapped: _controller.onStepTapped,
-                    defaultAddressesForm:
-                        _controller.getFormGroup('defaultAddresses'),
-                    personalDetailForm:
-                        _controller.getFormGroup('personalDetails'),
-                    locationForm: _controller.getFormGroup('location'));
-
+                  onStepCancel: _controller.onStepCancel,
+                  currentStep: _controller.currentStep.value,
+                  onStepContinue: _controller.onStepContinue,
+                  onStepTapped: _controller.onStepTapped,
+                  defaultAddressesForm:
+                      _controller.getFormGroup('defaultAddresses'),
+                  personalDetailForm:
+                      _controller.getFormGroup('personalDetails'),
+                  locationForm: _controller.getFormGroup('location'),
+                );
               case AddressUIState.list:
                 return _controller.addresses.value != null &&
                         _controller.addresses.value.length > 0
                     ? Padding(
                         padding: const EdgeInsets.all(18),
-                        child:
-                            AddressList(addresses: _controller.addresses.value),
+                        child: AddressList(
+                          addresses: _controller.addresses.value,
+                          isSelectable: false,
+                        ),
                       )
                     : NoAddressWidget(
                         onPressed: () {
@@ -107,7 +105,6 @@ class AddressPage extends StatelessWidget {
 //       this.updateWidget,
 //       this.deleteWidget,
 //       this.onInit});
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -131,7 +128,6 @@ class AddressPage extends StatelessWidget {
 //                     },
 //                   ),
 //                 );
-
 //               case AddressUIState.list:
 //                 return addresses != null && addresses.length > 0
 //                     ? Padding(

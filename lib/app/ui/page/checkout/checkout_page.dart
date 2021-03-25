@@ -11,13 +11,24 @@ class CheckoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<AccountController>().getUser();
     final addresses = Get.find<AccountController>().getAddresses();
+    Get.find<CheckoutController>().addresses = Rx(addresses);
+    // final _addressController = Get.find<AddressController>();
 
     return Scaffold(
-      body: GetX<CheckoutController>(builder: (_controller) {
+      body: GetBuilder<CheckoutController>(builder: (_controller) {
         switch (_controller.checkoutUiState.value) {
           case CheckoutUIState.selectAddress:
-            return AddressList(addresses: addresses);
-
+            return Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: AddressList(
+                addresses: _controller.addresses.value,
+                isSelectable: true,
+                onAddAddress: _controller.addAddress,
+                selectedIndex: _controller.selectedIndex?.value,
+                onPressed: _controller.onAddressClick,
+              ),
+            );
+            break;
           default:
             return Container();
         }

@@ -21,8 +21,20 @@ class AddressController extends GetxController {
   Rx<FormGroup> addressFormGroup = Rx(buildAddressForm());
 
   final AddressRepository _repository;
+  bool hasArgument = false;
 
-  AddressController(this._repository) {}
+  AddressController(this._repository);
+
+  @override
+  onInit() {
+    hasArgument = Get.arguments != null;
+    if (hasArgument) {
+      updateUIState(AddressUIState.add);
+      return;
+    }
+    getAddress();
+    super.onInit();
+  }
 
   initAddresses(List<Address> addresses) {
     updateUIState(AddressUIState.list);
@@ -46,6 +58,9 @@ class AddressController extends GetxController {
   }
 
   updateUIState(AddressUIState state) {
+    if (state == AddressUIState.add) {
+      addressFormGroup.value.reset();
+    }
     addressUIState.value = state;
   }
 
@@ -54,7 +69,7 @@ class AddressController extends GetxController {
     updateUIState(AddressUIState.add);
   }
 
-  createAddress() {
+  createAddress({Address address}) {
     Map<String, dynamic> addressMap = getAddressMap();
 
     final address = Address.fromMap(addressMap);
@@ -63,6 +78,11 @@ class AddressController extends GetxController {
       response.fold((error) {
         Get.defaultDialog(title: 'Error', middleText: error.message);
       }, (result) {
+        if (hasArgument) {
+          Get.back(result: result);
+          return;
+        }
+
         addresses.value = result;
         updateUIState(AddressUIState.list);
       });

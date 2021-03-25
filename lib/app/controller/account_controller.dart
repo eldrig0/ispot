@@ -42,7 +42,18 @@ class AccountController extends GetxController {
         user.value = result;
         _updateFormControl(result);
       });
-    });
+    }).asFuture();
+  }
+
+  Future<User> getUserAsunc() async {
+    var user = await _repository
+        .getUser()
+        .listen(
+          (event) {},
+        )
+        .asFuture();
+
+    return user;
   }
 
   FormControl _getFormControl(String controlName) =>
