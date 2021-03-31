@@ -68,7 +68,7 @@ class HomeWidget extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             _buildAppBar(context),
-            _buildCollection(context),
+            // _buildCollection(context),
             _buildTitle('FEATURED PRODUCTS'),
             if (_controller.homeProducts.isNotEmpty)
               SliverPadding(

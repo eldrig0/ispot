@@ -99,7 +99,7 @@ class CategoryPage extends GetWidget<CategoryController> {
       child: Obx(
         () => !_controller.category.value.isNull &&
                 _controller.category.value.pageInfo.hasNextPage
-            ? FlatButton(
+            ? TextButton(
                 onPressed: () {
                   _controller.getCategory();
                 },
