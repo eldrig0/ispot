@@ -60,7 +60,7 @@ class AddressCard extends StatelessWidget {
               ),
               Text(address.streetAddress1),
               Text(address.streetAddress2),
-              Text(address.country),
+              Text(address.countryArea),
               SizedBox(
                 height: 8,
               ),

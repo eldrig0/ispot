@@ -29,7 +29,7 @@ FormGroup buildAddressForm({Address address}) {
       "postalCode":
           FormControl<String>(value: getNotNullString(address?.postalCode)),
       "countryArea": FormControl<String>(
-          value: address?.country ?? countries[0],
+          value: address?.countryArea ?? countries[0],
           validators: [Validators.required]),
     }),
     "defaultAddresses": FormGroup({

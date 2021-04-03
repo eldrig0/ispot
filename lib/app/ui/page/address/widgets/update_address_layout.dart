@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ispot/app/controller/address_controller.dart';
 import 'package:ispot/app/misc/constants/countries.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:reactive_forms/reactive_forms.dart';

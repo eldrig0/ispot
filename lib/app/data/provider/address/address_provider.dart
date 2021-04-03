@@ -25,11 +25,9 @@ class AddressProvider {
         return Left(Failure('An error occured while adding address'));
       }
 
-      final addressResult = result.data.me.addresses.map(
-        (value) => Address.fromMap(
-          value.toJson(),
-        ),
-      );
+      final addressResult = result.data.me.addresses.map((value) {
+        return Address.fromMap(mapCountryArea(value.toJson()));
+      });
       return Right(addressResult.toList());
     });
   }
@@ -49,11 +47,11 @@ class AddressProvider {
         return Left(Failure('An error occured while adding address'));
       }
 
-      final addressResult = result.data.accountAddressCreate.user.addresses.map(
-        (value) => Address.fromMap(
-          value.toJson(),
-        ),
-      );
+      final addressResult =
+          result.data.accountAddressCreate.user.addresses.map((value) {
+        var address = Address.fromMap(mapCountryArea(value.toJson()));
+        return address;
+      });
       return Right(addressResult.toList());
     });
   }
@@ -98,7 +96,7 @@ class AddressProvider {
       return Right(
         result.data.accountAddressUpdate.user.addresses
             .map(
-              (address) => Address.fromMap(address.toJson()),
+              (address) => Address.fromMap(mapCountryArea(address.toJson())),
             )
             .toList(),
       );
@@ -109,14 +107,22 @@ class AddressProvider {
     return GAddressInputBuilder()
       ..city = address.city
       ..companyName = address.companyName
-      ..countryArea = address.country
+      ..countryArea = address.countryArea
       ..firstName = address.firstName
       ..lastName = address.lastName
       ..phone = address.phone
       ..postalCode = address.postalCode
       ..streetAddress1 = address.streetAddress1
       ..streetAddress2 = address.streetAddress2
-      ..country = countryToCountyCode[address.country]
-      ..countryArea = address.country;
+      ..country = countryToCountryCode[address.countryArea]
+      ..countryArea = address.countryArea;
+  }
+
+  Map mapCountryArea(Map value) {
+    Map valueMap = value;
+
+    valueMap['countryArea'] = valueMap['country']['country'];
+
+    return valueMap;
   }
 }

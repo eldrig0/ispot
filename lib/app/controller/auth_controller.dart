@@ -111,13 +111,13 @@ class AuthController extends GetxController {
           },
           middleText:
               'We sent you password reset link to your mail, Please click on the link we sent and login again',
-          confirm: RaisedButton(
+          confirm: ElevatedButton(
             onPressed: () {
               Get.back();
             },
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder())),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
