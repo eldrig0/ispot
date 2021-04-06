@@ -1,5 +1,5 @@
 import '../../../graphql/schema.schema.gql.dart';
 
-const List<String> countries = ['Bhutan 🇧🇹'];
+const List<String> countries = ['Bhutan'];
 
-const countryToCountryCode = {'Bhutan 🇧🇹': GCountryCode.BT};
+const countryToCountryCode = {'Bhutan': GCountryCode.BT};

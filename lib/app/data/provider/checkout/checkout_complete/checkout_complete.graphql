@@ -1,0 +1,18 @@
+mutation checkoutComplete($checkoutId: String!) {
+  checkoutComplete(checkoudId: $checkoutId) {
+    order {
+      id
+      status
+      total {
+        gross {
+          amount
+          currency
+        }
+      }
+    }
+    checkoutErrors {
+      field
+      message
+    }
+  }
+}

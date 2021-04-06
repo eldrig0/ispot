@@ -1,0 +1,33 @@
+mutation setShippingMethod($checkOutId: ID, $shippingMethodId: ID!) {
+  checkoutShippingMethodUpdate(
+    checkoutId: $checkOutId
+    shippingMethodId: $shippingMethodId
+  ) {
+    checkoutErrors {
+      field
+      message
+    }
+    checkout {
+      id
+      totalPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+      isShippingRequired
+      availableShippingMethods {
+        id
+        name
+      }
+      availablePaymentGateways {
+        id
+        name
+        config {
+          field
+          value
+        }
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import 'package:ispot/app/data/model/address.dart';
 import 'package:ispot/app/data/provider/address/graphql/address/delete_address/delete_address.req.gql.dart';
 import 'package:ispot/app/data/provider/address/graphql/address/get_addresses/get_addresses.req.gql.dart';
 import 'package:ispot/app/misc/constants/countries.dart';
+import 'package:ispot/app/misc/utils.dart';
 import 'package:ispot/graphql/schema.schema.gql.dart';
 
 import 'graphql/address/create_address/create_address.req.gql.dart';
@@ -116,13 +117,5 @@ class AddressProvider {
       ..streetAddress2 = address.streetAddress2
       ..country = countryToCountryCode[address.countryArea]
       ..countryArea = address.countryArea;
-  }
-
-  Map mapCountryArea(Map value) {
-    Map valueMap = value;
-
-    valueMap['countryArea'] = valueMap['country']['country'];
-
-    return valueMap;
   }
 }

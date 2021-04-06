@@ -508,6 +508,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GchangePasswordData_passwordChange_user.serializer)
       ..add(GchangePasswordReq.serializer)
       ..add(GchangePasswordVars.serializer)
+      ..add(GcheckoutCompleteData.serializer)
+      ..add(GcheckoutCompleteData_checkoutComplete.serializer)
+      ..add(GcheckoutCompleteData_checkoutComplete_checkoutErrors.serializer)
+      ..add(GcheckoutCompleteData_checkoutComplete_order.serializer)
+      ..add(GcheckoutCompleteData_checkoutComplete_order_total.serializer)
+      ..add(GcheckoutCompleteData_checkoutComplete_order_total_gross.serializer)
+      ..add(GcheckoutCompleteReq.serializer)
+      ..add(GcheckoutCompleteVars.serializer)
       ..add(GcreateCheckoutData.serializer)
       ..add(GcreateCheckoutData_checkoutCreate.serializer)
       ..add(GcreateCheckoutData_checkoutCreate_checkout.serializer)
@@ -536,6 +544,31 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GrequestPasswordResetData_requestPasswordReset_accountErrors.serializer)
       ..add(GrequestPasswordResetReq.serializer)
       ..add(GrequestPasswordResetVars.serializer)
+      ..add(GsetPaymentMethodData.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress_country.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress_country.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice_gross.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_errors.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_payment.serializer)
+      ..add(GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors.serializer)
+      ..add(GsetPaymentMethodReq.serializer)
+      ..add(GsetPaymentMethodVars.serializer)
+      ..add(GsetShippingMethodData.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkoutErrors.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways_config.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availableShippingMethods.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice.serializer)
+      ..add(GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice_gross.serializer)
+      ..add(GsetShippingMethodReq.serializer)
+      ..add(GsetShippingMethodVars.serializer)
       ..add(GtokenCreateData.serializer)
       ..add(GtokenCreateData_tokenCreate.serializer)
       ..add(GtokenCreateData_tokenCreate_accountErrors.serializer)
@@ -623,6 +656,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GattributesData_attributes_edges)]), () => new ListBuilder<GattributesData_attributes_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GattributesData_attributes_edges_node_values)]), () => new ListBuilder<GattributesData_attributes_edges_node_values>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GchangePasswordData_passwordChange_accountErrors)]), () => new ListBuilder<GchangePasswordData_passwordChange_accountErrors>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GcheckoutCompleteData_checkoutComplete_checkoutErrors)]), () => new ListBuilder<GcheckoutCompleteData_checkoutComplete_checkoutErrors>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GcreateCheckoutData_checkoutCreate_checkoutErrors)]), () => new ListBuilder<GcreateCheckoutData_checkoutCreate_checkoutErrors>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
@@ -645,6 +679,32 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GgetAddressesData_me_addresses)]), () => new ListBuilder<GgetAddressesData_me_addresses>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GregisterAccountData_accountRegister_accountErrors)]), () => new ListBuilder<GregisterAccountData_accountRegister_accountErrors>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GrequestPasswordResetData_requestPasswordReset_accountErrors)]), () => new ListBuilder<GrequestPasswordResetData_requestPasswordReset_accountErrors>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors)]), () => new ListBuilder<GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GsetPaymentMethodData_checkoutPaymentCreate_errors)]), () => new ListBuilder<GsetPaymentMethodData_checkoutPaymentCreate_errors>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GsetShippingMethodData_checkoutShippingMethodUpdate_checkoutErrors)
+          ]),
+          () => new ListBuilder<GsetShippingMethodData_checkoutShippingMethodUpdate_checkoutErrors>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways_config)
+          ]),
+          () => new ListBuilder<GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways_config>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availableShippingMethods)
+          ]),
+          () => new ListBuilder<GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availableShippingMethods>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways)
+          ]),
+          () => new ListBuilder<GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GtokenCreateData_tokenCreate_accountErrors)]), () => new ListBuilder<GtokenCreateData_tokenCreate_accountErrors>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GupdateBasicDetailsData_accountUpdate_accountErrors)]), () => new ListBuilder<GupdateBasicDetailsData_accountUpdate_accountErrors>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())

@@ -173,6 +173,18 @@ import 'package:ispot/app/data/provider/category/graphql/category.req.gql.dart'
     show GCategoryReq;
 import 'package:ispot/app/data/provider/category/graphql/category.var.gql.dart'
     show GCategoryVars;
+import 'package:ispot/app/data/provider/checkout/checkout_complete/checkout_complete.data.gql.dart'
+    show
+        GcheckoutCompleteData,
+        GcheckoutCompleteData_checkoutComplete,
+        GcheckoutCompleteData_checkoutComplete_checkoutErrors,
+        GcheckoutCompleteData_checkoutComplete_order,
+        GcheckoutCompleteData_checkoutComplete_order_total,
+        GcheckoutCompleteData_checkoutComplete_order_total_gross;
+import 'package:ispot/app/data/provider/checkout/checkout_complete/checkout_complete.req.gql.dart'
+    show GcheckoutCompleteReq;
+import 'package:ispot/app/data/provider/checkout/checkout_complete/checkout_complete.var.gql.dart'
+    show GcheckoutCompleteVars;
 import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.data.gql.dart'
     show
         GcreateCheckoutData,
@@ -188,6 +200,39 @@ import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create
     show GcreateCheckoutReq;
 import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.var.gql.dart'
     show GcreateCheckoutVars;
+import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.data.gql.dart'
+    show
+        GsetPaymentMethodData,
+        GsetPaymentMethodData_checkoutPaymentCreate,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress_country,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress_country,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice,
+        GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice_gross,
+        GsetPaymentMethodData_checkoutPaymentCreate_errors,
+        GsetPaymentMethodData_checkoutPaymentCreate_payment,
+        GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors;
+import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.req.gql.dart'
+    show GsetPaymentMethodReq;
+import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.var.gql.dart'
+    show GsetPaymentMethodVars;
+import 'package:ispot/app/data/provider/checkout/set_shipping_method/set_shipping_method.data.gql.dart'
+    show
+        GsetShippingMethodData,
+        GsetShippingMethodData_checkoutShippingMethodUpdate,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkoutErrors,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways_config,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availableShippingMethods,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice,
+        GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice_gross;
+import 'package:ispot/app/data/provider/checkout/set_shipping_method/set_shipping_method.req.gql.dart'
+    show GsetShippingMethodReq;
+import 'package:ispot/app/data/provider/checkout/set_shipping_method/set_shipping_method.var.gql.dart'
+    show GsetShippingMethodVars;
 import 'package:ispot/app/data/provider/collection/graphql/collection.data.gql.dart'
     show
         GCollectionData,
@@ -1044,6 +1089,14 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GchangePasswordData_passwordChange_user,
   GchangePasswordReq,
   GchangePasswordVars,
+  GcheckoutCompleteData,
+  GcheckoutCompleteData_checkoutComplete,
+  GcheckoutCompleteData_checkoutComplete_checkoutErrors,
+  GcheckoutCompleteData_checkoutComplete_order,
+  GcheckoutCompleteData_checkoutComplete_order_total,
+  GcheckoutCompleteData_checkoutComplete_order_total_gross,
+  GcheckoutCompleteReq,
+  GcheckoutCompleteVars,
   GcreateCheckoutData,
   GcreateCheckoutData_checkoutCreate,
   GcreateCheckoutData_checkoutCreate_checkout,
@@ -1072,6 +1125,31 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GrequestPasswordResetData_requestPasswordReset_accountErrors,
   GrequestPasswordResetReq,
   GrequestPasswordResetVars,
+  GsetPaymentMethodData,
+  GsetPaymentMethodData_checkoutPaymentCreate,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress_country,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress_country,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice,
+  GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice_gross,
+  GsetPaymentMethodData_checkoutPaymentCreate_errors,
+  GsetPaymentMethodData_checkoutPaymentCreate_payment,
+  GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors,
+  GsetPaymentMethodReq,
+  GsetPaymentMethodVars,
+  GsetShippingMethodData,
+  GsetShippingMethodData_checkoutShippingMethodUpdate,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkoutErrors,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availablePaymentGateways_config,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_availableShippingMethods,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice,
+  GsetShippingMethodData_checkoutShippingMethodUpdate_checkout_totalPrice_gross,
+  GsetShippingMethodReq,
+  GsetShippingMethodVars,
   GtokenCreateData,
   GtokenCreateData_tokenCreate,
   GtokenCreateData_tokenCreate_accountErrors,

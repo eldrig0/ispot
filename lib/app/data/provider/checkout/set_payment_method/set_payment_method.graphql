@@ -1,0 +1,58 @@
+mutation setPaymentMethod($checkoutId: ID!, $input: PaymentInput!) {
+  checkoutPaymentCreate(checkoutId: $checkoutId, input: $input) {
+    payment {
+      id
+      chargeStatus
+    }
+    paymentErrors {
+      field
+      message
+    }
+    errors {
+      field
+      message
+    }
+
+    checkout {
+      id
+      totalPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+      shippingAddress {
+        id
+        firstName
+        lastName
+        companyName
+        streetAddress1
+        streetAddress2
+        city
+        postalCode
+        country {
+          code
+          country
+        }
+        countryArea
+        phone
+      }
+      billingAddress {
+        id
+        firstName
+        lastName
+        companyName
+        streetAddress1
+        streetAddress2
+        city
+        postalCode
+        country {
+          code
+          country
+        }
+        countryArea
+        phone
+      }
+    }
+  }
+}

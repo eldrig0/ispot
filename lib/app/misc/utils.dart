@@ -14,3 +14,11 @@ onFailure(Failure failure) {
 getNotNullString(String string) {
   return string ?? '';
 }
+
+Map mapCountryArea(Map value) {
+  Map valueMap = value;
+
+  valueMap['countryArea'] = valueMap['country']['country'];
+
+  return valueMap;
+}
