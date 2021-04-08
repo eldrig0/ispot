@@ -4,11 +4,13 @@ import 'package:ispot/app/binding/address_binding.dart';
 import 'package:ispot/app/binding/auth_binding.dart';
 import 'package:ispot/app/binding/checkout_binding.dart';
 import 'package:ispot/app/binding/collection_binding.dart';
+import 'package:ispot/app/binding/order_binding.dart';
 import 'package:ispot/app/ui/page/account/account_page.dart';
 import 'package:ispot/app/ui/page/address/address_page.dart';
 import 'package:ispot/app/ui/page/auth/auth_page.dart';
 import 'package:ispot/app/ui/page/checkout/checkout_page.dart';
 import 'package:ispot/app/ui/page/collection/collection_page.dart';
+import 'package:ispot/app/ui/page/orders/orders_page.dart';
 
 import '../binding/attribute_binding.dart';
 import '../binding/cart_binding.dart';
@@ -78,6 +80,10 @@ class AppPages {
     GetPage(
         name: Routes.CHECKOUT,
         page: () => CheckoutPage(),
-        binding: CheckoutBinding())
+        binding: CheckoutBinding()),
+    GetPage(
+        name: Routes.ORDERS,
+        page: () => OrdersPage(),
+        binding: OrdersBinding()),
   ];
 }

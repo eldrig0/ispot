@@ -13,14 +13,21 @@ class CheckoutPage extends StatelessWidget {
     // final _addressController = Get.find<AddressController>();
 
     return Scaffold(
+      backgroundColor: ISpotTheme.canvasColor,
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: ISpotTheme.canvasColor,
         title: GetX<CheckoutController>(builder: (_controller) {
           switch (_controller.checkoutUiState.value) {
             case CheckoutUIState.selectShippingAddress:
               print(_controller.checkoutUiState.value);
               return Text(
-                'Select shipping address',
+                'SELECT SHIPPING ADDRESS',
+                style: TextStyle(color: ISpotTheme.textColor),
+              );
+            case CheckoutUIState.selectShippingMethod:
+              return Text(
+                'SELECT SHIPPING METHOD',
                 style: TextStyle(color: ISpotTheme.textColor),
               );
             case CheckoutUIState.billingStep:
@@ -28,8 +35,10 @@ class CheckoutPage extends StatelessWidget {
                 'BILLING',
                 style: TextStyle(color: ISpotTheme.textColor),
               );
-            case CheckoutUIState.billingStep:
-              return Text('SELECT PAYMENT GATEWAY');
+
+            case CheckoutUIState.preview:
+              return Text('PREVIEW');
+
             default:
               return Text('');
           }

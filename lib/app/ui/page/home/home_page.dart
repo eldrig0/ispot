@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/account_controller.dart';
 import 'package:ispot/app/routes/app_pages.dart';
+import 'package:ispot/app/ui/page/orders/orders_page.dart';
 
 import '../../../controller/categories_controller.dart';
 import '../../../controller/collections_controller.dart';
@@ -143,6 +144,10 @@ class HomeWidget extends StatelessWidget {
                         break;
                       case 'address':
                         Get.toNamed('/address');
+                        break;
+                      case 'orders':
+                        Get.toNamed('/orders');
+                        break;
                     }
                   },
                   child: Icon(AntDesign.user),
@@ -160,6 +165,13 @@ class HomeWidget extends StatelessWidget {
                         child: ListTile(
                           leading: Icon(AntDesign.clouddownload),
                           title: Text('My address'),
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'orders',
+                        child: ListTile(
+                          leading: Icon(AntDesign.clouddownload),
+                          title: Text('Order history'),
                         ),
                       )
                     ];

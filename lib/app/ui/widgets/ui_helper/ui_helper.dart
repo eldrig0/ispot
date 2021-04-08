@@ -28,6 +28,12 @@ class UIHelper {
     );
   }
 
+  static Widget buildLoader() {
+    return Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
   static Widget buildSliverAppBar(
           {Widget title,
           @required Widget leading,

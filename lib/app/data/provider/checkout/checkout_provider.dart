@@ -85,6 +85,7 @@ class CheckoutProvider {
       @required Address billingAddress}) {
     final request = GsetPaymentMethodReq((request) => request
       ..vars.checkoutId = checkoutId
+      ..vars.input.token = 'cod'
       ..vars.input.amount = buildDecimal(amount)
       ..vars.input.billingAddress = buildAddressInput(billingAddress)
       ..vars.input.gateway = gateway);

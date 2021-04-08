@@ -33,7 +33,7 @@ class CheckoutRepository {
     return _checkoutProvider.updateShippingMethod(checkoutId, shippingMethodId);
   }
 
-  Stream<Either<Failure, bool>> updatePaymentMethod(
+  Stream<Either<Failure, Checkout>> updatePaymentMethod(
       {@required String checkoutId,
       @required String gateway,
       @required String amount,

@@ -130,7 +130,7 @@ class CheckoutController extends GetxController {
       event.fold((failure) {
         Get.defaultDialog(title: 'Error', middleText: failure.message);
       }, (respnse) {
-        //Go to orders page;
+        Get.toNamed('/orders');
       });
     });
   }
@@ -151,12 +151,14 @@ class CheckoutController extends GetxController {
         Get.defaultDialog(title: 'Error', middleText: failure.message);
       }, (response) {
         updateUIState(CheckoutUIState.billingStep);
+        update();
       });
+      update();
     });
   }
 
   _updatePaymentMethod() {
-    if (selectedPaymentGateway == null && selectedBillingAddress == null) {
+    if (selectedPaymentGateway == null || selectedBillingAddress == null) {
       Get.defaultDialog(
           title: 'Error',
           middleText: 'You must select billing address and payment method');
@@ -179,7 +181,9 @@ class CheckoutController extends GetxController {
         checkout.shippingAddress = result.shippingAddress;
 
         updateUIState(CheckoutUIState.preview);
+        update();
       });
+      update();
     });
   }
 
