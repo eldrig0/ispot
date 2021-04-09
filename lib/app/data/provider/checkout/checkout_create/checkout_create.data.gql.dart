@@ -3,6 +3,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:ispot/graphql/schema.schema.gql.dart' as _i2;
 import 'package:ispot/graphql/serializers.gql.dart' as _i1;
 
 part 'checkout_create.data.gql.g.dart';
@@ -103,6 +104,7 @@ abstract class GcreateCheckoutData_checkoutCreate_checkout
       b..G__typename = 'Checkout';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
+  _i2.GUUID get token;
   String get id;
   @nullable
   GcreateCheckoutData_checkoutCreate_checkout_totalPrice get totalPrice;

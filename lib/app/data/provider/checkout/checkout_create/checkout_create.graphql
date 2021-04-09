@@ -4,8 +4,10 @@ mutation createCheckout($checkoutInput: CheckoutCreateInput!) {
       field
       message
     }
+
     created
     checkout {
+      token
       id
       totalPrice {
         gross {

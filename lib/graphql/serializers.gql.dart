@@ -200,18 +200,24 @@ import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create
     show GcreateCheckoutReq;
 import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.var.gql.dart'
     show GcreateCheckoutVars;
+import 'package:ispot/app/data/provider/checkout/get_checkout/get_checkout.data.gql.dart'
+    show
+        GgetCheckoutData,
+        GgetCheckoutData_checkout,
+        GgetCheckoutData_checkout_billingAddress,
+        GgetCheckoutData_checkout_billingAddress_country,
+        GgetCheckoutData_checkout_shippingAddress,
+        GgetCheckoutData_checkout_shippingAddress_country,
+        GgetCheckoutData_checkout_totalPrice,
+        GgetCheckoutData_checkout_totalPrice_gross;
+import 'package:ispot/app/data/provider/checkout/get_checkout/get_checkout.req.gql.dart'
+    show GgetCheckoutReq;
+import 'package:ispot/app/data/provider/checkout/get_checkout/get_checkout.var.gql.dart'
+    show GgetCheckoutVars;
 import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.data.gql.dart'
     show
         GsetPaymentMethodData,
         GsetPaymentMethodData_checkoutPaymentCreate,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress_country,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress_country,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice,
-        GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice_gross,
-        GsetPaymentMethodData_checkoutPaymentCreate_errors,
         GsetPaymentMethodData_checkoutPaymentCreate_payment,
         GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors;
 import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.req.gql.dart'
@@ -1114,6 +1120,16 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GgetAddressesData_me_addresses_country,
   GgetAddressesReq,
   GgetAddressesVars,
+  GgetCheckoutData,
+  GgetCheckoutData_checkout,
+  GgetCheckoutData_checkout_billingAddress,
+  GgetCheckoutData_checkout_billingAddress_country,
+  GgetCheckoutData_checkout_shippingAddress,
+  GgetCheckoutData_checkout_shippingAddress_country,
+  GgetCheckoutData_checkout_totalPrice,
+  GgetCheckoutData_checkout_totalPrice_gross,
+  GgetCheckoutReq,
+  GgetCheckoutVars,
   GregisterAccountData,
   GregisterAccountData_accountRegister,
   GregisterAccountData_accountRegister_accountErrors,
@@ -1127,14 +1143,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GrequestPasswordResetVars,
   GsetPaymentMethodData,
   GsetPaymentMethodData_checkoutPaymentCreate,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_billingAddress_country,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_shippingAddress_country,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice,
-  GsetPaymentMethodData_checkoutPaymentCreate_checkout_totalPrice_gross,
-  GsetPaymentMethodData_checkoutPaymentCreate_errors,
   GsetPaymentMethodData_checkoutPaymentCreate_payment,
   GsetPaymentMethodData_checkoutPaymentCreate_paymentErrors,
   GsetPaymentMethodReq,

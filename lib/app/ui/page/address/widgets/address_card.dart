@@ -7,15 +7,17 @@ import 'package:ispot/app/ui/theme/ispot_theme.dart';
 
 class AddressCard extends StatelessWidget {
   final Address address;
-  final bool selected;
+  bool selected;
   final Function onPressed;
-  final bool isSelectable;
+  bool isSelectable;
+  bool viewOnly;
 
-  const AddressCard({
+  AddressCard({
     @required this.address,
-    this.selected,
+    this.selected = false,
     this.onPressed,
-    this.isSelectable,
+    this.isSelectable = false,
+    this.viewOnly = true,
     Key key,
   }) : super(key: key);
 
@@ -64,7 +66,7 @@ class AddressCard extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-              if (!isSelectable)
+              if (!viewOnly)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

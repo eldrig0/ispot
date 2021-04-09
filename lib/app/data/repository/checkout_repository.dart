@@ -18,6 +18,10 @@ class CheckoutRepository {
     this._addressProvider = addressProvider;
   }
 
+  Stream<Either<Failure, Checkout>> getCheckout(String token) {
+    return _checkoutProvider.getCheckout(token);
+  }
+
   Stream<Either<Failure, List<Address>>> getAddresses() {
     return _addressProvider.getAddress();
   }
@@ -33,7 +37,7 @@ class CheckoutRepository {
     return _checkoutProvider.updateShippingMethod(checkoutId, shippingMethodId);
   }
 
-  Stream<Either<Failure, Checkout>> updatePaymentMethod(
+  Stream<Either<Failure, bool>> updatePaymentMethod(
       {@required String checkoutId,
       @required String gateway,
       @required String amount,

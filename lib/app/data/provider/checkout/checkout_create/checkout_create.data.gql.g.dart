@@ -258,6 +258,9 @@ class _$GcreateCheckoutData_checkoutCreate_checkoutSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'token',
+      serializers.serialize(object.token,
+          specifiedType: const FullType(_i2.GUUID)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'isShippingRequired',
@@ -304,6 +307,10 @@ class _$GcreateCheckoutData_checkoutCreate_checkoutSerializer
         case '__typename':
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'token':
+          result.token.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GUUID)) as _i2.GUUID);
           break;
         case 'id':
           result.id = serializers.deserialize(value,
@@ -1069,6 +1076,8 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
   @override
   final String G__typename;
   @override
+  final _i2.GUUID token;
+  @override
   final String id;
   @override
   final GcreateCheckoutData_checkoutCreate_checkout_totalPrice totalPrice;
@@ -1092,6 +1101,7 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
 
   _$GcreateCheckoutData_checkoutCreate_checkout._(
       {this.G__typename,
+      this.token,
       this.id,
       this.totalPrice,
       this.isShippingRequired,
@@ -1101,6 +1111,10 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
     if (G__typename == null) {
       throw new BuiltValueNullFieldError(
           'GcreateCheckoutData_checkoutCreate_checkout', 'G__typename');
+    }
+    if (token == null) {
+      throw new BuiltValueNullFieldError(
+          'GcreateCheckoutData_checkoutCreate_checkout', 'token');
     }
     if (id == null) {
       throw new BuiltValueNullFieldError(
@@ -1132,6 +1146,7 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
     if (identical(other, this)) return true;
     return other is GcreateCheckoutData_checkoutCreate_checkout &&
         G__typename == other.G__typename &&
+        token == other.token &&
         id == other.id &&
         totalPrice == other.totalPrice &&
         isShippingRequired == other.isShippingRequired &&
@@ -1144,7 +1159,9 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, G__typename.hashCode), id.hashCode),
+                $jc(
+                    $jc($jc($jc(0, G__typename.hashCode), token.hashCode),
+                        id.hashCode),
                     totalPrice.hashCode),
                 isShippingRequired.hashCode),
             availableShippingMethods.hashCode),
@@ -1156,6 +1173,7 @@ class _$GcreateCheckoutData_checkoutCreate_checkout
     return (newBuiltValueToStringHelper(
             'GcreateCheckoutData_checkoutCreate_checkout')
           ..add('G__typename', G__typename)
+          ..add('token', token)
           ..add('id', id)
           ..add('totalPrice', totalPrice)
           ..add('isShippingRequired', isShippingRequired)
@@ -1174,6 +1192,10 @@ class GcreateCheckoutData_checkoutCreate_checkoutBuilder
   String _G__typename;
   String get G__typename => _$this._G__typename;
   set G__typename(String G__typename) => _$this._G__typename = G__typename;
+
+  _i2.GUUIDBuilder _token;
+  _i2.GUUIDBuilder get token => _$this._token ??= new _i2.GUUIDBuilder();
+  set token(_i2.GUUIDBuilder token) => _$this._token = token;
 
   String _id;
   String get id => _$this._id;
@@ -1228,6 +1250,7 @@ class GcreateCheckoutData_checkoutCreate_checkoutBuilder
   GcreateCheckoutData_checkoutCreate_checkoutBuilder get _$this {
     if (_$v != null) {
       _G__typename = _$v.G__typename;
+      _token = _$v.token?.toBuilder();
       _id = _$v.id;
       _totalPrice = _$v.totalPrice?.toBuilder();
       _isShippingRequired = _$v.isShippingRequired;
@@ -1260,6 +1283,7 @@ class GcreateCheckoutData_checkoutCreate_checkoutBuilder
       _$result = _$v ??
           new _$GcreateCheckoutData_checkoutCreate_checkout._(
               G__typename: G__typename,
+              token: token.build(),
               id: id,
               totalPrice: _totalPrice?.build(),
               isShippingRequired: isShippingRequired,
@@ -1268,6 +1292,9 @@ class GcreateCheckoutData_checkoutCreate_checkoutBuilder
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'token';
+        token.build();
+
         _$failedField = 'totalPrice';
         _totalPrice?.build();
 

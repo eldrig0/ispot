@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/cart_controller.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:intl/intl.dart';
 
 class UIHelper {
   static AppBar buildIspotAppBar(
@@ -113,6 +114,12 @@ class UIHelper {
       resultString = '$resultString${priceChar[index]}';
     }
     return resultString;
+  }
+
+  static Text buildDateTimeText(DateTime dateTime) {
+    String formattedDate = DateFormat.yMMMMd('en_US').add_jm().format(dateTime);
+
+    return Text(formattedDate);
   }
 
   static double getDeviceWidth(BuildContext context) =>

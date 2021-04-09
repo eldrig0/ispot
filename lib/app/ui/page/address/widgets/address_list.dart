@@ -10,10 +10,12 @@ class AddressList extends StatelessWidget {
   final bool isSelectable;
   final Function(Address address, int index) onPressed;
   final Function onAddAddress;
+  bool viewOnly;
 
   AddressList(
       {@required this.addresses,
       @required this.isSelectable,
+      @required this.viewOnly,
       this.selectedIndex,
       this.onAddAddress,
       this.onPressed});
@@ -32,6 +34,7 @@ class AddressList extends StatelessWidget {
                           AddressCard(
                             isSelectable: isSelectable,
                             address: address,
+                            viewOnly: viewOnly,
                             selected: selectedIndex != null
                                 ? selectedIndex == index
                                 : null,
@@ -50,6 +53,7 @@ class AddressList extends StatelessWidget {
                     : AddressCard(
                         isSelectable: isSelectable,
                         address: address,
+                        viewOnly: viewOnly,
                         selected: selectedIndex != null
                             ? selectedIndex == index
                             : null,

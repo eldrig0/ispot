@@ -69,6 +69,7 @@ class AddressPage extends StatelessWidget {
                     ? Padding(
                         padding: const EdgeInsets.all(18),
                         child: AddressList(
+                          viewOnly: false,
                           addresses: _controller.addresses.value,
                           isSelectable: false,
                         ),

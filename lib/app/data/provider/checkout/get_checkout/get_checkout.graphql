@@ -1,0 +1,46 @@
+query getCheckout($token: UUID) {
+  checkout(token: $token) {
+    created
+    token
+    id
+    totalPrice {
+      gross {
+        amount
+        currency
+      }
+    }
+    shippingAddress {
+      id
+      firstName
+      lastName
+      companyName
+      streetAddress1
+      streetAddress2
+      city
+      postalCode
+      country {
+        code
+        country
+      }
+      countryArea
+      phone
+    }
+
+    billingAddress {
+      id
+      firstName
+      lastName
+      companyName
+      streetAddress1
+      streetAddress2
+      city
+      postalCode
+      country {
+        code
+        country
+      }
+      countryArea
+      phone
+    }
+  }
+}

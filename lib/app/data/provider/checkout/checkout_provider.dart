@@ -9,6 +9,7 @@ import 'package:ispot/app/data/model/order.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/data/provider/checkout/checkout_complete/checkout_complete.req.gql.dart';
 import 'package:ispot/app/data/provider/checkout/checkout_create/checkout_create.req.gql.dart';
+import 'package:ispot/app/data/provider/checkout/get_checkout/get_checkout.req.gql.dart';
 import 'package:ispot/app/data/provider/checkout/set_payment_method/set_payment_method.req.gql.dart';
 import 'package:ispot/app/misc/constants/countries.dart';
 import 'package:built_collection/built_collection.dart';
@@ -21,6 +22,32 @@ class CheckoutProvider {
   Client _client;
 
   CheckoutProvider(this._client);
+
+  Stream<fp.Either<Failure, Checkout>> getCheckout(String token) {
+    final request = GgetCheckoutReq((request) => request
+      ..vars.token = GUUIDBuilder()
+      ..vars.token.value = token);
+    return _client.request(request).map((response) {
+      if (response.hasErrors) return fp.Left(Failure('An error occured'));
+
+      return fp.Right(
+        Checkout(
+          id: response.data.checkout.id,
+          created: DateTime.parse(response.data.checkout.created.value),
+          price:
+              Price.fromMap(response.data.checkout.totalPrice.gross.toJson()),
+          shippingAddress: Address.fromMap(
+            mapCountryArea(
+              response.data.checkout.shippingAddress.toJson(),
+            ),
+          ),
+          billingAddress: Address.fromMap(
+            mapCountryArea(response.data.checkout.billingAddress.toJson()),
+          ),
+        ),
+      );
+    });
+  }
 
   Stream<fp.Either<Failure, Checkout>> createCheckout(
       {Address shippingAddress, String email, List<CartItem> variants}) {
@@ -40,7 +67,7 @@ class CheckoutProvider {
       }
       var data = response.data.checkoutCreate;
       var checkout = Checkout(
-        created: data.created,
+        token: data.checkout.token.value,
         id: data.checkout.id,
         price: Price.fromMap(data.checkout.totalPrice.gross.toJson()),
         shippingMethods: data.checkout.availableShippingMethods
@@ -78,7 +105,7 @@ class CheckoutProvider {
     });
   }
 
-  Stream<fp.Either<Failure, Checkout>> updatePaymentMethod(
+  Stream<fp.Either<Failure, bool>> updatePaymentMethod(
       {@required String checkoutId,
       @required String gateway,
       @required String amount,
@@ -101,14 +128,22 @@ class CheckoutProvider {
         return fp.Left(Failure(
             response.data.checkoutPaymentCreate.paymentErrors.first.message));
 
-      return fp.Right(Checkout(
-          id: response.data.checkoutPaymentCreate.checkout.id,
-          shippingAddress: Address.fromMap(mapCountryArea(response
-              .data.checkoutPaymentCreate.checkout.shippingAddress
-              .toJson())),
-          billingAddress: Address.fromMap(mapCountryArea(response
-              .data.checkoutPaymentCreate.checkout.billingAddress
-              .toJson()))));
+      return fp.Right(true
+          // Checkout(
+          // id: response.data.checkoutPaymentCreate.checkout.id,
+          // shippingAddress: Address.fromMap(
+          //   mapCountryArea(
+          //     response.data.checkoutPaymentCreate.checkout.shippingAddress
+          //         .toJson(),
+          //   ),
+          // ),
+          // billingAddress: Address.fromMap(
+          //   mapCountryArea(response
+          //       .data.checkoutPaymentCreate.checkout.billingAddress
+          //       .toJson()),
+          // ),
+          // ),
+          );
     });
   }
 

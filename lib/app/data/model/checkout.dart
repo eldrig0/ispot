@@ -7,8 +7,8 @@ import 'package:ispot/app/data/model/product_variant.dart';
 
 class Checkout {
   String id;
-
-  bool created;
+  String token;
+  DateTime created;
   List<ShippingMethod> shippingMethods;
   List<PaymentGateways> paymentGateways;
 
@@ -17,6 +17,7 @@ class Checkout {
   Price price;
   Checkout({
     this.id,
+    this.token,
     this.created,
     this.shippingMethods,
     this.paymentGateways,
@@ -27,7 +28,8 @@ class Checkout {
 
   Checkout copyWith({
     String id,
-    bool created,
+    String token,
+    DateTime created,
     List<ShippingMethod> shippingMethods,
     List<PaymentGateways> paymentGateways,
     Address billingAddress,
@@ -36,6 +38,7 @@ class Checkout {
   }) {
     return Checkout(
       id: id ?? this.id,
+      token: token ?? this.token,
       created: created ?? this.created,
       shippingMethods: shippingMethods ?? this.shippingMethods,
       paymentGateways: paymentGateways ?? this.paymentGateways,
@@ -48,7 +51,8 @@ class Checkout {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'created': created,
+      'token': token,
+      'created': created.millisecondsSinceEpoch,
       'shippingMethods': shippingMethods?.map((x) => x.toMap())?.toList(),
       'paymentGateways': paymentGateways?.map((x) => x.toMap())?.toList(),
       'billingAddress': billingAddress.toMap(),
@@ -60,7 +64,8 @@ class Checkout {
   factory Checkout.fromMap(Map<String, dynamic> map) {
     return Checkout(
       id: map['id'],
-      created: map['created'],
+      token: map['token'],
+      created: DateTime.fromMillisecondsSinceEpoch(map['created']),
       shippingMethods: List<ShippingMethod>.from(
           map['shippingMethods']?.map((x) => ShippingMethod.fromMap(x))),
       paymentGateways: List<PaymentGateways>.from(
@@ -78,7 +83,7 @@ class Checkout {
 
   @override
   String toString() {
-    return 'Checkout(id: $id, created: $created, shippingMethods: $shippingMethods, paymentGateways: $paymentGateways, billingAddress: $billingAddress, shippingAddress: $shippingAddress, price: $price)';
+    return 'Checkout(id: $id, token: $token, created: $created, shippingMethods: $shippingMethods, paymentGateways: $paymentGateways, billingAddress: $billingAddress, shippingAddress: $shippingAddress, price: $price)';
   }
 
   @override
@@ -87,6 +92,7 @@ class Checkout {
 
     return other is Checkout &&
         other.id == id &&
+        other.token == token &&
         other.created == created &&
         listEquals(other.shippingMethods, shippingMethods) &&
         listEquals(other.paymentGateways, paymentGateways) &&
@@ -98,6 +104,7 @@ class Checkout {
   @override
   int get hashCode {
     return id.hashCode ^
+        token.hashCode ^
         created.hashCode ^
         shippingMethods.hashCode ^
         paymentGateways.hashCode ^

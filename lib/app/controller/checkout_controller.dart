@@ -125,6 +125,28 @@ class CheckoutController extends GetxController {
     }
   }
 
+  back(CheckoutUIState state) {
+    print(state);
+    switch (state) {
+      case CheckoutUIState.selectShippingAddress:
+        Get.back();
+        break;
+      case CheckoutUIState.selectShippingMethod:
+        updateUIState(CheckoutUIState.selectShippingAddress);
+        update();
+        break;
+      case CheckoutUIState.billingStep:
+        updateUIState(CheckoutUIState.selectShippingMethod);
+        update();
+        break;
+      case CheckoutUIState.preview:
+        updateUIState(CheckoutUIState.billingStep);
+        update();
+        break;
+      default:
+    }
+  }
+
   _checkoutComplete() {
     _repository.checkoutComplete(checkout.id).take(1).listen((event) {
       event.fold((failure) {
@@ -177,13 +199,21 @@ class CheckoutController extends GetxController {
       response.fold((failure) {
         Get.defaultDialog(title: 'Error', middleText: failure.message);
       }, (result) {
-        checkout.billingAddress = result.billingAddress;
-        checkout.shippingAddress = result.shippingAddress;
+        _getCheckout();
+      });
+      update();
+    });
+  }
 
+  _getCheckout() {
+    _repository.getCheckout(checkout.token).take(1).listen((result) {
+      result.fold((failure) {
+        Get.defaultDialog(middleText: failure.message);
+      }, (result) {
+        checkout = result;
         updateUIState(CheckoutUIState.preview);
         update();
       });
-      update();
     });
   }
 
