@@ -99,7 +99,10 @@ class CheckoutPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Select shipping method'),
+                        UIHelper.buildLabelText('Select shipping method'),
+                        SizedBox(
+                          height: 4,
+                        ),
                         ..._controller.checkout.shippingMethods.map(
                             (shippingMethod) => buildReactiveRadio(
                                 _controller.shippingMethodForm,
@@ -115,15 +118,24 @@ class CheckoutPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Select payment method'),
+                        UIHelper.buildLabelText('Select payment method'),
+                        SizedBox(
+                          height: 4,
+                        ),
                         ..._controller.checkout.paymentGateways
                             .map((paymentGateway) => buildReactiveRadio(
                                 _controller.paymentGatewayForm,
                                 paymentGateway.id,
                                 'Cash on delivery'))
                             .toList(),
-                        Text(
+                        SizedBox(
+                          height: 12,
+                        ),
+                        UIHelper.buildLabelText(
                           'Select billing address',
+                        ),
+                        SizedBox(
+                          height: 8,
                         ),
                         Expanded(
                           child: AddressList(
@@ -143,7 +155,8 @@ class CheckoutPage extends StatelessWidget {
 
               case CheckoutUIState.preview:
                 return Center(
-                    child: buildCheckoutPreviewView(_controller.checkout));
+                    child:
+                        buildCheckoutPreviewView(_controller.previewCheckout));
 
               case CheckoutUIState.loading:
                 return UIHelper.buildLoader();
@@ -177,9 +190,39 @@ class CheckoutPage extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       child: ListView(
         children: [
-          Text('${checkout.price.amount} ${checkout.price.currency}'),
-          UIHelper.buildDateTimeText(checkout.created),
+          Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            child: Padding(
+              padding: const EdgeInsets.all(18),
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                UIHelper.buildLabelText('Total price'),
+                SizedBox(
+                  width: 8,
+                ),
+                UIHelper.buildPricingText(
+                    checkout.price.amount, checkout.price.currency),
+                // UIHelper.buildDateTimeText(checkout.created),
+              ]),
+            ),
+          ),
+          // Text('${checkout.price.amount} ${checkout.price.currency}'),
+          // UIHelper.buildDateTimeText(checkout.created),
+          SizedBox(
+            height: 16,
+          ),
+          UIHelper.buildLabelText('Billing address'),
+          SizedBox(
+            height: 8,
+          ),
           AddressCard(address: checkout.billingAddress),
+          SizedBox(
+            height: 16,
+          ),
+          UIHelper.buildLabelText('Shipping address'),
+          SizedBox(
+            height: 8,
+          ),
           AddressCard(address: checkout.billingAddress),
         ],
       ),

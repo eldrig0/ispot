@@ -3,6 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/routes/app_pages.dart';
+import 'package:ispot/app/ui/widgets/empty_page.dart';
 import 'package:ispot/app/ui/widgets/primary_button.dart';
 
 import '../../../controller/cart_controller.dart';
@@ -14,13 +15,32 @@ class CartsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: GetX<CartController>(builder: (_controller) {
+        if (_controller.cartItems.isNotEmpty) {
+          return FloatingActionButton.extended(
+            backgroundColor: ISpotTheme.primaryColor,
+            onPressed: () {
+              final cartItems = Get.find<CartController>().cartItems.value;
+
+              Get.toNamed(Routes.CHECKOUT, arguments: cartItems);
+            },
+            label: Text(
+              'CHECKOUT',
+              style: TextStyle(color: Colors.white),
+            ),
+          );
+        }
+        return Container();
+      }),
       backgroundColor: ISpotTheme.canvasColor,
       body: GetX<CartController>(
         builder: (_controller) => CustomScrollView(
           slivers: [
             _buildAppBar(),
-            if (_controller.cartItems.isNotEmpty) _buildListItem(),
-            if (_controller.cartItems.isNotEmpty) _buildCheckoutButton(),
+            if (_controller.cartItems.isNotEmpty)
+              _buildListItem()
+            else
+              SliverToBoxAdapter(child: EmptyPage()),
           ],
         ),
       ),
@@ -60,25 +80,6 @@ class CartsPage extends StatelessWidget {
         }),
         actions: []);
   }
-
-  _buildCheckoutButton() {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: EdgeInsets.only(left: 18, right: 18, bottom: 30, top: 18),
-        child: PrimaryButton(
-          onPressed: () {
-            final cartItems = Get.find<CartController>().cartItems.value;
-
-            Get.toNamed(Routes.CHECKOUT, arguments: cartItems);
-          },
-          child: Text(
-            'CHECKOUT',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class CartItemWidget extends StatelessWidget {
@@ -96,59 +97,70 @@ class CartItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartController>(
-      builder: (_controller) => Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: ISpotTheme.cardBackgroundColor,
-                  borderRadius: BorderRadius.circular(16)),
-              height: 150,
-              width: 150,
-              child: Image.network(
-                cartItem.product.thumbnailImage,
+      builder: (_controller) => Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: ISpotTheme.cardBackgroundColor,
+                    borderRadius: BorderRadius.circular(16)),
+                height: 150,
+                width: 150,
+                child: Image.network(
+                  cartItem.product.thumbnailImage,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    cartItem.product.productName,
-                    overflow: TextOverflow.visible,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 25,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  UIHelper.buildPricingText(
-                    cartItem.product.price.amount *
-                        _controller.cartItems[index].count,
-                    cartItem.product.price.currency,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  IconButton(
-                      icon: Icon(
-                        AntDesign.delete,
-                        color: Colors.red,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      cartItem.product.productName,
+                      overflow: TextOverflow.visible,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
                       ),
-                      onPressed: () {
-                        onRemove(cartItem);
-                      })
-                ],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    UIHelper.buildPricingText(
+                      cartItem.product.price.amount *
+                          _controller.cartItems[index].count,
+                      cartItem.product.price.currency,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      'Quantity: ${cartItem.count}',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    IconButton(
+                        icon: Icon(
+                          AntDesign.delete,
+                          color: Colors.red,
+                        ),
+                        onPressed: () {
+                          onRemove(cartItem);
+                        })
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

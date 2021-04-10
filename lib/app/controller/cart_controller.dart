@@ -25,6 +25,7 @@ class CartController extends GetxController {
   }
 
   removeFromCart(ProductVariant variant) {
+    print('remove from cart');
     for (CartItem item in cartItems) {
       if (item.product == variant) {
         if (item.count == 1) {
@@ -32,12 +33,15 @@ class CartController extends GetxController {
           update();
           return;
         } else {
+          print('many');
           int index = cartItems.indexOf(item);
-          cartItems[index].count - 1;
+          int previousCount = cartItems[index].count;
+          cartItems[index].count = previousCount - 1;
           update();
           return;
         }
       }
+      update();
       return;
     }
   }

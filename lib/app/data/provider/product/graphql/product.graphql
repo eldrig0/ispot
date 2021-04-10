@@ -78,7 +78,7 @@ query ProductDetails($id: ID!) {
     ...BasicProductFields
     ...ProductPricingField
     description
-
+    descriptionJson
     category {
       id
       name

@@ -16,69 +16,39 @@ class CollectionPage extends GetWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: UIHelper.buildCategoriesDrawer(),
       backgroundColor: ISpotTheme.canvasColor,
-      body: GetX<CollectionController>(
-          builder: (_controller) => _controller.gotData.value
-              ? CustomScrollView(
-                  slivers: [
-                    UIHelper.buildSliverAppBar(
-                        leading: UIHelper.buildUserIcon(),
-                        actions: [
-                          UIHelper.buildCategoriesIcon(onPressed: () {}),
-                          _buildFilterIcon(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 18.0),
-                            child: UIHelper.buildCartIcon(),
-                          )
-                        ]),
-                    _buildCategoryTitle(),
-                    if (_controller.collection.value != null) ...[
-                      SliverPadding(
-                        padding: EdgeInsets.all(18),
-                        sliver: ProductGrid(
-                            products: _controller.collection.value.products),
-                      ),
+      body: Builder(
+        builder: (context) => GetX<CollectionController>(
+            builder: (_controller) => _controller.gotData.value
+                ? CustomScrollView(
+                    slivers: [
+                      UIHelper.buildSliverAppBar(
+                          leading: UIHelper.buildBackButton(() {
+                            Get.back();
+                          }),
+                          actions: [
+                            UIHelper.buildCategoriesIcon(onPressed: () {
+                              Scaffold.of(context).openDrawer();
+                            }),
+                            _buildFilterIcon(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 18.0),
+                              child: UIHelper.buildCartIcon(),
+                            )
+                          ]),
+                      _buildCategoryTitle(),
+                      if (_controller.collection.value != null) ...[
+                        SliverPadding(
+                          padding: EdgeInsets.all(18),
+                          sliver: ProductGrid(
+                              products: _controller.collection.value.products),
+                        ),
+                      ],
+                      _buildShowMoreButton()
                     ],
-                    _buildShowMoreButton()
-                  ],
-                )
-              : Container()),
-    );
-
-    // return GetX(
-    //   builder: (_) {
-    //     return !_controller.collection.value.isNull
-    //         ? buildProductWidgets(_controller)
-    //         : Container();
-    //   },
-    // );
-  }
-
-  Scaffold buildProductWidgets(CollectionController controller) {
-    return Scaffold(
-      backgroundColor: ISpotTheme.canvasColor,
-      body: CustomScrollView(
-        slivers: [
-          // _buildCategoryTitle(),
-          UIHelper.buildSliverAppBar(
-              leading: UIHelper.buildUserIcon(),
-              actions: [
-                UIHelper.buildCategoriesIcon(onPressed: () {}),
-                _buildFilterIcon(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 18.0),
-                  child: UIHelper.buildCartIcon(),
-                )
-              ]),
-          if (_controller.collection.value != null) ...[
-            SliverPadding(
-              padding: EdgeInsets.all(18),
-              sliver:
-                  ProductGrid(products: _controller.collection.value.products),
-            ),
-          ],
-          _buildShowMoreButton()
-        ],
+                  )
+                : Container()),
       ),
     );
   }
@@ -123,7 +93,7 @@ class CollectionPage extends GetWidget {
   _showFilterPage(CollectionController _controller) async {
     // if (_controller.attributes.isEmpty) {
     var filterResult = await Get.toNamed(
-        'filter/${_controller.collection.value.id}',
+        '/filter/${_controller.collection.value.id}',
         arguments: {
           'sort': _controller.selectedSortOption.value ?? SORTOPTIONS[0],
           'attributes': _controller.attributes ?? [],

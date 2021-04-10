@@ -3,6 +3,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:ispot/graphql/schema.schema.gql.dart' as _i2;
 import 'package:ispot/graphql/serializers.gql.dart' as _i1;
 
 part 'product.data.gql.g.dart';
@@ -50,6 +51,7 @@ abstract class GProductDetailsData_product
   @nullable
   GProductDetailsData_product_pricing get pricing;
   String get description;
+  _i2.GJSONString get descriptionJson;
   @nullable
   GProductDetailsData_product_category get category;
   @nullable

@@ -2,9 +2,14 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
+import 'package:ispot/app/controller/account_controller.dart';
+import 'package:ispot/app/controller/auth_controller.dart';
 import 'package:ispot/app/controller/cart_controller.dart';
+import 'package:ispot/app/routes/app_pages.dart';
+import 'package:ispot/app/ui/page/home/widets/drawer/category_drawer.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:number_display/number_display.dart';
 
 class UIHelper {
   static AppBar buildIspotAppBar(
@@ -33,6 +38,11 @@ class UIHelper {
     return Center(
       child: CircularProgressIndicator(),
     );
+  }
+
+  static Widget buildLabelText(String label) {
+    return Text(label,
+        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600));
   }
 
   static Widget buildSliverAppBar(
@@ -94,26 +104,11 @@ class UIHelper {
 
   static Text buildPricingText(double start, String currency,
       {TextStyle style}) {
+    final display = createDisplay(separator: ',');
     return Text(
-      '$currency ${_getPriceString(start)}',
+      '$currency ${display(start)}',
       style: style,
     );
-  }
-
-  static String _getPriceString(double price) {
-    if (price.toString().length < 4) {
-      return price.toString();
-    }
-
-    List<String> priceChar = price.toString().characters.toList();
-    String resultString = '';
-    for (int index = 0; index < priceChar.length; index++) {
-      if (index == 1) {
-        resultString = '$resultString${priceChar[index]},';
-      }
-      resultString = '$resultString${priceChar[index]}';
-    }
-    return resultString;
   }
 
   static Text buildDateTimeText(DateTime dateTime) {
@@ -138,5 +133,68 @@ class UIHelper {
         ),
       ),
     );
+  }
+
+  static Drawer buildCategoriesDrawer() {
+    return Drawer(child: CategoriesDrawer());
+  }
+
+  static Widget buildLeadingIcon() {
+    return Get.find<AccountController>().isSignedIn()
+        ? PopupMenuButton<String>(
+            onSelected: (value) {
+              switch (value) {
+                case 'account':
+                  Get.toNamed('/account');
+                  break;
+                case 'address':
+                  Get.toNamed('/address');
+                  break;
+                case 'orders':
+                  Get.toNamed('/orders');
+                  break;
+                case 'orders':
+                  Get.find<AuthController>().logout();
+                  break;
+              }
+            },
+            child: Icon(AntDesign.user),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  value: 'account',
+                  child: ListTile(
+                    leading: Icon(AntDesign.user),
+                    title: Text('My account'),
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'address',
+                  child: ListTile(
+                    leading: Icon(Icons.pin_drop_outlined),
+                    title: Text('My address'),
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'orders',
+                  child: ListTile(
+                    leading: Icon(Icons.list_alt_outlined),
+                    title: Text('Order history'),
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'logout',
+                  child: ListTile(
+                    leading: Icon(Icons.logout),
+                    title: Text('Log out'),
+                  ),
+                )
+              ];
+            })
+        : IconButton(
+            icon: Icon(AntDesign.user),
+            onPressed: () {
+              Get.toNamed(Routes.AUTH);
+            });
   }
 }

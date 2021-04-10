@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ferry/ferry.dart';
 
 import '../../model/attribute.dart';
@@ -33,10 +35,16 @@ class ProductProvider {
                     amount: product.pricing.priceRange.stop.net.amount,
                     currency: product.pricing.priceRange.stop.net.currency));
           }(),
-          description: product.description,
+          description: getDescription(product.descriptionJson.value),
           productName: product.name,
           variants: _mapProductVariant(product));
     });
+  }
+
+  String getDescription(String descriptionJson) {
+    Map value = jsonDecode(descriptionJson);
+    var returnVal = value["blocks"][0]['text'];
+    return returnVal;
   }
 
   List<ProductVariant> _mapProductVariant(GProductDetailsData_product product) {

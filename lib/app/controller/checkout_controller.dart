@@ -23,6 +23,7 @@ class CheckoutController extends GetxController {
   Rx<List<Address>> addresses;
 
   Checkout checkout;
+  Checkout previewCheckout;
 
   String email;
   List<CartItem> items;
@@ -209,7 +210,7 @@ class CheckoutController extends GetxController {
       result.fold((failure) {
         Get.defaultDialog(middleText: failure.message);
       }, (result) {
-        checkout = result;
+        previewCheckout = result;
         updateUIState(CheckoutUIState.preview);
         update();
       });

@@ -222,10 +222,4 @@ class ProductController extends GetxController {
         _disableBuyButton.value = false;
     });
   }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
 }

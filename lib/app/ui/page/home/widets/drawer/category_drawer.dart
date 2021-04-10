@@ -89,7 +89,3 @@ class CategoriesDrawer extends StatelessWidget {
     return Center(child: CircularProgressIndicator());
   }
 }
-
-Drawer buildCategoriesDrawer() {
-  return Drawer(child: CategoriesDrawer());
-}

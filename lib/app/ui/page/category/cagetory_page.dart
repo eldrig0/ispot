@@ -16,68 +16,38 @@ class CategoryPage extends GetWidget<CategoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: UIHelper.buildCategoriesDrawer(),
       backgroundColor: ISpotTheme.canvasColor,
-      body: Obx(() => _controller.gotData.value
-          ? CustomScrollView(
-              slivers: [
-                UIHelper.buildSliverAppBar(
-                    leading: UIHelper.buildUserIcon(),
-                    actions: [
-                      UIHelper.buildCategoriesIcon(onPressed: () {}),
-                      _buildFilterIcon(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 18.0),
-                        child: UIHelper.buildCartIcon(),
-                      )
-                    ]),
-                _buildCategoryTitle(),
-                if (_controller.category.value != null) ...[
-                  SliverPadding(
-                    padding: EdgeInsets.all(18),
-                    sliver: ProductGrid(
-                        products: _controller.category.value.products),
-                  ),
+      body: Builder(
+        builder: (context) => Obx(() => _controller.gotData.value
+            ? CustomScrollView(
+                slivers: [
+                  UIHelper.buildSliverAppBar(
+                      leading: UIHelper.buildBackButton(() {
+                        Get.back();
+                      }),
+                      actions: [
+                        UIHelper.buildCategoriesIcon(onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        }),
+                        _buildFilterIcon(),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 18.0),
+                          child: UIHelper.buildCartIcon(),
+                        )
+                      ]),
+                  _buildCategoryTitle(),
+                  if (_controller.category.value != null) ...[
+                    SliverPadding(
+                      padding: EdgeInsets.all(18),
+                      sliver: ProductGrid(
+                          products: _controller.category.value.products),
+                    ),
+                  ],
+                  _buildShowMoreButton()
                 ],
-                _buildShowMoreButton()
-              ],
-            )
-          : Container()),
-    );
-
-    // return GetX(
-    //   builder: (_) {
-    //     return !_controller.category.value.isNull
-    //         ? buildProductWidgets(_controller)
-    //         : Container();
-    //   },
-    // );
-  }
-
-  Scaffold buildProductWidgets(CategoryController controller) {
-    return Scaffold(
-      backgroundColor: ISpotTheme.canvasColor,
-      body: CustomScrollView(
-        slivers: [
-          // _buildCategoryTitle(),
-          UIHelper.buildSliverAppBar(
-              leading: UIHelper.buildUserIcon(),
-              actions: [
-                UIHelper.buildCategoriesIcon(onPressed: () {}),
-                _buildFilterIcon(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 18.0),
-                  child: UIHelper.buildCartIcon(),
-                )
-              ]),
-          if (_controller.category.value != null) ...[
-            SliverPadding(
-              padding: EdgeInsets.all(18),
-              sliver:
-                  ProductGrid(products: _controller.category.value.products),
-            ),
-          ],
-          _buildShowMoreButton()
-        ],
+              )
+            : Container()),
       ),
     );
   }
@@ -121,7 +91,7 @@ class CategoryPage extends GetWidget<CategoryController> {
 
   _showFilterPage(CategoryController _controller) async {
     var filterResult = await Get.toNamed(
-        'filter/${_controller.category.value.categoryId}',
+        '/filter/${_controller.category.value.categoryId}',
         arguments: {
           'sort': SORTOPTIONS[0],
           'attributes': _controller.selectedAttributes ?? [],

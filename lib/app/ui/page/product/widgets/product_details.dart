@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/ui/widgets/primary_button.dart';
+import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 import '../../../../controller/cart_controller.dart';
 import '../../../../controller/product_controller.dart';
 import '../../../../routes/app_pages.dart';
@@ -42,11 +43,15 @@ class ProductDetail extends StatelessWidget {
                     SizedBox(
                       height: 12,
                     ),
+                    _buildAvailabilityWidget(),
+                    SizedBox(
+                      height: 12,
+                    ),
                     buildPriceWidget(),
                     SizedBox(
                       height: 12,
                     ),
-                    _buildAvailabilityWidget(),
+                    buildDescriptionWidget(),
                     SizedBox(
                       height: 12,
                     ),
@@ -58,11 +63,6 @@ class ProductDetail extends StatelessWidget {
                     SizedBox(
                       height: 12,
                     ),
-                    buildDescriptionWidget(),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    buildBuyButton()
                   ]),
             ),
           ),
@@ -71,43 +71,45 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  buildBuyButton() {
-    return GetX<ProductController>(
-      builder: (_controller) => _controller.initialized
-          ? PrimaryButton(
-              onPressed: _controller.disableBuyButton
-                  ? null
-                  : () {
-                      Get.find<CartController>().addItem(
-                          variant: _controller.selectedVariant.value,
-                          count: _controller.quantityControl.value);
-                      Get.back();
-                    },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(AntDesign.shoppingcart, color: Colors.white),
-                  SizedBox(width: 18),
-                  Text(
-                    'ADD TO CART',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-            )
-          : Container(),
-    );
-  }
+  // buildBuyButton() {
+  //   return GetX<ProductController>(
+  //     builder: (_controller) => _controller.initialized
+  //         ? PrimaryButton(
+  //             onPressed: _controller.disableBuyButton
+  //                 ? null
+  //                 : () {
+  //                     Get.find<CartController>().addItem(
+  //                         variant: _controller.selectedVariant.value,
+  //                         count: _controller.quantityControl.value);
+  //                     Get.back();
+  //                   },
+  //             child: Row(
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               children: [
+  //                 Icon(AntDesign.shoppingcart, color: Colors.white),
+  //                 SizedBox(width: 18),
+  //                 Text(
+  //                   'ADD TO CART',
+  //                   style: TextStyle(color: Colors.white),
+  //                 ),
+  //               ],
+  //             ),
+  //           )
+  //         : Container(),
+  //   );
+  // }
 
   buildQuantityInput() {
     return GetX<ProductController>(
       builder: (_controller) {
         return _controller.isInitialized.value
             ? ReactiveTextField(
-                // validationMessages: {
-                //   'maximumQuantity':
-                //       'Maximum quantity you can order is ${_controller.selectedVariant.value.stockQuantity}'
-                // },
+                validationMessages: (_) {
+                  return {
+                    'maximumQuantity':
+                        'Maximum quantity you can order is ${_controller.selectedVariant.value.stockQuantity}'
+                  };
+                },
                 formControl: Get.find<ProductController>().quantityControl,
                 keyboardType: TextInputType.number,
                 readOnly: _controller.selectedVariant.value.isAvailable
@@ -128,12 +130,9 @@ class ProductDetail extends StatelessWidget {
         return _controller.initialized
             ? Row(
                 children: [
-                  Text(
-                    '${_controller.selectedVariant.value.price.currency} ${_controller.selectedVariant.value.price.amount}',
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
+                  UIHelper.buildPricingText(
+                      _controller.selectedVariant.value.price.amount,
+                      _controller.selectedVariant.value.price.currency)
                 ],
               )
             : Container();
@@ -181,7 +180,8 @@ class ProductDetail extends StatelessWidget {
         children: [
           if (_controller.initialized &&
               !_controller.selectedVariant.value.isAvailable)
-            Text('This product is not available'),
+            Text('This product is not available',
+                style: TextStyle(color: Colors.red)),
         ],
       ),
     );

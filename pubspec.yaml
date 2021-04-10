@@ -37,6 +37,7 @@ dependencies:
   modal_bottom_sheet: ^2.0.0
   gql_error_link: ^0.1.1-alpha+1612972259650
   gql_transform_link: ^0.1.5
+  number_display:
 
 dev_dependencies:
   build_runner:
@@ -50,6 +51,7 @@ flutter:
   assets:
     - assets/no-photo.png
     - assets/brand-logo.png
+    - assets/no-data.png
 
 dependency_overrides:
   file_testing: ^2.0.3

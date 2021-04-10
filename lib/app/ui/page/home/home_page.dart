@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
     return Stack(
       children: [
         Scaffold(
-          drawer: buildCategoriesDrawer(),
+          drawer: UIHelper.buildCategoriesDrawer(),
           backgroundColor: ISpotTheme.canvasColor,
           floatingActionButton: FloatingActionButton(
             key: _fabButtonKey,
@@ -69,7 +69,7 @@ class HomeWidget extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             _buildAppBar(context),
-            // _buildCollection(context),
+            _buildCollection(context),
             _buildTitle('FEATURED PRODUCTS'),
             if (_controller.homeProducts.isNotEmpty)
               SliverPadding(
@@ -135,52 +135,7 @@ class HomeWidget extends StatelessWidget {
       );
 
   Widget _buildAppBar(BuildContext context) => UIHelper.buildSliverAppBar(
-          leading: Get.find<AccountController>().isSignedIn()
-              ? PopupMenuButton<String>(
-                  onSelected: (value) {
-                    switch (value) {
-                      case 'account':
-                        Get.toNamed('/account');
-                        break;
-                      case 'address':
-                        Get.toNamed('/address');
-                        break;
-                      case 'orders':
-                        Get.toNamed('/orders');
-                        break;
-                    }
-                  },
-                  child: Icon(AntDesign.user),
-                  itemBuilder: (context) {
-                    return [
-                      PopupMenuItem(
-                        value: 'account',
-                        child: ListTile(
-                          leading: Icon(AntDesign.user),
-                          title: Text('My account'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        value: 'address',
-                        child: ListTile(
-                          leading: Icon(AntDesign.clouddownload),
-                          title: Text('My address'),
-                        ),
-                      ),
-                      PopupMenuItem(
-                        value: 'orders',
-                        child: ListTile(
-                          leading: Icon(AntDesign.clouddownload),
-                          title: Text('Order history'),
-                        ),
-                      )
-                    ];
-                  })
-              : IconButton(
-                  icon: Icon(AntDesign.user),
-                  onPressed: () {
-                    Get.toNamed(Routes.AUTH);
-                  }),
+          leading: UIHelper.buildLeadingIcon(),
           actions: [
             UIHelper.buildCategoriesIcon(onPressed: () {
               Scaffold.of(context).openDrawer();

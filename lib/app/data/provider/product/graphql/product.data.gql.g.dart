@@ -305,6 +305,9 @@ class _$GProductDetailsData_productSerializer
       'description',
       serializers.serialize(object.description,
           specifiedType: const FullType(String)),
+      'descriptionJson',
+      serializers.serialize(object.descriptionJson,
+          specifiedType: const FullType(_i2.GJSONString)),
       'attributes',
       serializers.serialize(object.attributes,
           specifiedType: const FullType(BuiltList,
@@ -393,6 +396,11 @@ class _$GProductDetailsData_productSerializer
         case 'description':
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'descriptionJson':
+          result.descriptionJson.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GJSONString))
+              as _i2.GJSONString);
           break;
         case 'category':
           result.category.replace(serializers.deserialize(value,
@@ -5343,6 +5351,8 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
   @override
   final String description;
   @override
+  final _i2.GJSONString descriptionJson;
+  @override
   final GProductDetailsData_product_category category;
   @override
   final BuiltList<GProductDetailsData_product_images> images;
@@ -5364,6 +5374,7 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
       this.thumbnail,
       this.pricing,
       this.description,
+      this.descriptionJson,
       this.category,
       this.images,
       this.attributes,
@@ -5383,6 +5394,10 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
     if (description == null) {
       throw new BuiltValueNullFieldError(
           'GProductDetailsData_product', 'description');
+    }
+    if (descriptionJson == null) {
+      throw new BuiltValueNullFieldError(
+          'GProductDetailsData_product', 'descriptionJson');
     }
     if (attributes == null) {
       throw new BuiltValueNullFieldError(
@@ -5409,6 +5424,7 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
         thumbnail == other.thumbnail &&
         pricing == other.pricing &&
         description == other.description &&
+        descriptionJson == other.descriptionJson &&
         category == other.category &&
         images == other.images &&
         attributes == other.attributes &&
@@ -5427,12 +5443,14 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, G__typename.hashCode),
-                                            id.hashCode),
-                                        name.hashCode),
-                                    thumbnail.hashCode),
-                                pricing.hashCode),
-                            description.hashCode),
+                                        $jc(
+                                            $jc($jc(0, G__typename.hashCode),
+                                                id.hashCode),
+                                            name.hashCode),
+                                        thumbnail.hashCode),
+                                    pricing.hashCode),
+                                description.hashCode),
+                            descriptionJson.hashCode),
                         category.hashCode),
                     images.hashCode),
                 attributes.hashCode),
@@ -5449,6 +5467,7 @@ class _$GProductDetailsData_product extends GProductDetailsData_product {
           ..add('thumbnail', thumbnail)
           ..add('pricing', pricing)
           ..add('description', description)
+          ..add('descriptionJson', descriptionJson)
           ..add('category', category)
           ..add('images', images)
           ..add('attributes', attributes)
@@ -5491,6 +5510,12 @@ class GProductDetailsData_productBuilder
   String _description;
   String get description => _$this._description;
   set description(String description) => _$this._description = description;
+
+  _i2.GJSONStringBuilder _descriptionJson;
+  _i2.GJSONStringBuilder get descriptionJson =>
+      _$this._descriptionJson ??= new _i2.GJSONStringBuilder();
+  set descriptionJson(_i2.GJSONStringBuilder descriptionJson) =>
+      _$this._descriptionJson = descriptionJson;
 
   GProductDetailsData_product_categoryBuilder _category;
   GProductDetailsData_product_categoryBuilder get category =>
@@ -5535,6 +5560,7 @@ class GProductDetailsData_productBuilder
       _thumbnail = _$v.thumbnail?.toBuilder();
       _pricing = _$v.pricing?.toBuilder();
       _description = _$v.description;
+      _descriptionJson = _$v.descriptionJson?.toBuilder();
       _category = _$v.category?.toBuilder();
       _images = _$v.images?.toBuilder();
       _attributes = _$v.attributes?.toBuilder();
@@ -5570,6 +5596,7 @@ class GProductDetailsData_productBuilder
               thumbnail: _thumbnail?.build(),
               pricing: _pricing?.build(),
               description: description,
+              descriptionJson: descriptionJson.build(),
               category: _category?.build(),
               images: _images?.build(),
               attributes: attributes.build(),
@@ -5583,6 +5610,8 @@ class GProductDetailsData_productBuilder
         _$failedField = 'pricing';
         _pricing?.build();
 
+        _$failedField = 'descriptionJson';
+        descriptionJson.build();
         _$failedField = 'category';
         _category?.build();
         _$failedField = 'images';

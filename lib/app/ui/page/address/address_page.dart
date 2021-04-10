@@ -31,7 +31,7 @@ class AddressPage extends StatelessWidget {
       ),
       appBar: UIHelper.buildIspotAppBar(
         title: Text(
-          'Addresses',
+          'MY ADDRESSES',
           style: TextStyle(color: ISpotTheme.textColor),
         ),
       ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:ispot/app/controller/cart_controller.dart';
 import 'package:ispot/app/ui/page/product/widgets/product_details.dart';
+import 'package:ispot/app/ui/widgets/empty_page.dart';
 import '../../../controller/product_controller.dart';
 import '../../theme/ispot_theme.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
@@ -11,6 +14,32 @@ class ProductPage extends GetView<ProductController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: GetX<ProductController>(
+          builder: (_controller) =>
+              _controller.isInitialized.value && !_controller.disableBuyButton
+                  ? FloatingActionButton.extended(
+                      backgroundColor: ISpotTheme.primaryColor,
+                      onPressed: _controller.disableBuyButton
+                          ? null
+                          : () {
+                              Get.find<CartController>().addItem(
+                                  variant: _controller.selectedVariant.value,
+                                  count: _controller.quantityControl.value);
+                              Get.back();
+                            },
+                      label: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(AntDesign.shoppingcart, color: Colors.white),
+                          SizedBox(width: 18),
+                          Text(
+                            'ADD TO CART',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    )
+                  : Container()),
       backgroundColor: ISpotTheme.canvasColor,
       body: GetX<ProductController>(builder: (_controller) {
         if (_controller.isInitialized.value) if (!_controller
@@ -25,9 +54,7 @@ class ProductPage extends GetView<ProductController> {
             ],
           );
         else
-          return Center(
-            child: Text('no product found'),
-          );
+          return EmptyPage();
         return Container();
       }),
     );
