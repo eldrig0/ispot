@@ -30,6 +30,13 @@ class AccountController extends GetxController {
   }
 
   @override
+  void onClose() {
+    personalDetailsFormGroup.dispose();
+    passwordResetFormGroup.dispose();
+    super.onClose();
+  }
+
+  @override
   onInit() {
     super.onInit();
     getUser();

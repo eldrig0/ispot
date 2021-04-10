@@ -49,6 +49,7 @@ class SearchController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    searchControl.dispose();
   }
 
   @override

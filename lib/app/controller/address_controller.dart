@@ -36,6 +36,12 @@ class AddressController extends GetxController {
     super.onInit();
   }
 
+  @override
+  onClose() {
+    addressFormGroup.close();
+    super.onClose();
+  }
+
   initAddresses(List<Address> addresses) {
     updateUIState(AddressUIState.list);
     this.addresses.value = addresses;

@@ -160,6 +160,7 @@ class AuthController extends GetxController {
 
   @override
   void dispose() {
+    form.close();
     super.dispose();
   }
 }

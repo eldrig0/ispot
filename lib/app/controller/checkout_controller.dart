@@ -126,7 +126,6 @@ class CheckoutController extends GetxController {
   }
 
   back(CheckoutUIState state) {
-    print(state);
     switch (state) {
       case CheckoutUIState.selectShippingAddress:
         Get.back();

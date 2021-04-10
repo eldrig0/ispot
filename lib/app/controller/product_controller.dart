@@ -56,6 +56,7 @@ class ProductController extends GetxController {
     // TODO: implement onClose
     super.onClose();
     selectedAttributes.close();
+    quantityControl.dispose();
   }
 
   void initializer() {
