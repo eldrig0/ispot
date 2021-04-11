@@ -6,6 +6,7 @@ import 'package:ispot/app/data/model/user.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/repository/account_repository.dart';
 import 'package:ispot/app/misc/form_builder.dart';
+import 'package:ispot/app/routes/app_pages.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AccountController extends GetxController {
@@ -27,6 +28,13 @@ class AccountController extends GetxController {
     final box = GetStorage();
     final token = box.read('token');
     return token != null;
+  }
+
+  logout() {
+    final box = GetStorage();
+    box.erase().then((value) {
+      Get.toNamed(Routes.AUTH);
+    });
   }
 
   @override

@@ -16,7 +16,6 @@ class AuthController extends GetxController {
   final formValid = false.obs;
   final emailValid = false.obs;
   final forgotPassword = false.obs;
-  final loggedOut = false.obs;
 
   AuthController(this._repository);
 
@@ -87,13 +86,6 @@ class AuthController extends GetxController {
         box.write('userId', result['userId']);
         Get.offAndToNamed('/');
       });
-    });
-  }
-
-  logout() {
-    final box = GetStorage();
-    box.erase().then((value) {
-      loggedOut.value = true;
     });
   }
 

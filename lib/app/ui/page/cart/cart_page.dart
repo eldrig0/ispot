@@ -40,7 +40,9 @@ class CartsPage extends StatelessWidget {
             if (_controller.cartItems.isNotEmpty)
               _buildListItem()
             else
-              SliverToBoxAdapter(child: EmptyPage()),
+              SliverToBoxAdapter(
+                  child:
+                      Align(alignment: Alignment.center, child: EmptyPage())),
           ],
         ),
       ),

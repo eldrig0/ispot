@@ -8,6 +8,7 @@ import 'package:ispot/app/data/model/product_line.dart';
 import 'package:ispot/app/data/model/product_variant.dart';
 import 'package:ispot/app/ui/page/orders/widget/order_card.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
+import 'package:ispot/app/ui/widgets/empty_page.dart';
 import 'package:ispot/app/ui/widgets/ui_helper/ui_helper.dart';
 
 class OrdersPage extends StatelessWidget {
@@ -27,11 +28,7 @@ class OrdersPage extends StatelessWidget {
         }, builder: (_controller) {
           switch (_controller.uiState.value) {
             case OrderUIState.empty:
-              return Container(
-                child: Center(
-                  child: Text('No order'),
-                ),
-              );
+              return EmptyPage();
             case OrderUIState.loading:
               return UIHelper.buildLoader();
             case OrderUIState.orderList:

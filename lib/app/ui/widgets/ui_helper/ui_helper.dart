@@ -153,8 +153,8 @@ class UIHelper {
                 case 'orders':
                   Get.toNamed('/orders');
                   break;
-                case 'orders':
-                  Get.find<AuthController>().logout();
+                case 'logout':
+                  Get.find<AccountController>().logout();
                   break;
               }
             },
