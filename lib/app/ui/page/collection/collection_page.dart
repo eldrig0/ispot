@@ -58,7 +58,7 @@ class CollectionPage extends GetWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: Text(
-          _controller.collection.value.name,
+          _controller.collection.value.name.toUpperCase(),
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),

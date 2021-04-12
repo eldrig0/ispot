@@ -1,7 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/controller/account_controller.dart';
+import 'package:ispot/app/controller/auth_controller.dart';
 import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/widgets/empty_page.dart';
 import 'package:ispot/app/ui/widgets/primary_button.dart';
@@ -21,8 +24,11 @@ class CartsPage extends StatelessWidget {
             backgroundColor: ISpotTheme.primaryColor,
             onPressed: () {
               final cartItems = Get.find<CartController>().cartItems.value;
-
-              Get.toNamed(Routes.CHECKOUT, arguments: cartItems);
+              if (Get.find<AccountController>().isSignedIn()) {
+                Get.toNamed(Routes.CHECKOUT, arguments: cartItems);
+              } else {
+                Get.offAllNamed(Routes.AUTH);
+              }
             },
             label: Text(
               'CHECKOUT',
@@ -54,18 +60,19 @@ class CartsPage extends StatelessWidget {
       child: GetX<CartController>(
         builder: (_controller) {
           return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: _controller.cartItems.map((element) {
-            return Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
-              child: CartItemWidget(
-                  onRemove: (cartItem) {
-                    _controller.removeFromCart(cartItem.product);
-                  },
-                  index: _controller.cartItems.indexOf(element),
-                  cartItem: element),
-            );
-          }).toList());
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18),
+                  child: CartItemWidget(
+                      onRemove: (cartItem) {
+                        _controller.removeFromCart(cartItem.product);
+                      },
+                      index: _controller.cartItems.indexOf(element),
+                      cartItem: element),
+                );
+              }).toList());
         },
       ),
     );
@@ -111,54 +118,59 @@ class CartItemWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: ISpotTheme.cardBackgroundColor,
                     borderRadius: BorderRadius.circular(16)),
-                height: 150,
-                width: 150,
+                height: 110,
+                width: 110,
                 child: Image.network(
                   cartItem.product.thumbnailImage,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      cartItem.product.productName,
-                      overflow: TextOverflow.visible,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    UIHelper.buildPricingText(
-                      cartItem.product.price.amount *
-                          _controller.cartItems[index].count,
-                      cartItem.product.price.currency,
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      'Quantity: ${cartItem.count}',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    IconButton(
-                        icon: Icon(
-                          AntDesign.delete,
-                          color: Colors.red,
+              Flexible(
+                flex: 70,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 18.0),
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          cartItem.product.productName,
+                          overflow: TextOverflow.fade,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
                         ),
-                        onPressed: () {
-                          onRemove(cartItem);
-                        })
-                  ],
+                        SizedBox(
+                          height: 12,
+                        ),
+                        UIHelper.buildPricingText(
+                          cartItem.product.price.amount *
+                              _controller.cartItems[index].count,
+                          cartItem.product.price.currency,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          'Quantity: ${cartItem.count}',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        IconButton(
+                            icon: Icon(
+                              AntDesign.delete,
+                              color: Colors.red,
+                            ),
+                            onPressed: () {
+                              onRemove(cartItem);
+                            })
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],

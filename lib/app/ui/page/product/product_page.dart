@@ -25,7 +25,10 @@ class ProductPage extends GetView<ProductController> {
                               Get.find<CartController>().addItem(
                                   variant: _controller.selectedVariant.value,
                                   count: _controller.quantityControl.value);
-                              Get.back();
+                              Get.defaultDialog(
+                                  title: 'Hello!',
+                                  middleText:
+                                      '${_controller.product.value.productName.trim()} added to cart');
                             },
                       label: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

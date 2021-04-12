@@ -84,7 +84,7 @@ class AuthController extends GetxController {
         final box = GetStorage();
         box.write('token', result['token']);
         box.write('userId', result['userId']);
-        Get.offAndToNamed('/');
+        Get.offAllNamed('/');
       });
     });
   }

@@ -18,7 +18,7 @@ class AccountPage extends StatelessWidget {
         actions: [],
         elevation: 0,
         title: Text(
-          'My Account',
+          'MY ACCOUNT',
           style: TextStyle(color: ISpotTheme.titleColor),
         ),
       ),
