@@ -16,6 +16,7 @@ class HomeController extends GetxController {
   // final CategoriesRepository categoriesRepository;
 
   final homeProducts = <Product>[].obs;
+  final gettingProduct = true.obs;
 
   bool isSearchResult = false;
   FormControl searchControl = FormControl(value: '');
@@ -32,10 +33,13 @@ class HomeController extends GetxController {
   }
 
   void getHomePageProducts() {
+    gettingProduct.value = true;
     homeRepository.getHomeProducts().take(1).listen((products) {
       products.fold((failure) {
         // Get.snackbar('Error', failure.message);
       }, (products) {
+        gettingProduct.value = false;
+
         homeProducts.clear();
         homeProducts.addAll(
             [...products.where((element) => element.isAvailable ?? true)]);

@@ -35,12 +35,12 @@ class ProductController extends GetxController {
 
       _initProductImages(product.value.productImages);
       _initAttribute();
+
       _initializeProduceVariant();
       _initFormControl();
       _listenToQuantityChange();
       _initDisableBuyButton();
       this.isInitialized.value = true;
-      print('initialized');
     });
   }
 
@@ -119,9 +119,11 @@ class ProductController extends GetxController {
     attributes.forEach((element) {
       if (attribute.values.first.name == element.values.first.name) {
         isPresent = true;
-        return;
+
+        return isPresent;
       }
     });
+
     return isPresent;
   }
 
@@ -164,6 +166,7 @@ class ProductController extends GetxController {
 
   Price get price => selectedVariant.value.price;
 
+  //This function is doing too much!
   _updateAttributes({@required Attribute selectedAttribute}) {
     final productVariants = product.value.variants;
     Map<String, List<Attribute>> updatedAttributes = {};
@@ -176,10 +179,13 @@ class ProductController extends GetxController {
     List<ProductVariant> filteredVariants = productVariants
         .where((variant) => variant.attributes.contains(selectedAttribute))
         .toList();
+
     filteredVariants.forEach(
       (variant) {
         variant.attributes
-            .where((attribute) => attribute.name != selectedAttribute.name)
+            .where((attribute) =>
+                attribute.name != selectedAttribute.name &&
+                attribute.values.isNotEmpty)
             .forEach(
           (attribute) {
             if (!_isAttributeValuePresent(

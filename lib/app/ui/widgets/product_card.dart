@@ -33,6 +33,20 @@ class ProductCard extends StatelessWidget {
                     tag: product.productId,
                     child: Image.network(
                       product.productThumbnail,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                ISpotTheme.primaryColor),
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes
+                                : null,
+                          ),
+                        );
+                      },
                       errorBuilder: (context, object, stackTrace) {
                         return Image.asset('assets/no-photo.png');
                       },

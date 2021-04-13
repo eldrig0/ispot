@@ -53,7 +53,7 @@ class CollectionProvider {
           name: response.data.collection.name,
           pageInfo: PageInfo.fromMap(response.data.products.pageInfo.toJson()),
           totalProductCount: response.data.products.totalCount,
-          backgroundImage: response.data.collection.backgroundImage.url,
+          backgroundImage: response.data?.collection?.backgroundImage?.url,
           products: _mapProducts(response),
         ),
       );

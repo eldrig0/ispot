@@ -5,8 +5,11 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:ispot/app/controller/account_controller.dart';
+import 'package:ispot/app/controller/collection_controller.dart';
 import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/page/orders/orders_page.dart';
+import 'package:ispot/app/ui/widgets/collection_loader.dart';
+import 'package:ispot/app/ui/widgets/grid_products_loader.dart';
 
 import '../../../controller/categories_controller.dart';
 import '../../../controller/collections_controller.dart';
@@ -71,6 +74,10 @@ class HomeWidget extends StatelessWidget {
             _buildAppBar(context),
             _buildCollection(context),
             _buildTitle('FEATURED PRODUCTS'),
+            if (_controller.gettingProduct.value)
+              SliverToBoxAdapter(
+                child: GridProductLoader(),
+              ),
             if (_controller.homeProducts.isNotEmpty)
               SliverPadding(
                   padding: const EdgeInsets.all(18),
@@ -94,42 +101,8 @@ class HomeWidget extends StatelessWidget {
           initState: (_) => Get.find<CollectionsController>().getCollections(),
           builder: (_controller) {
             if (_controller.isInitialised.value &&
-                !_controller.isCollectionEmpty())
-              return Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: GestureDetector(
-                  child: Container(
-                    height: 170,
-                    child: Swiper(
-                      itemCount: _controller.collections.length,
-                      containerHeight: 170,
-                      containerWidth: double.infinity,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 1,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          child: GestureDetector(
-                            onTap: () {
-                              Get.toNamed(
-                                  '/collection/${_controller.collections[index].id}');
-                            },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                _controller.collections[index].backgroundImage,
-                                fit: BoxFit.fitHeight,
-                                height: 170,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              );
-            return Container();
+                !_controller.isCollectionEmpty()) return CollectionsCard();
+            return CollectionLoader();
           },
         ),
       );
@@ -180,6 +153,66 @@ class HomeWidget extends StatelessWidget {
             }
             return Container();
           }),
+    );
+  }
+}
+
+class CollectionsCard extends StatelessWidget {
+  const CollectionsCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetX<CollectionsController>(
+      builder: (_controller) => Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: GestureDetector(
+          child: Container(
+            height: 170,
+            child: Swiper(
+              itemCount: _controller.collections.length,
+              containerHeight: 170,
+              containerWidth: double.infinity,
+              itemBuilder: (context, index) {
+                if (_controller.collections[index].backgroundImage == null)
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed(
+                          '/collection/${_controller.collections[index].id}');
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: ISpotTheme.primaryColor,
+                        ),
+                        child: Center(
+                            child: Text(_controller.collections[index].name))),
+                  );
+                return Card(
+                  elevation: 1,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.toNamed(
+                          '/collection/${_controller.collections[index].id}');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.network(
+                        _controller.collections[index].backgroundImage,
+                        fit: BoxFit.fitHeight,
+                        height: 170,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

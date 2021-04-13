@@ -106,74 +106,80 @@ class CartItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartController>(
-      builder: (_controller) => Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: ISpotTheme.cardBackgroundColor,
-                    borderRadius: BorderRadius.circular(16)),
-                height: 110,
-                width: 110,
-                child: Image.network(
-                  cartItem.product.thumbnailImage,
+      builder: (_controller) => GestureDetector(
+        onTap: () {
+          Get.toNamed('/product/${cartItem.product.id}');
+        },
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: ISpotTheme.cardBackgroundColor,
+                      borderRadius: BorderRadius.circular(16)),
+                  height: 110,
+                  width: 110,
+                  child: Image.network(
+                    cartItem.product.thumbnailImage,
+                  ),
                 ),
-              ),
-              Flexible(
-                flex: 70,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 18.0),
-                  child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          cartItem.product.productName,
-                          overflow: TextOverflow.fade,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 12,
-                        ),
-                        UIHelper.buildPricingText(
-                          cartItem.product.price.amount *
-                              _controller.cartItems[index].count,
-                          cartItem.product.price.currency,
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          'Quantity: ${cartItem.count}',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        IconButton(
-                            icon: Icon(
-                              AntDesign.delete,
-                              color: Colors.red,
+                Flexible(
+                  flex: 70,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 18.0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            cartItem.product.productName,
+                            overflow: TextOverflow.fade,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
                             ),
-                            onPressed: () {
-                              onRemove(cartItem);
-                            })
-                      ],
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          UIHelper.buildPricingText(
+                            cartItem.product.price.amount *
+                                _controller.cartItems[index].count,
+                            cartItem.product.price.currency,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            'Quantity: ${cartItem.count}',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          IconButton(
+                              icon: Icon(
+                                AntDesign.delete,
+                                color: Colors.red,
+                              ),
+                              onPressed: () {
+                                onRemove(cartItem);
+                              })
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
