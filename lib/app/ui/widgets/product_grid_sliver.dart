@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:ispot/app/data/model/product.dart';
 import 'package:ispot/app/ui/widgets/product_card.dart';
 
-class ProductGrid extends StatefulWidget {
+class ProductGridSliver extends StatefulWidget {
   final List<Product> products;
 
-  const ProductGrid({
+  const ProductGridSliver({
     Key key,
     @required this.products,
   });
@@ -16,7 +16,7 @@ class ProductGrid extends StatefulWidget {
   _ProductGridState createState() => _ProductGridState();
 }
 
-class _ProductGridState extends State<ProductGrid>
+class _ProductGridState extends State<ProductGridSliver>
     with TickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _animation;
@@ -44,7 +44,7 @@ class _ProductGridState extends State<ProductGrid>
 
   @override
   Widget build(BuildContext context) {
-    return StaggeredGridView.countBuilder(
+    return SliverStaggeredGrid.countBuilder(
       mainAxisSpacing: 4.0,
       crossAxisSpacing: 9,
       crossAxisCount: 4,

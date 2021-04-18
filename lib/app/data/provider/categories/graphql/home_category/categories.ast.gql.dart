@@ -78,17 +78,145 @@ const CategoryList = _i1.OperationDefinitionNode(
                             directives: [],
                             selectionSet: null),
                         _i1.FieldNode(
-                            name: _i1.NameNode(value: 'backgroundImage'),
+                            name: _i1.NameNode(value: 'products'),
                             alias: null,
-                            arguments: [],
+                            arguments: [
+                              _i1.ArgumentNode(
+                                  name: _i1.NameNode(value: 'first'),
+                                  value: _i1.IntValueNode(value: '4'))
+                            ],
                             directives: [],
                             selectionSet: _i1.SelectionSetNode(selections: [
                               _i1.FieldNode(
-                                  name: _i1.NameNode(value: 'url'),
+                                  name: _i1.NameNode(value: 'edges'),
                                   alias: null,
                                   arguments: [],
                                   directives: [],
-                                  selectionSet: null)
+                                  selectionSet: _i1.SelectionSetNode(
+                                      selections: [
+                                        _i1.FieldNode(
+                                            name: _i1.NameNode(value: 'node'),
+                                            alias: null,
+                                            arguments: [],
+                                            directives: [],
+                                            selectionSet: _i1.SelectionSetNode(
+                                                selections: [
+                                                  _i1.FieldNode(
+                                                      name: _i1.NameNode(
+                                                          value: 'id'),
+                                                      alias: null,
+                                                      arguments: [],
+                                                      directives: [],
+                                                      selectionSet: null),
+                                                  _i1.FieldNode(
+                                                      name: _i1.NameNode(
+                                                          value: 'name'),
+                                                      alias: null,
+                                                      arguments: [],
+                                                      directives: [],
+                                                      selectionSet: null),
+                                                  _i1.FieldNode(
+                                                      name: _i1.NameNode(
+                                                          value: 'pricing'),
+                                                      alias: null,
+                                                      arguments: [],
+                                                      directives: [],
+                                                      selectionSet:
+                                                          _i1.SelectionSetNode(
+                                                              selections: [
+                                                            _i1.FieldNode(
+                                                                name: _i1.NameNode(
+                                                                    value:
+                                                                        'onSale'),
+                                                                alias: null,
+                                                                arguments: [],
+                                                                directives: [],
+                                                                selectionSet:
+                                                                    null),
+                                                            _i1.FieldNode(
+                                                                name: _i1.NameNode(
+                                                                    value:
+                                                                        'priceRange'),
+                                                                alias: null,
+                                                                arguments: [],
+                                                                directives: [],
+                                                                selectionSet: _i1
+                                                                    .SelectionSetNode(
+                                                                        selections: [
+                                                                      _i1.FieldNode(
+                                                                          name: _i1.NameNode(value: 'start'),
+                                                                          alias: null,
+                                                                          arguments: [],
+                                                                          directives: [],
+                                                                          selectionSet: _i1.SelectionSetNode(selections: [
+                                                                            _i1.FieldNode(
+                                                                                name: _i1.NameNode(value: 'net'),
+                                                                                alias: null,
+                                                                                arguments: [],
+                                                                                directives: [],
+                                                                                selectionSet: _i1.SelectionSetNode(selections: [
+                                                                                  _i1.FieldNode(name: _i1.NameNode(value: 'amount'), alias: null, arguments: [], directives: [], selectionSet: null),
+                                                                                  _i1.FieldNode(name: _i1.NameNode(value: 'currency'), alias: null, arguments: [], directives: [], selectionSet: null)
+                                                                                ]))
+                                                                          ])),
+                                                                      _i1.FieldNode(
+                                                                          name: _i1.NameNode(value: 'stop'),
+                                                                          alias: null,
+                                                                          arguments: [],
+                                                                          directives: [],
+                                                                          selectionSet: _i1.SelectionSetNode(selections: [
+                                                                            _i1.FieldNode(
+                                                                                name: _i1.NameNode(value: 'net'),
+                                                                                alias: null,
+                                                                                arguments: [],
+                                                                                directives: [],
+                                                                                selectionSet: _i1.SelectionSetNode(selections: [
+                                                                                  _i1.FieldNode(name: _i1.NameNode(value: 'amount'), alias: null, arguments: [], directives: [], selectionSet: null),
+                                                                                  _i1.FieldNode(name: _i1.NameNode(value: 'currency'), alias: null, arguments: [], directives: [], selectionSet: null)
+                                                                                ]))
+                                                                          ]))
+                                                                    ]))
+                                                          ])),
+                                                  _i1.FieldNode(
+                                                      name: _i1.NameNode(
+                                                          value: 'category'),
+                                                      alias: null,
+                                                      arguments: [],
+                                                      directives: [],
+                                                      selectionSet:
+                                                          _i1.SelectionSetNode(
+                                                              selections: [
+                                                            _i1.FieldNode(
+                                                                name: _i1.NameNode(
+                                                                    value:
+                                                                        'name'),
+                                                                alias: null,
+                                                                arguments: [],
+                                                                directives: [],
+                                                                selectionSet:
+                                                                    null)
+                                                          ])),
+                                                  _i1.FieldNode(
+                                                      name: _i1.NameNode(
+                                                          value: 'thumbnail'),
+                                                      alias: null,
+                                                      arguments: [],
+                                                      directives: [],
+                                                      selectionSet:
+                                                          _i1.SelectionSetNode(
+                                                              selections: [
+                                                            _i1.FieldNode(
+                                                                name: _i1.NameNode(
+                                                                    value:
+                                                                        'url'),
+                                                                alias: null,
+                                                                arguments: [],
+                                                                directives: [],
+                                                                selectionSet:
+                                                                    null)
+                                                          ]))
+                                                ]))
+                                      ]))
                             ]))
                       ]))
                 ]))

@@ -15,7 +15,7 @@ Future<Client> initClient() async {
 
   // final store = HiveStore(box);
   // final cache = Cache(store: store);
-  // final link = HttpLink("https://ispot-bhutan-prod.herokuapp.com/graphql/");
+  // final link = HttpLink("https://demo.saleor.io/graphql/");
   final link = HttpAuthLink(
       graphQLEndpoint: 'https://ispot-bhutan-prod.herokuapp.com/graphql/',
       getToken: () async {

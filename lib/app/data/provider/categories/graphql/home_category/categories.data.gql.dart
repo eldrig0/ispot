@@ -124,7 +124,7 @@ abstract class GCategoryListData_categories_edges_node
   String get id;
   String get name;
   @nullable
-  GCategoryListData_categories_edges_node_backgroundImage get backgroundImage;
+  GCategoryListData_categories_edges_node_products get products;
   static Serializer<GCategoryListData_categories_edges_node> get serializer =>
       _$gCategoryListDataCategoriesEdgesNodeSerializer;
   Map<String, dynamic> toJson() => _i1.serializers
@@ -135,31 +135,401 @@ abstract class GCategoryListData_categories_edges_node
           GCategoryListData_categories_edges_node.serializer, json);
 }
 
-abstract class GCategoryListData_categories_edges_node_backgroundImage
+abstract class GCategoryListData_categories_edges_node_products
     implements
-        Built<GCategoryListData_categories_edges_node_backgroundImage,
-            GCategoryListData_categories_edges_node_backgroundImageBuilder> {
-  GCategoryListData_categories_edges_node_backgroundImage._();
+        Built<GCategoryListData_categories_edges_node_products,
+            GCategoryListData_categories_edges_node_productsBuilder> {
+  GCategoryListData_categories_edges_node_products._();
 
-  factory GCategoryListData_categories_edges_node_backgroundImage(
-      [Function(
-              GCategoryListData_categories_edges_node_backgroundImageBuilder b)
-          updates]) = _$GCategoryListData_categories_edges_node_backgroundImage;
+  factory GCategoryListData_categories_edges_node_products(
+      [Function(GCategoryListData_categories_edges_node_productsBuilder b)
+          updates]) = _$GCategoryListData_categories_edges_node_products;
 
   static void _initializeBuilder(
-          GCategoryListData_categories_edges_node_backgroundImageBuilder b) =>
+          GCategoryListData_categories_edges_node_productsBuilder b) =>
+      b..G__typename = 'ProductCountableConnection';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GCategoryListData_categories_edges_node_products_edges> get edges;
+  static Serializer<GCategoryListData_categories_edges_node_products>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products.serializer, this);
+  static GCategoryListData_categories_edges_node_products fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products.serializer, json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges
+    implements
+        Built<GCategoryListData_categories_edges_node_products_edges,
+            GCategoryListData_categories_edges_node_products_edgesBuilder> {
+  GCategoryListData_categories_edges_node_products_edges._();
+
+  factory GCategoryListData_categories_edges_node_products_edges(
+      [Function(GCategoryListData_categories_edges_node_products_edgesBuilder b)
+          updates]) = _$GCategoryListData_categories_edges_node_products_edges;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edgesBuilder b) =>
+      b..G__typename = 'ProductCountableEdge';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GCategoryListData_categories_edges_node_products_edges_node get node;
+  static Serializer<GCategoryListData_categories_edges_node_products_edges>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges.serializer, this);
+  static GCategoryListData_categories_edges_node_products_edges fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges.serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node
+    implements
+        Built<GCategoryListData_categories_edges_node_products_edges_node,
+            GCategoryListData_categories_edges_node_products_edges_nodeBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node(
+      [Function(
+              GCategoryListData_categories_edges_node_products_edges_nodeBuilder
+                  b)
+          updates]) = _$GCategoryListData_categories_edges_node_products_edges_node;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_nodeBuilder
+              b) =>
+      b..G__typename = 'Product';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String get id;
+  String get name;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_pricing
+      get pricing;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_category
+      get category;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+      get thumbnail;
+  static Serializer<GCategoryListData_categories_edges_node_products_edges_node>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodeSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node.serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing,
+            GCategoryListData_categories_edges_node_products_edges_node_pricingBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricingBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricingBuilder
+              b) =>
+      b..G__typename = 'ProductPricingInfo';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  bool get onSale;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+      get priceRange;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange,
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRangeBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRangeBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRangeBuilder
+              b) =>
+      b..G__typename = 'TaxedMoneyRange';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+      get start;
+  @nullable
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+      get stop;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingPriceRangeSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start,
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_startBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_startBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_startBuilder
+              b) =>
+      b..G__typename = 'TaxedMoney';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+      get net;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingPriceRangeStartSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net,
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_netBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_netBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_netBuilder
+              b) =>
+      b..G__typename = 'Money';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  double get amount;
+  String get currency;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingPriceRangeStartNetSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop,
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stopBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stopBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stopBuilder
+              b) =>
+      b..G__typename = 'TaxedMoney';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+      get net;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingPriceRangeStopSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net,
+            GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_netBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_netBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_netBuilder
+              b) =>
+      b..G__typename = 'Money';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  double get amount;
+  String get currency;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodePricingPriceRangeStopNetSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_category
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_category,
+            GCategoryListData_categories_edges_node_products_edges_node_categoryBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_category._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_category(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_categoryBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_category;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_categoryBuilder
+              b) =>
+      b..G__typename = 'Category';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String get name;
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_category>
+      get serializer =>
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodeCategorySerializer;
+  Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
+      GCategoryListData_categories_edges_node_products_edges_node_category
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_category
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_category
+              .serializer,
+          json);
+}
+
+abstract class GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+    implements
+        Built<
+            GCategoryListData_categories_edges_node_products_edges_node_thumbnail,
+            GCategoryListData_categories_edges_node_products_edges_node_thumbnailBuilder> {
+  GCategoryListData_categories_edges_node_products_edges_node_thumbnail._();
+
+  factory GCategoryListData_categories_edges_node_products_edges_node_thumbnail(
+          [Function(
+                  GCategoryListData_categories_edges_node_products_edges_node_thumbnailBuilder
+                      b)
+              updates]) =
+      _$GCategoryListData_categories_edges_node_products_edges_node_thumbnail;
+
+  static void _initializeBuilder(
+          GCategoryListData_categories_edges_node_products_edges_node_thumbnailBuilder
+              b) =>
       b..G__typename = 'Image';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get url;
-  static Serializer<GCategoryListData_categories_edges_node_backgroundImage>
+  static Serializer<
+          GCategoryListData_categories_edges_node_products_edges_node_thumbnail>
       get serializer =>
-          _$gCategoryListDataCategoriesEdgesNodeBackgroundImageSerializer;
+          _$gCategoryListDataCategoriesEdgesNodeProductsEdgesNodeThumbnailSerializer;
   Map<String, dynamic> toJson() => _i1.serializers.serializeWith(
-      GCategoryListData_categories_edges_node_backgroundImage.serializer, this);
-  static GCategoryListData_categories_edges_node_backgroundImage fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-          GCategoryListData_categories_edges_node_backgroundImage.serializer,
+      GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+          .serializer,
+      this);
+  static GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+      fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+          GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+              .serializer,
           json);
 }

@@ -1,12 +1,17 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/categories.dart';
 import 'package:ispot/app/data/model/drawer_category.dart';
+import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/repository/categories_repository.dart';
 import 'package:ispot/app/misc/utils.dart';
 
 class CategoriesController extends GetxController {
   final CategoriesRepository _repository;
+  ScrollController scrollController = ScrollController();
 
   Rx<Categories> categories;
 
@@ -28,6 +33,14 @@ class CategoriesController extends GetxController {
     showSubCategories.value = false;
   }
 
+  Stream<Either<Failure, Categories>> getCategories() {
+    return _repository.getCategories(first: 4);
+  }
+
+  Stream<Either<Failure, Categories>> fetchCategories({String after}) {
+    return _repository.getCategories(first: 4, after: after);
+  }
+
   displaySubCategories(List<DrawerCategory> categories) {
     subCategories.clear();
     subCategories.addAll(categories);
@@ -36,17 +49,6 @@ class CategoriesController extends GetxController {
 
   showDrawerCategories() {
     showSubCategories.value = false;
-  }
-
-  getCategories() {
-    _repository.getCategories(first: 4).take(1).listen((response) {
-      response.fold((failure) {
-        Get.snackbar('Error', failure.message);
-      }, (result) {
-        this.categories = Rx(result);
-        this.isInitialized.value = true;
-      });
-    });
   }
 
   getDrawerCategories() {

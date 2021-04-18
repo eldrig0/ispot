@@ -33,6 +33,7 @@ class ProductCard extends StatelessWidget {
                     tag: product.productId,
                     child: Image.network(
                       product.productThumbnail,
+                      fit: BoxFit.fitHeight,
                       loadingBuilder: (BuildContext context, Widget child,
                           ImageChunkEvent loadingProgress) {
                         if (loadingProgress == null) return child;

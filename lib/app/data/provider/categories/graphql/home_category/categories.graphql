@@ -8,8 +8,36 @@ query CategoryList($first: Int!, $after: String) {
       node {
         id
         name
-        backgroundImage {
-          url
+        products(first: 4) {
+          edges {
+            node {
+              id
+              name
+              pricing {
+                onSale
+                priceRange {
+                  start {
+                    net {
+                      amount
+                      currency
+                    }
+                  }
+                  stop {
+                    net {
+                      amount
+                      currency
+                    }
+                  }
+                }
+              }
+              category {
+                name
+              }
+              thumbnail {
+                url
+              }
+            }
+          }
         }
       }
     }

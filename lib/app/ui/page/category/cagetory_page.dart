@@ -6,7 +6,7 @@ import '../../../controller/cart_controller.dart';
 import '../../../controller/category_controller.dart';
 import '../../../misc/sort_options.dart';
 import '../../theme/ispot_theme.dart';
-import '../../widgets/product_grid.dart';
+import '../../widgets/product_grid_sliver.dart';
 import '../../widgets/ui_helper/ui_helper.dart';
 
 class CategoryPage extends GetWidget<CategoryController> {
@@ -40,7 +40,7 @@ class CategoryPage extends GetWidget<CategoryController> {
                   if (_controller.category.value != null) ...[
                     SliverPadding(
                       padding: EdgeInsets.all(18),
-                      sliver: ProductGrid(
+                      sliver: ProductGridSliver(
                           products: _controller.category.value.products),
                     ),
                   ],

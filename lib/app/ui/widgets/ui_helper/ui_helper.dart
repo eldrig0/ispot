@@ -50,10 +50,11 @@ class UIHelper {
           @required Widget leading,
           @required List<Widget> actions}) =>
       SliverAppBar(
-          floating: true,
           backgroundColor: ISpotTheme.canvasColor,
           elevation: 0,
           title: title,
+          floating: true,
+          pinned: true,
           leading: leading,
           actions: actions);
 

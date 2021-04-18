@@ -1,16 +1,21 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
-import 'package:ispot/app/data/model/collection.dart';
-import 'package:ispot/app/data/model/product.dart';
-import 'package:ispot/app/data/provider/home/home_provider.dart';
-import 'package:ispot/app/data/failures/failure.dart';
+import '../failures/failure.dart';
+import '../model/categories.dart';
+import '../model/product.dart';
+import '../provider/categories/categories_provider.dart';
+import '../provider/home/home_provider.dart';
 
 class HomeRepository {
-  final HomeProvider _provider;
+  final HomeProvider provider;
+  final CategoriesProvider categoriesProvider;
 
-  HomeRepository(this._provider);
+  HomeRepository({this.provider, this.categoriesProvider});
 
   Stream<Either<Failure, List<Product>>> getHomeProducts() {
-    return _provider.getFeaturedProducts();
+    return provider.getFeaturedProducts();
+  }
+
+  Stream<Either<Failure, Categories>> getCategories({int first, String after}) {
+    return categoriesProvider.getHomeCategories(first: first, after: after);
   }
 }

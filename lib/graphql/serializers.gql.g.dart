@@ -69,7 +69,31 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GCategoryListData_categories.serializer)
       ..add(GCategoryListData_categories_edges.serializer)
       ..add(GCategoryListData_categories_edges_node.serializer)
-      ..add(GCategoryListData_categories_edges_node_backgroundImage.serializer)
+      ..add(GCategoryListData_categories_edges_node_products.serializer)
+      ..add(GCategoryListData_categories_edges_node_products_edges.serializer)
+      ..add(GCategoryListData_categories_edges_node_products_edges_node
+          .serializer)
+      ..add(GCategoryListData_categories_edges_node_products_edges_node_category
+          .serializer)
+      ..add(GCategoryListData_categories_edges_node_products_edges_node_pricing
+          .serializer)
+      ..add(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange
+              .serializer)
+      ..add(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start
+              .serializer)
+      ..add(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_start_net
+              .serializer)
+      ..add(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop
+              .serializer)
+      ..add(
+          GCategoryListData_categories_edges_node_products_edges_node_pricing_priceRange_stop_net
+              .serializer)
+      ..add(GCategoryListData_categories_edges_node_products_edges_node_thumbnail
+          .serializer)
       ..add(GCategoryListData_categories_pageInfo.serializer)
       ..add(GCategoryListReq.serializer)
       ..add(GCategoryListVars.serializer)
@@ -155,30 +179,23 @@ Serializers _$serializers = (new Serializers().toBuilder()
           .serializer)
       ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node
           .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
-              .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_net
-              .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_category
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start
+          .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_start_net
+          .serializer)
       ..add(
           GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop
               .serializer)
       ..add(
           GFeaturedProductsData_shop_homepageCollection_products_edges_node_pricing_priceRange_stop_net
               .serializer)
-      ..add(
-          GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail
-              .serializer)
+      ..add(GFeaturedProductsData_shop_homepageCollection_products_edges_node_thumbnail.serializer)
       ..add(GFeaturedProductsReq.serializer)
       ..add(GFeaturedProductsVars.serializer)
       ..add(GFulfillmentCancelInput.serializer)
@@ -283,25 +300,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GProductDetailsData_product_category_products.serializer)
       ..add(GProductDetailsData_product_category_products_edges.serializer)
       ..add(GProductDetailsData_product_category_products_edges_node.serializer)
-      ..add(GProductDetailsData_product_category_products_edges_node_pricing
-          .serializer)
-      ..add(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange
-              .serializer)
-      ..add(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start
-              .serializer)
-      ..add(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net
-              .serializer)
-      ..add(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop
-              .serializer)
-      ..add(
-          GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net
-              .serializer)
-      ..add(GProductDetailsData_product_category_products_edges_node_thumbnail
-          .serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing_priceRange.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing_priceRange_start_net.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_pricing_priceRange_stop_net.serializer)
+      ..add(GProductDetailsData_product_category_products_edges_node_thumbnail.serializer)
       ..add(GProductDetailsData_product_images.serializer)
       ..add(GProductDetailsData_product_pricing.serializer)
       ..add(GProductDetailsData_product_pricing_priceRange.serializer)
@@ -312,16 +317,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GProductDetailsData_product_thumbnail.serializer)
       ..add(GProductDetailsData_product_variants.serializer)
       ..add(GProductDetailsData_product_variants_attributes.serializer)
-      ..add(
-          GProductDetailsData_product_variants_attributes_attribute.serializer)
+      ..add(GProductDetailsData_product_variants_attributes_attribute.serializer)
       ..add(GProductDetailsData_product_variants_attributes_values.serializer)
       ..add(GProductDetailsData_product_variants_images.serializer)
       ..add(GProductDetailsData_product_variants_pricing.serializer)
       ..add(GProductDetailsData_product_variants_pricing_price.serializer)
-      ..add(GProductDetailsData_product_variants_pricing_priceUndiscounted
-          .serializer)
-      ..add(GProductDetailsData_product_variants_pricing_priceUndiscounted_net
-          .serializer)
+      ..add(GProductDetailsData_product_variants_pricing_priceUndiscounted.serializer)
+      ..add(GProductDetailsData_product_variants_pricing_priceUndiscounted_net.serializer)
       ..add(GProductDetailsData_product_variants_pricing_price_net.serializer)
       ..add(GProductDetailsReq.serializer)
       ..add(GProductDetailsVars.serializer)
@@ -375,14 +377,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GSearchProductsData_products_edges.serializer)
       ..add(GSearchProductsData_products_edges_node.serializer)
       ..add(GSearchProductsData_products_edges_node_pricing.serializer)
-      ..add(
-          GSearchProductsData_products_edges_node_pricing_priceRange.serializer)
-      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start
-          .serializer)
-      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start_net
-          .serializer)
-      ..add(
-          GSearchProductsData_products_edges_node_pricing_priceRange_stop.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_start_net.serializer)
+      ..add(GSearchProductsData_products_edges_node_pricing_priceRange_stop.serializer)
       ..add(GSearchProductsData_products_edges_node_pricing_priceRange_stop_net.serializer)
       ..add(GSearchProductsData_products_edges_node_thumbnail.serializer)
       ..add(GSearchProductsData_products_edges_node_thumbnail2x.serializer)
@@ -602,6 +600,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryData_products_edges)]), () => new ListBuilder<GCategoryData_products_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryData_products_edges_node_images)]), () => new ListBuilder<GCategoryData_products_edges_node_images>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryListData_categories_edges)]), () => new ListBuilder<GCategoryListData_categories_edges>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCategoryListData_categories_edges_node_products_edges)]), () => new ListBuilder<GCategoryListData_categories_edges_node_products_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCheckoutLineInput)]), () => new ListBuilder<GCheckoutLineInput>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCollectionData_products_edges)]), () => new ListBuilder<GCollectionData_products_edges>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(GCollectionData_products_edges_node_images)]), () => new ListBuilder<GCollectionData_products_edges_node_images>())
