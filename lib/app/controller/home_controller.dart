@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/categories.dart';
 import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/page_info.dart';
@@ -29,59 +31,18 @@ class HomeController extends GetxController {
   FormControl searchControl = FormControl(value: '');
   Rx<Collections> collections;
 
-  ScrollController scrollController = ScrollController();
-
   HomeController({@required this.homeRepository});
 
   @override
   void onInit() {
     // addScrollListener();
     getHomePageProducts();
-    // getCategories();
+
     super.onInit();
   }
 
-  addScrollListener() {
-    scrollController.addListener(() {
-      var triggerFetchMoreSize = .9 * scrollController.position.maxScrollExtent;
-      if (scrollController.position.pixels > triggerFetchMoreSize) {
-        print('fetching more');
-        fetchMoreCategories();
-      }
-    });
-  }
-
-  getCategories() {
-    homeRepository.getCategories(first: 4).take(1).listen((response) {
-      response.fold((failure) {
-        Get.snackbar('Error', failure.message);
-      }, (result) {
-        // this.categories = Rx(result);
-
-        pageInfo = result.pageInfo;
-        this.homeCategories.value.addAll(result.categories);
-        this.isInitialized.value = true;
-        update();
-      });
-    });
-  }
-
-  fetchMoreCategories() {
-    if (pageInfo.hasNextPage) {
-      homeRepository
-          .getCategories(first: 4, after: pageInfo.endCursor)
-          .take(1)
-          .listen((response) {
-        response.fold((failure) {
-          Get.snackbar('Error', failure.message);
-        }, (result) {
-          pageInfo = result.pageInfo;
-          homeCategories.value.addAll(result.categories);
-          print('fetched all');
-          update();
-        });
-      });
-    }
+  Stream<Either<Failure, Categories>> getCategories(String after) {
+    return homeRepository.getCategories(first: 4, after: after).take(1);
   }
 
   void getHomePageProducts() {

@@ -1,7 +1,6 @@
 import 'package:ferry/ferry.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/provider/categories/categories_provider.dart';
-import 'package:ispot/app/data/repository/categories_repository.dart';
 
 import '../controller/home_controller.dart';
 import '../data/provider/home/home_provider.dart';

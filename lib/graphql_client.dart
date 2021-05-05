@@ -15,15 +15,15 @@ Future<Client> initClient() async {
 
   // final store = HiveStore(box);
   // final cache = Cache(store: store);
-  // final link = HttpLink("https://demo.saleor.io/graphql/");
-  final link = HttpAuthLink(
-      graphQLEndpoint: 'https://ispot-bhutan-prod.herokuapp.com/graphql/',
-      getToken: () async {
-        final box = GetStorage();
-        final token = box.read('token');
-        print('token is $token');
-        if (token != null) return 'JWT $token';
-      });
+  final link = HttpLink("https://demo.saleor.io/graphql/");
+  // final link = HttpAuthLink(
+  //     graphQLEndpoint: 'https://ispot-bhutan-prod.herokuapp.com/graphql/',
+  //     getToken: () async {
+  //       final box = GetStorage();
+  //       final token = box.read('token');
+  //       print('token is $token');
+  //       if (token != null) return 'JWT $token';
+  //     });
 
   final client = Client(link: link);
   return client;

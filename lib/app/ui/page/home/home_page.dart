@@ -6,9 +6,11 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/ui/page/home/widets/collection_card.dart';
+import 'package:ispot/app/ui/page/home/widets/infinite_category_list.dart';
 
 import 'package:ispot/app/ui/widgets/collection_loader.dart';
 import 'package:ispot/app/ui/widgets/grid_products_loader.dart';
+import 'package:ispot/app/ui/widgets/product_card_clone.dart';
 
 import 'package:ispot/app/ui/widgets/sliver_sub_heading.dart';
 
@@ -74,14 +76,12 @@ class _HomeWidgetState extends State<HomeWidget> {
     return GetBuilder<HomeController>(
       builder: (_controller) {
         return CustomScrollView(
-          controller: _controller.scrollController,
           slivers: [
             _buildAppBar(context),
             _buildCollection(context),
             SliverSubHeader(
                 text: 'FEATURED PRODUCTS',
                 backgroundColor: ISpotTheme.textColor),
-
             if (_controller.gettingProduct.value)
               SliverToBoxAdapter(
                 child: GridProductLoader(),
@@ -97,44 +97,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: Text('No products yet'),
                 ),
               ),
-
             SliverSubHeader(
               text: 'CATEGORIES',
               backgroundColor: ISpotTheme.textColor,
             ),
-
-            // ..._controller.homeCategories
-            //     .map((element) => SliverToBoxAdapter(
-            //           child: Padding(
-            //             padding: const EdgeInsets.all(18.0),
-            //             child: Column(
-            //               mainAxisSize: MainAxisSize.min,
-            //               mainAxisAlignment: MainAxisAlignment.start,
-            //               children: [
-            //                 Text(element.categoryName),
-            //                 Flexible(
-            //                   fit: FlexFit.loose,
-            //                   flex: 1,
-            //                   child: GridView.count(
-            //                     physics: NeverScrollableScrollPhysics(),
-            //                     shrinkWrap: true,
-            //                     crossAxisCount: 2,
-            //                     children: [
-            //                       ...element.products.map(
-            //                         (product) => ProductCardClone(
-            //                           product: product,
-            //                         ),
-            //                       )
-            //                     ],
-            //                   ),
-            //                 )
-            //                 // GridView.builder(
-            //                 //   gridDelegate: gridDelegate, itemBuilder: itemBuilder)
-            //               ],
-            //             ),
-            //           ),
-            //         ))
-            //     .toList()
+            SliverToBoxAdapter(child: InfiniteCategoriesList(_controller))
           ],
         );
       },

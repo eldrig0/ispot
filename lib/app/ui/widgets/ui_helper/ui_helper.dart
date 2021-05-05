@@ -6,7 +6,7 @@ import 'package:ispot/app/controller/account_controller.dart';
 import 'package:ispot/app/controller/auth_controller.dart';
 import 'package:ispot/app/controller/cart_controller.dart';
 import 'package:ispot/app/routes/app_pages.dart';
-import 'package:ispot/app/ui/page/home/widets/drawer/category_drawer.dart';
+import 'package:ispot/app/ui/page/home/widets/category_drawer.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:number_display/number_display.dart';
