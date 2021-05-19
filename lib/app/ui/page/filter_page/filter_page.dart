@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../../controller/filter_controller.dart';
+import '../../../controller/filter_controller.dart';
+import '../../../data/model/attribute.dart';
 import '../../../data/model/attribute.dart';
 import '../../theme/ispot_theme.dart';
+import '../../theme/ispot_theme.dart';
+import '../../theme/ispot_theme.dart';
+import '../../theme/ispot_theme.dart';
+import '../../theme/ispot_theme.dart';
 import '../../widgets/ispot_chip.dart';
+import '../../../misc/extensions/mapped_index.dart';
+import '../category/widgets/ispot_checkbox/ispot_checkbox.dart';
 
 class FilterPage extends StatelessWidget {
   final _controller = Get.find<AttributeController>();
@@ -14,37 +21,81 @@ class FilterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ISpotTheme.canvasColor,
-      appBar: AppBar(
-        elevation: 0,
         backgroundColor: ISpotTheme.canvasColor,
-        leading: IconButton(
-            icon: Icon(AntDesign.close),
-            onPressed: () {
-              Get.back(result: {
-                'sort': _controller.selectedSortOption.value,
-                'attributes': _controller.selectedAttributes
-              });
-            }),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(18),
-        child: Obx(
-          () => _controller.isLoaded.value
-              ? ListView(
-                  children: [
-                    buildSortOptions(),
-                    ...buildAttributeWidget(),
-                  ],
-                )
-              : Container(
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                ),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: ISpotTheme.canvasColor,
+          leading: IconButton(
+              icon: Icon(AntDesign.close),
+              onPressed: () {
+                Get.back(result: {
+                  'sort': _controller.selectedSortOption.value,
+                  'attributes': _controller.selectedAttributes
+                });
+              }),
         ),
-      ),
-    );
+        body: GetX<AttributeController>(
+          builder: (_controller) {
+            return Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      color: ISpotTheme.primaryColor.withOpacity(.6),
+                      child: ListView(
+                        children: [
+                          ..._controller.attributes.value.mapIndexed(
+                            (item, index) => Container(
+                              color: _controller.selectedIndex.value == index
+                                  ? ISpotTheme.canvasColor
+                                  : null,
+                              child: ListTile(
+                                onTap: () {
+                                  _controller.selectAtribute(index);
+                                },
+                                title: Text(item.name),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: Container(
+                      child: ListView(
+                        children: [
+                          if (_controller.selectedAttribute.value != null)
+                            ..._controller.selectedAttribute.value.values
+                                .map((attributeValue) => ISpotCheckBox(
+                                      label: attributeValue.name,
+                                      isSelected:
+                                          _controller.isAttributeValueSelected(
+                                              attributeId: _controller
+                                                  .selectedAttribute.value.id,
+                                              attributeValue: attributeValue),
+                                      onPressed: (value) {
+                                        _controller.toogleAttributeSelection(
+                                          attribute: Attribute(
+                                              id: attributeValue.id,
+                                              name: attributeValue.name,
+                                              values: [attributeValue]),
+                                        );
+                                        // _controller.toogleAttributeSelection(attribute: _controller)
+                                      },
+                                    ))
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ));
   }
 
   List<Widget> buildAttributeWidget() => _controller.attributes

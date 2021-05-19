@@ -24,7 +24,6 @@ Future<Client> initClient() async {
   //       print('token is $token');
   //       if (token != null) return 'JWT $token';
   //     });
-
   final client = Client(link: link);
   return client;
 }

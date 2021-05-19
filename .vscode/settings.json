@@ -3,5 +3,6 @@
     "/Users/rinzin/fvm/versions/"
   ],
   "dart.flutterSdkPath": "/Users/rinzin/fvm/versions/stable",
+  "editor.formatOnSave": true,
 }
 

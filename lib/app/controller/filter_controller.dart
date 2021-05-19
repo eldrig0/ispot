@@ -4,6 +4,8 @@ import 'package:ispot/app/data/repository/attributes_repository.dart';
 import 'package:ispot/app/misc/sort_options.dart';
 import 'package:meta/meta.dart';
 
+import '../data/model/attribute.dart';
+
 class AttributeController extends GetxController {
   final AttributeRepository _repository;
 
@@ -13,6 +15,8 @@ class AttributeController extends GetxController {
 
   final attributes = <Attribute>[].obs;
   var selectedAttributes = <Attribute>[].obs;
+  Rx<Attribute> selectedAttribute = Rx();
+  final selectedIndex = 0.obs;
 
   var isLoaded = false.obs;
 
@@ -36,8 +40,9 @@ class AttributeController extends GetxController {
       result.fold((failure) {
         Get.snackbar('Error', failure.message);
       }, (data) {
-        this.attributes.addAll(data);
-        this.isLoaded.value = true;
+        attributes.addAll(data);
+        isLoaded.value = true;
+        selectedAttribute.value = attributes[selectedIndex.value];
       });
     });
 
@@ -50,6 +55,11 @@ class AttributeController extends GetxController {
 
   bool isSortOptionSelected(SortOption option) {
     return option == selectedSortOption.value;
+  }
+
+  selectAtribute(int index) {
+    selectedAttribute.value = attributes.value[index];
+    selectedIndex.value = index;
   }
 
   bool isAttributeValueSelected(
