@@ -3,14 +3,11 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/filter_controller.dart';
-import '../../../controller/filter_controller.dart';
+
 import '../../../data/model/attribute.dart';
-import '../../../data/model/attribute.dart';
+
 import '../../theme/ispot_theme.dart';
-import '../../theme/ispot_theme.dart';
-import '../../theme/ispot_theme.dart';
-import '../../theme/ispot_theme.dart';
-import '../../theme/ispot_theme.dart';
+
 import '../../widgets/ispot_chip.dart';
 import '../../../misc/extensions/mapped_index.dart';
 import '../category/widgets/ispot_checkbox/ispot_checkbox.dart';
@@ -56,6 +53,8 @@ class FilterPage extends StatelessWidget {
                                   _controller.selectAtribute(index);
                                 },
                                 title: Text(item.name),
+                                trailing: Text(
+                                    '${_controller.getAttributeValueCount(index)}'),
                               ),
                             ),
                           ),
@@ -80,8 +79,10 @@ class FilterPage extends StatelessWidget {
                                       onPressed: (value) {
                                         _controller.toogleAttributeSelection(
                                           attribute: Attribute(
-                                              id: attributeValue.id,
-                                              name: attributeValue.name,
+                                              id: _controller
+                                                  .selectedAttribute.value.id,
+                                              name: _controller
+                                                  .selectedAttribute.value.name,
                                               values: [attributeValue]),
                                         );
                                         // _controller.toogleAttributeSelection(attribute: _controller)

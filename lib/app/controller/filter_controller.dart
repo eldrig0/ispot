@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/data/model/attribute.dart';
 import 'package:ispot/app/data/repository/attributes_repository.dart';
@@ -50,7 +51,20 @@ class AttributeController extends GetxController {
       selectedAttributes.addAll(args['attributes'] as List<Attribute>);
     }
     selectedSortOption.value = args['sort'];
+    update();
     super.onInit();
+  }
+
+  int getAttributeValueCount(int attributeIndex) {
+    final attribute = attributes[attributeIndex];
+
+    final matchedAttributes = selectedAttributes
+        .where((element) => element.id == attribute.id)
+        .toList();
+
+    if (matchedAttributes.isEmpty) return 0;
+
+    return matchedAttributes.first.values.length;
   }
 
   bool isSortOptionSelected(SortOption option) {
@@ -60,6 +74,7 @@ class AttributeController extends GetxController {
   selectAtribute(int index) {
     selectedAttribute.value = attributes.value[index];
     selectedIndex.value = index;
+    update();
   }
 
   bool isAttributeValueSelected(
@@ -71,27 +86,28 @@ class AttributeController extends GetxController {
   }
 
   void toogleAttributeSelection({@required Attribute attribute}) {
-    final matchedAttributes =
-        selectedAttributes.where((element) => element.id == attribute.id);
+    print(attribute.name);
+    final existingAttributes = selectedAttributes
+        .where((element) => element.id == attribute.id)
+        .toList();
 
-    final matchedAttribute =
-        matchedAttributes.length > 0 ? matchedAttributes.first : null;
+    final existingAttribute =
+        existingAttributes.length > 0 ? existingAttributes.first : null;
 
-    if (matchedAttribute == null) {
+    if (existingAttribute == null) {
       selectedAttributes.add(attribute);
-      return;
-    }
-    bool hasSelectedValue =
-        matchedAttribute.values.contains(attribute.values.first);
-
-    if (hasSelectedValue) {
-      matchedAttribute.values.remove(attribute.values.first);
-      if (matchedAttribute.values.length == 0) {
-        selectedAttributes
-            .removeWhere((attribute) => attribute.id == matchedAttribute.id);
-      }
+      update();
     } else {
-      matchedAttribute.values.add(attribute.values.first);
+      if (existingAttribute.values.contains(attribute.values.first)) {
+        existingAttribute.values.remove(attribute.values.first);
+        if (existingAttribute.values.isEmpty)
+          selectedAttributes
+              .removeWhere((element) => element.id == attribute.id);
+        update();
+      } else {
+        existingAttribute.values.add(attribute.values.first);
+        update();
+      }
     }
   }
 }

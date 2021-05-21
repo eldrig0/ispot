@@ -3,7 +3,6 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:ispot/app/data/failures/failure.dart';
 import 'package:ispot/app/data/model/attribute.dart';
-import 'package:ispot/app/data/model/home_category.dart';
 import 'package:ispot/app/data/model/collection.dart';
 import 'package:ispot/app/data/model/page_info.dart';
 import 'package:ispot/app/data/model/pricing.dart';
@@ -46,12 +45,12 @@ class CollectionProvider {
       if (response.hasErrors || response.graphqlErrors != null) {
         return Left(Failure(DATAFETCHFAILUREMESSAGE));
       }
-
       return Right(
         Collection(
           id: response.data.collection.id,
           name: response.data.collection.name,
-          pageInfo: PageInfo.fromMap(response.data.products.pageInfo.toJson()),
+          pageInfo:
+              PageInfo.fromMap(response?.data?.products?.pageInfo?.toJson()),
           totalProductCount: response.data.products.totalCount,
           backgroundImage: response.data?.collection?.backgroundImage?.url,
           products: _mapProducts(response),
