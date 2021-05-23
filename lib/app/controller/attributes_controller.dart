@@ -10,9 +10,7 @@ import '../data/model/attribute.dart';
 class AttributeController extends GetxController {
   final AttributeRepository _repository;
 
-  AttributeController(this._repository) {
-    selectedSortOption = sortOptions[0].obs;
-  }
+  AttributeController(this._repository);
 
   final attributes = <Attribute>[].obs;
   var selectedAttributes = <Attribute>[].obs;
@@ -20,10 +18,6 @@ class AttributeController extends GetxController {
   final selectedIndex = 0.obs;
 
   var isLoaded = false.obs;
-
-  final sortOptions = SORTOPTIONS;
-
-  Rx<SortOption> selectedSortOption;
 
   @override
   void onInit() {
@@ -50,7 +44,7 @@ class AttributeController extends GetxController {
     if (args['attributes'].isNotEmpty) {
       selectedAttributes.addAll(args['attributes'] as List<Attribute>);
     }
-    selectedSortOption.value = args['sort'];
+
     update();
     super.onInit();
   }
@@ -65,10 +59,6 @@ class AttributeController extends GetxController {
     if (matchedAttributes.isEmpty) return 0;
 
     return matchedAttributes.first.values.length;
-  }
-
-  bool isSortOptionSelected(SortOption option) {
-    return option == selectedSortOption.value;
   }
 
   selectAtribute(int index) {

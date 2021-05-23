@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:ispot/app/ui/widgets/sort_by/sort_by_widget.dart';
 
 import '../../../controller/cart_controller.dart';
 import '../../../controller/collection_controller.dart';
@@ -31,6 +32,13 @@ class CollectionPage extends GetWidget {
                             UIHelper.buildCategoriesIcon(onPressed: () {
                               Scaffold.of(context).openDrawer();
                             }),
+                            UIHelper.buildSortIcon(
+                                prevSortOption:
+                                    _controller.selectedSortOption.value,
+                                onSortSelected: (option) {
+                                  _controller.setSelectedSortOption(option);
+                                  _controller.getCollection();
+                                }),
                             _buildFilterIcon(),
                             Padding(
                               padding: const EdgeInsets.only(right: 18.0),
@@ -95,15 +103,12 @@ class CollectionPage extends GetWidget {
     var filterResult = await Get.toNamed(
         '/filter/${_controller.collection.value.id}',
         arguments: {
-          'sort': _controller.selectedSortOption.value ?? SORTOPTIONS[0],
           'attributes': _controller.attributes ?? [],
           'id': {
             'type': 'collection',
             'collection': _controller.collection.value.id
           }
         });
-
-    _controller.setSelectedSortOption(filterResult['sort']);
     _controller.setAttributes(filterResult['attributes']);
     _controller.getCollection();
   }

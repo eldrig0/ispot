@@ -1,6 +1,6 @@
 import 'package:ferry/ferry.dart';
 import 'package:get/instance_manager.dart';
-import 'package:ispot/app/controller/filter_controller.dart';
+import 'package:ispot/app/controller/attributes_controller.dart';
 import 'package:ispot/app/data/provider/attribute/attribute_provider.dart';
 import 'package:ispot/app/data/repository/attributes_repository.dart';
 

@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:ispot/app/controller/account_controller.dart';
-import 'package:ispot/app/controller/auth_controller.dart';
+
 import 'package:ispot/app/controller/cart_controller.dart';
+import 'package:ispot/app/misc/sort_options.dart';
 import 'package:ispot/app/routes/app_pages.dart';
 import 'package:ispot/app/ui/page/home/widets/category_drawer.dart';
 import 'package:ispot/app/ui/theme/ispot_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:ispot/app/ui/widgets/sort_by/sort_by_widget.dart';
+
 import 'package:number_display/number_display.dart';
 
 class UIHelper {
@@ -197,5 +200,20 @@ class UIHelper {
             onPressed: () {
               Get.toNamed(Routes.AUTH);
             });
+  }
+
+  static Widget buildSortIcon(
+      {@required SortOption prevSortOption,
+      @required Function(SortOption option) onSortSelected}) {
+    return IconButton(
+      icon: Icon(Icons.sort_outlined),
+      onPressed: () async {
+        final SortOption option =
+            await Get.bottomSheet(SortbyWidget(prevSortOption));
+        if (option != null) {
+          onSortSelected(option);
+        }
+      },
+    );
   }
 }

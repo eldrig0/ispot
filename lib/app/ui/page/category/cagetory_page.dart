@@ -30,6 +30,13 @@ class CategoryPage extends GetWidget<CategoryController> {
                         UIHelper.buildCategoriesIcon(onPressed: () {
                           Scaffold.of(context).openDrawer();
                         }),
+                        UIHelper.buildSortIcon(
+                            prevSortOption:
+                                _controller.selectedSortOption.value,
+                            onSortSelected: (sortOption) {
+                              _controller.setSelectedSortOption(sortOption);
+                              _controller.getCategory();
+                            }),
                         _buildFilterIcon(),
                         Padding(
                           padding: const EdgeInsets.only(right: 18.0),

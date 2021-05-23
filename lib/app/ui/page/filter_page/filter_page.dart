@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/filter_controller.dart';
+import '../../../controller/attributes_controller.dart';
 
 import '../../../data/model/attribute.dart';
 
@@ -25,10 +25,8 @@ class FilterPage extends StatelessWidget {
           leading: IconButton(
               icon: Icon(AntDesign.close),
               onPressed: () {
-                Get.back(result: {
-                  'sort': _controller.selectedSortOption.value,
-                  'attributes': _controller.selectedAttributes
-                });
+                Get.back(
+                    result: {'attributes': _controller.selectedAttributes});
               }),
         ),
         body: GetX<AttributeController>(
@@ -146,36 +144,7 @@ class FilterPage extends StatelessWidget {
       )
       .toList();
 
-  Column buildSortOptions() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('SORT BY',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-        SizedBox(
-          height: 18,
-        ),
-        Wrap(
-          direction: Axis.horizontal,
-          spacing: 10,
-          runSpacing: 10,
-          alignment: WrapAlignment.center,
-          children: [
-            ..._controller.sortOptions
-                .map(
-                  (option) => Obx(
-                    () => ChoiceChip(
-                        label: Text(option.name),
-                        selected: _controller.isSortOptionSelected(option),
-                        onSelected: (_) {
-                          _controller.selectedSortOption.value = option;
-                        }),
-                  ),
-                )
-                .toList(),
-          ],
-        ),
-      ],
-    );
+  Widget sortIcon() {
+    return IconButton(icon: Icon(Icons.sort_outlined), onPressed: () {});
   }
 }
